@@ -17,3 +17,9 @@ public static class ConstString {
 
 
 }
+
+public static class ConstScene {
+
+	public const string MainGameScene = "DebugScene";
+
+}
