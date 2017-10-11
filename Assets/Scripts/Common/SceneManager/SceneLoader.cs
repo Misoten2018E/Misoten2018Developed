@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour {
 
 	// Use this for initialization
-	void Start() {
+	//void Start() {
 
-		PermitLoading = false;
-		isLoading = false;
+	//	PermitLoading = false;
+	//	isLoading = false;
 
-	}
+	//}
 
 	bool isLoading;         // ロード中ならtrue
 	bool isPermitLoad;      // シーン遷移を許すならtrue

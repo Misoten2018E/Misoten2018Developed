@@ -11,7 +11,6 @@ public class GameSceneManager : MonoBehaviour {
 	//                                    inspector
 	//========================================================================================
 
-	[SerializeField] private SceneStatus nowScene;
 
 	//========================================================================================
 	//                                    public
@@ -24,15 +23,6 @@ public class GameSceneManager : MonoBehaviour {
 		}
 	}
 
-	public static int sceneId {
-		get { return (int)Instance.nowScene; }
-	}
-
-
-	public SceneStatus sceneStatus {
-		set { nowScene = value; }
-		get { return nowScene; }
-	}
 
 	SceneLoader _loader;
 	public SceneLoader Loader {
@@ -67,12 +57,7 @@ public class GameSceneManager : MonoBehaviour {
 		// ロードを許可
 		Loader.PermitLoading = true;
 
-		// グローバルシーンなら初期化処理開始
-		if (nowScene == SceneStatus.Global) {
-
-			nowScene = SceneStatus.Title;
-			StartCoroutine(IESceneLoad(Loader, ConstScene.MainGameScene));
-		}
+		StartCoroutine(IESceneLoad(Loader, ConstScene.MainGameScene));
 	}
 
 	/// <summary>
@@ -106,37 +91,9 @@ public class GameSceneManager : MonoBehaviour {
 		yield return null;
 	}
 
-	/// <summary>
-	/// シーンの変更
-	/// </summary>
-	/// <param name="next"></param>
-	public void SceneChange(SceneStatus next) {
-
-		nowScene = next;
-
-	}
-
-	public enum SceneStatus {
-		Global,
-		Title,
-		StageSelect,
-		Game,
-		SceneMax
-	}
-
 
 	//========================================================================================
 	//                                    private
 	//========================================================================================
 
-	private IEnumerator SceneEnd(System.Func<bool> act) {
-
-		// アクションが終わらない間
-		while (!act()) {
-
-			yield return new WaitForSeconds(0.1f);
-
-		}
-
-	}
 }
