@@ -40,10 +40,10 @@ public class Player : MonoBehaviour {
 
         CharCon.Move(velocity * Time.deltaTime);
 
-        //if (input.GetButtonCircleTrigger())
-        //{
-        //    print("ButtonCircleTrigger" + no);
-        //}
+        if (input.GetButtonCircleTrigger())
+        {
+            print("ButtonCircleTrigger" + no);
+        }
 
         //if (input.GetButtonCircleRelease())
         //{
@@ -56,10 +56,10 @@ public class Player : MonoBehaviour {
         //}
 
 
-        //if (input.GetButtonSquareTrigger())
-        //{
-        //    print("GetButtonSquareTrigger" + no);
-        //}
+        if (input.GetButtonSquareTrigger())
+        {
+            print("GetButtonSquareTrigger" + no);
+        }
 
         //if (input.GetButtonSquareRelease())
         //{
@@ -72,10 +72,10 @@ public class Player : MonoBehaviour {
         //}
 
 
-        //if (input.GetButtonTriangleTrigger())
-        //{
-        //    print("GetButtonTriangleTrigger" + no);
-        //}
+        if (input.GetButtonTriangleTrigger())
+        {
+            print("GetButtonTriangleTrigger" + no);
+        }
 
         //if (input.GetButtonTriangleRelease())
         //{
@@ -88,10 +88,10 @@ public class Player : MonoBehaviour {
         //}
 
 
-        //if (input.GetButtonCrossTrigger())
-        //{
-        //    print("GetButtonCrossTrigger" + no);
-        //}
+        if (input.GetButtonCrossTrigger())
+        {
+            print("GetButtonCrossTrigger" + no);
+        }
 
         //if (input.GetButtonCrossRelease())
         //{
