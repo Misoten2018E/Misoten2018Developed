@@ -5,7 +5,20 @@ using UnityEngine;
 public class SceneEventManager : MonoBehaviour {
 
 
+	// シングルトンインスタンス
+	static SceneEventManager myInstance;
+	static public SceneEventManager Instance {
+		get {
+			return myInstance;
+		}
+	}
+
+
 	List<SceneStartEvent> ObjectList = new List<SceneStartEvent>();
+
+	private void Awake() {
+		myInstance = this;
+	}
 
 	private void Start() {
 
@@ -26,6 +39,11 @@ public class SceneEventManager : MonoBehaviour {
 	public void SceneStart() {
 
 		StartCoroutine(SceneInitialize());
+	}
+
+	public void GameStart() {
+
+		EventManager<IFGameStartEvent>.Instance.GameStart((IFGameStartEvent ev) => { ev.GameStart(); });
 	}
 
 	/// <summary>

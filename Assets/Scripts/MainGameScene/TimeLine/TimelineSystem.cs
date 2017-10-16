@@ -31,6 +31,7 @@ public class TimelineSystem : SceneStartEvent , IFGameStartEvent, IFGameEndEvent
 				LastEventId = GroupLists[i].OrderID;
 			}
 		}
+		EventManager<IFGameStartEvent>.Instance.SetObject(this);
 	}
 
 	/// <summary>
@@ -150,6 +151,7 @@ public class TimelineSystem : SceneStartEvent , IFGameStartEvent, IFGameEndEvent
 		for (int i = 0; i < GroupLists.Count; i++) {
 			if (GroupLists[i].OrderID == NextEventId) {
 				NowEventGroup.Add(GroupLists[i]);
+				GroupLists[i].TimeLineStart();
 			}
 		}
 	}

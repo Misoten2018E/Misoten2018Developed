@@ -31,7 +31,12 @@ public class EventManager<T> {
 	static EventManager<T> _Instance;
 	static public EventManager<T> Instance {
 		private set { _Instance = value; }
-		get { return _Instance; }
+		get {
+			if (_Instance == null) {
+				_Instance = new EventManager<T>();
+			}
+			return _Instance;
+		}
 	}
 
 	List<T> EventList = new List<T>();

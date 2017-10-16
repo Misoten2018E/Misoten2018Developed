@@ -27,7 +27,7 @@ public class TimelineEventStandard : MonoBehaviour {
 
 	}
 
-	public float Time {
+	public float time {
 		get { return StartTime; }
 	}
 

@@ -124,7 +124,7 @@ public class TimelineGroup : MonoBehaviour {
 		for (int i = NextEventId; i < max; i++) {
 
 			// 時間が来てないなら
-			if (EventLists[i].Time > TimelineTime) {
+			if (EventLists[i].time > TimelineTime) {
 				break;
 			}
 			// イベントが行われたので次のIDへ
