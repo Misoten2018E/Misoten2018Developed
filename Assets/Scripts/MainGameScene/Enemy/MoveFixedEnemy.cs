@@ -15,6 +15,20 @@ public class MoveFixedEnemy : EnemyTypeBase {
 
 
 	//========================================================================================
+	//                                    public
+	//========================================================================================
+
+	public void AddTarget(Transform target, bool isClear = false) {
+
+		if (isClear) {
+			TargetTransform.Clear();
+		}
+
+		TargetTransform.Add(target);
+
+	}
+
+	//========================================================================================
 	//                                    public - override
 	//========================================================================================
 
@@ -28,6 +42,10 @@ public class MoveFixedEnemy : EnemyTypeBase {
 	// Update is called once per frame
 	void Update () {
 
+		if (NowTarget == null) {
+			return;
+		}
+
 		MoveAdvanceToTarget(NowTarget, 4f);
 	}
 
@@ -35,11 +53,11 @@ public class MoveFixedEnemy : EnemyTypeBase {
 
 		transform.position = InitData.BasePosition.position;
 		transform.rotation = InitData.BasePosition.rotation;
+		TargetIndex = 0;
+		CityTargeted = false;
 	}
 
 	private void OnTriggerEnter(Collider other) {
-
-		print("hit");
 
 		if (other.CompareTag(ConstTags.EnemyCheckPoint)) {
 
