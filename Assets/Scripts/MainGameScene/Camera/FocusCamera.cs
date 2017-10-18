@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class FocusCamera : MonoBehaviour {
 
 
@@ -11,19 +12,24 @@ public class FocusCamera : MonoBehaviour {
 
 	[SerializeField] private List<Transform> TargetTransform;
 
-
+	[SerializeField] private float OrthoMinSize = 7;
 	//========================================================================================
 	//                                    public - override
 	//========================================================================================
 
 	// Use this for initialization
 	void Start () {
-		
+		OffsetPos = transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		var c = Camera.main;
+
+		var mostFar = MostFarTransformPosition();
+
+		OrthographicSizeUpdate(mostFar);
+
+		transform.position = mostFar.Center3Dxz + OffsetPos;
 	}
 
 
@@ -31,7 +37,21 @@ public class FocusCamera : MonoBehaviour {
 	//                                    private
 	//========================================================================================
 
-	
+	// 初期カメラ位置の保持
+	private Vector3 OffsetPos = new Vector3();
+
+	/// <summary>
+	/// カメラOrthographicサイズ更新
+	/// </summary>
+	/// <param name="mostFar"></param>
+	private void OrthographicSizeUpdate(Square mostFar) {
+
+		CameraComp.orthographicSize = CalcCameraOrthoSize(mostFar);
+
+		if (CameraComp.orthographicSize < OrthoMinSize) {
+			CameraComp.orthographicSize = OrthoMinSize;
+		}
+	}
 
 	/// <summary>
 	/// 中心点計算
@@ -77,8 +97,52 @@ public class FocusCamera : MonoBehaviour {
 		return sq;
 	}
 
+	/// <summary>
+	/// OrthoGraphicのサイズ計算
+	/// </summary>
+	/// <param name="sq"></param>
+	/// <returns></returns>
+	float CalcCameraOrthoSize(Square sq) {
+
+		float lenX = sq.xzPlus.x - sq.xzMinus.x;
+		float lenZ = sq.xzPlus.y - sq.xzMinus.y;
+
+		return ((lenX > lenZ) ? (lenX) : (lenZ)) / 2;
+	}
+
 	
+
+	Camera _CameraComp;
+	public Camera CameraComp {
+		get {
+			if (_CameraComp == null) {
+				_CameraComp = GetComponent <Camera>();
+			}
+			return _CameraComp;
+		}
+	}
+      
+
+
+	/// <summary>
+	/// 受け渡し
+	/// </summary>
 	public struct Square {
 		public Vector2 xzPlus, xzMinus;
+
+		public Vector2 Center {
+			get {
+				return (xzPlus + xzMinus) / 2;
+			}
+		}
+		
+		public Vector3 Center3Dxz {
+			get {
+				var v = Center;
+				return new Vector3(v.x, 0, v.y);
+			}
+		}
 	}
+
+
 }

@@ -1448,8 +1448,8 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 397025562}
-  m_LocalRotation: {x: 0.3518416, y: 0, z: 0, w: 0.9360596}
-  m_LocalPosition: {x: 0, y: 43.413105, z: -64.47585}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 42.928932, z: -42.928932}
   m_LocalScale: {x: 0.081743866, y: 0.081743866, z: 0.081743866}
   m_Children:
   - {fileID: 1965237867}
@@ -2203,7 +2203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerNo: 0
+  PlayerNo: 3
 --- !u!23 &903307024
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2454,7 +2454,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20080f639b369d042b5fe11a1f547dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetTransform: []
+  TargetTransform:
+  - {fileID: 1032934727}
+  - {fileID: 1640590421}
+  - {fileID: 1879102136}
+  - {fileID: 903307027}
+  - {fileID: 1794870331}
 --- !u!20 &962058274
 Camera:
   m_ObjectHideFlags: 0
@@ -2496,13 +2501,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 962058270}
-  m_LocalRotation: {x: 0.3518416, y: 0, z: 0, w: 0.9360596}
-  m_LocalPosition: {x: 0, y: 50, z: -72}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 50, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 41.2, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!1 &1032934720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,7 +2741,7 @@ Prefab:
     - target: {fileID: 224044501502650798, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 46.706554
+      value: 46.464466
       objectReference: {fileID: 0}
     - target: {fileID: 224044501502650798, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
@@ -3771,7 +3776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerNo: 0
+  PlayerNo: 1
 --- !u!23 &1640590418
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4357,7 +4362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerNo: 0
+  PlayerNo: 2
 --- !u!23 &1879102133
 MeshRenderer:
   m_ObjectHideFlags: 0
