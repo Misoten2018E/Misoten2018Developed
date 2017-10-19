@@ -4,8 +4,28 @@ using UnityEngine;
 
 public class EventEnemyFixedPop : TimelineEventStandard {
 
+
+	//========================================================================================
+	//                                    inspector
+	//========================================================================================
+
 	[SerializeField] private EnemyData[] Enemy;
 	[SerializeField] private float PopInterval = 1f;
+
+
+
+	//========================================================================================
+	//                                    public
+	//========================================================================================
+
+	public void EventEnd() {
+
+		isActive = false;
+	}
+
+	//========================================================================================
+	//                                    public - override
+	//========================================================================================
 
 	/// <summary>
 	/// オブジェクト生成時
@@ -23,6 +43,37 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 		isActive = true;
 		EventIndex = 0;
 		CreateEnemy();
+
+		base.SetFocus(this.transform);
+	}
+
+	
+
+	private void Update() {
+
+		if (!isActive) {
+			return;
+		}
+
+		TimeUpdate();
+	}
+
+
+	//========================================================================================
+	//                                    private
+	//========================================================================================
+
+	// 経過時間
+	float ElapsedTime;
+
+	// 経過イベント数
+	int EventIndex;
+
+	// 起動中
+	bool _isActive;
+	public bool isActive {
+		private set { _isActive = value; }
+		get { return _isActive; }
 	}
 
 	/// <summary>
@@ -54,39 +105,10 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 			EventIndex++;
 
 			if (EventIndex >= Enemy.Length) {
-				isActive = false;
+				EventEnd();
 			}
 		}
 	}
-
-	private void Update() {
-
-		if (!isActive) {
-			return;
-		}
-
-		TimeUpdate();
-	}
-
-
-	//========================================================================================
-	//                                    private
-	//========================================================================================
-
-	// 経過時間
-	float ElapsedTime;
-
-	// 経過イベント数
-	int EventIndex;
-
-	// 起動中
-	bool _isActive;
-	public bool isActive {
-		private set { _isActive = value; }
-		get { return _isActive; }
-	}
-      
-
 
 	[System.Serializable]
 	public class EnemyData {

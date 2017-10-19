@@ -1776,6 +1776,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1985572184}
+  - {fileID: 863941877}
+  - {fileID: 1571737191}
   m_Father: {fileID: 1935861535}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1791,58 +1793,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OrderId: 0
---- !u!1001 &710075212
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4454982941187590, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -14.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4454982941187590, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4454982941187590, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -7.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 4454982941187590, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4454982941187590, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4454982941187590, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4454982941187590, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4454982941187590, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025,
-        type: 2}
-      propertyPath: TargetTransform.Array.data[0]
-      value: 
-      objectReference: {fileID: 1836017373}
-    - target: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025,
-        type: 2}
-      propertyPath: TargetTransform.Array.data[1]
-      value: 
-      objectReference: {fileID: 285587115}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &713427204
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,6 +2022,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &863941876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 863941877}
+  - component: {fileID: 863941878}
+  m_Layer: 0
+  m_Name: Event2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &863941877
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 863941876}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -26.2, y: 0, z: -15.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 661310316}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863941878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 863941876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11666e0796d8bb4491fdb98ff3689c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartTime: 7
+  isFocusEvent: 1
+  FucusTime: 2
+  Enemy:
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  PopInterval: 0.3
 --- !u!1 &868705273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,6 +2458,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20080f639b369d042b5fe11a1f547dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OrthoMinSize: 7
+  MoveEvent:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   TargetTransform:
   - {fileID: 1032934727}
   - {fileID: 1640590421}
@@ -2632,7 +2655,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1032934720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.96, z: -5.66}
+  m_LocalPosition: {x: 15.31, y: 0.96, z: -26.61}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3521,6 +3544,66 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1570566036}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1571737190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1571737191}
+  - component: {fileID: 1571737192}
+  m_Layer: 0
+  m_Name: Event3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1571737191
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1571737190}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -26.2, y: 0, z: 28.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 661310316}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1571737192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1571737190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11666e0796d8bb4491fdb98ff3689c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartTime: 11
+  isFocusEvent: 1
+  FucusTime: 2
+  Enemy:
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  PopInterval: 0.5
 --- !u!1 &1608429106
 GameObject:
   m_ObjectHideFlags: 0
@@ -4759,7 +4842,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1985572183}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -30.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 661310316}
@@ -4776,7 +4859,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11666e0796d8bb4491fdb98ff3689c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 0
+  StartTime: 3
+  isFocusEvent: 1
+  FucusTime: 2
   Enemy:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 24240809}
