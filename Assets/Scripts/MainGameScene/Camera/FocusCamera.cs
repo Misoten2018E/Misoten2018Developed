@@ -187,13 +187,14 @@ public class FocusCamera : MonoBehaviour {
 	void EventUpdate() {
 
 		float rate = ElapsedTime / EventTime;
-		rate = MoveEvent.Evaluate(rate);
-
+		
 		if (rate >= 1f) {
 			rate = 1f;
 			isEventActive = false;
 			DebugLog.log("イベント終了");
 		}
+		rate = MoveEvent.Evaluate(rate);
+
 		Vector3 pos = PositionComp.CalcPosition(rate);
 		float size = SizeComp.CalcFloat(rate);
 
