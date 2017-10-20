@@ -12,7 +12,7 @@ public class HitObject : MonoBehaviour,DebuggableObject {
 	//                                    inspector
 	//========================================================================================
 
-	//[SerializeField] private float AppearanceTime = 0.3f;
+	[SerializeField] private int AttackId = 0;
 
 	//========================================================================================
 	//                                    public
@@ -55,6 +55,12 @@ public class HitObject : MonoBehaviour,DebuggableObject {
 	//	}
 	//}
 
+	public void Initialize(HitSeriesofAction parent) {
+		ParentHit = parent;
+	}
+
+	
+
 	public void Debug(bool isDebugMode) {
 
 		var m = GetComponent<MeshRenderer>();
@@ -78,10 +84,15 @@ public class HitObject : MonoBehaviour,DebuggableObject {
 	}
 
 
-	float _NowTime;
-	public float NowTime {
-		private set { _NowTime = value; }
-		get { return _NowTime; }
+	//float _NowTime;
+	//public float NowTime {
+	//	private set { _NowTime = value; }
+	//	get { return _NowTime; }
+	//}
+
+	HitSeriesofAction _ParentHit;
+	public HitSeriesofAction ParentHit {
+		private set { _ParentHit = value; }
+		get { return _ParentHit; }
 	}
-      
 }
