@@ -5,6 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 [DisallowMultipleComponent]
+[System.Serializable]
 public class HitObject : MonoBehaviour,DebuggableObject {
 
 
@@ -55,6 +56,12 @@ public class HitObject : MonoBehaviour,DebuggableObject {
 	//	}
 	//}
 
+	public enum HitType{
+		Impact,		// 衝撃
+		BlowOff,	// 吹き飛ばし
+		Suction		// 吸引
+	}
+
 	public void Initialize(HitSeriesofAction parent) {
 		ParentHit = parent;
 	}
@@ -83,6 +90,10 @@ public class HitObject : MonoBehaviour,DebuggableObject {
 		}
 	}
 
+	public int Id {
+		get { return AttackId; }
+	}
+
 
 	//float _NowTime;
 	//public float NowTime {
@@ -94,5 +105,13 @@ public class HitObject : MonoBehaviour,DebuggableObject {
 	public HitSeriesofAction ParentHit {
 		private set { _ParentHit = value; }
 		get { return _ParentHit; }
+	}
+
+
+
+	HitType _HitType;
+	public HitType hitType {
+		protected set { _HitType = value; }
+		get { return _HitType; }
 	}
 }
