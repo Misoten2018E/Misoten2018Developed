@@ -9,8 +9,13 @@ namespace Edo.Base {
 	public static class ConstDirectry {
 
 		public const string DirPrefabs = "Prefabs/";
+		public const string DirPrefabsHit = DirPrefabs + "Hit/";
 		public const string DirPopup = DirPrefabs + "Popup/";
 	}
+}
+
+public static class ConstActionHitData {
+	public const string Action = ConstDirectry.DirPrefabsHit + "Action";
 }
 
 public static class ConstString {
