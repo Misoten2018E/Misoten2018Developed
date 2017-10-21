@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114650208432502698}
   - component: {fileID: 135828137944685128}
   - component: {fileID: 54594563377825340}
+  - component: {fileID: 114096031797184114}
   m_Layer: 0
   m_Name: FixedMoveEnemy
   m_TagString: Untagged
@@ -100,6 +101,66 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114096031797184114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431742028007794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4841af6d24125a84a901896993f48904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ImpactTremble:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.0027313232
+      value: 0.0030441284
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.100304544
+      value: 0.9923396
+      inSlope: 0.007871872
+      outSlope: 0.007871872
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.29998168
+      value: -0.9976366
+      inSlope: 0.0041603134
+      outSlope: 0.0041603134
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.49961483
+      value: 1.0149646
+      inSlope: -0.0043633105
+      outSlope: -0.0043633105
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.69970644
+      value: -0.9869143
+      inSlope: -0.0007297284
+      outSlope: -0.0007297284
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.8993938
+      value: 0.99317414
+      inSlope: 0.05029266
+      outSlope: 0.05029266
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.00060164277
+      inSlope: -0.0045972364
+      outSlope: -0.0045972364
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  TremblePower: 0.15
 --- !u!114 &114650208432502698
 MonoBehaviour:
   m_ObjectHideFlags: 1
