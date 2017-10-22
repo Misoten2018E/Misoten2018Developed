@@ -2075,7 +2075,88 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 24240809}
     Route2: {fileID: 208547216}
-  PopInterval: 0.3
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  PopInterval: 4
 --- !u!1 &868705273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,48 +2807,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 654492ddef2fe4944bc699d2d7876dcb, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &1145960079
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4903850422462374, guid: ee352eb0e7e0873448343546d8068941, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4903850422462374, guid: ee352eb0e7e0873448343546d8068941, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4903850422462374, guid: ee352eb0e7e0873448343546d8068941, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -31.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4903850422462374, guid: ee352eb0e7e0873448343546d8068941, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4903850422462374, guid: ee352eb0e7e0873448343546d8068941, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4903850422462374, guid: ee352eb0e7e0873448343546d8068941, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4903850422462374, guid: ee352eb0e7e0873448343546d8068941, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4903850422462374, guid: ee352eb0e7e0873448343546d8068941, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ee352eb0e7e0873448343546d8068941, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1181189340
 Prefab:
@@ -3604,7 +3643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11666e0796d8bb4491fdb98ff3689c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 5
+  StartTime: 30
   isFocusEvent: 1
   FucusTime: 2
   Enemy:
@@ -3623,7 +3662,67 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 24240809}
     Route2: {fileID: 208547216}
-  PopInterval: 0.5
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  PopInterval: 2
 --- !u!1 &1608429106
 GameObject:
   m_ObjectHideFlags: 0
@@ -4125,6 +4224,52 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1728336808}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1738315796
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4528350311367046, guid: ebfbe423418851649973d27938d14dd5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528350311367046, guid: ebfbe423418851649973d27938d14dd5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528350311367046, guid: ebfbe423418851649973d27938d14dd5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -31.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528350311367046, guid: ebfbe423418851649973d27938d14dd5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528350311367046, guid: ebfbe423418851649973d27938d14dd5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528350311367046, guid: ebfbe423418851649973d27938d14dd5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528350311367046, guid: ebfbe423418851649973d27938d14dd5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528350311367046, guid: ebfbe423418851649973d27938d14dd5, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053823503187068, guid: ebfbe423418851649973d27938d14dd5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ebfbe423418851649973d27938d14dd5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1794870327
 GameObject:
   m_ObjectHideFlags: 0
@@ -4933,7 +5078,58 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 24240809}
     Route2: {fileID: 208547216}
-  PopInterval: 1
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 24240809}
+    Route2: {fileID: 208547216}
+  PopInterval: 3
 --- !u!1 &2042140750
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public static class ConstDirectry {
 
 public static class ConstActionHitData {
 	public const string Action = "testAction";
+	public const string ActionSuction = "testActionSuction";
 }
 
 public static class ConstString {
