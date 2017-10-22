@@ -12,6 +12,14 @@ public class testPlayer : MonoBehaviour {
 	CharacterController CharCon;
 	Vector3 velocity;
 
+	testActionBase Action;
+
+	private void Awake() {
+
+		Action = GetComponent<testActionBase>();
+		Action.Initialize(this);
+	}
+
 	// Use this for initialization
 	void Start() {
 		input = this.GetComponent<MultiInput>();
@@ -21,10 +29,10 @@ public class testPlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if (input.GetXaxis() != 0) {
-			print("X" + no + input.GetXaxis());
+		//	print("X" + no + input.GetXaxis());
 		}
 		if (input.GetYaxis() != 0) {
-			print("Y" + no + input.GetYaxis());
+		//	print("Y" + no + input.GetYaxis());
 		}
 
 		velocity.x = input.GetXaxis() * MoveSpeed;
@@ -39,19 +47,24 @@ public class testPlayer : MonoBehaviour {
 		CharCon.Move(velocity * Time.deltaTime);
 
 		if (input.GetButtonCircleTrigger()) {
-			print("ButtonCircleTrigger" + no);
+			Action.ActionCircle();
+		//	print("ButtonCircleTrigger" + no);
 		}
 
 		if (input.GetButtonSquareTrigger()) {
-			print("GetButtonSquareTrigger" + no);
+		//	print("GetButtonSquareTrigger" + no);
 		}
 
 		if (input.GetButtonTriangleTrigger()) {
-			print("GetButtonTriangleTrigger" + no);
+		//	print("GetButtonTriangleTrigger" + no);
 		}
 
 		if (input.GetButtonCrossTrigger()) {
-			print("GetButtonCrossTrigger" + no);
+		//	print("GetButtonCrossTrigger" + no);
+		}
+
+		if (transform.position.y > 1.0f) {
+			transform.position -= new Vector3(0, 0.1f, 0);
 		}
 	}
 }
