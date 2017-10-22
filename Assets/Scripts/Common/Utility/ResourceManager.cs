@@ -31,7 +31,7 @@ public class ResourceManager : MonoBehaviour {
 	/// <param name="directryName"></param>
 	/// <param name="PrefabName"></param>
 	/// <returns></returns>
-	T Get<T>(string directryName ,string PrefabName) {
+	public T Get<T>(string directryName ,string PrefabName) {
 
 		// 既にロード済みなら
 		if (DictionaryList.ContainsKey(PrefabName)) {
@@ -64,18 +64,20 @@ public class ResourceManager : MonoBehaviour {
 		return obj;
 	}
 
-	// Use this for initialization
-	void Start() {
+	private void Awake() {
 
 		Preload();
-	}
 
+		if (myInstance == null) {
+			myInstance = this;
+		}
+	}
 
 	//========================================================================================
 	//                                    private
 	//========================================================================================
 
-	Dictionary<string, GameObject> DictionaryList;
+	Dictionary<string, GameObject> DictionaryList = new Dictionary<string, GameObject>();
 
 	private void Preload() {
 

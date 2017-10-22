@@ -40,6 +40,7 @@ public class HitSeriesofAction : PauseSupport {
 		if (EndCallback != null) {
 			EndCallback();
 		}
+
 		gameObject.SetActive(false);
 	}
 
@@ -47,7 +48,7 @@ public class HitSeriesofAction : PauseSupport {
 	/// 初期処理
 	/// </summary>
 	/// <param name="player"></param>
-	public void Initialize(Player player) {
+	public void Initialize(testPlayer player) {
 		myPlayer = player;
 
 		var Hits = GetComponentsInChildren<HitObject>();
@@ -58,7 +59,7 @@ public class HitSeriesofAction : PauseSupport {
 		TransformInitialize(player.transform, isToFollowParent);
 
 		EndCallback = null;
-		gameObject.SetActive(true);
+		gameObject.SetActive(false);
 	}
 
 	/// <summary>
@@ -75,8 +76,8 @@ public class HitSeriesofAction : PauseSupport {
 			Vector3 buff = new Vector3(1, 1, 1);
 			transform.localScale = buff;
 			buff.Set(0, 0, 0);
-			transform.position = buff;
-			transform.rotation = Quaternion.identity;
+			transform.localPosition = buff;
+			transform.localRotation = Quaternion.identity;
 		}
 		else {
 			transform.position = trs.position;
@@ -104,9 +105,16 @@ public class HitSeriesofAction : PauseSupport {
 	/// </summary>
 	public void Activate() {
 
-		Anim.SetBool(ANIM_ACCESS_STATUS, true);
+		gameObject.SetActive(true);
+		AnimatorStateInfo stateInfo = Anim.GetCurrentAnimatorStateInfo(0);
+		Anim.Play(stateInfo.fullPathHash, 0, 0.0f);  //初期位置に戻す
+	//	Anim.SetBool(ANIM_ACCESS_STATUS, true);
+		
 	}
 
+	public bool isActive {
+		get { return isActiveAndEnabled; }
+	}
 
 	//========================================================================================
 	//                                    propety
@@ -122,13 +130,12 @@ public class HitSeriesofAction : PauseSupport {
 		}
 	}
 
-	Player _myPlayer;
-	public Player myPlayer {
+	testPlayer _myPlayer;
+	public testPlayer myPlayer {
 		private set { _myPlayer = value; }
 		get { return _myPlayer; }
 	}
     
-	int _PlayerNo;
 	public int PlayerNo {
 		get { return myPlayer.no; }
 	}

@@ -103,7 +103,7 @@ public class HitObject : MonoBehaviour,DebuggableObject {
 
 	HitSeriesofAction _ParentHit;
 	public HitSeriesofAction ParentHit {
-		private set { _ParentHit = value; }
+		protected set { _ParentHit = value; }
 		get { return _ParentHit; }
 	}
 
@@ -115,3 +115,4 @@ public class HitObject : MonoBehaviour,DebuggableObject {
 		get { return _HitType; }
 	}
 }
+

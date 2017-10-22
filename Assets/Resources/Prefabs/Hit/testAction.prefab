@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114890101733027810}
   - component: {fileID: 114149424760866822}
   m_Layer: 0
-  m_Name: Action
+  m_Name: testAction
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,6 +212,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -227,6 +228,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -244,6 +246,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -259,6 +262,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -276,6 +280,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -291,6 +296,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -308,6 +314,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -323,6 +330,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -366,7 +374,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1866076034583254}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -416,6 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823c8630fc532c14eb85d6abade3c494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackId: 0
 --- !u!114 &114527931743074508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,6 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823c8630fc532c14eb85d6abade3c494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackId: 0
 --- !u!114 &114669437307350082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,6 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823c8630fc532c14eb85d6abade3c494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackId: 0
 --- !u!114 &114785245663248370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -449,6 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823c8630fc532c14eb85d6abade3c494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackId: 0
 --- !u!114 &114890101733027810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -460,6 +472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74bfabaa6a62d84ea474bca75f0bdf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPausePermit: 1
+  isToFollowParent: 1
 --- !u!135 &135170080845796170
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -467,7 +481,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1045718776237042}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -479,7 +493,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398041417886580}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -491,7 +505,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1321627819063486}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
