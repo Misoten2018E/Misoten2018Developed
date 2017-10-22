@@ -42,6 +42,13 @@ public class MoveFixedEnemy : EnemyTypeBase {
 	// Update is called once per frame
 	void Update () {
 
+		//if (transform.position.y < 0.4f) {
+		//	transform.position += new Vector3(0, 0.1f, 0);
+		//}
+		//else if (transform.position.y > 0.6f) {
+		//	transform.position -= new Vector3(0, 0.1f, 0);
+		//}
+
 		if (NowTarget == null) {
 			return;
 		}
@@ -76,13 +83,13 @@ public class MoveFixedEnemy : EnemyTypeBase {
 
 		if (other.CompareTag(ConstTags.PlayerAttack)) {
 
-			bool isHit = !HitLog.CheckLog(other.GetComponent<HitObject>());
+			var hito = other.GetComponent<HitObject>();
+			hito.DamageHp(MyHp);
 
+			bool isHit = !HitLog.CheckLog(hito);
 			if (isHit) {
 
-				var v = transform.position - other.transform.position;
-				Damaged.HittedTremble(transform, v.normalized);
-				print("hit");
+				SwtichHitted(hito);
 			}
 		}
 	}
@@ -119,5 +126,77 @@ public class MoveFixedEnemy : EnemyTypeBase {
 
 	}
 
-	
+	void SwtichHitted(HitObject obj) {
+
+		// (衝撃の方向)
+		var impact = (transform.position - obj.transform.position).normalized;
+		Damaged.HittedTremble(ChildModel.transform, impact);
+
+		if (MyHp.isDeath && ieDeath == null) {
+			ieDeath = IEDeath(0.5f);
+			StartCoroutine(ieDeath);
+		}
+
+		switch (obj.hitType) {
+			case HitObject.HitType.Impact:
+
+				var HitImpact = obj as HitObjectImpact;
+				HitImpact.Impact(Damaged, impact);
+				print("hitImpact");
+
+				break;
+			case HitObject.HitType.BlowOff:
+
+				var HitBlow = obj as HitObjectBlowOff;
+
+				break;
+			case HitObject.HitType.Suction:
+
+				var HitSuction = obj as HitObjectSuction;
+				HitSuction.Sucion(Damaged);
+				print("hitSuction");
+				break;
+
+			default:
+				break;
+		}
+
+	}
+
+	IEnumerator ieDeath;
+	IEnumerator IEDeath(float MaxTime) {
+
+		float time = 0f;
+
+		while (true) {
+
+			time += Time.deltaTime;
+			if (time >= MaxTime) {
+				break;
+			}
+			yield return null;
+		}
+
+		Destroy();
+	}
+
+	/// <summary>
+	/// 死亡
+	/// </summary>
+	public void Destroy() {
+
+		Destroy(this.gameObject);
+	}
+
+
+	MeshRenderer _ChildModel;
+	public MeshRenderer ChildModel {
+		get {
+			if (_ChildModel == null) {
+				_ChildModel = GetComponentInChildren<MeshRenderer>();
+			}
+			return _ChildModel;
+		}
+	}
+      
 }

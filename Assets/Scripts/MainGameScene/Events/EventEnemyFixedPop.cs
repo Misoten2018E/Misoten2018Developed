@@ -46,14 +46,6 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 		base.SetFocus(this.transform);
 	}
 
-	/// <summary>
-	/// 死亡
-	/// </summary>
-	public void Destroy() {
-
-		Destroy(this.gameObject);
-	}
-
 
 	private void Update() {
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(HittedDamage))]
+[RequireComponent(typeof(HittedDamage),typeof(ObjectHp))]
 public abstract class EnemyTypeBase : MonoBehaviour {
 
 	/// <summary>
@@ -55,6 +55,17 @@ public abstract class EnemyTypeBase : MonoBehaviour {
 				_Damaged = GetComponent<HittedDamage>();
 			}
 			return _Damaged;
+		}
+	}
+
+	ObjectHp _MyHp;
+	public ObjectHp MyHp {
+		protected set { _MyHp = value; }
+		get {
+			if (_MyHp == null) {
+				_MyHp = GetComponent<ObjectHp>();
+			}
+			return _MyHp;
 		}
 	}
 
