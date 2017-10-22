@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 [DisallowMultipleComponent]
 [System.Serializable]
-public class HitObject : MonoBehaviour,DebuggableObject {
+public abstract class HitObject : MonoBehaviour,DebuggableObject {
 
 
 	//========================================================================================
@@ -14,6 +14,10 @@ public class HitObject : MonoBehaviour,DebuggableObject {
 	//========================================================================================
 
 	[SerializeField] private int AttackId = 0;
+
+	[SerializeField] private int Damage = 100;
+
+	[SerializeField] AnimationCurve _MoveCurve;
 
 	//========================================================================================
 	//                                    public
@@ -74,6 +78,10 @@ public class HitObject : MonoBehaviour,DebuggableObject {
 		m.enabled = isDebugMode;
 	}
 
+	public virtual void DamageHp(ObjectHp hp) {
+		hp.Damage(Damage);
+	}
+
 
 	//========================================================================================
 	//                                    propety
@@ -92,6 +100,10 @@ public class HitObject : MonoBehaviour,DebuggableObject {
 
 	public int Id {
 		get { return AttackId; }
+	}
+
+	public AnimationCurve MoveCurve {
+		get { return _MoveCurve; }
 	}
 
 

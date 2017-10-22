@@ -1,15 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HitObjectImpact : HitObject {
+	
 
 
 	//========================================================================================
 	//                                    inspector
 	//========================================================================================
 
-
+	
 
 	//========================================================================================
 	//                                    public - override
@@ -25,10 +27,11 @@ public class HitObjectImpact : HitObject {
 		
 	}
 
+	public void Impact(DamagedAction action ,Vector3 impact) {
+		action.KnockBack(impact, 0.1f, MoveCurve);
+	}
 
 	//========================================================================================
 	//                                    private
 	//========================================================================================
-
-
 }
