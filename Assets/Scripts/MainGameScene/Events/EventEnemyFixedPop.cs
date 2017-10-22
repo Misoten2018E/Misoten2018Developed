@@ -42,12 +42,18 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 
 		isActive = true;
 		EventIndex = 0;
-		CreateEnemy();
 
 		base.SetFocus(this.transform);
 	}
 
-	
+	/// <summary>
+	/// 死亡
+	/// </summary>
+	public void Destroy() {
+
+		Destroy(this.gameObject);
+	}
+
 
 	private void Update() {
 
@@ -97,10 +103,10 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 	void TimeUpdate() {
 
 
-		ElapsedTime += Time.deltaTime;
-		if (PopInterval < ElapsedTime) {
+		ElapsedTime -= Time.deltaTime;
+		if (ElapsedTime < 0) {
 
-			ElapsedTime -= PopInterval;
+			ElapsedTime += PopInterval;
 			CreateEnemy();
 			EventIndex++;
 

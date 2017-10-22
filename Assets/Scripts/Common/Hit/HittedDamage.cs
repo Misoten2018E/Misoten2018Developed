@@ -10,31 +10,26 @@ public class HittedDamage : MonoBehaviour {
 	//========================================================================================
 
 	[Tooltip("衝撃による揺れ動き方")]
-	[SerializeField] private AnimationCurve ImpactTremble;
+	[SerializeField]
+	private AnimationCurve ImpactTremble;
 
-	[Range(0f,1f)]
-	[SerializeField] private float TremblePower = 0.2f;
+	[Range(0f, 1f)]
+	[SerializeField]
+	private float TremblePower = 0.2f;
 
 	//========================================================================================
 	//                                    public
 	//========================================================================================
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start() {
+
 	}
-	float t = 0f;
+
 	// Update is called once per frame
-	void Update () {
+	void Update() {
 
-		t += Time.deltaTime;
-
-		if (t > 3f) {
-
-			HittedTremble(transform, transform.forward);
-			t = 0f;
-		}
-
+		
 	}
 
 	/// <summary>
@@ -43,15 +38,15 @@ public class HittedDamage : MonoBehaviour {
 	/// </summary>
 	/// <param name="trs"></param>
 	/// <param name="impact"></param>
-	public void HittedTremble(Transform trs ,Vector3 impact) {
+	public void HittedTremble(Transform trs, Vector3 impact) {
 
 		if (ieTrembled != null) {
 
 			// 止める
 			StopCoroutine(ieTrembled);
-			
+
 			// 初期座標に戻す
-			TrembledTrs.localPosition = TrembleStartPosition;	
+			TrembledTrs.localPosition = TrembleStartPosition;
 		}
 
 		// 今回の初期化
@@ -63,6 +58,9 @@ public class HittedDamage : MonoBehaviour {
 		StartCoroutine(ieTrembled);
 	}
 
+	public bool isHitted {
+		get { return (ieTrembled != null); }
+	}
 
 
 	//========================================================================================
@@ -108,3 +106,85 @@ public class HittedDamage : MonoBehaviour {
 
 	IEnumerator ieTrembled;
 }
+
+
+public class HitLogList {
+
+	List<HitLog> LogList = new List<HitLog>();
+
+	/// <summary>
+	/// ログのチェック(存在するならtrue)
+	/// </summary>
+	/// <param name="obj"></param>
+	/// <returns></returns>
+	public bool CheckLog(HitObject obj) {
+
+		HitLog log = new HitLog(obj);
+
+		for (int i = 0; i < LogList.Count; i++) {
+
+			if (LogList[i].checkEqual(log)) {
+				return true;
+			}
+		}
+
+		// 喰らったことの無いものとして格納
+		LogList.Add(log);
+		return false;
+	}
+
+	public void CheckEnd() {
+
+		for (int i = 0; i < LogList.Count; i++) {
+
+			if (LogList[i].isEnd) {
+				LogList.Remove(LogList[i]);
+				i--;
+			}
+		}
+	}
+
+
+	public class HitLog {
+
+		/// <summary>
+		/// コンストラクタ
+		/// </summary>
+		/// <param name="obj"></param>
+		public HitLog(HitObject obj) {
+			Hit = obj;
+		}
+
+		HitObject _Hit;
+		public HitObject Hit {
+			set { _Hit = value; }
+			get { return _Hit; }
+		}
+
+		public bool isEnd {
+			get { return !(Hit.ParentHit.isActive); }
+		}
+
+		public bool checkEqual(HitLog log) {
+
+			// 同じプレイヤーの攻撃ならtrue
+			bool eqPl = (Hit.ParentHit.PlayerNo == log.Hit.ParentHit.PlayerNo);
+			// 他者の攻撃であるので同じではない
+			if (!eqPl) {
+				return false;
+			}
+
+			// 同じ攻撃動作ならtrue
+			bool eqAct = (Hit.ParentHit == log.Hit.ParentHit);
+
+			// 同じIDならtrue
+			bool eqId = (Hit.Id == log.Hit.Id);
+
+			// 同じ攻撃動作ならtrue
+			// かつ同じIDのものならtrue、違うIDなら別として扱う
+			return eqAct ? (eqId) : (false);
+		}
+	}
+}
+
+

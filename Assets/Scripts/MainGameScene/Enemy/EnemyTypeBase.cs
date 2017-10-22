@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(HittedDamage))]
 public abstract class EnemyTypeBase : MonoBehaviour {
 
 	/// <summary>
@@ -42,6 +43,25 @@ public abstract class EnemyTypeBase : MonoBehaviour {
 		v.Normalize();
 		transform.position += v * speed * Time.deltaTime;
 
+	}
+
+
+
+	HittedDamage _Damaged;
+	public HittedDamage Damaged {
+		protected set { _Damaged = value; }
+		get {
+			if (_Damaged == null) {
+				_Damaged = GetComponent<HittedDamage>();
+			}
+			return _Damaged;
+		}
+	}
+
+	HitLogList _HitLog = new HitLogList();
+	public HitLogList HitLog {
+		private set { _HitLog = value; }
+		get { return _HitLog; }
 	}
 }
 

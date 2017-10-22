@@ -12,7 +12,7 @@ public class MoveFixedEnemy : EnemyTypeBase {
 
 	[SerializeField] private List<Transform> TargetTransform;
 
-
+	[SerializeField] private float MoveSpeed = 1f;
 
 	//========================================================================================
 	//                                    public
@@ -46,7 +46,11 @@ public class MoveFixedEnemy : EnemyTypeBase {
 			return;
 		}
 
-		MoveAdvanceToTarget(NowTarget, 4f);
+		if (!Damaged.isHitted) {
+			MoveAdvanceToTarget(NowTarget, MoveSpeed);
+		}
+
+		HitLog.CheckEnd();
 	}
 
 	public override void InitEnemy(UsedInitData InitData) {
@@ -68,6 +72,18 @@ public class MoveFixedEnemy : EnemyTypeBase {
 
 		if (other.CompareTag(ConstTags.City)) {
 			NextTargetSearch();
+		}
+
+		if (other.CompareTag(ConstTags.PlayerAttack)) {
+
+			bool isHit = !HitLog.CheckLog(other.GetComponent<HitObject>());
+
+			if (isHit) {
+
+				var v = transform.position - other.transform.position;
+				Damaged.HittedTremble(transform, v.normalized);
+				print("hit");
+			}
 		}
 	}
 
