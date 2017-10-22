@@ -25,11 +25,11 @@ public class testActionHero : testActionBase {
 	}
 
 	public override void ActionSquare() {
-		Action.Activate();
+		ActionSuction.Activate();
 	}
 
 	public override void ActionTriangle() {
-		Action.Activate();
+		ActionSuction.Activate();
 	}
 
 	public override void Destruct() {
@@ -46,6 +46,10 @@ public class testActionHero : testActionBase {
 		var preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHit, ConstActionHitData.Action);
 		Action = Instantiate(preAction);
 		Action.Initialize(myPlayer);
+
+		preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHit, ConstActionHitData.ActionSuction);
+		ActionSuction = Instantiate(preAction);
+		ActionSuction.Initialize(myPlayer);
 	}
 	
 	// Update is called once per frame
@@ -67,4 +71,5 @@ public class testActionHero : testActionBase {
       
 
 	HitSeriesofAction Action;
+	HitSeriesofAction ActionSuction;
 }

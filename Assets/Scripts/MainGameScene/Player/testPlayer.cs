@@ -52,15 +52,18 @@ public class testPlayer : MonoBehaviour {
 		}
 
 		if (input.GetButtonSquareTrigger()) {
-		//	print("GetButtonSquareTrigger" + no);
+			Action.ActionSquare();
+			//	print("GetButtonSquareTrigger" + no);
 		}
 
 		if (input.GetButtonTriangleTrigger()) {
-		//	print("GetButtonTriangleTrigger" + no);
+			Action.ActionTriangle();
+			//	print("GetButtonTriangleTrigger" + no);
 		}
 
 		if (input.GetButtonCrossTrigger()) {
-		//	print("GetButtonCrossTrigger" + no);
+			Action.ActionCross();
+			//	print("GetButtonCrossTrigger" + no);
 		}
 
 		if (transform.position.y > 1.0f) {
