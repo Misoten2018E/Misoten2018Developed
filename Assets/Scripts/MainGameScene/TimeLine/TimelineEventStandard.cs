@@ -37,7 +37,7 @@ public class TimelineEventStandard : MonoBehaviour {
 	protected void SetFocus(Transform trs) {
 
 		if (isFocusEvent) {
-			FocusCamera.Instance.AddTarget(trs);
+			CameraManager.Instance.FocusCamera.AddTarget(trs);
 			StartCoroutine(FucusTimeUpdate(trs));
 		}
 	}
@@ -46,7 +46,7 @@ public class TimelineEventStandard : MonoBehaviour {
 
 		print("event開始");
 		yield return new WaitForSeconds(FucusTime);
-		FocusCamera.Instance.DeleteTarget(trs);
+		CameraManager.Instance.FocusCamera.DeleteTarget(trs);
 	}
 
 

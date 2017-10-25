@@ -20,16 +20,6 @@ public class FocusCamera : MonoBehaviour {
 	//                                    public
 	//========================================================================================
 
-
-	// シングルトンインスタンス
-	static FocusCamera myInstance;
-	static public FocusCamera Instance {
-		get {
-			return myInstance;
-		}
-	}
-
-
 	/// <summary>
 	/// ターゲットの追加
 	/// </summary>
@@ -57,11 +47,6 @@ public class FocusCamera : MonoBehaviour {
 	//========================================================================================
 	//                                    public - override
 	//========================================================================================
-
-	private void Awake() {
-
-		myInstance = this;
-	}
 
 	// Use this for initialization
 	void Start () {

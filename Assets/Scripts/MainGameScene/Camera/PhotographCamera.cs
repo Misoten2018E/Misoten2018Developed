@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class PhotographCamera : MonoBehaviour {
 
-
-	// シングルトンインスタンス
-	static PhotographCamera myInstance;
-	static public PhotographCamera Instance {
-		get {
-			return myInstance;
-		}
-	}
-
-
 	Camera _MyCamera;
 	public Camera MyCamera {
 		private set { _MyCamera = value; }
@@ -23,7 +13,6 @@ public class PhotographCamera : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
-		myInstance = this;
 		MyCamera = GetComponent<Camera>();
 		gameObject.SetActive(false);
 	}
