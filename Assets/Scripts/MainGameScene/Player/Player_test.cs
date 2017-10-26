@@ -12,15 +12,18 @@ public class Player_test : PlayerBase
         WEAKATTACK3,
         STRONGATTACK,
         SPECIAL,
+        DAMAGE,
         PLAYER_TEST_STA_MAX
     }
 
     MultiInput input;
     PLAYER_TEST_STA player_test_sta;
-    bool inputFlg;
+    bool ComboFlg;
 
     const int Player_test_MoveSpeed = 5;
     const int Player_test_RotationSpeed = 750;
+    const int Player_test_MAXHP = 100;
+    const int Player_test_ATTACK = 1;
 
     //Use this for initialization
     void Start () {
@@ -44,7 +47,9 @@ public class Player_test : PlayerBase
         RotationSpeed = Player_test_RotationSpeed;
         player_test_sta = PLAYER_TEST_STA.NORMAL;
         PlayerSta = (int)player_test_sta;
-        inputFlg = false;
+        ComboFlg = false;
+        HP = Player_test_MAXHP;
+        Attack = Player_test_ATTACK;
     }
 
     override
@@ -74,7 +79,9 @@ public class Player_test : PlayerBase
             case PLAYER_TEST_STA.SPECIAL:
                 SpecialAction();
                 break;
-
+            case PLAYER_TEST_STA.DAMAGE:
+                DamageAction();
+                break;
         }
 
         SetAnimatorData();
@@ -82,10 +89,24 @@ public class Player_test : PlayerBase
 
     private void Normal()
     {
-        if(input.GetButtonCircleTrigger())
+        if(input.GetButtonSquareTrigger())
         {
             aniendFlg = false;
             player_test_sta = PLAYER_TEST_STA.WEAKATTACK1;
+            PlayerSta = (int)player_test_sta;
+        }
+
+        if (input.GetButtonTriangleTrigger())
+        {
+            aniendFlg = false;
+            player_test_sta = PLAYER_TEST_STA.STRONGATTACK;
+            PlayerSta = (int)player_test_sta;
+        }
+
+        if (input.GetButtonCircleTrigger())
+        {
+            aniendFlg = false;
+            player_test_sta = PLAYER_TEST_STA.SPECIAL;
             PlayerSta = (int)player_test_sta;
         }
 
@@ -96,33 +117,92 @@ public class Player_test : PlayerBase
     {
         RotationCharacter();
 
+        if(input.GetButtonSquareTrigger() && ComboFlg == false)
+        {
+            ComboFlg = true;
+        }
+
         if (CheckAnimationEND("NormalAction1"))
+        {
+            if(ComboFlg)
+            {
+                player_test_sta = PLAYER_TEST_STA.WEAKATTACK2;
+                PlayerSta = (int)player_test_sta;
+                ComboFlg = false;
+            }
+            else
+            {
+                player_test_sta = PLAYER_TEST_STA.NORMAL;
+                PlayerSta = (int)player_test_sta;
+            }
+        }
+    }
+
+    private void NormalAction2()
+    {
+        RotationCharacter();
+
+        if (input.GetButtonSquareTrigger() && ComboFlg == false)
+        {
+            ComboFlg = true;
+        }
+
+        if (CheckAnimationEND("NormalAction2"))
+        {
+            if(ComboFlg)
+            {
+                player_test_sta = PLAYER_TEST_STA.WEAKATTACK3;
+                PlayerSta = (int)player_test_sta;
+                ComboFlg = false;
+            }
+            else
+            {
+                player_test_sta = PLAYER_TEST_STA.NORMAL;
+                PlayerSta = (int)player_test_sta;
+            }
+        }
+    }
+
+    private void NormalAction3()
+    {
+        RotationCharacter();
+
+        if (CheckAnimationEND("NormalAction3"))
         {
             player_test_sta = PLAYER_TEST_STA.NORMAL;
             PlayerSta = (int)player_test_sta;
         }
     }
 
-    private void NormalAction2()
-    {
-
-    }
-
-    private void NormalAction3()
-    {
-
-    }
-
     private void StrongAction()
     {
+        RotationCharacter();
 
+        if (CheckAnimationEND("StrongAction"))
+        {
+            player_test_sta = PLAYER_TEST_STA.NORMAL;
+            PlayerSta = (int)player_test_sta;
+        }
     }
 
     private void SpecialAction()
     {
+        RotationCharacter();
 
+        if (CheckAnimationEND("SpecialAction"))
+        {
+            player_test_sta = PLAYER_TEST_STA.NORMAL;
+            PlayerSta = (int)player_test_sta;
+        }
     }
 
-    
+    private void DamageAction()
+    {
+        if (CheckAnimationEND("Damage"))
+        {
+            player_test_sta = PLAYER_TEST_STA.NORMAL;
+            PlayerSta = (int)player_test_sta;
+        }
+    }
 
 }

@@ -30,15 +30,15 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButton("Submit"))
-        {
-            Vector3 pos = new Vector3(0,0,0);
-            playerbase.ChangeCharacterAction(pos);
-        }
-        else
-        {
+        //if (Input.GetButton("Submit"))
+        //{
+        //    Vector3 pos = new Vector3(0,0,0);
+        //    playerbase.ChangeCharacterAction(pos);
+        //}
+        //else
+        //{
             playerbase.PlayerUpdate();
-        }
+        //}
         
         transform.position = NowCharacter.transform.position;
         //if (input.GetButtonCircleTrigger())

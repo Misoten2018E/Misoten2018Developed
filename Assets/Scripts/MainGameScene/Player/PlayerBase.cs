@@ -17,6 +17,9 @@ public class PlayerBase : MonoBehaviour {
     protected Vector3 CharacterPosition;
     protected bool aniendFlg;
 
+    protected int HP;
+    protected int Attack;
+
     // Use this for initialization
     void Start () {
 		//使わない方向で
@@ -27,7 +30,7 @@ public class PlayerBase : MonoBehaviour {
 		//使わない方向で
 	}
 
-    public void ChangeCharacterAction(Vector3 moveposition)
+    public void ForciblyMove(Vector3 moveposition)
     {
         Vector3 myposition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         velocity = moveposition - myposition;
@@ -39,6 +42,11 @@ public class PlayerBase : MonoBehaviour {
 
         PlayerSta = 0;
         SetAnimatorData();
+    }
+
+    public void ChangeAttack(int attack)
+    {
+        Attack += attack;
     }
 
     public virtual void Playerinit(int playerno)
@@ -84,7 +92,7 @@ public class PlayerBase : MonoBehaviour {
 
     protected void SetAnimatorData()
     {
-        animator.SetFloat("Speed", CharCon.velocity.magnitude);
+        animator.SetFloat("Speed", velocity.magnitude);
         animator.SetInteger("Playersta", PlayerSta);
     }
 
