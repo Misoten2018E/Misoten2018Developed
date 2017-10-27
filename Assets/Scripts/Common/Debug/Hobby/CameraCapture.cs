@@ -100,9 +100,9 @@ public class CameraCapture : MonoBehaviour {
 	/// </summary>
 	/// <param name="cam"></param>
 	/// <returns></returns>
-	static public Texture2D Capture(Camera cam) {
+	static public Texture2D Capture(Camera cam ,int texWidth,int texHeight) {
 
-		Texture2D screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+		Texture2D screenShot = new Texture2D(texWidth, texHeight, TextureFormat.RGB24, false);
 		RenderTexture rt = new RenderTexture(screenShot.width, screenShot.height, 24);
 
 		RenderTexture prev = cam.targetTexture;
@@ -115,5 +115,16 @@ public class CameraCapture : MonoBehaviour {
 		screenShot.Apply();
 
 		return screenShot;
+	}
+
+
+	/// <summary>
+	/// カメラからテクスチャ生成
+	/// </summary>
+	/// <param name="cam"></param>
+	/// <returns></returns>
+	static public Texture2D Capture(Camera cam) {
+
+		return Capture(cam, Screen.width, Screen.height);
 	}
 }

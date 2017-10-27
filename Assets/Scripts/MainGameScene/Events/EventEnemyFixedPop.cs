@@ -4,8 +4,28 @@ using UnityEngine;
 
 public class EventEnemyFixedPop : TimelineEventStandard {
 
+
+	//========================================================================================
+	//                                    inspector
+	//========================================================================================
+
 	[SerializeField] private EnemyData[] Enemy;
 	[SerializeField] private float PopInterval = 1f;
+
+
+
+	//========================================================================================
+	//                                    public
+	//========================================================================================
+
+	public void EventEnd() {
+
+		isActive = false;
+	}
+
+	//========================================================================================
+	//                                    public - override
+	//========================================================================================
 
 	/// <summary>
 	/// オブジェクト生成時
@@ -22,42 +42,10 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 
 		isActive = true;
 		EventIndex = 0;
-		CreateEnemy();
+
+		base.SetFocus(this.transform);
 	}
 
-	/// <summary>
-	/// 敵作成
-	/// </summary>
-	void CreateEnemy() {
-
-		var enemy = Instantiate(Enemy[EventIndex].Enemy);
-		UsedInitData eneData = new UsedInitData();
-		eneData.BasePosition = this.transform;
-		enemy.InitEnemy(eneData);
-		for (int i = 0; i < Enemy.Length; i++) {
-			enemy.AddTarget(Enemy[EventIndex].Route1, true);
-			enemy.AddTarget(Enemy[EventIndex].Route2);
-		}
-	}
-
-	/// <summary>
-	/// 時間更新
-	/// </summary>
-	void TimeUpdate() {
-
-
-		ElapsedTime += Time.deltaTime;
-		if (PopInterval < ElapsedTime) {
-
-			ElapsedTime -= PopInterval;
-			CreateEnemy();
-			EventIndex++;
-
-			if (EventIndex >= Enemy.Length) {
-				isActive = false;
-			}
-		}
-	}
 
 	private void Update() {
 
@@ -85,8 +73,40 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 		private set { _isActive = value; }
 		get { return _isActive; }
 	}
-      
 
+	/// <summary>
+	/// 敵作成
+	/// </summary>
+	void CreateEnemy() {
+
+		var enemy = Instantiate(Enemy[EventIndex].Enemy);
+		UsedInitData eneData = new UsedInitData();
+		eneData.BasePosition = this.transform;
+		enemy.InitEnemy(eneData);
+		for (int i = 0; i < Enemy.Length; i++) {
+			enemy.AddTarget(Enemy[EventIndex].Route1, true);
+			enemy.AddTarget(Enemy[EventIndex].Route2);
+		}
+	}
+
+	/// <summary>
+	/// 時間更新
+	/// </summary>
+	void TimeUpdate() {
+
+
+		ElapsedTime -= Time.deltaTime;
+		if (ElapsedTime < 0) {
+
+			ElapsedTime += PopInterval;
+			CreateEnemy();
+			EventIndex++;
+
+			if (EventIndex >= Enemy.Length) {
+				EventEnd();
+			}
+		}
+	}
 
 	[System.Serializable]
 	public class EnemyData {

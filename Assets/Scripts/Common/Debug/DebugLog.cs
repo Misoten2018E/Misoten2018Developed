@@ -186,7 +186,7 @@ public class DebugLog : MonoBehaviour {
 
 		outMessage += System.Environment.NewLine;
 		foreach (StringList msg in chaseLog) {
-			outMessage += msg + System.Environment.NewLine;
+			outMessage += msg.str + System.Environment.NewLine;
 		}
 
 		text.text = outMessage;

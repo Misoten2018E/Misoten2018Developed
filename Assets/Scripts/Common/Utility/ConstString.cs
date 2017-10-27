@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿
+public static class ConstDirectry {
 
-using Edo.Base;
+	public const string DirPrefabs = "Prefabs/";
+	public const string DirPrefabsHit = DirPrefabs + "Hit/";
+	public const string DirPopup = DirPrefabs + "Popup/";
+}
 
-namespace Edo.Base {
-
-	public static class ConstDirectry {
-
-		public const string DirPrefabs = "Prefabs/";
-		public const string DirPopup = DirPrefabs + "Popup/";
-	}
+public static class ConstActionHitData {
+	public const string Action = "testAction";
+	public const string ActionSuction = "testActionSuction";
 }
 
 public static class ConstString {

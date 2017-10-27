@@ -51,11 +51,7 @@ public class PopupNormal : MonoBehaviour ,IFPopUp{
 
 		var Pos2d = RectTransformUtility.WorldToScreenPoint(Camera.main, trs3D.position);
 
-		transform.localPosition = new Vector3(Pos2d.x + offsetX, Pos2d.y + offsetY);
-		gameObject.SetActive(true);
-		SetString();
-
-		StartCoroutine(IEFloatingImages(1f));
+		Open((int)Pos2d.x, (int)Pos2d.y, offsetX, offsetY);
 	}
 
 	/// <summary>

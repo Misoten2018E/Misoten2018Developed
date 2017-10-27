@@ -7,7 +7,10 @@ using UnityEngine;
 public class RelayPoint : MonoBehaviour,DebuggableObject {
 
 	public void Debug(bool isDebugMode) {
-		
+
+		var m = GetComponent<MeshRenderer>();
+		m.enabled = isDebugMode;
+
 	}
 
 	// Use this for initialization

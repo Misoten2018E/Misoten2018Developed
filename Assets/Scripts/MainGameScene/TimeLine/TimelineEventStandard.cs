@@ -12,6 +12,9 @@ public class TimelineEventStandard : MonoBehaviour {
 
 	[SerializeField] protected float StartTime;
 
+	[SerializeField] protected bool isFocusEvent = false;
+
+	[SerializeField] protected float FucusTime = 2f;
 
 	//========================================================================================
 	//                                    public
@@ -23,13 +26,29 @@ public class TimelineEventStandard : MonoBehaviour {
 	/// </summary>
 	public virtual void EventStart() {
 
-
+		
 
 	}
 
 	public float time {
 		get { return StartTime; }
 	}
+
+	protected void SetFocus(Transform trs) {
+
+		if (isFocusEvent) {
+			CameraManager.Instance.FocusCamera.AddTarget(trs);
+			StartCoroutine(FucusTimeUpdate(trs));
+		}
+	}
+
+	protected IEnumerator FucusTimeUpdate(Transform trs) {
+
+		print("event開始");
+		yield return new WaitForSeconds(FucusTime);
+		CameraManager.Instance.FocusCamera.DeleteTarget(trs);
+	}
+
 
 	/// <summary>
 	/// 比較関数
