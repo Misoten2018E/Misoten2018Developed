@@ -17,7 +17,7 @@ public class testPlayer : MonoBehaviour {
 	private void Awake() {
 
 		Action = GetComponent<testActionBase>();
-		Action.Initialize(this);
+	//	Action.Initialize(this);
 	}
 
 	// Use this for initialization

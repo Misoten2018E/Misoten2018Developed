@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class testActionBase : MonoBehaviour {
 
-	public abstract void Initialize(testPlayer player);
+	public abstract void Initialize(Player player);
 	public abstract void Destruct();
 
 	public abstract void ActionCircle();

@@ -48,7 +48,7 @@ public class HitSeriesofAction : PauseSupport {
 	/// 初期処理
 	/// </summary>
 	/// <param name="player"></param>
-	public void Initialize(testPlayer player) {
+	public void Initialize(Player player) {
 		myPlayer = player;
 
 		var Hits = GetComponentsInChildren<HitObject>();
@@ -130,8 +130,8 @@ public class HitSeriesofAction : PauseSupport {
 		}
 	}
 
-	testPlayer _myPlayer;
-	public testPlayer myPlayer {
+	Player _myPlayer;
+	public Player myPlayer {
 		private set { _myPlayer = value; }
 		get { return _myPlayer; }
 	}

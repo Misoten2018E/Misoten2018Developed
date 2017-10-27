@@ -36,7 +36,7 @@ public class testActionHero : testActionBase {
 		
 	}
 
-	public override void Initialize(testPlayer player) {
+	public override void Initialize(Player player) {
 		myPlayer = player;
 	}
 
@@ -63,8 +63,8 @@ public class testActionHero : testActionBase {
 	//========================================================================================
 
 
-	testPlayer _myPlayer;
-	public testPlayer myPlayer {
+	Player _myPlayer;
+	public Player myPlayer {
 		private set { _myPlayer = value; }
 		get { return _myPlayer; }
 	}
