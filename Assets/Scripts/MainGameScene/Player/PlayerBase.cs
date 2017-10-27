@@ -14,7 +14,6 @@ public class PlayerBase : MonoBehaviour {
     protected Animator animator;
 
     protected int PlayerSta;
-    protected Vector3 CharacterPosition;
     protected bool aniendFlg;
 
     protected int HP;
@@ -59,9 +58,9 @@ public class PlayerBase : MonoBehaviour {
      
     }
 
-    public Vector3 GetCharacterPosition()
+    public Vector3 GetBodyPosition()
     {
-        return CharacterPosition;
+        return animator.bodyPosition;
     }
 
     protected void MoveCharacter()
@@ -74,8 +73,6 @@ public class PlayerBase : MonoBehaviour {
         }
 
         CharCon.Move(velocity * Time.deltaTime);
-
-        CharacterPosition = transform.position;
     }
 
     protected void RotationCharacter()
@@ -101,6 +98,9 @@ public class PlayerBase : MonoBehaviour {
         AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
         if(info.IsName(str) && info.normalizedTime > 1.0f)
         {
+            Vector3 bodypos = GetBodyPosition();
+            bodypos.y = transform.position.y;
+            transform.position = bodypos;
             return true;
         }
         else

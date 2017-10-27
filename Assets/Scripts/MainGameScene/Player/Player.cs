@@ -23,24 +23,17 @@ public class Player : MonoBehaviour {
 
         workpos.Set(transform.position.x,transform.position.y, transform.position.z);
         NowCharacter = Instantiate(NormalCharacter, workpos, Quaternion.identity) as GameObject;
-        //NowCharacter.transform.parent = transform;
+
         playerbase = NowCharacter.GetComponent<PlayerBase>();
         playerbase.Playerinit(no);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //if (Input.GetButton("Submit"))
-        //{
-        //    Vector3 pos = new Vector3(0,0,0);
-        //    playerbase.ChangeCharacterAction(pos);
-        //}
-        //else
-        //{
-            playerbase.PlayerUpdate();
-        //}
         
-        transform.position = NowCharacter.transform.position;
+        playerbase.PlayerUpdate();
+        
+        transform.position = playerbase.GetBodyPosition();
         //if (input.GetButtonCircleTrigger())
         //{
         //    print("ButtonCircleTrigger" + no);
