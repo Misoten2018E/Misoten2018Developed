@@ -121,13 +121,8 @@ InputManager:
     m_Name: Player_X3
     descriptiveName: 
     descriptiveNegativeName: 
-<<<<<<< HEAD
-    negativeButton: left
-    positiveButton: right
-=======
     negativeButton: up
     positiveButton: down
->>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -190,13 +185,8 @@ InputManager:
     m_Name: Player_Y1
     descriptiveName: 
     descriptiveNegativeName: 
-<<<<<<< HEAD
-    negativeButton: t
-    positiveButton: g
-=======
     negativeButton: g
     positiveButton: t
->>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -227,13 +217,8 @@ InputManager:
     m_Name: Player_Y2
     descriptiveName: 
     descriptiveNegativeName: 
-<<<<<<< HEAD
-    negativeButton: i
-    positiveButton: k
-=======
     negativeButton: k
     positiveButton: i
->>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -264,13 +249,8 @@ InputManager:
     m_Name: Player_Y3
     descriptiveName: 
     descriptiveNegativeName: 
-<<<<<<< HEAD
-    negativeButton: up
-    positiveButton: down
-=======
     negativeButton: left
     positiveButton: right
->>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -448,11 +428,7 @@ InputManager:
     negativeButton: 
     positiveButton: joystick 3 button 2
     altNegativeButton: 
-<<<<<<< HEAD
-    altPositiveButton: m
-=======
     altPositiveButton: ','
->>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -468,11 +444,7 @@ InputManager:
     negativeButton: 
     positiveButton: joystick 4 button 2
     altNegativeButton: 
-<<<<<<< HEAD
-    altPositiveButton: right ctrl
-=======
     altPositiveButton: right shift
->>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -520,11 +492,7 @@ InputManager:
     negativeButton: 
     positiveButton: joystick 3 button 0
     altNegativeButton: 
-<<<<<<< HEAD
-    altPositiveButton: ','
-=======
     altPositiveButton: m
->>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -540,11 +508,7 @@ InputManager:
     negativeButton: 
     positiveButton: joystick 4 button 0
     altNegativeButton: 
-<<<<<<< HEAD
-    altPositiveButton: right shift
-=======
     altPositiveButton: right ctrl
->>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
