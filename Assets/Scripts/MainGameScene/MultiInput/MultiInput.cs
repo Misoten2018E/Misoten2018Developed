@@ -27,80 +27,80 @@ public class MultiInput : MonoBehaviour {
     //======================================================================
     public float GetXaxis()
     {
-        return Input.GetAxisRaw("Player"+ WorkPlayerNo + "_X");
+        return Input.GetAxisRaw("Player_X" + WorkPlayerNo);
     }
 
     public float GetYaxis()
     {
-        return Input.GetAxisRaw("Player" + WorkPlayerNo + "_Y");
+        return Input.GetAxisRaw("Player_Y" + WorkPlayerNo);
     }
     //======================================================================
 
     //======================================================================
     public bool GetButtonCircleTrigger()
     {
-        return Input.GetButtonDown("Player" + WorkPlayerNo + "_Circle");
+        return Input.GetButtonDown("Player_Circle" + WorkPlayerNo);
     }
 
     public bool GetButtonCircleRelease()
     {
-        return Input.GetButtonUp("Player" + WorkPlayerNo + "_Circle");
+        return Input.GetButtonUp("Player_Circle" + WorkPlayerNo);
     }
 
     public bool GetButtonCirclePress()
     {
-        return Input.GetButton("Player" + WorkPlayerNo + "_Circle");
+        return Input.GetButton("Player_Circle" + WorkPlayerNo);
     }
     //======================================================================
 
     //======================================================================
     public bool GetButtonTriangleTrigger()
     {
-        return Input.GetButtonDown("Player" + WorkPlayerNo + "_Triangle");
+        return Input.GetButtonDown("Player_Triangle" + WorkPlayerNo);
     }
 
     public bool GetButtonTriangleRelease()
     {
-        return Input.GetButtonUp("Player" + WorkPlayerNo + "_Triangle");
+        return Input.GetButtonUp("Player_Triangle" + WorkPlayerNo);
     }
 
     public bool GetButtonTrianglePress()
     {
-        return Input.GetButton("Player" + WorkPlayerNo + "_Triangle");
+        return Input.GetButton("Player_Triangle" + WorkPlayerNo);
     }
     //======================================================================
     
     //======================================================================
     public bool GetButtonSquareTrigger()
     {
-        return Input.GetButtonDown("Player" + WorkPlayerNo + "_Square");
+        return Input.GetButtonDown("Player_Square" + WorkPlayerNo);
     }
 
     public bool GetButtonSquareRelease()
     {
-        return Input.GetButtonUp("Player" + WorkPlayerNo + "_Square");
+        return Input.GetButtonUp("Player_Square" + WorkPlayerNo);
     }
 
     public bool GetButtonSquarePress()
     {
-        return Input.GetButton("Player" + WorkPlayerNo + "_Square");
+        return Input.GetButton("Player_Square" + WorkPlayerNo);
     }
     //======================================================================
     
     //======================================================================
     public bool GetButtonCrossTrigger()
     {
-        return Input.GetButtonDown("Player" + WorkPlayerNo + "_Cross");
+        return Input.GetButtonDown("Player_Cross" + WorkPlayerNo);
     }
 
     public bool GetButtonCrossRelease()
     {
-        return Input.GetButtonUp("Player" + WorkPlayerNo + "_Cross");
+        return Input.GetButtonUp("Player_Cross" + WorkPlayerNo);
     }
 
     public bool GetButtonCrossPress()
     {
-        return Input.GetButton("Player" + WorkPlayerNo + "_Cross");
+        return Input.GetButton("Player_Cross" + WorkPlayerNo);
     }
     //======================================================================
 
@@ -109,7 +109,7 @@ public class MultiInput : MonoBehaviour {
     {
         for(int i = 0;i < 4 ;i++)
         {
-            if(Input.GetButtonDown("Player" + i + "_Circle"))
+            if(Input.GetButtonDown("Player_Circle" + i))
             {
                 return true;
             }
@@ -121,7 +121,7 @@ public class MultiInput : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Input.GetButtonUp("Player" + i + "_Circle"))
+            if (Input.GetButtonUp("Player_Circle" + i))
             {
                 return true;
             }
@@ -133,7 +133,7 @@ public class MultiInput : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Input.GetButton("Player" + i + "_Circle"))
+            if (Input.GetButton("Player_Circle" + i))
             {
                 return true;
             }
@@ -147,7 +147,7 @@ public class MultiInput : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Input.GetButtonDown("Player" + i + "_Triangle"))
+            if (Input.GetButtonDown("Player_Triangle" + i))
             {
                 return true;
             }
@@ -159,7 +159,7 @@ public class MultiInput : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Input.GetButtonUp("Player" + i + "_Triangle"))
+            if (Input.GetButtonUp("Player_Triangle" + i))
             {
                 return true;
             }
@@ -171,7 +171,7 @@ public class MultiInput : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Input.GetButton("Player" + i + "_Triangle"))
+            if (Input.GetButton("Player_Triangle" + i))
             {
                 return true;
             }
@@ -185,7 +185,7 @@ public class MultiInput : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Input.GetButtonDown("Player" + i + "_Square"))
+            if (Input.GetButtonDown("Player_Square" + i))
             {
                 return true;
             }
@@ -197,7 +197,7 @@ public class MultiInput : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Input.GetButtonUp("Player" + i + "_Square"))
+            if (Input.GetButtonUp("Player_Square" + i))
             {
                 return true;
             }
@@ -209,7 +209,7 @@ public class MultiInput : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Input.GetButton("Player" + i + "_Square"))
+            if (Input.GetButton("Player_Square" + i))
             {
                 return true;
             }
@@ -223,7 +223,7 @@ public class MultiInput : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Input.GetButtonDown("Player" + i + "_Cross"))
+            if (Input.GetButtonDown("Player_Cross" + i))
             {
                 return true;
             }
@@ -235,7 +235,7 @@ public class MultiInput : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Input.GetButtonUp("Player" + i + "_Cross"))
+            if (Input.GetButtonUp("Player_Cross" + i))
             {
                 return true;
             }
@@ -247,7 +247,7 @@ public class MultiInput : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            if (Input.GetButton("Player" + i + "_Cross"))
+            if (Input.GetButton("Player_Cross" + i))
             {
                 return true;
             }

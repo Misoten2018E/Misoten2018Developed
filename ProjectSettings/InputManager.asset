@@ -6,7 +6,7 @@ InputManager:
   serializedVersion: 2
   m_Axes:
   - serializedVersion: 3
-    m_Name: Player0_X
+    m_Name: Player_X0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -22,7 +22,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player0_X
+    m_Name: Player_X0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: a
@@ -38,7 +38,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player1_X
+    m_Name: Player_X1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -54,7 +54,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player1_X
+    m_Name: Player_X1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: f
@@ -70,7 +70,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player2_X
+    m_Name: Player_X2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -86,7 +86,7 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Player2_X
+    m_Name: Player_X2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: j
@@ -102,7 +102,7 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Player3_X
+    m_Name: Player_X3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -118,11 +118,16 @@ InputManager:
     axis: 0
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Player3_X
+    m_Name: Player_X3
     descriptiveName: 
     descriptiveNegativeName: 
+<<<<<<< HEAD
     negativeButton: left
     positiveButton: right
+=======
+    negativeButton: up
+    positiveButton: down
+>>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -134,7 +139,7 @@ InputManager:
     axis: 0
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Player0_Y
+    m_Name: Player_Y0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -150,7 +155,7 @@ InputManager:
     axis: 1
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player0_Y
+    m_Name: Player_Y0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: w
@@ -166,7 +171,7 @@ InputManager:
     axis: 1
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player1_Y
+    m_Name: Player_Y1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -182,11 +187,16 @@ InputManager:
     axis: 1
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player1_Y
+    m_Name: Player_Y1
     descriptiveName: 
     descriptiveNegativeName: 
+<<<<<<< HEAD
     negativeButton: t
     positiveButton: g
+=======
+    negativeButton: g
+    positiveButton: t
+>>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -198,7 +208,7 @@ InputManager:
     axis: 1
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player2_Y
+    m_Name: Player_Y2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -214,11 +224,16 @@ InputManager:
     axis: 1
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Player2_Y
+    m_Name: Player_Y2
     descriptiveName: 
     descriptiveNegativeName: 
+<<<<<<< HEAD
     negativeButton: i
     positiveButton: k
+=======
+    negativeButton: k
+    positiveButton: i
+>>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -230,7 +245,7 @@ InputManager:
     axis: 1
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Player3_Y
+    m_Name: Player_Y3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -246,11 +261,16 @@ InputManager:
     axis: 1
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Player3_Y
+    m_Name: Player_Y3
     descriptiveName: 
     descriptiveNegativeName: 
+<<<<<<< HEAD
     negativeButton: up
     positiveButton: down
+=======
+    negativeButton: left
+    positiveButton: right
+>>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -262,7 +282,7 @@ InputManager:
     axis: 1
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Player0_Circle
+    m_Name: Player_Circle0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -278,7 +298,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player1_Circle
+    m_Name: Player_Circle1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -294,7 +314,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player2_Circle
+    m_Name: Player_Circle2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -310,7 +330,7 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Player3_Circle
+    m_Name: Player_Circle3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -326,7 +346,7 @@ InputManager:
     axis: 0
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Player0_Triangle
+    m_Name: Player_Triangle0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -342,7 +362,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player1_Triangle
+    m_Name: Player_Triangle1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -358,7 +378,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player2_Triangle
+    m_Name: Player_Triangle2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -374,7 +394,7 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Player3_Triangle
+    m_Name: Player_Triangle3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -390,7 +410,7 @@ InputManager:
     axis: 0
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Player0_Square
+    m_Name: Player_Square0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -406,7 +426,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player1_Square
+    m_Name: Player_Square1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -422,13 +442,17 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player2_Square
+    m_Name: Player_Square2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 3 button 2
     altNegativeButton: 
+<<<<<<< HEAD
     altPositiveButton: m
+=======
+    altPositiveButton: ','
+>>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -438,13 +462,17 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Player3_Square
+    m_Name: Player_Square3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 4 button 2
     altNegativeButton: 
+<<<<<<< HEAD
     altPositiveButton: right ctrl
+=======
+    altPositiveButton: right shift
+>>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -454,7 +482,7 @@ InputManager:
     axis: 0
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Player0_Cross
+    m_Name: Player_Cross0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -470,7 +498,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player1_Cross
+    m_Name: Player_Cross1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -486,13 +514,17 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player2_Cross
+    m_Name: Player_Cross2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 3 button 0
     altNegativeButton: 
+<<<<<<< HEAD
     altPositiveButton: ','
+=======
+    altPositiveButton: m
+>>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -502,13 +534,17 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Player3_Cross
+    m_Name: Player_Cross3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 4 button 0
     altNegativeButton: 
+<<<<<<< HEAD
     altPositiveButton: right shift
+=======
+    altPositiveButton: right ctrl
+>>>>>>> dfd748d8a523e12cb574f2a4fbb11a84f82276ed
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
