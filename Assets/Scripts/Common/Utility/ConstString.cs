@@ -4,6 +4,8 @@ public static class ConstDirectry {
 	public const string DirPrefabs = "Prefabs/";
 	public const string DirPrefabsHit = DirPrefabs + "Hit/";
 	public const string DirPopup = DirPrefabs + "Popup/";
+	public const string DirScene = "Scene/ProductScene/";
+	public const string DirSceneDebug = "Scene/DebugScene/";
 }
 
 public static class ConstActionHitData {
@@ -18,7 +20,8 @@ public static class ConstString {
 
 public static class ConstScene {
 
-	public const string MainGameScene = "DebugScene";
+	public const string IntroScene = "IntroductScene";
+	public const string MainGameScene = "DebugScene_edo";
 
 }
 

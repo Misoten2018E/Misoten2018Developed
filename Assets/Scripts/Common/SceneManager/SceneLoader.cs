@@ -29,10 +29,10 @@ public class SceneLoader : MonoBehaviour {
 	/// シーンのロード開始
 	/// </summary>
 	/// <param name="name"></param>
-	public void SceneLoad(string name) {
+	public void SceneLoad(string directry,string name) {
 
 		isLoading = true;
-		StartCoroutine(LoadSceneAsyncAdditive(name));
+		StartCoroutine(LoadSceneAsyncAdditive(directry,name));
 	}
 
 
@@ -45,13 +45,13 @@ public class SceneLoader : MonoBehaviour {
 	/// <summary>
 	/// 読み込み直し
 	/// </summary>
-	public void SceneReload() {
+	//public void SceneReload() {
 
-		isLoading = true;
+	//	isLoading = true;
 
-		StartCoroutine(IEReloadScene());
+	//	StartCoroutine(IEReloadScene());
 
-	}
+	//}
 
 	/// <summary>
 	/// ロード中 = true
@@ -81,12 +81,12 @@ public class SceneLoader : MonoBehaviour {
 	/// </summary>
 	/// <param name="StageName"></param>
 	/// <returns></returns>
-	IEnumerator LoadSceneAsyncAdditive(string StageName) {
+	IEnumerator LoadSceneAsyncAdditive(string directry,string StageName) {
 
 		DebugLog.log(StageName + "ロード開始");
 		isLoading = true;
 
-		AsyncOperation ao = SceneManager.LoadSceneAsync(StageName, LoadSceneMode.Additive);
+		AsyncOperation ao = SceneManager.LoadSceneAsync(directry + StageName, LoadSceneMode.Additive);
 		ao.allowSceneActivation = false;
 
 		while (true) {
@@ -195,35 +195,35 @@ public class SceneLoader : MonoBehaviour {
 	/// シーンのリロードを行う
 	/// </summary>
 	/// <returns></returns>
-	IEnumerator IEReloadScene() {
+	//IEnumerator IEReloadScene() {
 
-		var scene = SceneManager.GetActiveScene();
+	//	var scene = SceneManager.GetActiveScene();
 
-		PermitLoading = true;
+	//	PermitLoading = true;
 
-		StartCoroutine(LoadSceneAsyncAdditive(scene.name));
+	//	StartCoroutine(LoadSceneAsyncAdditive(scene.name));
 
-		while (true) {
+	//	while (true) {
 
-			if (!this.isLoad) {
-				yield return null;
-				break;
-			}
+	//		if (!this.isLoad) {
+	//			yield return null;
+	//			break;
+	//		}
 
-			yield return null;
-		}
+	//		yield return null;
+	//	}
 
 
-		StartCoroutine(UnLoadSceneAsync(scene));
+	//	StartCoroutine(UnLoadSceneAsync(scene));
 
-		while (true) {
+	//	while (true) {
 
-			if (this.isReleased) {
-				yield return null;
-				break;
-			}
+	//		if (this.isReleased) {
+	//			yield return null;
+	//			break;
+	//		}
 
-			yield return null;
-		}
-	}
+	//		yield return null;
+	//	}
+	//}
 }

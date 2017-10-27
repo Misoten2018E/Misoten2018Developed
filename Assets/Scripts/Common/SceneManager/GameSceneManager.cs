@@ -57,19 +57,21 @@ public class GameSceneManager : MonoBehaviour {
 		// ロードを許可
 		Loader.PermitLoading = true;
 
-		StartCoroutine(IESceneLoad(Loader, ConstScene.MainGameScene));
+		LoadSceneList[(int)SceneType.Global] = SceneManager.GetActiveScene();
+		StartCoroutine(IESceneLoad(Loader, ConstDirectry.DirSceneDebug, ConstScene.MainGameScene, SceneType.Main));
+		StartCoroutine(IESceneLoad(Loader, ConstDirectry.DirScene, ConstScene.IntroScene, SceneType.Intro));
 	}
 
 	/// <summary>
 	/// シーン終了用コルーチン
 	/// </summary>
 	/// <returns></returns>
-	private IEnumerator IESceneLoad(SceneLoader loader, string sceneName) {
+	private IEnumerator IESceneLoad(SceneLoader loader,string directry, string sceneName ,SceneType type) {
 
 		yield return null;
 
 		// 次のシーンのロード
-		loader.SceneLoad(sceneName);
+		loader.SceneLoad(directry, sceneName);
 
 		yield return null;
 
@@ -85,8 +87,9 @@ public class GameSceneManager : MonoBehaviour {
 		yield return null;
 
 		// ロードしたシーンをアクティブに
-		var scene = loader.LoadingScene;
-		SceneManager.SetActiveScene(scene);
+		LoadSceneList[(int)type] = loader.LoadingScene;
+		//var scene = loader.LoadingScene;
+		//SceneManager.SetActiveScene(scene);
 
 		yield return null;
 	}
@@ -96,4 +99,13 @@ public class GameSceneManager : MonoBehaviour {
 	//                                    private
 	//========================================================================================
 
+	public enum SceneType {
+		Global,
+		Intro,
+		Main,
+		SceneMax
+	}
+	const int SceneMax = (int)SceneType.SceneMax;
+
+	Scene[] LoadSceneList = new Scene[SceneMax];
 }
