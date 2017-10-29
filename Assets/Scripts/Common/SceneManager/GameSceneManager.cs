@@ -11,6 +11,7 @@ public class GameSceneManager : MonoBehaviour {
 	//                                    inspector
 	//========================================================================================
 
+	public SceneType StartScene = SceneType.Intro;
 
 	//========================================================================================
 	//                                    public
@@ -58,7 +59,7 @@ public class GameSceneManager : MonoBehaviour {
 		Loader.PermitLoading = true;
 
 		LoadSceneList[(int)SceneType.Global] = SceneManager.GetActiveScene();
-		StartCoroutine(IESceneLoad(Loader, ConstDirectry.DirSceneDebug, ConstScene.MainGameScene, SceneType.Main));
+	//	StartCoroutine(IESceneLoad(Loader, ConstDirectry.DirScene, ConstScene.MainGameScene, SceneType.Main));
 		StartCoroutine(IESceneLoad(Loader, ConstDirectry.DirScene, ConstScene.IntroScene, SceneType.Intro));
 	}
 
@@ -88,8 +89,10 @@ public class GameSceneManager : MonoBehaviour {
 
 		// ロードしたシーンをアクティブに
 		LoadSceneList[(int)type] = loader.LoadingScene;
-		//var scene = loader.LoadingScene;
-		//SceneManager.SetActiveScene(scene);
+
+		if(StartScene == type){
+			SceneManager.SetActiveScene(LoadSceneList[(int)type]);
+		}
 
 		yield return null;
 	}

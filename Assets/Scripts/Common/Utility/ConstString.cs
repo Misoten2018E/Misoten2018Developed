@@ -21,7 +21,7 @@ public static class ConstString {
 public static class ConstScene {
 
 	public const string IntroScene = "IntroductScene";
-	public const string MainGameScene = "DebugScene_edo";
+	public const string MainGameScene = "MainScene";
 
 }
 
