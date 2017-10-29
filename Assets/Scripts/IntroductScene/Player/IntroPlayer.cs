@@ -2,53 +2,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IntroductManager : MonoBehaviour {
+[RequireComponent(typeof(MultiInput))]
+public class IntroPlayer : MonoBehaviour {
 
 
-	//========================================================================================
-	//                                    inspector
-	//========================================================================================
-
-	List<IFIntroStartEvent> IntroStartEvent;
 
 	//========================================================================================
 	//                                    public
 	//========================================================================================
 
-	// シングルトンインスタンス
-	static IntroductManager myInstance;
-	static public IntroductManager Instance {
-		get {
-			return myInstance;
-		}
-	}
+	public void CheckStart() {
 
+		enabled = true;
+
+	}
 
 	//========================================================================================
 	//                                    public - override
 	//========================================================================================
 
 	// Use this for initialization
-	void Awake() {
+	void Awake () {
+		multiInput = GetComponent<MultiInput>();
 
-		myInstance = this;
+		isReadyOK = false;
+
+		enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		if (multiInput.GetButtonCircleTrigger()) {
+			isReadyOK = true;
+		}
 	}
+
 
 
 	//========================================================================================
 	//                                    private
 	//========================================================================================
 
+	MultiInput multiInput;
 
-}
-
-
-public interface IFIntroStartEvent {
-
-	void StartEvent();
+	bool _isReadyOK;
+	public bool isReadyOK {
+		private set { _isReadyOK = value; }
+		get { return _isReadyOK; }
+	}
+      
 }
