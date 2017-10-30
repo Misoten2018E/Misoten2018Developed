@@ -22,7 +22,7 @@ public static class ConstScene {
 
 	public const string IntroScene = "IntroductScene";
 	public const string MainGameScene = "MainScene";
-
+	public const string ResultScene = "ResultScene";
 }
 
 
