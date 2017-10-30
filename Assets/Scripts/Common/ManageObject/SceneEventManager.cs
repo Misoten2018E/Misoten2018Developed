@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SceneEventManager : MonoBehaviour {
 
+	//========================================================================================
+	//                                    public
+	//========================================================================================
 
 	// シングルトンインスタンス
 	static SceneEventManager myInstance;
@@ -13,21 +16,9 @@ public class SceneEventManager : MonoBehaviour {
 		}
 	}
 
-
-	List<SceneStartEvent> ObjectList = new List<SceneStartEvent>();
-
-	private void Awake() {
-		myInstance = this;
-	}
-
-	private void Start() {
-
-		Initialize();
-
-		SceneStart();
-	}
-
-
+	/// <summary>
+	/// 初期処理
+	/// </summary>
 	public void Initialize() {
 
 		var list = GameObject.FindObjectsOfType<SceneStartEvent>();
@@ -36,31 +27,89 @@ public class SceneEventManager : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// シーン開始
+	/// </summary>
 	public void SceneStart() {
 
-		StartCoroutine(SceneInitialize());
+		StartCoroutine(IESceneInitialize());
 	}
 
+	/// <summary>
+	/// ゲーム開始
+	/// </summary>
 	public void GameStart() {
 
-		EventManager<IFGameStartEvent>.Instance.GameStart((IFGameStartEvent ev) => { ev.GameStart(); });
+		GameSceneManager.Instance.SetActiveScene(GameSceneManager.SceneType.Main);
+
+		EventManager<IFGameStartEvent>.Instance.MethodStart((IFGameStartEvent ev) => { ev.GameStart(); });
 	}
+
+	/// <summary>
+	/// ゲーム終了時
+	/// </summary>
+	public void GameEnd() {
+
+		EventManager<IFGameEndEvent>.Instance.MethodStart((IFGameEndEvent ev) => { ev.GameEnd(); });
+
+		StartCoroutine(IEEndProduceCheck());
+	}
+
+	public void NextSceneStart() {
+
+		var pauses = GameObject.FindObjectsOfType<PauseSupport>();
+
+		for (int i = 0; i < pauses.Length; i++) {
+			pauses[i].OnPause();
+		}
+
+		GameSceneManager.Instance.LoadScene(GameSceneManager.SceneType.Result);
+	}
+
+	//========================================================================================
+	//                                    public - override
+	//========================================================================================
+
+	/// <summary>
+	/// オブジェクト作成時
+	/// </summary>
+	private void Awake() {
+		myInstance = this;
+	}
+
+	/// <summary>
+	/// Unityから呼ばれる初期化処理
+	/// </summary>
+	private void Start() {
+
+		Initialize();
+
+		SceneStart();
+	}
+
+
+	//========================================================================================
+	//                                    private
+	//========================================================================================
+
+	List<SceneStartEvent> ObjectList = new List<SceneStartEvent>();
+
 
 	/// <summary>
 	/// 初期処理コルーチン
 	/// </summary>
 	/// <returns></returns>
-	IEnumerator SceneInitialize() {
+	IEnumerator IESceneInitialize() {
+
+		yield return new WaitForSeconds(1f);
 
 		yield return null;
 
-		yield return SceneMyInit();
+		yield return IESceneMyInit();
 
-		yield return SceneOtherInit();
+		yield return IESceneOtherInit();
 
-		yield return SceneDelayInit();
-
-		yield return null;
+		yield return IESceneDelayInit();
 
 		GameStart();
 	}
@@ -70,7 +119,7 @@ public class SceneEventManager : MonoBehaviour {
 	/// オブジェクト単位の初期処理開始
 	/// </summary>
 	/// <returns></returns>
-	IEnumerator SceneMyInit() {
+	IEnumerator IESceneMyInit() {
 
 		for (int i = 0; i < ObjectList.Count; i++) {
 			ObjectList[i].SceneMyInit();
@@ -83,7 +132,7 @@ public class SceneEventManager : MonoBehaviour {
 	/// 関連の初期処理開始
 	/// </summary>
 	/// <returns></returns>
-	IEnumerator SceneOtherInit() {
+	IEnumerator IESceneOtherInit() {
 
 		for (int i = 0; i < ObjectList.Count; i++) {
 			ObjectList[i].SceneOtherInit();
@@ -96,12 +145,33 @@ public class SceneEventManager : MonoBehaviour {
 	/// 遅延の初期処理開始
 	/// </summary>
 	/// <returns></returns>
-	IEnumerator SceneDelayInit() {
+	IEnumerator IESceneDelayInit() {
 
 		for (int i = 0; i < ObjectList.Count; i++) {
 			ObjectList[i].SceneDelayInit();
 		}
 
 		yield return null;
+	}
+
+	/// <summary>
+	/// 終了演出完了待ち
+	/// </summary>
+	/// <returns></returns>
+	IEnumerator IEEndProduceCheck() {
+
+		var checkInst = EventManager<IFGameEndProduceCheck>.Instance;
+
+		while (true) {
+
+			var isOk = checkInst.MethodCheck((IFGameEndProduceCheck ev) => { return ev.IsEndProduce(); });
+			if (isOk) {
+				break;
+			}
+
+			yield return null;
+		}
+
+		NextSceneStart();
 	}
 }

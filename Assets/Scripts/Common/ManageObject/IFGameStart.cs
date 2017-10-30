@@ -19,11 +19,12 @@ interface IFGameEndEvent {
 }
 
 /// <summary>
-/// ゲーム終了演出時に呼ばれる
+/// ゲーム終了演出時にtrueとなる
+/// セットされたオブジェクト全てがtrueであれば次のフェーズへ移行
 /// </summary>
-interface IFGameEndProduceEvent {
+interface IFGameEndProduceCheck {
 
-	void EndProduce();
+	bool IsEndProduce();
 }
 
 public class EventManager<T> {
@@ -49,10 +50,22 @@ public class EventManager<T> {
 		EventList.Add(obj);
 	}
 
-	public void GameStart(System.Action<T> EvMethod) {
+	public void MethodStart(System.Action<T> EvMethod) {
 
 		for (int i = 0; i < EventList.Count; i++) {
 			EvMethod(EventList[i]);
 		}
+	}
+
+	public bool MethodCheck(System.Func<T, bool> EvMethod) {
+
+		for (int i = 0; i < EventList.Count; i++) {
+
+			// trueでないものが存在した時点でfalse
+			if (!EvMethod(EventList[i])) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

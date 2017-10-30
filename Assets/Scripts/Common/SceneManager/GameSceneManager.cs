@@ -26,13 +26,24 @@ public class GameSceneManager : MonoBehaviour {
 
 
 	SceneLoader _loader;
-	public SceneLoader Loader {
+	protected SceneLoader Loader {
 		get {
 			if (_loader == null) {
 				_loader = GetComponent<SceneLoader>();
 			}
 			return _loader;
 		}
+	}
+
+	public void SetActiveScene(SceneType type) {
+
+		var scene = LoadSceneList[(int)type];
+
+		if (scene == null) {
+			Debug.LogError("シーンが存在しない");
+			return;
+		}
+		SceneManager.SetActiveScene(scene);
 	}
 
 	/// <summary>
@@ -52,6 +63,10 @@ public class GameSceneManager : MonoBehaviour {
 				StartCoroutine(IESceneLoad(ConstScene.MainGameScene, type));
 				break;
 
+			case SceneType.Result:
+				StartCoroutine(IESceneLoad(ConstScene.ResultScene, type));
+				break;
+
 			default:
 				break;
 		}
@@ -65,18 +80,24 @@ public class GameSceneManager : MonoBehaviour {
 
 		EndLoadCallback = EndCallBack;
 
-		switch (type) {
+		StartCoroutine(IESceneUnload(type));
 
-			case SceneType.Intro:
-				StartCoroutine(IESceneUnload(type));
-				break;
-			case SceneType.Main:
-				StartCoroutine(IESceneUnload(type));
-				break;
+		//switch (type) {
 
-			default:
-				break;
-		}
+		//	case SceneType.Intro:
+		//		StartCoroutine(IESceneUnload(type));
+		//		break;
+		//	case SceneType.Main:
+		//		StartCoroutine(IESceneUnload(type));
+		//		break;
+
+		//	case SceneType.Result:
+		//		StartCoroutine(IESceneUnload(type));
+		//		break;
+
+		//	default:
+		//		break;
+		//}
 	}
 
 
@@ -206,6 +227,7 @@ public class GameSceneManager : MonoBehaviour {
 		Global,
 		Intro,
 		Main,
+		Result,
 		SceneMax
 	}
 	const int SceneMax = (int)SceneType.SceneMax;
