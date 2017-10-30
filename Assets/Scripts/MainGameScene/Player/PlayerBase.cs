@@ -6,6 +6,8 @@ public class PlayerBase : MonoBehaviour {
 
     const int ChangeMoveSpeed = 5;
 
+    public int no;
+
     protected float MoveSpeed;
     protected float RotationSpeed;
     protected CharacterController CharCon;

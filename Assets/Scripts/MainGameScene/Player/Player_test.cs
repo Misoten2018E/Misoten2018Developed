@@ -19,6 +19,7 @@ public class Player_test : PlayerBase
     MultiInput input;
     PLAYER_TEST_STA player_test_sta;
     bool ComboFlg;
+    HitAnimationBase HitAnime;
 
     const int Player_test_MoveSpeed = 5;
     const int Player_test_RotationSpeed = 750;
@@ -38,10 +39,12 @@ public class Player_test : PlayerBase
     override
     public void Playerinit(int playerno)
     {
+        no = playerno;
         input = GetComponent<MultiInput>();
         input.PlayerNo = playerno;
         CharCon = this.GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+        HitAnime = GetComponent<HitAnimationBase>();
 
         MoveSpeed = Player_test_MoveSpeed;
         RotationSpeed = Player_test_RotationSpeed;
@@ -50,6 +53,8 @@ public class Player_test : PlayerBase
         ComboFlg = false;
         HP = Player_test_MAXHP;
         Attack = Player_test_ATTACK;
+
+        HitAnime.Initialize(this);
     }
 
     override
@@ -94,6 +99,7 @@ public class Player_test : PlayerBase
             aniendFlg = false;
             player_test_sta = PLAYER_TEST_STA.WEAKATTACK1;
             PlayerSta = (int)player_test_sta;
+            HitAnime.HitAnimationWeakattack1();
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -101,6 +107,7 @@ public class Player_test : PlayerBase
             aniendFlg = false;
             player_test_sta = PLAYER_TEST_STA.STRONGATTACK;
             PlayerSta = (int)player_test_sta;
+            HitAnime.HitAnimationStrongattack();
         }
 
         if (input.GetButtonCircleTrigger())
@@ -108,6 +115,7 @@ public class Player_test : PlayerBase
             aniendFlg = false;
             player_test_sta = PLAYER_TEST_STA.SPECIAL;
             PlayerSta = (int)player_test_sta;
+            HitAnime.HitAnimationSpecial();
         }
 
         MoveCharacter();
@@ -117,7 +125,7 @@ public class Player_test : PlayerBase
     {
         RotationCharacter();
 
-        if(input.GetButtonSquareTrigger() && ComboFlg == false)
+        if (input.GetButtonSquareTrigger() && ComboFlg == false)
         {
             ComboFlg = true;
         }
@@ -129,6 +137,7 @@ public class Player_test : PlayerBase
                 player_test_sta = PLAYER_TEST_STA.WEAKATTACK2;
                 PlayerSta = (int)player_test_sta;
                 ComboFlg = false;
+                HitAnime.HitAnimationWeakattack2();
             }
             else
             {
@@ -154,6 +163,7 @@ public class Player_test : PlayerBase
                 player_test_sta = PLAYER_TEST_STA.WEAKATTACK3;
                 PlayerSta = (int)player_test_sta;
                 ComboFlg = false;
+                HitAnime.HitAnimationWeakattack3();
             }
             else
             {

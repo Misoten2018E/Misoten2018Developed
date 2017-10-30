@@ -17,22 +17,22 @@ public class testActionHero : testActionBase {
 	//========================================================================================
 
 	public override void ActionCircle() {
-		Action.Activate();
+		//Action.Activate();//初期化出来ないためコメントアウト
 	}
 
 	public override void ActionCross() {
-		Action.Activate();
-	}
+        //Action.Activate();//初期化出来ないためコメントアウト
+    }
 
-	public override void ActionSquare() {
-		ActionSuction.Activate();
-	}
+    public override void ActionSquare() {
+        //ActionSuction.Activate();//初期化出来ないためコメントアウト
+    }
 
-	public override void ActionTriangle() {
-		ActionSuction.Activate();
-	}
+    public override void ActionTriangle() {
+        //ActionSuction.Activate();//初期化出来ないためコメントアウト
+    }
 
-	public override void Destruct() {
+    public override void Destruct() {
 		
 	}
 
@@ -45,15 +45,15 @@ public class testActionHero : testActionBase {
 
 		var preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHit, ConstActionHitData.Action);
 		Action = Instantiate(preAction);
-		Action.Initialize(myPlayer);
+		//Action.Initialize(myPlayer);//ベースクラスを変えたためコメントアウト
 
 		preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHit, ConstActionHitData.ActionSuction);
 		ActionSuction = Instantiate(preAction);
-		ActionSuction.Initialize(myPlayer);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        //ActionSuction.Initialize(myPlayer);//ベースクラスを変えたためコメントアウト
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 

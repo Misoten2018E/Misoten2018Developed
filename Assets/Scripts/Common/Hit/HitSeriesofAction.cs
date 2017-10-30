@@ -48,8 +48,10 @@ public class HitSeriesofAction : PauseSupport {
 	/// 初期処理
 	/// </summary>
 	/// <param name="player"></param>
-	public void Initialize(testPlayer player) {
-		myPlayer = player;
+	//public void Initialize(testPlayer player) {//キャラのベースクラスにするためコメントアウト
+    public void Initialize(PlayerBase player)
+        {
+            myPlayer = player;
 
 		var Hits = GetComponentsInChildren<HitObject>();
 		for (int i = 0; i < Hits.Length; i++) {
@@ -130,9 +132,11 @@ public class HitSeriesofAction : PauseSupport {
 		}
 	}
 
-	testPlayer _myPlayer;
-	public testPlayer myPlayer {
-		private set { _myPlayer = value; }
+    //testPlayer _myPlayer;//キャラのベースクラスにするためコメントアウト
+    PlayerBase _myPlayer;
+    //public testPlayer myPlayer{//キャラのベースクラスにするためコメントアウト
+    public PlayerBase myPlayer{
+        private set { _myPlayer = value; }
 		get { return _myPlayer; }
 	}
     
