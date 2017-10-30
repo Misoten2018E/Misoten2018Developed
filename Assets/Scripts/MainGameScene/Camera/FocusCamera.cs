@@ -44,6 +44,14 @@ public class FocusCamera : MonoBehaviour {
 		}
 	}
 
+
+	Camera _MainCamera;
+	public Camera MainCamera {
+		private set { _MainCamera = value; }
+		get { return _MainCamera; }
+	}
+      
+
 	//========================================================================================
 	//                                    public - override
 	//========================================================================================
