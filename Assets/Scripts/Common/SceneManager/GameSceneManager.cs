@@ -35,9 +35,58 @@ public class GameSceneManager : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// シーンのロード
+	/// </summary>
+	/// <param name="type"></param>
+	public void LoadScene(SceneType type, System.Action EndCallBack = null) {
+
+		EndLoadCallback = EndCallBack;
+
+		switch (type) {
+
+			case SceneType.Intro:
+				StartCoroutine(IESceneLoad(ConstScene.IntroScene, type));
+				break;
+			case SceneType.Main:
+				StartCoroutine(IESceneLoad(ConstScene.MainGameScene, type));
+				break;
+
+			default:
+				break;
+		}
+	}
+
+	/// <summary>
+	/// シーンのアンロード
+	/// </summary>
+	/// <param name="type"></param>
+	public void UnloadScene(SceneType type, System.Action EndCallBack = null) {
+
+		EndLoadCallback = EndCallBack;
+
+		switch (type) {
+
+			case SceneType.Intro:
+				StartCoroutine(IESceneUnload(type));
+				break;
+			case SceneType.Main:
+				StartCoroutine(IESceneUnload(type));
+				break;
+
+			default:
+				break;
+		}
+	}
 
 
-	// Use this for initialization
+	//========================================================================================
+	//                                    public - override
+	//========================================================================================
+
+	/// <summary>
+	/// 開始
+	/// </summary>
 	void Start() {
 
 		// 存在していたら再生成しない
@@ -59,15 +108,22 @@ public class GameSceneManager : MonoBehaviour {
 		Loader.PermitLoading = true;
 
 		LoadSceneList[(int)SceneType.Global] = SceneManager.GetActiveScene();
-	//	StartCoroutine(IESceneLoad(Loader, ConstDirectry.DirScene, ConstScene.MainGameScene, SceneType.Main));
-		StartCoroutine(IESceneLoad(Loader, ConstDirectry.DirScene, ConstScene.IntroScene, SceneType.Intro));
+		LoadScene(StartScene);
 	}
+
+
+	//========================================================================================
+	//                                    private
+	//========================================================================================
 
 	/// <summary>
 	/// シーン終了用コルーチン
+	/// 特殊シーンでない限りディレクトリの指定不要
 	/// </summary>
 	/// <returns></returns>
-	private IEnumerator IESceneLoad(SceneLoader loader,string directry, string sceneName ,SceneType type) {
+	private IEnumerator IESceneLoad(string sceneName ,SceneType type ,string directry = ConstDirectry.DirScene) {
+
+		var loader = Loader;
 
 		yield return null;
 
@@ -95,8 +151,52 @@ public class GameSceneManager : MonoBehaviour {
 		}
 
 		yield return null;
+
+		if (EndLoadCallback != null) {
+			EndLoadCallback();
+			EndLoadCallback = null;
+		}
 	}
 
+	/// <summary>
+	/// シーン終了用コルーチン
+	/// 特殊シーンでない限りディレクトリの指定不要
+	/// </summary>
+	/// <returns></returns>
+	private IEnumerator IESceneUnload(SceneType type,System.Action EndCallback = null) {
+
+		var loader = Loader;
+
+		Scene unloadScene = LoadSceneList[(int)type];
+		if (unloadScene == null) {
+			// 存在しないなら終了
+			print("存在しないシーンをアンロードしようとした");
+			yield break;
+		}
+
+		yield return null;
+
+		// 次のシーンのアンロード
+		loader.SceneUnload(unloadScene.name);
+
+		yield return null;
+
+		while (true) {
+
+			// ロード終了したら
+			if (loader.isReleased) {
+				break;
+			}
+
+			yield return null;
+		}
+
+		yield return null;
+
+		if (EndCallback != null) {
+			EndCallback();
+		}
+	}
 
 	//========================================================================================
 	//                                    private
@@ -111,4 +211,7 @@ public class GameSceneManager : MonoBehaviour {
 	const int SceneMax = (int)SceneType.SceneMax;
 
 	Scene[] LoadSceneList = new Scene[SceneMax];
+
+	System.Action EndLoadCallback;
+	System.Action EndUnloadCallback;
 }

@@ -61,6 +61,8 @@ public class SceneEventManager : MonoBehaviour {
 		yield return SceneDelayInit();
 
 		yield return null;
+
+		GameStart();
 	}
 
 

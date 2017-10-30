@@ -11,10 +11,10 @@ public class IntroPlayer : MonoBehaviour {
 	//                                    public
 	//========================================================================================
 
-	public void CheckStart() {
+	public void CheckStart(CheckPlayers plMng) {
 
 		enabled = true;
-
+		checker = plMng;
 	}
 
 	//========================================================================================
@@ -33,8 +33,13 @@ public class IntroPlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (isReadyOK) {
+			return;
+		}
+
 		if (multiInput.GetButtonCircleTrigger()) {
 			isReadyOK = true;
+			StartCoroutine(IEReadyEvent());
 		}
 	}
 
@@ -46,10 +51,19 @@ public class IntroPlayer : MonoBehaviour {
 
 	MultiInput multiInput;
 
+	CheckPlayers checker;
+
 	bool _isReadyOK;
 	public bool isReadyOK {
 		private set { _isReadyOK = value; }
 		get { return _isReadyOK; }
 	}
-      
+     
+	IEnumerator IEReadyEvent() {
+
+		yield return null;
+
+		print("Player" + multiInput.PlayerNo + "OK");
+		checker.CheckReady();
+	}
 }

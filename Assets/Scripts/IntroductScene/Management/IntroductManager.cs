@@ -9,7 +9,6 @@ public class IntroductManager : MonoBehaviour {
 	//                                    inspector
 	//========================================================================================
 
-	List<IFIntroStartEvent> IntroStartEvent;
 
 	//========================================================================================
 	//                                    public
@@ -23,6 +22,10 @@ public class IntroductManager : MonoBehaviour {
 		}
 	}
 
+	public void NextSceneStart() {
+
+		GameSceneManager.Instance.LoadScene(GameSceneManager.SceneType.Main,()=> { EndIntroScene(); });
+	}
 
 	//========================================================================================
 	//                                    public - override
@@ -33,10 +36,15 @@ public class IntroductManager : MonoBehaviour {
 
 		myInstance = this;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	private void Start() {
+
+		var objs = GameObjectExtensions.FindObjectOfInterface<IFIntroStartEvent>();
+		StartEventList.AddRange(objs);
+
+		for (int i = 0; i < StartEventList.Count; i++) {
+			StartEventList[i].StartEvent();
+		}
 	}
 
 
@@ -44,7 +52,12 @@ public class IntroductManager : MonoBehaviour {
 	//                                    private
 	//========================================================================================
 
+	List<IFIntroStartEvent> StartEventList = new List<IFIntroStartEvent>();
 
+	private void EndIntroScene() {
+
+		GameSceneManager.Instance.UnloadScene(GameSceneManager.SceneType.Intro);
+	}
 }
 
 
