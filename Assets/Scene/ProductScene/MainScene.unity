@@ -959,7 +959,6 @@ GameObject:
   - component: {fileID: 313544807}
   - component: {fileID: 313544806}
   - component: {fileID: 313544805}
-  - component: {fileID: 313544804}
   - component: {fileID: 313544803}
   m_Layer: 0
   m_Name: PhotographCamera
@@ -979,13 +978,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e22627b4348154491be895911416b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!81 &313544804
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 313544802}
-  m_Enabled: 1
 --- !u!124 &313544805
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1628,7 +1620,6 @@ GameObject:
   - component: {fileID: 390070055}
   - component: {fileID: 390070054}
   - component: {fileID: 390070053}
-  - component: {fileID: 390070052}
   - component: {fileID: 390070056}
   m_Layer: 0
   m_Name: SubCamera
@@ -1637,13 +1628,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &390070052
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 390070051}
-  m_Enabled: 1
 --- !u!124 &390070053
 Behaviour:
   m_ObjectHideFlags: 0
@@ -3290,6 +3274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20080f639b369d042b5fe11a1f547dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPausePermit: 1
   OrthoMinSize: 7
   MoveEvent:
     serializedVersion: 2

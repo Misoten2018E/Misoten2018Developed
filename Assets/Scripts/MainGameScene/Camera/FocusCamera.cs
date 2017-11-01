@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
-public class FocusCamera : MonoBehaviour {
+public class FocusCamera : PauseSupport {
 
 
 	//========================================================================================
@@ -50,7 +50,20 @@ public class FocusCamera : MonoBehaviour {
 		private set { _MainCamera = value; }
 		get { return _MainCamera; }
 	}
-      
+
+	/// <summary>
+	/// 特殊なポーズ処理
+	/// </summary>
+	public override void OnPause() {
+		this.enabled = false;
+	}
+
+	/// <summary>
+	/// 特殊なポーズ処理
+	/// </summary>
+	public override void OnResume() {
+		this.enabled = true;
+	}
 
 	//========================================================================================
 	//                                    public - override

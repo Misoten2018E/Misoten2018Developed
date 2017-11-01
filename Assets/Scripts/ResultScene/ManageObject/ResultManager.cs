@@ -62,6 +62,7 @@ public class ResultManager : MonoBehaviour {
 
 		GameSceneManager.Instance.UnloadScene(GameSceneManager.SceneType.Main, () =>
 		{
+			print("リザルトシーンの削除");
 			GameSceneManager.Instance.UnloadScene(GameSceneManager.SceneType.Result);
 		});
 
