@@ -55,6 +55,7 @@ public class EventManager<T> {
 		for (int i = 0; i < EventList.Count; i++) {
 			EvMethod(EventList[i]);
 		}
+		EventList.Clear();
 	}
 
 	public bool MethodCheck(System.Func<T, bool> EvMethod) {
@@ -66,6 +67,8 @@ public class EventManager<T> {
 				return false;
 			}
 		}
+
+		EventList.Clear();
 		return true;
 	}
 }

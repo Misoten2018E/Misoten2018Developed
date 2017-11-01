@@ -33,14 +33,14 @@ public class SceneEventManager : MonoBehaviour {
 	public void SceneStart() {
 
 		StartCoroutine(IESceneInitialize());
+
+		
 	}
 
 	/// <summary>
 	/// ゲーム開始
 	/// </summary>
 	public void GameStart() {
-
-		GameSceneManager.Instance.SetActiveScene(GameSceneManager.SceneType.Main);
 
 		EventManager<IFGameStartEvent>.Instance.MethodStart((IFGameStartEvent ev) => { ev.GameStart(); });
 	}
@@ -63,7 +63,9 @@ public class SceneEventManager : MonoBehaviour {
 			pauses[i].OnPause();
 		}
 
-		GameSceneManager.Instance.LoadScene(GameSceneManager.SceneType.Result);
+		GameSceneManager.Instance.LoadScene(GameSceneManager.SceneType.Result,()=> {
+			GameSceneManager.Instance.SetActiveScene(GameSceneManager.SceneType.Result);
+		});
 	}
 
 	//========================================================================================
@@ -101,9 +103,9 @@ public class SceneEventManager : MonoBehaviour {
 	/// <returns></returns>
 	IEnumerator IESceneInitialize() {
 
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.5f);
 
-		yield return null;
+		GameSceneManager.Instance.SetActiveScene(GameSceneManager.SceneType.Main);
 
 		yield return IESceneMyInit();
 
@@ -111,6 +113,7 @@ public class SceneEventManager : MonoBehaviour {
 
 		yield return IESceneDelayInit();
 
+		print("ゲーム開始");
 		GameStart();
 	}
 

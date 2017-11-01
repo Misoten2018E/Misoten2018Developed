@@ -80,24 +80,8 @@ public class GameSceneManager : MonoBehaviour {
 
 		EndLoadCallback = EndCallBack;
 
-		StartCoroutine(IESceneUnload(type));
+		StartCoroutine(IESceneUnload(type, EndCallBack));
 
-		//switch (type) {
-
-		//	case SceneType.Intro:
-		//		StartCoroutine(IESceneUnload(type));
-		//		break;
-		//	case SceneType.Main:
-		//		StartCoroutine(IESceneUnload(type));
-		//		break;
-
-		//	case SceneType.Result:
-		//		StartCoroutine(IESceneUnload(type));
-		//		break;
-
-		//	default:
-		//		break;
-		//}
 	}
 
 
@@ -235,5 +219,4 @@ public class GameSceneManager : MonoBehaviour {
 	Scene[] LoadSceneList = new Scene[SceneMax];
 
 	System.Action EndLoadCallback;
-	System.Action EndUnloadCallback;
 }

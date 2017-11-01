@@ -23,6 +23,7 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
 		}
 
 		StartMainGameScene();
+		
 	}
 
 	//========================================================================================
@@ -30,6 +31,8 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
 	//========================================================================================
 
 	public void StartEvent() {
+
+		isEnd = false;
 
 		var players = GetComponentsInChildren<IntroPlayer>();
 		playerList.AddRange(players);
@@ -39,6 +42,16 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
 		}
 	}
 
+#if UNITY_DEBUG
+
+	void Update() {
+
+		if (Input.GetKey(KeyCode.Space)) {
+			StartMainGameScene();
+		}
+	}
+
+#endif
 
 	//========================================================================================
 	//                                    private
@@ -51,9 +64,20 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
 	/// </summary>
 	void StartMainGameScene() {
 
+		if (isEnd) {
+			return;
+		}
+
 		IntroductManager.Instance.NextSceneStart();
 		print("Nextscene OK");
+		isEnd = true;
 	}
 
-	
+
+	bool _isEnd;
+	public bool isEnd {
+		private set { _isEnd = value; }
+		get { return _isEnd; }
+	}
+      
 }
