@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(HittedDamage),typeof(ObjectHp))]
-public abstract class EnemyTypeBase : MonoBehaviour {
+public abstract class EnemyTypeBase : PauseSupport {
 
 	/// <summary>
 	/// 敵初期化

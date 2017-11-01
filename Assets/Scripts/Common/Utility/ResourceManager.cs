@@ -71,6 +71,9 @@ public class ResourceManager : MonoBehaviour {
 		if (myInstance == null) {
 			myInstance = this;
 		}
+		else {
+			Destroy(this);
+		}
 	}
 
 	//========================================================================================
