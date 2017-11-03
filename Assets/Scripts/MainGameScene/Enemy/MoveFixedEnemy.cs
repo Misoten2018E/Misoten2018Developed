@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveFixedEnemy : EnemyTypeBase {
+public class MoveFixedEnemy : PlayerAttackEnemy {
 
 
 	//========================================================================================
@@ -36,20 +36,14 @@ public class MoveFixedEnemy : EnemyTypeBase {
 	void Start () {
 		TargetIndex = 0;
 		CityTargeted = false;
+		IsEscape = false;
 		NextTargetSearch();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		//if (transform.position.y < 0.4f) {
-		//	transform.position += new Vector3(0, 0.1f, 0);
-		//}
-		//else if (transform.position.y > 0.6f) {
-		//	transform.position -= new Vector3(0, 0.1f, 0);
-		//}
-
-		if (NowTarget == null) {
+		if ((NowTarget == null) || IsStop) {
 			return;
 		}
 
@@ -60,6 +54,10 @@ public class MoveFixedEnemy : EnemyTypeBase {
 		HitLog.CheckEnd();
 	}
 
+	/// <summary>
+	/// 敵初期化
+	/// </summary>
+	/// <param name="InitData"></param>
 	public override void InitEnemy(UsedInitData InitData) {
 
 		transform.position = InitData.BasePosition.position;
@@ -68,17 +66,14 @@ public class MoveFixedEnemy : EnemyTypeBase {
 		CityTargeted = false;
 	}
 
+	/// <summary>
+	/// 当たり始めの判定
+	/// </summary>
+	/// <param name="other"></param>
 	private void OnTriggerEnter(Collider other) {
 
-		if (other.CompareTag(ConstTags.EnemyCheckPoint)) {
-
-			TargetIndex++;
-			NextTargetSearch();
-
-		}
-
-		if (other.CompareTag(ConstTags.City)) {
-			NextTargetSearch();
+		if (IsEscape) {
+			return;
 		}
 
 		if (other.CompareTag(ConstTags.PlayerAttack)) {
@@ -90,7 +85,18 @@ public class MoveFixedEnemy : EnemyTypeBase {
 			if (isHit) {
 
 				SwtichHitted(hito);
+				return;
 			}
+		}
+
+
+		if (other.CompareTag(ConstTags.EnemyCheckPoint)) {
+
+			TargetIndex++;
+			NextTargetSearch();
+
+		}else if (other.CompareTag(ConstTags.City)) {
+			NextTargetSearch();
 		}
 	}
 
@@ -107,10 +113,12 @@ public class MoveFixedEnemy : EnemyTypeBase {
 	/// </summary>
 	void NextTargetSearch() {
 
-		if (CityTargeted) {
+		if (CityTargeted && (!IsStop)) {
 
 			// 街に着いたということなので
 			// 一定時間待機状態へ
+			StopMove(5f,()=> { EscapeToOutside(); });
+			return;
 		}
 
 
@@ -126,6 +134,10 @@ public class MoveFixedEnemy : EnemyTypeBase {
 
 	}
 
+	/// <summary>
+	/// 当たったものに応じた処理
+	/// </summary>
+	/// <param name="obj"></param>
 	void SwtichHitted(HitObject obj) {
 
 		// (衝撃の方向)
@@ -183,11 +195,31 @@ public class MoveFixedEnemy : EnemyTypeBase {
 	/// <summary>
 	/// 死亡
 	/// </summary>
-	public void Destroy() {
+	private void Destroy() {
 
 		Destroy(this.gameObject);
 	}
 
+	/// <summary>
+	/// 外周へ逃げていく
+	/// </summary>
+	private void EscapeToOutside() {
+
+		// 逃走モードへ
+		// 今は仮で死ぬ
+		print("逃げた");
+		Destroy();
+	}
+
+	bool _IsEscape;
+	/// <summary>
+	/// 逃走flag
+	/// </summary>
+	public bool IsEscape {
+		private set { _IsEscape = value; }
+		get { return _IsEscape; }
+	}
+      
 
 	MeshRenderer _ChildModel;
 	public MeshRenderer ChildModel {

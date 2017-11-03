@@ -31,5 +31,5 @@ public static class ConstTags {
 	public const string PlayerAttack = "PlayerAttack";
 	public const string EnemyAttack = "EnemyAttack";
 	public const string EnemyCheckPoint = "EnemyCheckPoint";
-	public const string City = "City";
+	public const string City = "CityArea";
 }

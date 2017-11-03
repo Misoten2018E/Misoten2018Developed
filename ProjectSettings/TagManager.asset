@@ -7,7 +7,7 @@ TagManager:
   - EnemyAttack
   - PlayerAttack
   - EnemyCheckPoint
-  - City
+  - CityArea
   layers:
   - Default
   - TransparentFX

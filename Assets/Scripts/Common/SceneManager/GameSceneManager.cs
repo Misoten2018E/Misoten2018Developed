@@ -40,10 +40,14 @@ public class GameSceneManager : MonoBehaviour {
 		var scene = LoadSceneList[(int)type];
 
 		if (scene == null) {
-			Debug.LogError("シーンが存在しない");
+			DebugNullSceneMessage();
 			return;
 		}
 		SceneManager.SetActiveScene(scene);
+	}
+
+	private static void DebugNullSceneMessage() {
+		Debug.LogError("シーンが存在しない");
 	}
 
 	/// <summary>
@@ -175,7 +179,7 @@ public class GameSceneManager : MonoBehaviour {
 		Scene unloadScene = LoadSceneList[(int)type];
 		if (unloadScene == null) {
 			// 存在しないなら終了
-			print("存在しないシーンをアンロードしようとした");
+			DebugMessage();
 			yield break;
 		}
 
@@ -201,6 +205,10 @@ public class GameSceneManager : MonoBehaviour {
 		if (EndCallback != null) {
 			EndCallback();
 		}
+	}
+
+	private static void DebugMessage() {
+		print("存在しないシーンをアンロードしようとした");
 	}
 
 	//========================================================================================

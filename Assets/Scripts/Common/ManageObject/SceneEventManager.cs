@@ -105,7 +105,14 @@ public class SceneEventManager : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.5f);
 
+#if UNITY_DEBUG
+		if (GameSceneManager.Instance != null) {
+			GameSceneManager.Instance.SetActiveScene(GameSceneManager.SceneType.Main);
+		}
+#else
 		GameSceneManager.Instance.SetActiveScene(GameSceneManager.SceneType.Main);
+#endif
+
 
 		yield return IESceneMyInit();
 
