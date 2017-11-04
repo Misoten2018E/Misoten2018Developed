@@ -41,4 +41,46 @@ public static class GameObjectExtensions {
 		}
 		return lists;
 	}
+
+	/// <summary>
+	/// フレーム毎にループする処理
+	/// </summary>
+	/// <param name="MaxTime"></param>
+	/// <param name="act"></param>
+	/// <param name="EndCallback"></param>
+	/// <returns></returns>
+	public static IEnumerator LoopMethod(float MaxTime, System.Action act, System.Action EndCallback = null) {
+
+		float time = 0f;
+
+		while (true) {
+
+			time += Time.deltaTime;
+
+			if (time >= MaxTime) {
+				break;
+			}
+
+			act();
+
+			yield return null;
+		}
+
+		if (EndCallback != null) {
+			EndCallback();
+		}
+	}
+
+	/// <summary>
+	/// 遅延して行われる
+	/// </summary>
+	/// <param name="MaxTime"></param>
+	/// <param name="EndCallback"></param>
+	/// <returns></returns>
+	public static IEnumerator DelayMethod(float MaxTime, System.Action EndCallback) {
+
+		yield return new WaitForSeconds(MaxTime);
+
+		EndCallback();
+	}
 }

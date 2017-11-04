@@ -193,25 +193,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca2bd871e395cc40b5759dd8fdc6e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sound:
-    BGM: []
-    TouchStart: 
-    ChangeStage: 
-    TouchJerry: 
-    pressJerry: 
-    releaseJerry: 
-    hitJerry: 
-    creationJerry: 
-    breakJerry: 
-    drawJerry: 
-    clearJerry: 
-    complateJerry: 
-    hitGrass: 
-    areaClear: 
-    stageClear: 
-    stageSlide: 
-    pauseMenu: 
-    glassBreak: 
+  StageBGM:
+  - {fileID: 8300000, guid: f6f57a46380c32f4892da6cb1a37a718, type: 3}
+  - {fileID: 8300000, guid: f6f57a46380c32f4892da6cb1a37a718, type: 3}
+  - {fileID: 8300000, guid: f6f57a46380c32f4892da6cb1a37a718, type: 3}
+  - {fileID: 8300000, guid: f6f57a46380c32f4892da6cb1a37a718, type: 3}
+  - {fileID: 8300000, guid: f6f57a46380c32f4892da6cb1a37a718, type: 3}
+  SoundEffect:
+    player:
+      Attack_Light1: {fileID: 0}
+    evil:
+      Attack1_Light1: {fileID: 0}
+    effecter:
+      Attack1_Light1: {fileID: 0}
+    common:
+      Run: {fileID: 0}
+    systemSE:
+      Decide: {fileID: 0}
 --- !u!82 &952101576
 AudioSource:
   m_ObjectHideFlags: 0

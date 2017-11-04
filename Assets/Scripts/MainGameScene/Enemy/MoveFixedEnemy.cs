@@ -10,9 +10,11 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	//                                    inspector
 	//========================================================================================
 
-	[SerializeField] private List<Transform> TargetTransform;
+	[Range(3f, 30f)]
+	[SerializeField]
+	private float AggressiveTime = 5f;
 
-	[SerializeField] private float MoveSpeed = 1f;
+	[SerializeField] private List<Transform> TargetTransform;
 
 	//========================================================================================
 	//                                    public
@@ -50,6 +52,9 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		if (!Damaged.isHitted) {
 			MoveAdvanceToTarget(NowTarget, MoveSpeed);
 		}
+		
+
+		
 
 		HitLog.CheckEnd();
 	}
@@ -145,9 +150,12 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		Damaged.HittedTremble(ChildModel.transform, impact);
 
 		if (MyHp.isDeath && ieDeath == null) {
-			ieDeath = IEDeath(0.5f);
+			ieDeath = GameObjectExtensions.DelayMethod(0.5f, Destroy);
 			StartCoroutine(ieDeath);
 		}
+
+		// 攻撃元の座標を受け取る
+		HittedPlayerAttack(obj.ParentHit.myPlayer.transform);
 
 		switch (obj.hitType) {
 			case HitObject.HitType.Impact:
@@ -172,25 +180,29 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 			default:
 				break;
 		}
-
 	}
 
+	/// <summary>
+	/// プレイヤーに攻撃された時
+	/// </summary>
+	void HittedPlayerAttack(Transform trs) {
+
+		// 目標初期化
+		TargetTransform.Clear();
+		TargetIndex = 0;
+
+		TargetTransform.Add(trs);
+		NowTarget = trs;
+		CityTargeted = false;
+
+		StartPlayerAttackMode();
+
+		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
+		StartCoroutine(ieAttackModeLimit);
+	}
+
+	IEnumerator ieAttackModeLimit;
 	IEnumerator ieDeath;
-	IEnumerator IEDeath(float MaxTime) {
-
-		float time = 0f;
-
-		while (true) {
-
-			time += Time.deltaTime;
-			if (time >= MaxTime) {
-				break;
-			}
-			yield return null;
-		}
-
-		Destroy();
-	}
 
 	/// <summary>
 	/// 死亡
@@ -198,6 +210,13 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	private void Destroy() {
 
 		Destroy(this.gameObject);
+	}
+
+	private void StopAttackMode() {
+
+		StopPlayerAttackMode();
+		CityTargeted = true;
+		NowTarget = City.Instance.transform;
 	}
 
 	/// <summary>

@@ -28,6 +28,8 @@ public static class ConstScene {
 
 public static class ConstTags {
 
+	public const string Player = "Player";
+	public const string Enemy = "Enemy";
 	public const string PlayerAttack = "PlayerAttack";
 	public const string EnemyAttack = "EnemyAttack";
 	public const string EnemyCheckPoint = "EnemyCheckPoint";

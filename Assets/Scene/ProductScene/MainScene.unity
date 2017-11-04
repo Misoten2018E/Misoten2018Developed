@@ -1236,9 +1236,7 @@ GameObject:
   - component: {fileID: 320613959}
   - component: {fileID: 320613958}
   - component: {fileID: 320613957}
-  - component: {fileID: 320613956}
   - component: {fileID: 320613955}
-  - component: {fileID: 320613954}
   m_Layer: 0
   m_Name: player0
   m_TagString: Untagged
@@ -1246,23 +1244,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!143 &320613954
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 320613953}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &320613955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1278,18 +1259,6 @@ MonoBehaviour:
   no: 0
   NormalCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
     type: 2}
---- !u!114 &320613956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 320613953}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerNo: 0
 --- !u!23 &320613957
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1802,9 +1771,7 @@ GameObject:
   - component: {fileID: 451963449}
   - component: {fileID: 451963448}
   - component: {fileID: 451963447}
-  - component: {fileID: 451963446}
   - component: {fileID: 451963445}
-  - component: {fileID: 451963444}
   m_Layer: 0
   m_Name: player3
   m_TagString: Untagged
@@ -1812,23 +1779,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!143 &451963444
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 451963443}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &451963445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1844,18 +1794,6 @@ MonoBehaviour:
   no: 3
   NormalCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
     type: 2}
---- !u!114 &451963446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 451963443}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerNo: 3
 --- !u!23 &451963447
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2901,9 +2839,7 @@ GameObject:
   - component: {fileID: 864742262}
   - component: {fileID: 864742261}
   - component: {fileID: 864742260}
-  - component: {fileID: 864742259}
   - component: {fileID: 864742258}
-  - component: {fileID: 864742257}
   m_Layer: 0
   m_Name: player1
   m_TagString: Untagged
@@ -2911,23 +2847,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!143 &864742257
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 864742256}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &864742258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2943,18 +2862,6 @@ MonoBehaviour:
   no: 1
   NormalCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
     type: 2}
---- !u!114 &864742259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 864742256}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerNo: 1
 --- !u!23 &864742260
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4023,9 +3930,7 @@ GameObject:
   - component: {fileID: 1378672159}
   - component: {fileID: 1378672158}
   - component: {fileID: 1378672157}
-  - component: {fileID: 1378672156}
   - component: {fileID: 1378672155}
-  - component: {fileID: 1378672154}
   m_Layer: 0
   m_Name: player2
   m_TagString: Untagged
@@ -4033,23 +3938,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!143 &1378672154
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1378672153}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1378672155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4065,18 +3953,6 @@ MonoBehaviour:
   no: 2
   NormalCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
     type: 2}
---- !u!114 &1378672156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1378672153}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerNo: 2
 --- !u!23 &1378672157
 MeshRenderer:
   m_ObjectHideFlags: 0
