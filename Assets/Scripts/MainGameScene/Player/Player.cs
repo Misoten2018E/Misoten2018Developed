@@ -13,6 +13,7 @@ public class Player : SceneStartEvent{
     public GameObject NormalCharacter;
     GameObject NowCharacter;
     PlayerBase playerbase;
+    int PlayerSta;
 
     // Use this for initialization
     void Start () {
@@ -52,7 +53,16 @@ public class Player : SceneStartEvent{
 
         playerbase = NowCharacter.GetComponent<PlayerBase>();
         playerbase.Playerinit(no);
+        PlayerSta = ConstPlayerSta.NormalCharacter;
 
         isInitialized = true;
+    }
+
+    public int GetPlayerSta() { return PlayerSta; }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        
     }
 }

@@ -30,3 +30,12 @@ public static class ConstTags {
 	public const string EnemyCheckPoint = "EnemyCheckPoint";
 	public const string City = "City";
 }
+
+public static class ConstPlayerSta
+{
+    public const int NormalCharacter = 0;
+    public const int HeroCharacter = 0;
+    public const int HeelCharacter = 0;
+    public const int SpecialistCharacter = 0;
+    public const int MonsterCharacter = 0;
+}

@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour {
        
     }
 
-    public GameObject GetNearPlayerObj(Vector3 myPos)
+    public GameObject GetLowHPPlayerObj(Vector3 myPos)
     {
         return PlayersObject[0];//Error出るから仮
     }
