@@ -65,6 +65,24 @@ public class HitSeriesofAction : PauseSupport {
 	}
 
 	/// <summary>
+	/// 初期処理(敵側)
+	/// </summary>
+	/// <param name="enemy"></param>
+	public void Initialize(PlayerAttackEnemy enemy) {
+		myEnemy = enemy;
+
+		var Hits = GetComponentsInChildren<HitObject>();
+		for (int i = 0; i < Hits.Length; i++) {
+			Hits[i].Initialize(this);
+		}
+
+		TransformInitialize(enemy.transform, isToFollowParent);
+
+		EndCallback = null;
+		gameObject.SetActive(false);
+	}
+
+	/// <summary>
 	/// 親に追従するかどうかはセットする
 	/// 親の正面に出る
 	/// </summary>
@@ -138,6 +156,12 @@ public class HitSeriesofAction : PauseSupport {
     public PlayerBase myPlayer{
         private set { _myPlayer = value; }
 		get { return _myPlayer; }
+	}
+
+	PlayerAttackEnemy _myEnemy;
+	public PlayerAttackEnemy myEnemy {
+		private set { _myEnemy = value; }
+		get { return _myEnemy; }
 	}
     
 	public int PlayerNo {
