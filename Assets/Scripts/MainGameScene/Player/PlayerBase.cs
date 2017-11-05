@@ -71,9 +71,26 @@ public class PlayerBase : MonoBehaviour {
      
     }
 
+    public virtual void PlayerDamage()
+    {
+
+    }
+
     public Vector3 GetBodyPosition()
     {
         return animator.bodyPosition;
+    }
+
+    public bool PlayerIsLive()
+    {
+        bool res = true;
+
+        if (HP <= 0)
+        {
+            res = false;
+        }
+
+        return res;
     }
 
     protected void MoveCharacter()

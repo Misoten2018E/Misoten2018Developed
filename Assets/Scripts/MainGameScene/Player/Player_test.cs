@@ -92,6 +92,12 @@ public class Player_test : PlayerBase
         SetAnimatorData();
     }
 
+    public override void PlayerDamage()
+    {
+        player_test_sta = PLAYER_TEST_STA.DAMAGE;
+        PlayerSta = (int)player_test_sta;
+    }
+
     private void Normal()
     {
         if(input.GetButtonSquareTrigger())
