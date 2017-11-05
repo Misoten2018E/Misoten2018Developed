@@ -281,12 +281,12 @@ namespace EDO {
 
 		[System.Serializable]
 		public struct Evil {
-			public AudioClip Attack1_Light1;
+			public AudioClip Attack_Light1;
 		}
 
 		[System.Serializable]
 		public struct Effecter {
-			public AudioClip Attack1_Light1;
+			public AudioClip Attack_Light1;
 		}
 
 		[System.Serializable]

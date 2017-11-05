@@ -203,9 +203,9 @@ MonoBehaviour:
     player:
       Attack_Light1: {fileID: 0}
     evil:
-      Attack1_Light1: {fileID: 0}
+      Attack_Light1: {fileID: 0}
     effecter:
-      Attack1_Light1: {fileID: 0}
+      Attack_Light1: {fileID: 0}
     common:
       Run: {fileID: 0}
     systemSE:
