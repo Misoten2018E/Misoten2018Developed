@@ -16,6 +16,20 @@ public class CheckEnemyAttackArea : MonoBehaviour,DebuggableObject {
 		}
 	}
 
+#if !UNITY_DEBUG
+
+	private void Awake() {
+
+		var mesh = GetComponent<MeshRenderer>();
+		if (mesh != null) {
+			mesh.enabled = false;
+		}
+	}
+
+#endif
+
+
+
 
 	//========================================================================================
 	//                                    public
@@ -48,6 +62,17 @@ public class CheckEnemyAttackArea : MonoBehaviour,DebuggableObject {
 		if (HitCallBack != null) {
 			HitCallBack(other);
 			HitCallBack = null;
+		}
+	}
+
+	private void OnCollisionEnter(Collision collision) {
+
+		if (collision.gameObject.tag == ConstTags.Player) {
+
+			if (HitCallBack != null) {
+				HitCallBack(null);
+				HitCallBack = null;
+			}
 		}
 	}
 }

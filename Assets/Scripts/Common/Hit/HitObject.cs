@@ -68,6 +68,14 @@ public abstract class HitObject : MonoBehaviour,DebuggableObject {
 
 	public void Initialize(HitSeriesofAction parent) {
 		ParentHit = parent;
+
+#if UNITY_DEBUG
+		
+#else
+		var m = GetComponent<MeshRenderer>();
+		m.enabled = false;
+#endif
+
 	}
 
 	

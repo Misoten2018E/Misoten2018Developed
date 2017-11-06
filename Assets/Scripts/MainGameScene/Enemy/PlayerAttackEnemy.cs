@@ -18,15 +18,27 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	//                                    public- override
 	//========================================================================================
 
+	public override void InitEnemy(UsedInitData InitData) {
+		AttackCheckArea.gameObject.SetActive(false);
+	}
+
+	/// <summary>
+	/// 攻撃判定エリアチェック開始
+	/// 最も近くのプレイヤーの情報も保持するのでアクセス可能
+	/// </summary>
 	protected void StartPlayerAttackMode() {
 
 		iePlCheck = PlayerCheck();
+		TargetPlayer = GetNearPlayer();
 		StartCoroutine(iePlCheck);
 		AttackCheckArea.gameObject.SetActive(true);
 		AttackCheckArea.SetHitEnterCallback(ChangeAttack);
 		isAttackMode = true;
 	}
 
+	/// <summary>
+	/// 攻撃判定エリアチェック終了
+	/// </summary>
 	protected void StopPlayerAttackMode() {
 
 		StopCoroutine(iePlCheck);
@@ -43,6 +55,12 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 
 	IEnumerator iePlCheck;
 
+
+	System.Action _AttackAction;
+	protected System.Action AttackAction {
+		set { _AttackAction = value; }
+		private get { return _AttackAction; }
+	}
 
 	bool _isAttackMode;
 	public bool isAttackMode {
@@ -63,8 +81,6 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	/// </summary>
 	/// <returns></returns>
 	IEnumerator PlayerCheck() {
-
-		TargetPlayer = GetNearPlayer();
 
 		while (true) {
 
@@ -108,8 +124,12 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	private void ChangeAttack(Collider col) {
 
 		if (col.CompareTag(ConstTags.Player)) {
+			print("hit player" + gameObject.name);
 
-
+			if (AttackAction != null) {
+				AttackAction();
+				AttackAction = null;
+			}
 		}
 	}
 }

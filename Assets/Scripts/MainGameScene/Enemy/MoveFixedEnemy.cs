@@ -11,8 +11,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	//========================================================================================
 
 	[Range(3f, 30f)]
-	[SerializeField]
-	private float AggressiveTime = 5f;
+	[SerializeField] private float AggressiveTime = 10f;
 
 	[SerializeField] private List<Transform> TargetTransform;
 
@@ -69,6 +68,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		transform.rotation = InitData.BasePosition.rotation;
 		TargetIndex = 0;
 		CityTargeted = false;
+
+		base.InitEnemy(InitData);
 	}
 
 	/// <summary>
@@ -195,6 +196,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		NowTarget = trs;
 		CityTargeted = false;
 
+		AttackAction = Attack;
 		StartPlayerAttackMode();
 
 		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
@@ -203,6 +205,34 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 
 	IEnumerator ieAttackModeLimit;
 	IEnumerator ieDeath;
+
+	HitSeriesofAction MyAttackObj;
+
+	/// <summary>
+	/// 攻撃
+	/// </summary>
+	private void Attack() {
+
+		var prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitEnemyMin, ConstActionHitData.ActionEnemyMin1);
+		MyAttackObj = Instantiate(prefab);
+		MyAttackObj.Initialize(this);
+
+		MyAttackObj.SetEndCallback(() => {
+
+			AttackAction = Attack;
+			StartPlayerAttackMode();
+			EnableMove();
+			StartCoroutine(ieAttackModeLimit);
+		});
+
+		MyAttackObj.Activate();
+
+		if (ieAttackModeLimit != null) {
+			StopCoroutine(ieAttackModeLimit);
+		}
+		
+		StopMove(5f);
+	}
 
 	/// <summary>
 	/// 死亡
@@ -214,6 +244,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 
 	private void StopAttackMode() {
 
+		print("攻撃行動終了");
 		StopPlayerAttackMode();
 		CityTargeted = true;
 		NowTarget = City.Instance.transform;
