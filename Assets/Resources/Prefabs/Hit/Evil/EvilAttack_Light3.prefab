@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135802162260895936}
   - component: {fileID: 23016924455222006}
   - component: {fileID: 114490705680296730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 95686279264226436}
   - component: {fileID: 114463507106718974}
   - component: {fileID: 114286832945715076}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EvilAttack_Light3
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4910260599111898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BaseParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 136824474181296144}
   - component: {fileID: 23156905479006990}
   - component: {fileID: 114921102923804450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 95241449993080638}
   - component: {fileID: 114856838867642906}
   - component: {fileID: 114637727111616098}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EvilAttack_Light2
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}

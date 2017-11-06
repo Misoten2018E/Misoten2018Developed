@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4523126965097476}
   - component: {fileID: 33634908814453856}
   - component: {fileID: 23018341180609716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 136717572450849226}
   - component: {fileID: 23122340878174464}
   - component: {fileID: 114501600686486878}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AttackCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,9 +60,9 @@ GameObject:
   - component: {fileID: 114650208432502698}
   - component: {fileID: 114382518534256514}
   - component: {fileID: 114096031797184114}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FixedMoveEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,8 +301,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPausePermit: 1
   MoveSpeed: 1
-  PlayerCheckPeriod: 3
+  PlayerCheckPeriod: 5
   AttackCheckArea: {fileID: 114501600686486878}
+  AggressiveTime: 14.7
   TargetTransform:
   - {fileID: 0}
   - {fileID: 0}

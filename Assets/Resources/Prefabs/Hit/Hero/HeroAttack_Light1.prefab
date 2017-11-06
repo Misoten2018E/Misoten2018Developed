@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 95166431207921388}
   - component: {fileID: 114521000836686684}
   - component: {fileID: 114282279671888422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HeroAttack_Light1
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 135240666824510910}
   - component: {fileID: 23656607163395810}
   - component: {fileID: 114753830731813448}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
