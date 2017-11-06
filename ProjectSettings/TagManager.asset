@@ -7,7 +7,9 @@ TagManager:
   - EnemyAttack
   - PlayerAttack
   - EnemyCheckPoint
-  - City
+  - CityArea
+  - Enemy
+  - Object
   - HeroArea
   - HeelArea
   - SpecialistArea
@@ -21,8 +23,8 @@ TagManager:
   - 
   - 
   - Player
-  - PlayerCharacter
-  - 
+  - Enemy
+  - Object
   - 
   - 
   - 

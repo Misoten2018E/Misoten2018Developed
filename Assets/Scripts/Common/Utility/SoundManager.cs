@@ -11,6 +11,14 @@ namespace EDO {
 	public class SoundManager : MonoBehaviour {
 
 
+		//========================================================================================
+		//                                    inspector
+		//========================================================================================
+
+		[SerializeField] AudioClip[] StageBGM = new AudioClip[AUDIO_MAX];
+
+		[SerializeField] SE SoundEffect;
+
 		//==========================================================
 		//						定数定義
 		//==========================================================
@@ -19,10 +27,11 @@ namespace EDO {
 			GAME1,
 			GAME2,
 			GAME3,
-			GAME4,
-			GAME5,
+			RESULT,
 			BGMMAX
 		}
+
+		const int AUDIO_MAX = (int)BGMType.BGMMAX;
 
 		public enum SEType {
 			OK,
@@ -33,13 +42,12 @@ namespace EDO {
 		const string ROOTNAME_SE = ROOTNAME + "SE/";
 		const string ROOTNAME_BGM = ROOTNAME + "BGM/";
 
-		[SerializeField] private SoundName Sound;
-
 
 		//==========================================================
 		//						メンバ
 		//==========================================================
 
+		List<AudioSource> sourceList = new List<AudioSource>();
 
 		//========================================================================================
 		//                                    public
@@ -55,15 +63,14 @@ namespace EDO {
 		/// 初期処理
 		/// </summary>
 		void Start() {
+
 			Create(this);
 			audioSource = GetComponent<AudioSource>();
 			Clip_se = new List<AudioClip>();
 			//Clip_se.AddRange(new AudioClip[(int)SEType.SEMAX]);
 
-			Clip_bgm = new List<BGMPlayer>((int)BGMType.BGMMAX);
-			Clip_bgm.AddRange(new BGMPlayer[(int)BGMType.BGMMAX]);
-
-			Sound.Copy();
+			Clip_bgm = new List<BGMPlayer>();
+			Clip_bgm.AddRange(new BGMPlayer[AUDIO_MAX]);
 
 			Init();
 		}
@@ -72,35 +79,21 @@ namespace EDO {
 
 			for (int i = 0; i < (int)SEType.SEMAX; i++) {
 
-				string directry = ROOTNAME_SE + Sound.SoundEffects[i];
-				var se = Resources.Load<AudioClip>(directry);
-				Clip_se.Add(se);
-
-				if (se == null) {
-					Debug.LogWarning("読み込み失敗 : " + directry);
-				}
-				//else {
-				//	print("読み込み成功 : " + directry);
-				//}
+				Clip_se.Add(SoundEffect.systemSE.Decide);
 			}
 
-			for (int i = 0; i < (int)BGMType.BGMMAX; i++) {
+			for (int i = 0; i < AUDIO_MAX; i++) {
 
 				//空でないなら次へ
 				if (Clip_bgm[i] != null) {
 					continue;
 				}
 
-				string directry = ROOTNAME_BGM + Sound.BGM[i];
-				var bgm = Resources.Load<AudioClip>(directry);
-				Clip_bgm[i] = new BGMPlayer(bgm, transform);
+				Clip_bgm[i] = new BGMPlayer(StageBGM[i], transform);
 
-				if (bgm == null) {
-					Debug.LogWarning("読み込み失敗 : " + directry);
+				if (StageBGM[i] == null) {
+					Debug.LogWarning("読み込み失敗 : " + i);
 				}
-				//else {
-				//	print("読み込み成功 : " + directry);
-				//}
 			}
 		}
 
@@ -115,30 +108,56 @@ namespace EDO {
 			}
 		}
 
-		public void PlaySE(SEType type) {
+		/// <summary>
+		/// 音を鳴らす
+		/// 位置を渡すとそこを起点として鳴る
+		/// </summary>
+		/// <param name="type"></param>
+		/// <param name="position"></param>
+		public void PlaySE(SEType type ,Vector3 position) {
 
 			int _type = (int)type;
 
 			if (type < SEType.SEMAX && Clip_se[_type] != null) {
-
-				audioSource.PlayOneShot(Clip_se[_type]);
+				var s = GetNonusedAudioSource();
+				s.transform.position = position;
+				s.PlayOneShot(Clip_se[_type]);
 			}
 		}
 
-		public void PlaySELoop(SEType type) {
+		/// <summary>
+		/// 遅延してSEを鳴らす
+		/// </summary>
+		/// <param name="seType"></param>
+		/// <param name="delayTime"></param>
+		public void PlaySE(SEType seType, Vector3 position, float delayTime) {
 
-			int _type = (int)type;
-
-			if (type < SEType.SEMAX && Clip_se[_type] != null) {
-
-				audioSource.PlayOneShot(Clip_se[_type]);
-			}
+			StartCoroutine(IEPlaySEDelay(seType, position, delayTime));
 		}
 
-		public IEnumerator PlaySEDelay(float delayTime, SEType seType)	// 7/5 八十川 add
+		/// <summary>
+		/// 音を鳴らす
+		/// 位置を渡すとそこを起点として鳴る
+		/// </summary>
+		/// <param name="type"></param>
+		/// <param name="position"></param>
+		//public void PlaySELoop(SEType type, Vector3 position, float looptime) {
+
+		//	int _type = (int)type;
+
+		//	if (type < SEType.SEMAX && Clip_se[_type] != null) {
+
+		//		var s = GetNonusedAudioSource();
+		//		s.transform.position = position;
+		//		s.PlayOneShot(Clip_se[_type]);
+		//	}
+		//}
+
+
+		IEnumerator IEPlaySEDelay(SEType seType , Vector3 position, float delayTime)
 		{
 			yield return new WaitForSeconds(delayTime);
-			PlaySE(seType);
+			PlaySE(seType, position);
 		}
 
 		public void PlayBGM(BGMType type) {
@@ -148,26 +167,35 @@ namespace EDO {
 			//異常値でないなら
 			if (type < BGMType.BGMMAX) {
 
-				//空なら読み込み
-				if (Clip_bgm[_type] == null) {
-					Clip_bgm[_type] = new BGMPlayer((AudioClip)Resources.Load(ROOTNAME_BGM + Sound.BGM[_type]), transform);
-				}
-
 				if (Clip_bgm[_type] != null) {
 					Clip_bgm[_type].playBGM();
 				}
 			}
 		}
 
+		/// <summary>
+		/// 一時停止
+		/// </summary>
+		/// <param name="type"></param>
 		public void PauseBGM(BGMType type) {
-			if (type < BGMType.BGMMAX && Clip_bgm[(int)type] != null) {
-				Clip_bgm[(int)type].pauseBGM();
+
+			int _type = (int)type;
+			if (type < BGMType.BGMMAX && Clip_bgm[_type] != null) {
+				Clip_bgm[_type].pauseBGM();
 			}
 		}
 
+		/// <summary>
+		/// 終了
+		/// 秒数を渡すとその秒数分猶予を残す
+		/// </summary>
+		/// <param name="type"></param>
+		/// <param name="second"></param>
 		public void StopBGM(BGMType type, float second = 0f) {
-			if (type < BGMType.BGMMAX && Clip_bgm[(int)type] != null) {
-				Clip_bgm[(int)type].stopBGM(second);
+
+			int _type = (int)type;
+			if (type < BGMType.BGMMAX && Clip_bgm[_type] != null) {
+				Clip_bgm[_type].stopBGM(second);
 			}
 		}
 
@@ -175,11 +203,10 @@ namespace EDO {
 		void destroy() {
 
 			for (int i = 0; i < (int)SEType.SEMAX; i++) {
-				//	Destroy(Clip_se[i]);
 				Clip_se[i] = null;
 			}
 
-			for (int i = 0; i < (int)BGMType.BGMMAX; i++) {
+			for (int i = 0; i < AUDIO_MAX; i++) {
 				Clip_bgm[i].destory();
 				Clip_bgm[i] = null;
 			}
@@ -188,7 +215,25 @@ namespace EDO {
 			audioSource = null;
 		}
 
+		/// <summary>
+		/// 使用されてないオーディオを受け取る
+		/// </summary>
+		/// <returns></returns>
+		AudioSource GetNonusedAudioSource() {
 
+			for (int i = 0; i < sourceList.Count; i++) {
+
+				// 起動していないなら
+				if (!sourceList[i].isPlaying) {
+					return sourceList[i];
+				}
+			}
+
+			var s = Instantiate(audioSource);
+			s.transform.SetParent(transform);
+			sourceList.Add(s);
+			return s;
+		}
 
 		//========================================================================================
 		//                                    private
@@ -219,87 +264,39 @@ namespace EDO {
 		}
 	}
 
-
 	[System.Serializable]
-	public class SoundName {
+	public struct SE {
 
-		[SerializeField]
-		public List<string> BGM = new List<string>(5);
+		public Player player;
+		public Evil evil;
+		public Effecter effecter;
+		public Common common;
+		public SystemSE systemSE;
 
-		List<string> soundEffects = new List<string>();
-		public List<string> SoundEffects {
-			get { return soundEffects; }
+		[System.Serializable]
+		public struct Player {
+
+			public AudioClip Attack_Light1;
 		}
 
-		[SerializeField]
-		public string TouchStart;
+		[System.Serializable]
+		public struct Evil {
+			public AudioClip Attack_Light1;
+		}
 
-		[SerializeField]
-		public string ChangeStage;
+		[System.Serializable]
+		public struct Effecter {
+			public AudioClip Attack_Light1;
+		}
 
-		[SerializeField]
-		public string TouchJerry;
+		[System.Serializable]
+		public struct Common {
+			public AudioClip Run;
+		}
 
-		[SerializeField]
-		public string pressJerry;
-
-		[SerializeField]
-		public string releaseJerry;
-
-		[SerializeField]
-		public string hitJerry;
-
-		[SerializeField]
-		public string creationJerry;
-
-		[SerializeField]
-		public string breakJerry;
-
-		[SerializeField]
-		public string drawJerry;
-
-		[SerializeField]
-		public string clearJerry;
-
-		[SerializeField]
-		public string complateJerry;
-
-		[SerializeField]
-		public string hitGrass;
-
-		[SerializeField]
-		public string areaClear;
-
-		[SerializeField]
-		public string stageClear;
-
-		[SerializeField]
-		public string stageSlide;	// 7/4 八十川 Add
-
-		[SerializeField]
-		public string pauseMenu;	// 7/4 八十川 Add
-
-		[SerializeField]
-		public string glassBreak;	// 7/5 八十川 Add
-
-		public void Copy() {
-			soundEffects.Add(TouchStart);
-			soundEffects.Add(ChangeStage);
-			soundEffects.Add(TouchJerry);
-			soundEffects.Add(pressJerry);
-			soundEffects.Add(releaseJerry);
-			soundEffects.Add(hitJerry);
-			soundEffects.Add(creationJerry);
-			soundEffects.Add(breakJerry);
-			soundEffects.Add(drawJerry);
-			soundEffects.Add(clearJerry);
-			soundEffects.Add(complateJerry);
-			soundEffects.Add(hitGrass);
-			soundEffects.Add(areaClear);
-			soundEffects.Add(stageClear);
-			soundEffects.Add(stageSlide);	// 7/4 八十川 Add
-			soundEffects.Add(pauseMenu);	// 7/4 八十川 Add
-			soundEffects.Add(glassBreak);	// 7/5 八十川 Add
+		[System.Serializable]
+		public struct SystemSE {
+			public AudioClip Decide;
 		}
 	}
 

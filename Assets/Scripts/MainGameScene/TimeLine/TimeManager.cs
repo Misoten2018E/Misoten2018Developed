@@ -6,7 +6,7 @@ using UnityEngine;
 namespace EDO {
 
 	[DisallowMultipleComponent]
-	public class TimeManager : SceneStartEvent , IFGameStartEvent,IFGameEndProduceEvent {
+	public class TimeManager : SceneStartEvent , IFGameStartEvent,IFGameEndEvent {
 
 
 		//========================================================================================
@@ -61,9 +61,10 @@ namespace EDO {
 			TimeCount = 0f;
 		}
 
-		public void EndProduce() {
+		void IFGameEndEvent.GameEnd() {
 			enabled = false;
 		}
+
 
 		/// <summary>
 		/// 更新処理

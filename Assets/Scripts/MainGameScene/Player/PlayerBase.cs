@@ -102,6 +102,10 @@ public class PlayerBase : MonoBehaviour {
             transform.LookAt(transform.position + forward);
         }
 
+		var c = CharCon;
+		if (c == null) {
+			return;
+		}
         CharCon.Move(velocity * Time.deltaTime);
     }
 
@@ -114,7 +118,11 @@ public class PlayerBase : MonoBehaviour {
             transform.LookAt(transform.position + forward);
         }
 
-        CharCon.Move(new Vector3(0,0,0) * Time.deltaTime);
+		var c = CharCon;
+		if (c == null) {
+			return;
+		}
+		CharCon.Move(new Vector3(0,0,0) * Time.deltaTime);
     }
 
     protected void SetAnimatorData()

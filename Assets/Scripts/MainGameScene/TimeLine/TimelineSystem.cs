@@ -23,6 +23,23 @@ public class TimelineSystem : SceneStartEvent , IFGameStartEvent, IFGameEndEvent
 
 	public override void SceneOtherInit() {
 
+		//SearchChildrenEvents();
+
+		//for (int i = 0; i < GroupLists.Count; i++) {
+
+		//	if (LastEventId < GroupLists[i].OrderID) {
+		//		LastEventId = GroupLists[i].OrderID;
+		//	}
+		//}
+		EventManager<IFGameStartEvent>.Instance.SetObject(this);
+	}
+
+
+	/// <summary>
+	/// ゲーム開始
+	/// </summary>
+	public void GameStart() {
+
 		SearchChildrenEvents();
 
 		for (int i = 0; i < GroupLists.Count; i++) {
@@ -31,15 +48,10 @@ public class TimelineSystem : SceneStartEvent , IFGameStartEvent, IFGameEndEvent
 				LastEventId = GroupLists[i].OrderID;
 			}
 		}
-		EventManager<IFGameStartEvent>.Instance.SetObject(this);
-	}
 
-	/// <summary>
-	/// ゲーム開始
-	/// </summary>
-	public void GameStart() {
 		NextEventId = 0;
 		SearchNextEventGroup();
+		enabled = true;
 	}
 
 	/// <summary>
@@ -48,10 +60,9 @@ public class TimelineSystem : SceneStartEvent , IFGameStartEvent, IFGameEndEvent
 	public void GameEnd() {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
+	// Update is called once per frame
+	void Update() {
 
 		if (!isInitialized) {
 			return;
@@ -63,6 +74,7 @@ public class TimelineSystem : SceneStartEvent , IFGameStartEvent, IFGameEndEvent
 
 			// クリア
 		}
+
 	}
 
 	
@@ -87,7 +99,10 @@ public class TimelineSystem : SceneStartEvent , IFGameStartEvent, IFGameEndEvent
 		private set { _LastEventId = value; }
 		get { return _LastEventId; }
 	}
-      
+       
+	public List<TimelineGroup> Group {
+		get { return GroupLists; }
+	}
 
 	/// <summary>
 	/// 子供にあるイベント群を取得し、開始順に並べる
