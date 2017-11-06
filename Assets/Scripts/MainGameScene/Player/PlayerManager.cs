@@ -4,6 +4,25 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
 
+    static PlayerManager _instance;
+    static public PlayerManager instance
+    {
+        private set
+        {
+            _instance = value;
+        }
+        get { return _instance; }
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;   
+        }
+
+    }
+
     public List<GameObject> PlayersObject;
 
     int Playercnt;

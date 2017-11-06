@@ -63,8 +63,8 @@ public class Player_test : PlayerBase
         velocity.x = input.GetXaxis() * MoveSpeed;
         velocity.z = input.GetYaxis() * MoveSpeed;
         velocity.y = 0;
-
-        switch(player_test_sta)
+        
+        switch (player_test_sta)
         {
             case PLAYER_TEST_STA.NORMAL:
                 Normal();
