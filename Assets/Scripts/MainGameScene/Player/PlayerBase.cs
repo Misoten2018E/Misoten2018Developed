@@ -6,9 +6,22 @@ public class PlayerBase : MonoBehaviour {
 
     const int ChangeMoveSpeed = 5;
 
+    CharacterController _CharCon;
+    public CharacterController CharCon
+    {
+        protected set {
+            if(_CharCon == null)
+            {
+                _CharCon = gameObject.GetComponent<CharacterController>();
+            }
+        }
+        get { return _CharCon; }
+    }
+
+    public int no;
+
     protected float MoveSpeed;
     protected float RotationSpeed;
-    protected CharacterController CharCon;
     protected Vector3 velocity;
 
     protected Animator animator;
@@ -58,9 +71,26 @@ public class PlayerBase : MonoBehaviour {
      
     }
 
+    public virtual void PlayerDamage()
+    {
+
+    }
+
     public Vector3 GetBodyPosition()
     {
         return animator.bodyPosition;
+    }
+
+    public bool PlayerIsLive()
+    {
+        bool res = true;
+
+        if (HP <= 0)
+        {
+            res = false;
+        }
+
+        return res;
     }
 
     protected void MoveCharacter()

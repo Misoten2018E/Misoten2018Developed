@@ -32,4 +32,16 @@ public static class ConstTags {
 	public const string EnemyAttack = "EnemyAttack";
 	public const string EnemyCheckPoint = "EnemyCheckPoint";
 	public const string City = "City";
+    public const string HeroArea = "HeroArea";
+    public const string HeelArea = "HeelArea";
+    public const string SpecialistArea = "SpecialistArea";
+}
+
+public static class ConstPlayerSta
+{
+    public const int NormalCharacter = 0;
+    public const int HeroCharacter = 1;
+    public const int HeelCharacter = 2;
+    public const int SpecialistCharacter = 3;
+    public const int MonsterCharacter = 4;
 }
