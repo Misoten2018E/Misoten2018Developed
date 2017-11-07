@@ -37,7 +37,14 @@ public class PlayerManager : MonoBehaviour {
        
     }
 
-    public GameObject GetLowHPPlayerObj(Vector3 myPos)
+    //　HPが一番低いプレイヤーのオブジェクトを返す
+    public GameObject GetLowHPPlayerObj()
+    {
+        return PlayersObject[0];//Error出るから仮
+    }
+
+    //自分に一番近いプレイヤーのオブジェクトを返す
+    public GameObject GetNearPlayerObj(Vector3 myPos)
     {
         return PlayersObject[0];//Error出るから仮
     }
