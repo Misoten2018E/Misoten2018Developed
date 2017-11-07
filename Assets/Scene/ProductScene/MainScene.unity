@@ -2743,11 +2743,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   TargetTransform:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1794870331}
+  - {fileID: 1386740401}
+  - {fileID: 1122614358}
 --- !u!20 &962058274
 Camera:
   m_ObjectHideFlags: 0
