@@ -158,7 +158,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		}
 
 		// 攻撃元の座標を受け取る
-		HittedPlayerAttack(obj.ParentHit.myPlayer.transform);
+		HittedPlayerAttack(obj.ParentHit.myPlayer);
 
 		switch (obj.hitType) {
 			case HitObject.HitType.Impact:
@@ -188,18 +188,18 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	/// <summary>
 	/// プレイヤーに攻撃された時
 	/// </summary>
-	void HittedPlayerAttack(Transform trs) {
+	void HittedPlayerAttack(PlayerBase player) {
 
 		// 目標初期化
 		TargetTransform.Clear();
 		TargetIndex = 0;
 
-		TargetTransform.Add(trs);
-		NowTarget = trs;
+		TargetTransform.Add(player.transform);
+		NowTarget = player.transform;
 		CityTargeted = false;
 
 		AttackAction = Attack;
-		StartPlayerAttackMode();
+		StartPlayerAttackMode(player);
 
 		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
 		StartCoroutine(ieAttackModeLimit);
@@ -276,11 +276,11 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	}
       
 
-	MeshRenderer _ChildModel;
-	public MeshRenderer ChildModel {
+	ControlAnimatorEnemy _ChildModel;
+	public ControlAnimatorEnemy ChildModel {
 		get {
 			if (_ChildModel == null) {
-				_ChildModel = GetComponentInChildren<MeshRenderer>();
+				_ChildModel = GetComponentInChildren<ControlAnimatorEnemy>();
 			}
 			return _ChildModel;
 		}
