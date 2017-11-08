@@ -29,16 +29,13 @@ public class HitSeriesofAction : PauseSupport {
 
 		var a = Anim;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 
 	public void AnimationEnd() {
 
 		if (EndCallback != null) {
 			EndCallback();
+			EndCallback = null;
 		}
 
 		gameObject.SetActive(false);

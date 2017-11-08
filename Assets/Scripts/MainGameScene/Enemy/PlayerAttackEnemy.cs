@@ -46,7 +46,7 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	/// 攻撃判定エリアチェック開始
 	/// ターゲットはセットしたものを狙い続ける
 	/// </summary>
-	protected void StartPlayerAttackMode(PlayerBase player) {
+	protected void StartPlayerAttackMode(Transform player) {
 
 		TargetPlayer = player;
 		IsAttackMode = true;
@@ -77,7 +77,7 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 			return;
 		}
 
-		Vector3 diff = transform.position - TargetPlayer.transform.position;
+		Vector3 diff = TargetPlayer.transform.position - transform.position;
 
 		// 距離判定
 		if (CheckAttackRange(diff)) {
@@ -129,12 +129,12 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	}
 
 
-	PlayerBase _TargetPlayer;
+	Transform _TargetPlayer;
 	/// <summary>
 	/// ターゲットされたプレイヤー
 	/// nullの可能性アリ
 	/// </summary>
-	public PlayerBase TargetPlayer {
+	public Transform TargetPlayer {
 		protected set { _TargetPlayer = value; }
 		get { return _TargetPlayer; }
 	}
@@ -161,7 +161,7 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	/// 近くのプレイヤーサーチ
 	/// </summary>
 	/// <returns></returns>
-	PlayerBase GetNearPlayer() {
+	Transform GetNearPlayer() {
 
 		var pls = GameObject.FindObjectsOfType<PlayerBase>();
 
@@ -178,7 +178,7 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 			}
 		}
 
-		return pls[id];
+		return pls[id].transform;
 	}
 
 	/// <summary>
@@ -206,7 +206,7 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	/// <returns></returns>
 	private bool CheckAttackAngle(Transform target) {
 
-		return CheckAttackRange(transform.position - target.transform.position);
+		return CheckAttackRange(target.transform.position - transform.position);
 	}
 
 	/// <summary>

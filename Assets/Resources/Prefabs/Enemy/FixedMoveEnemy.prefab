@@ -4176,7 +4176,7 @@ Animator:
   m_GameObject: {fileID: 1462218989386192}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: bf102e1927e90c24bb80383dc04bfb33, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 60d366826b30b3d4e91922db34afd6ba, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -4281,8 +4281,8 @@ MonoBehaviour:
   isPausePermit: 1
   MoveSpeed: 1
   PlayerCheckPeriod: 5
-  AttackRange: 0
-  AttackAngle: 0
+  AttackRange: 2
+  AttackAngle: 60
   AttackCheckArea: {fileID: 114501600686486878}
   AggressiveTime: 14.7
   TargetTransform:
@@ -4296,7 +4296,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1462218989386192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5f8cb67ccb3a2b46a9d1b7eb3379f0e, type: 3}
+  m_Script: {fileID: 11500000, guid: be843832edecda04c8cd1c058c879d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &135828137944685128
