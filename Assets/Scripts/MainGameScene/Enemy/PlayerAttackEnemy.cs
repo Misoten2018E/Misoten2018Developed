@@ -36,10 +36,19 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	protected void StartPlayerAttackMode() {
 
 		iePlCheck = PlayerCheck();
-		TargetPlayer = GetNearPlayer();
+		StartPlayerAttackMode(GetNearPlayer());
 		StartCoroutine(iePlCheck);
 		//	AttackCheckArea.gameObject.SetActive(true);
 		//	AttackCheckArea.SetHitEnterCallback(ChangeAttack);
+	}
+
+	/// <summary>
+	/// 攻撃判定エリアチェック開始
+	/// ターゲットはセットしたものを狙い続ける
+	/// </summary>
+	protected void StartPlayerAttackMode(PlayerBase player) {
+
+		TargetPlayer = player;
 		IsAttackMode = true;
 	}
 
@@ -48,7 +57,10 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	/// </summary>
 	protected void StopPlayerAttackMode() {
 
-		StopCoroutine(iePlCheck);
+		if (iePlCheck != null) {
+			StopCoroutine(iePlCheck);
+		}
+		
 		TargetPlayer = null;
 		//	AttackCheckArea.SetHitEnterCallback(null);
 		//	AttackCheckArea.gameObject.SetActive(false);
@@ -117,12 +129,12 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	}
 
 
-	Player _TargetPlayer;
+	PlayerBase _TargetPlayer;
 	/// <summary>
 	/// ターゲットされたプレイヤー
 	/// nullの可能性アリ
 	/// </summary>
-	public Player TargetPlayer {
+	public PlayerBase TargetPlayer {
 		protected set { _TargetPlayer = value; }
 		get { return _TargetPlayer; }
 	}
@@ -149,9 +161,9 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	/// 近くのプレイヤーサーチ
 	/// </summary>
 	/// <returns></returns>
-	Player GetNearPlayer() {
+	PlayerBase GetNearPlayer() {
 
-		var pls = GameObject.FindObjectsOfType<Player>();
+		var pls = GameObject.FindObjectsOfType<PlayerBase>();
 
 		float length = 99999f;
 		int id = -1;
