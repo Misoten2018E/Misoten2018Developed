@@ -51,8 +51,10 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		if (!Damaged.isHitted) {
 			MoveAdvanceToTarget(NowTarget, MoveSpeed);
 		}
-		
 
+		if (IsAttackMode && (!IsAttacking)) {
+			ChangeAttackToRange();
+		}
 		
 
 		HitLog.CheckEnd();
@@ -217,9 +219,12 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		MyAttackObj = Instantiate(prefab);
 		MyAttackObj.Initialize(this);
 
+		IsAttacking = true;
+
 		MyAttackObj.SetEndCallback(() => {
 
 			AttackAction = Attack;
+			IsAttacking = false;
 			StartPlayerAttackMode();
 			EnableMove();
 			StartCoroutine(ieAttackModeLimit);
