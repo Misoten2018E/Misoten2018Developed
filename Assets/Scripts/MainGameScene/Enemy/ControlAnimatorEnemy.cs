@@ -71,6 +71,18 @@ public abstract class ControlAnimatorEnemy : MonoBehaviour {
 		Anim.SetTrigger(StrIsDownEnd);
 	}
 
+	protected void AttackPose() {
+
+		Anim.SetTrigger(StrIsAttackPose);
+
+	}
+
+	protected void Attack() {
+
+		Anim.SetTrigger(StrIsAttack);
+
+	}
+
 
 	System.Action _AnimEndCallBack;
 	/// <summary>
@@ -89,6 +101,8 @@ public abstract class ControlAnimatorEnemy : MonoBehaviour {
 	const string StrState = "State";
 	const string StrIsDown = "isDown";
 	const string StrIsDownEnd = "isDownEnd";
+	const string StrIsAttackPose = "isAttackPose";
+	const string StrIsAttack = "isAttack";
 
 	private float OldFrameTime;
 

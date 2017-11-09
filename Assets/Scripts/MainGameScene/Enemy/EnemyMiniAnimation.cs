@@ -24,36 +24,38 @@ public class EnemyMiniAnimation : ControlAnimatorEnemy {
 	
 	public void Animation(AnimationType type) {
 
-		//　状態変更
-		SetState((int)type);
+		switch (type) {
+			case AnimationType.Move:
+				SetState((int)AnimationType.Move);
+				AnimEnd = null;
+				break;
 
-		//switch (type) {
-		//	case AnimationType.Move:
-		//		AnimEnd = null;
-		//		break;
-		//	case AnimationType.AttackPose:
-		//		AnimEnd = AttackAnimationPoseEnd;
-		//		break;
-		//	case AnimationType.Attack:
-		//		AnimEnd = AttackAnimationEnd;
-		//		break;
-		//	case AnimationType.CityPose:
-		//		AnimEnd = null;
-		//		break;
-		//	case AnimationType.RunAway:
-		//		AnimEnd = null;
-		//		break;
-		//	default:
-		//		break;
-		//}
+			case AnimationType.AttackPose:
+				AttackPose();
+				break;
+			case AnimationType.Attack:
+				Attack();
+				break;
+			case AnimationType.Damage:
+				AnimEnd = AnimationDamageEnd;
+				break;
+			case AnimationType.CityPose:
+				AnimEnd = null;
+				break;
+			case AnimationType.RunAway:
+				AnimEnd = null;
+				break;
+			default:
+				break;
+		}
 
 		NowType = type;
 	}
 
-	public void DamageAnimation() {
+	private void AnimationDamageEnd() {
 
-		base.Damaged();
-		AnimEnd = DamageEnd;
+		SetState((int)AnimationType.Move);
+		base.DamageEnd();
 	}
 
 	/// <summary>
@@ -73,6 +75,7 @@ public class EnemyMiniAnimation : ControlAnimatorEnemy {
 		Move,
 		AttackPose,
 		Attack,
+		Damage,
 		CityPose,
 		RunAway
 	}

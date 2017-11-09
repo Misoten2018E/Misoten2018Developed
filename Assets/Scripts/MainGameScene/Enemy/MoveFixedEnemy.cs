@@ -13,7 +13,11 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	[Range(3f, 30f)]
 	[SerializeField] private float AggressiveTime = 10f;
 
+	[SerializeField] private float NextAttackInterval = 3f;
+
 	[SerializeField] private List<Transform> TargetTransform;
+
+	
 
 	//========================================================================================
 	//                                    public
@@ -55,8 +59,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		if (IsAttackMode && (!IsAttacking)) {
 			ChangeAttackToRange();
 		}
-		
 
+		IntervalTimeUpdate();
 		HitLog.CheckEnd();
 	}
 
@@ -119,6 +123,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	int TargetIndex;
 	Transform NowTarget;
 
+	float attackIntervalTime;
+
 	/// <summary>
 	/// 次の獲物へ向かう
 	/// </summary>
@@ -157,7 +163,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		var impact = (transform.position - obj.transform.position).normalized;
 		Damaged.HittedTremble(ChildModel.transform, impact);
 
-		ChildModel.DamageAnimation();
+		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Damage);
 
 
 		if (MyHp.isDeath && ieDeath == null) {
@@ -219,7 +225,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	HitSeriesofAction MyAttackObj;
 
 	/// <summary>
-	/// 攻撃
+	/// 攻撃体勢に入る
 	/// </summary>
 	private void AttackPose() {
 
@@ -233,12 +239,17 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		if (ieAttackModeLimit != null) {
 			StopCoroutine(ieAttackModeLimit);
 		}
-		ieAttackModeLimit = AttackStart(1f);
+		ieAttackModeLimit = AttackStart(1f + attackIntervalTime);
 		StartCoroutine(ieAttackModeLimit);
 
-		StopMove(5f);
+		StopMove(5f+NextAttackInterval);
 	}
 
+	/// <summary>
+	/// 攻撃開始までの猶予処理 + 起動
+	/// </summary>
+	/// <param name="wait"></param>
+	/// <returns></returns>
 	IEnumerator AttackStart(float wait) {
 
 		yield return new WaitForSeconds(wait);
@@ -253,12 +264,11 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		if (ieAttackModeLimit != null) {
 			StopCoroutine(ieAttackModeLimit);
 		}
-
-		// 利用したので削除
-		Destroy(MyAttackObj.gameObject);
 	}
 
-
+	/// <summary>
+	/// 攻撃終了時関数
+	/// </summary>
 	private void AttackEnd() {
 
 		// 次の攻撃待機
@@ -275,7 +285,27 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 
 		// 制限時間開始
 		StopCoroutine(ieAttackModeLimit);
+		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
 		StartCoroutine(ieAttackModeLimit);
+		attackIntervalTime = NextAttackInterval;
+
+
+		// 利用したので削除
+		Destroy(MyAttackObj.gameObject);
+	}
+
+	/// <summary>
+	/// 時間経過
+	/// </summary>
+	private void IntervalTimeUpdate() {
+
+		if (attackIntervalTime > 0f) {
+			attackIntervalTime -= Time.deltaTime;
+
+			if (attackIntervalTime < 0f) {
+				attackIntervalTime = 0f;
+			}
+		}
 	}
 
 	/// <summary>
