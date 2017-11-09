@@ -3797,7 +3797,7 @@ MonoBehaviour:
   no: 0
   NormalCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
     type: 2}
-  HeroCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
+  HeroCharacter: {fileID: 1311820925045758, guid: ea26405228c6fd34f9695c7342c8b03d,
     type: 2}
   HeelCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
     type: 2}
@@ -4688,7 +4688,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4628670193463546, guid: ea26405228c6fd34f9695c7342c8b03d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.94
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4628670193463546, guid: ea26405228c6fd34f9695c7342c8b03d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4717,6 +4717,10 @@ Prefab:
     - target: {fileID: 4628670193463546, guid: ea26405228c6fd34f9695c7342c8b03d, type: 2}
       propertyPath: m_RootOrder
       value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311820925045758, guid: ea26405228c6fd34f9695c7342c8b03d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea26405228c6fd34f9695c7342c8b03d, type: 2}
