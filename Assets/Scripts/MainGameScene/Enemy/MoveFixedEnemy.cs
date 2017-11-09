@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class MoveFixedEnemy : PlayerAttackEnemy {
 
 
@@ -38,7 +39,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	//========================================================================================
 
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		TargetIndex = 0;
 		CityTargeted = false;
 		IsEscape = false;
@@ -46,7 +47,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected virtual void Update () {
 
 		if ((NowTarget == null) || IsStop) {
 			return;
@@ -83,7 +84,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	/// 当たり始めの判定
 	/// </summary>
 	/// <param name="other"></param>
-	private void OnTriggerEnter(Collider other) {
+	protected virtual void OnTriggerEnter(Collider other) {
 
 		//既に逃げ始めている
 		if (IsEscape) {

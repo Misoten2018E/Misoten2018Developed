@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public abstract class MoveTargetEnemy : WaitEnemy {
 
 
@@ -34,7 +35,9 @@ public abstract class MoveTargetEnemy : WaitEnemy {
 	/// <param name="angle"></param>
 	protected void RotateToTarget(Transform target, float angle) {
 
-		var endQt = Quaternion.LookRotation(target.position - transform.position);
+		Vector3 rot = target.position - transform.position;
+		rot.x = rot .z = 0f; // 回転を無しに
+		var endQt = Quaternion.LookRotation(rot);
 
 		transform.rotation = Quaternion.Slerp(transform.rotation, endQt, (angle));
 	}
