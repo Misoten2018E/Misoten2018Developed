@@ -120,7 +120,7 @@ public class HitSeriesofAction : PauseSupport {
 	/// <summary>
 	/// 起動処理
 	/// </summary>
-	public void Activate() {
+	public void Activate(float rate = 1f) {
 
 		gameObject.SetActive(true);
 		AnimatorStateInfo stateInfo = Anim.GetCurrentAnimatorStateInfo(0);
