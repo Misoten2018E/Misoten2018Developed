@@ -49,7 +49,9 @@ public class PlayerHero : PlayerBase{
         input.PlayerNo = playerno;
         CharCon = this.GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+        Model = transform.FindChild("BaseModel_Hero").transform;
         HitAnime = GetComponent<HitAnimationBase>();
+        
 
         MoveSpeed = Player_Hero_MoveSpeed;
         RotationSpeed = Player_Hero_RotationSpeed;
@@ -107,6 +109,7 @@ public class PlayerHero : PlayerBase{
     {
         player_Hero_sta = PLAYER_TEST_STA.DAMAGE;
         PlayerSta = (int)player_Hero_sta;
+        ModelTransformReset();
     }
 
     private void Normal()
@@ -117,6 +120,7 @@ public class PlayerHero : PlayerBase{
             player_Hero_sta = PLAYER_TEST_STA.WEAKATTACK1;
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationWeakattack1();
+            ModelTransformReset();
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -125,6 +129,7 @@ public class PlayerHero : PlayerBase{
             player_Hero_sta = PLAYER_TEST_STA.STRONGATTACK_START;
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationStrongattack();
+            ModelTransformReset();
         }
 
         if (input.GetButtonCircleTrigger())
@@ -133,9 +138,15 @@ public class PlayerHero : PlayerBase{
             player_Hero_sta = PLAYER_TEST_STA.SPECIAL_START;
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationSpecial();
+            ModelTransformReset();
         }
 
         MoveCharacter();
+
+        if (CheckAnimationSTART("wait") || CheckAnimationSTART("run"))
+        {
+            ModelTransformReset();
+        }
     }
 
     private void NormalAction1()
@@ -161,6 +172,8 @@ public class PlayerHero : PlayerBase{
                 player_Hero_sta = PLAYER_TEST_STA.NORMAL;
                 PlayerSta = (int)player_Hero_sta;
             }
+
+            ModelTransformReset();
         }
     }
 
@@ -187,6 +200,8 @@ public class PlayerHero : PlayerBase{
                 player_Hero_sta = PLAYER_TEST_STA.NORMAL;
                 PlayerSta = (int)player_Hero_sta;
             }
+
+            ModelTransformReset();
         }
     }
 
@@ -198,18 +213,19 @@ public class PlayerHero : PlayerBase{
         {
             player_Hero_sta = PLAYER_TEST_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
+            ModelTransformReset();
         }
     }
 
     private void StrongActionStart()
     {
         RotationCharacter();
-        string str = "StrongAttack_start";
-        //if (CheckAnimationEND("StrongAttack_start"))
-        if (CheckAnimationEND(str)) 
+        
+        if (CheckAnimationEND("StrongAttack_start"))
         {
             player_Hero_sta = PLAYER_TEST_STA.STRONGATTACK_END;
             PlayerSta = (int)player_Hero_sta;
+            ModelTransformReset();
         }
     }
 
@@ -221,6 +237,7 @@ public class PlayerHero : PlayerBase{
         {
             player_Hero_sta = PLAYER_TEST_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
+            ModelTransformReset();
         }
     }
 
@@ -232,6 +249,7 @@ public class PlayerHero : PlayerBase{
         {
             player_Hero_sta = PLAYER_TEST_STA.SPECIAL_END;
             PlayerSta = (int)player_Hero_sta;
+            ModelTransformReset();
         }
     }
 
@@ -243,6 +261,7 @@ public class PlayerHero : PlayerBase{
         {
             player_Hero_sta = PLAYER_TEST_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
+            ModelTransformReset();
         }
     }
 
@@ -252,6 +271,9 @@ public class PlayerHero : PlayerBase{
         {
             player_Hero_sta = PLAYER_TEST_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
+            ModelTransformReset();
         }
     }
+
+    
 }
