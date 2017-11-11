@@ -37,6 +37,11 @@ public abstract class EnemyTypeBase : PauseSupport {
 		private set { _HitLog = value; }
 		get { return _HitLog; }
 	}
+
+	public abstract bool IsDeath {
+		protected set;
+		get;
+	}
 }
 
 public struct UsedInitData {

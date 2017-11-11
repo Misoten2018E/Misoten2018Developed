@@ -12,14 +12,4 @@ public class RelayPoint : MonoBehaviour,DebuggableObject {
 		m.enabled = isDebugMode;
 
 	}
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
