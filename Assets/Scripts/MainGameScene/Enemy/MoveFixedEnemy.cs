@@ -135,7 +135,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 
 			// 街に着いたということなので
 			// 一定時間待機状態へ
-			StopMove(5f,()=> { EscapeToOutside(); });
+			StopMove(5f, EscapeToOutside);
 			ChildModel.Animation(EnemyMiniAnimation.AnimationType.CityPose);
 
 			return;
@@ -317,6 +317,9 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		Destroy(this.gameObject);
 	}
 
+	/// <summary>
+	/// 攻撃終了
+	/// </summary>
 	private void StopAttackMode() {
 
 		print("攻撃行動終了");
@@ -334,6 +337,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		// 逃走モードへ
 		// 今は仮で死ぬ
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.RunAway);
+		IsEscape = true;
 		print("逃げた");
 		Destroy();
 	}
@@ -357,5 +361,9 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 			return _ChildModel;
 		}
 	}
-      
+
+	public override bool IsDeath {
+		get { return IsEscape; }
+		protected set { IsEscape = value; }
+	}
 }

@@ -20,7 +20,8 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 
 	public void EventEnd() {
 
-		isActive = false;
+		IsActive = false;
+		IsEnd = true;
 	}
 
 	//========================================================================================
@@ -31,7 +32,8 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 	/// オブジェクト生成時
 	/// </summary>
 	private void Awake() {
-		isActive = false;
+		IsActive = false;
+		IsEnd = false;
 		EventIndex = 0;
 	}
 
@@ -40,7 +42,8 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 	/// </summary>
 	public override void EventStart() {
 
-		isActive = true;
+		IsActive = true;
+		IsEnd = false;
 		EventIndex = 0;
 
 		base.SetFocus(this.transform);
@@ -49,7 +52,7 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 
 	private void Update() {
 
-		if (!isActive) {
+		if (!IsActive) {
 			return;
 		}
 
@@ -69,9 +72,15 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 
 	// 起動中
 	bool _isActive;
-	public bool isActive {
+	public bool IsActive {
 		private set { _isActive = value; }
 		get { return _isActive; }
+	}
+
+	bool _isEnd;
+	public bool IsEnd {
+		private set { _isEnd = value; }
+		get { return _isEnd; }
 	}
 
 	/// <summary>
@@ -83,10 +92,11 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 		UsedInitData eneData = new UsedInitData();
 		eneData.BasePosition = this.transform;
 		enemy.InitEnemy(eneData);
-		for (int i = 0; i < Enemy.Length; i++) {
-			enemy.AddTarget(Enemy[EventIndex].Route1, true);
-			enemy.AddTarget(Enemy[EventIndex].Route2);
-		}
+
+		enemy.AddTarget(Enemy[EventIndex].Route1, true);
+		enemy.AddTarget(Enemy[EventIndex].Route2);
+
+		PopEnemyList.Add(enemy);
 	}
 
 	/// <summary>
@@ -107,6 +117,30 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 			}
 		}
 	}
+
+	/// <summary>
+	/// 全ての敵が出現した上でやられているならtrue
+	/// </summary>
+	bool isAllEnemyDeath {
+		get {
+
+			if (!IsEnd) {
+				return false;
+			}
+
+			for (int i = 0; i < PopEnemyList.Count; i++) {
+
+				// 空(削除済み)でなく、死んでないなら
+				if ((PopEnemyList[i] != null) && (!PopEnemyList[i].IsDeath)) {
+					return false;
+				}
+			}
+
+			return true;
+		}
+	}
+
+	List<EnemyTypeBase> PopEnemyList = new List<EnemyTypeBase>();
 
 	[System.Serializable]
 	public class EnemyData {
