@@ -25,6 +25,7 @@ public class PlayerBase : MonoBehaviour {
     protected Vector3 velocity;
 
     protected Animator animator;
+    protected Transform Model;
 
     protected int PlayerSta;
     protected bool aniendFlg;
@@ -117,8 +118,8 @@ public class PlayerBase : MonoBehaviour {
             Vector3 forward = Vector3.Slerp(transform.forward, direction, RotationSpeed * Time.deltaTime / Vector3.Angle(transform.forward, direction));
             transform.LookAt(transform.position + forward);
         }
-
-		var c = CharCon;
+        
+        var c = CharCon;
 		if (c == null) {
 			return;
 		}
@@ -137,7 +138,7 @@ public class PlayerBase : MonoBehaviour {
         if(info.IsName(str) && info.normalizedTime > 1.0f)
         {
             Vector3 bodypos = GetBodyPosition();
-            bodypos.y = transform.position.y;
+            bodypos.y = 0.0f;
             transform.position = bodypos;
             return true;
         }
@@ -145,5 +146,24 @@ public class PlayerBase : MonoBehaviour {
         {
             return false;
         }
+    }
+
+    protected bool CheckAnimationSTART(string str)
+    {
+        AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+        if (info.IsName(str) && info.normalizedTime < 0.1f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    protected void ModelTransformReset()
+    {
+        Model.position = transform.position;
+        Model.rotation = new Quaternion(0, 0, 0, 0);
     }
 }
