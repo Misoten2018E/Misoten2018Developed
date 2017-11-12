@@ -78,9 +78,9 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 	}
 
 	bool _isEnd;
-	public bool IsEnd {
-		private set { _isEnd = value; }
-		get { return _isEnd; }
+	public override bool IsEnd {
+		protected set { _isEnd = value; }
+		get { return _isEnd && isAllEnemyDeath; }
 	}
 
 	/// <summary>
@@ -123,10 +123,6 @@ public class EventEnemyFixedPop : TimelineEventStandard {
 	/// </summary>
 	bool isAllEnemyDeath {
 		get {
-
-			if (!IsEnd) {
-				return false;
-			}
 
 			for (int i = 0; i < PopEnemyList.Count; i++) {
 
