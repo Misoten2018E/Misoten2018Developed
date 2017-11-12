@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultiInput : MonoBehaviour {
+public class MultiInput : SceneStartEvent{
     public int PlayerNo;
     private int WorkPlayerNo;
 

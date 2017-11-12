@@ -6,15 +6,14 @@ public class Player : SceneStartEvent{
     enum PLAYER_STA
     {
         NORMAL = 0,
-        CHANGE_HERO,
-        CHANGE_HEEL,
-        CHANGE_SPECIALIST,
-        CHANGE_NORMAL,
+        CITYIN,
+        CHANGE,
+        CITYOUT,
         PLAYER_STA_MAX
     }
     const float CORRECTION = 0.5f;
 
-    //MultiInput input;
+    MultiInput m_input;
     public int no;
     //public float MoveSpeed;
     //public float RotationSpeed;
@@ -27,14 +26,15 @@ public class Player : SceneStartEvent{
     public GameObject SpecialistCharacter;
     GameObject NowCharacter;
     PlayerBase playerbase;
-    int PlayerSta;
+    int CharacterSta;
     Vector3 ChangeStartPos;
     Vector3 ChangeCenterPos;
-    Vector3 ChangeGoPos;
+    int beforeCharacter;
     PLAYER_STA playersta;
 
     // Use this for initialization
     void Start () {
+        m_input = GetComponent<MultiInput>();
         //初期化管理のためコメントアウト
         //Vector3 workpos = new Vector3();
 
@@ -59,70 +59,79 @@ public class Player : SceneStartEvent{
         {
             case PLAYER_STA.NORMAL:
                 playerbase.PlayerUpdate();
-                break;
-            case PLAYER_STA.CHANGE_HERO:
-                playerbase.ForciblyMove(ChangeGoPos);
 
-                r = (Mathf.Abs(transform.position.x - ChangeGoPos.x) * Mathf.Abs(transform.position.x - ChangeGoPos.x)) + 
-                    (Mathf.Abs(transform.position.z - ChangeGoPos.z) * Mathf.Abs(transform.position.z - ChangeGoPos.z));
+                if (playerbase.PlayerIsDeath())
+                {
+                    if (CharacterSta != ConstPlayerSta.NormalCharacter)
+                    {
+                        ChangeCharacter(ConstPlayerSta.NormalCharacter);
+                    }
+                }
+                break;
+            case PLAYER_STA.CITYIN:
+                playerbase.SetCharConNoHit(true);
+                playerbase.PlayerCityIn(ChangeCenterPos);
+
+                r = (Mathf.Abs(transform.position.x - ChangeCenterPos.x) * Mathf.Abs(transform.position.x - ChangeCenterPos.x)) + 
+                    (Mathf.Abs(transform.position.z - ChangeCenterPos.z) * Mathf.Abs(transform.position.z - ChangeCenterPos.z));
                 if (r < CORRECTION * CORRECTION)
                 {
-                    if(ChangeGoPos == ChangeCenterPos)
-                    {
-                        ChangeGoPos = ChangeStartPos;
-                        ChangeCharacter(ConstPlayerSta.HeroCharacter);
-                    }
-                    else
-                    {
-                        playersta = PLAYER_STA.NORMAL;
-                    }
+                    playersta = PLAYER_STA.CHANGE;
                 }
                 
                 break;
-            case PLAYER_STA.CHANGE_HEEL:
-                playerbase.ForciblyMove(ChangeGoPos);
-
-                r = (Mathf.Abs(transform.position.x - ChangeGoPos.x) * Mathf.Abs(transform.position.x - ChangeGoPos.x)) +
-                    (Mathf.Abs(transform.position.z - ChangeGoPos.z) * Mathf.Abs(transform.position.z - ChangeGoPos.z));
-                if (r < CORRECTION * CORRECTION)
+            case PLAYER_STA.CHANGE:
+                if (m_input.GetAllButtonCircleTrigger())
                 {
-                    if (ChangeGoPos == ChangeCenterPos)
+                    if (beforeCharacter != ConstPlayerSta.HeroCharacter)
                     {
-                        ChangeGoPos = ChangeStartPos;
+                        
+                        ChangeCharacter(ConstPlayerSta.HeroCharacter);
+                        print("chengi");
+                    }
+                    playersta = PLAYER_STA.CITYOUT;
+                }
+
+                if (m_input.GetAllButtonTriangleTrigger())
+                {
+                    if (beforeCharacter != ConstPlayerSta.HeelCharacter)
+                    {
                         ChangeCharacter(ConstPlayerSta.HeelCharacter);
+                        print("chengi");
                     }
-                    else
+                    playersta = PLAYER_STA.CITYOUT;
+                }
+
+                if (m_input.GetAllButtonSquareTrigger())
+                {
+                    if (beforeCharacter != ConstPlayerSta.SpecialistCharacter)
                     {
-                        playersta = PLAYER_STA.NORMAL;
+                        ChangeCharacter(ConstPlayerSta.SpecialistCharacter);
+                        print("chengi");
                     }
+                    playersta = PLAYER_STA.CITYOUT;
                 }
                 break;
-            case PLAYER_STA.CHANGE_SPECIALIST:
-                playerbase.ForciblyMove(ChangeGoPos);
+            case PLAYER_STA.CITYOUT:
+                playerbase.PlayerCityOut(ChangeStartPos);
 
-                r = (Mathf.Abs(transform.position.x - ChangeGoPos.x) * Mathf.Abs(transform.position.x - ChangeGoPos.x)) +
-                    (Mathf.Abs(transform.position.z - ChangeGoPos.z) * Mathf.Abs(transform.position.z - ChangeGoPos.z));
+                r = (Mathf.Abs(transform.position.x - ChangeStartPos.x) * Mathf.Abs(transform.position.x - ChangeStartPos.x)) +
+                    (Mathf.Abs(transform.position.z - ChangeStartPos.z) * Mathf.Abs(transform.position.z - ChangeStartPos.z));
                 if (r < CORRECTION * CORRECTION)
                 {
-                    if (ChangeGoPos == ChangeCenterPos)
+                    playersta = PLAYER_STA.NORMAL;
+                    playerbase.SetCharConNoHit(false);
+                    if (CharacterSta != beforeCharacter)
                     {
-                        ChangeGoPos = ChangeStartPos;
-                        ChangeCharacter(ConstPlayerSta.SpecialistCharacter);
+
                     }
-                    else
-                    {
-                        playersta = PLAYER_STA.NORMAL;
-                    }
+                   
                 }
                 break;
 
         }
 
-        if (!playerbase.PlayerIsLive())
-        {
-
-        }
-
+        //print(hitcityflg);
         transform.position = playerbase.GetBodyPosition();
         
     }
@@ -136,52 +145,41 @@ public class Player : SceneStartEvent{
 
         workpos.Set(transform.position.x, transform.position.y, transform.position.z);
         NowCharacter = Instantiate(NormalCharacter, workpos, Quaternion.identity) as GameObject;
-
+        
         playerbase = NowCharacter.GetComponent<PlayerBase>();
         playerbase.Playerinit(no);
-        PlayerSta = ConstPlayerSta.NormalCharacter;
+        CharacterSta = ConstPlayerSta.NormalCharacter;
         playersta = PLAYER_STA.NORMAL;
 
         isInitialized = true;
     }
 
-    public int GetPlayerSta() { return PlayerSta; }
+    public int GetCharacterSta() { return CharacterSta; }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == ConstTags.EnemyAttack)
         {
+            HitObjectImpact damage = other.GetComponent<HitObjectImpact>();
             playerbase.PlayerDamage();
+            damage.DamageHp(playerbase.GetPlayerHP());
         }
+    }
 
-        if (other.gameObject.tag == ConstTags.HeelArea && PlayerSta != ConstPlayerSta.HeelCharacter && playersta == PLAYER_STA.NORMAL)
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == ConstTags.City && playersta == PLAYER_STA.NORMAL)
         {
-            playersta = PLAYER_STA.CHANGE_HEEL;
-            ChangeStartPos = transform.position;
-            ChangeCenterPos = other.gameObject.transform.position;
-            ChangeStartPos.y = 0.0f;
-            ChangeCenterPos.y = 0.0f;
-            ChangeGoPos = ChangeCenterPos;
-        }
-
-        if (other.gameObject.tag == ConstTags.HeroArea && PlayerSta != ConstPlayerSta.HeroCharacter && playersta == PLAYER_STA.NORMAL)
-        {
-            playersta = PLAYER_STA.CHANGE_HERO;
-            ChangeStartPos = transform.position;
-            ChangeCenterPos = other.gameObject.transform.position;
-            ChangeStartPos.y = 0.0f;
-            ChangeCenterPos.y = 0.0f;
-            ChangeGoPos = ChangeCenterPos;
-        }
-
-        if (other.gameObject.tag == ConstTags.SpecialistArea && PlayerSta != ConstPlayerSta.SpecialistCharacter && playersta == PLAYER_STA.NORMAL)
-        {
-            playersta = PLAYER_STA.CHANGE_SPECIALIST;
-            ChangeStartPos = transform.position;
-            ChangeCenterPos = other.gameObject.transform.position;
-            ChangeStartPos.y = 0.0f;
-            ChangeCenterPos.y = 0.0f;
-            ChangeGoPos = ChangeCenterPos;
+            print("stay");
+            if (m_input.GetButtonCrossTrigger())
+            {
+                playersta = PLAYER_STA.CITYIN;
+                ChangeStartPos = transform.position;
+                ChangeCenterPos = other.gameObject.transform.position;
+                ChangeStartPos.y = 0.0f;
+                ChangeCenterPos.y = 0.0f;
+                beforeCharacter = CharacterSta;
+            }
         }
     }
 
@@ -199,28 +197,28 @@ public class Player : SceneStartEvent{
 
                 playerbase = NowCharacter.GetComponent<PlayerBase>();
                 playerbase.Playerinit(no);
-                PlayerSta = ConstPlayerSta.NormalCharacter;
+                CharacterSta = ConstPlayerSta.NormalCharacter;
                 break;
             case ConstPlayerSta.HeroCharacter:
                 NowCharacter = Instantiate(HeroCharacter, workpos, Quaternion.identity) as GameObject;
 
                 playerbase = NowCharacter.GetComponent<PlayerBase>();
                 playerbase.Playerinit(no);
-                PlayerSta = ConstPlayerSta.HeroCharacter;
+                CharacterSta = ConstPlayerSta.HeroCharacter;
                 break;
             case ConstPlayerSta.HeelCharacter:
                 NowCharacter = Instantiate(HeelCharacter, workpos, Quaternion.identity) as GameObject;
 
                 playerbase = NowCharacter.GetComponent<PlayerBase>();
                 playerbase.Playerinit(no);
-                PlayerSta = ConstPlayerSta.HeelCharacter;
+                CharacterSta = ConstPlayerSta.HeelCharacter;
                 break;
             case ConstPlayerSta.SpecialistCharacter:
                 NowCharacter = Instantiate(SpecialistCharacter, workpos, Quaternion.identity) as GameObject;
 
                 playerbase = NowCharacter.GetComponent<PlayerBase>();
                 playerbase.Playerinit(no);
-                PlayerSta = ConstPlayerSta.SpecialistCharacter;
+                CharacterSta = ConstPlayerSta.SpecialistCharacter;
                 break;
         }
     }

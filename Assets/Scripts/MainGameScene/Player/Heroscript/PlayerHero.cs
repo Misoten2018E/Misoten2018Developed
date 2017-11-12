@@ -26,7 +26,6 @@ public class PlayerHero : PlayerBase{
     const int Player_Hero_MoveSpeed = 5;
     const int Player_Hero_RotationSpeed = 750;
     const int Player_Hero_ActionRotationSpeed = 500;
-    const int Player_Hero_MAXHP = 100;
     const int Player_Hero_ATTACK = 1;
 
     //Use this for initialization
@@ -51,14 +50,13 @@ public class PlayerHero : PlayerBase{
         animator = GetComponentInChildren<Animator>();
         Model = transform.FindChild("BaseModel_Hero").transform;
         HitAnime = GetComponent<HitAnimationBase>();
-        
+        HP = gameObject.GetComponent<ObjectHp>();
 
         MoveSpeed = Player_Hero_MoveSpeed;
         RotationSpeed = Player_Hero_RotationSpeed;
         player_Hero_sta = PLAYER_TEST_STA.NORMAL;
         PlayerSta = (int)player_Hero_sta;
         ComboFlg = false;
-        HP = Player_Hero_MAXHP;
         Attack = Player_Hero_ATTACK;
 
         HitAnime.Initialize(this);
@@ -114,6 +112,8 @@ public class PlayerHero : PlayerBase{
 
     private void Normal()
     {
+        CharCon.center = new Vector3(0, 1, 0);
+
         if (input.GetButtonSquareTrigger())
         {
             aniendFlg = false;

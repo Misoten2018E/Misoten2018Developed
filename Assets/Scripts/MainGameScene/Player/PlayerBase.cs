@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBase : MonoBehaviour {
+public class PlayerBase : SceneStartEvent{
 
     const int ChangeMoveSpeed = 5;
 
@@ -30,7 +30,8 @@ public class PlayerBase : MonoBehaviour {
     protected int PlayerSta;
     protected bool aniendFlg;
 
-    protected int HP;
+    protected ObjectHp HP;
+    
     protected int Attack;
 
     // Use this for initialization
@@ -51,6 +52,34 @@ public class PlayerBase : MonoBehaviour {
         velocity.Normalize();
         velocity *= ChangeMoveSpeed;
 
+        MoveCharacter();
+
+        PlayerSta = 0;
+        SetAnimatorData();
+    }
+
+    public void PlayerCityIn(Vector3 moveposition)
+    {
+        Vector3 myposition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        velocity = moveposition - myposition;
+        velocity.y = 0.0f;
+        velocity.Normalize();
+        velocity *= ChangeMoveSpeed;
+        
+        MoveCharacter();
+
+        PlayerSta = 0;
+        SetAnimatorData();
+    }
+
+    public void PlayerCityOut(Vector3 moveposition)
+    {
+        Vector3 myposition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        velocity = moveposition - myposition;
+        velocity.y = 0.0f;
+        velocity.Normalize();
+        velocity *= ChangeMoveSpeed;
+        
         MoveCharacter();
 
         PlayerSta = 0;
@@ -82,13 +111,37 @@ public class PlayerBase : MonoBehaviour {
         return animator.bodyPosition;
     }
 
-    public bool PlayerIsLive()
+    public ObjectHp GetPlayerHP()
     {
-        bool res = true;
+        return HP;
+    }
 
-        if (HP <= 0)
+    public void SetCharConNoHit(bool flg)
+    {
+        var c = CharCon;
+        if (c == null)
         {
-            res = false;
+            return;
+        }
+
+        if (flg)
+        {
+            CharCon.center = new Vector3(0,10,0);
+        }
+        else
+        {
+            CharCon.center = new Vector3(0, 1, 0);
+        }
+        
+    }
+
+    public bool PlayerIsDeath()
+    {
+        bool res = false;
+        
+        if (HP.isDeath)
+        {
+            res = true;
         }
 
         return res;
