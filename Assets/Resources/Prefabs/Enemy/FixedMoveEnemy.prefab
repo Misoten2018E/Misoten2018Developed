@@ -4279,7 +4279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPausePermit: 1
-  MoveSpeed: 1
+  MoveSpeed: 1.5
   PlayerCheckPeriod: 5
   AttackRange: 2
   AttackAngle: 60

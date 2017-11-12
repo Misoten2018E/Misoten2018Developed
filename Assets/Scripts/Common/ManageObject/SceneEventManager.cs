@@ -172,6 +172,8 @@ public class SceneEventManager : MonoBehaviour {
 
 		var checkInst = EventManager<IFGameEndProduceCheck>.Instance;
 
+		yield return null;
+
 		while (true) {
 
 			var isOk = checkInst.MethodCheck((IFGameEndProduceCheck ev) => { return ev.IsEndProduce(); });
