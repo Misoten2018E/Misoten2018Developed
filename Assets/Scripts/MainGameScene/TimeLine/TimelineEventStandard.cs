@@ -34,6 +34,11 @@ public class TimelineEventStandard : MonoBehaviour {
 		get { return StartTime; }
 	}
 
+	public virtual bool IsEnd {
+		protected set { }
+		get { return true; }
+	}
+
 	protected void SetFocus(Transform trs) {
 
 		if (isFocusEvent) {
