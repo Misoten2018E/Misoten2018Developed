@@ -53,8 +53,13 @@ public class EventManager<T> {
 	public void MethodStart(System.Action<T> EvMethod) {
 
 		for (int i = 0; i < EventList.Count; i++) {
-			EvMethod(EventList[i]);
+            if(EventList[i] != null)
+            {
+                EvMethod(EventList[i]);
+            }
+			
 		}
+        
 		EventList.Clear();
 	}
 

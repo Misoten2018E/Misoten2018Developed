@@ -194,11 +194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageBGM:
-  - {fileID: 8300000, guid: f6f57a46380c32f4892da6cb1a37a718, type: 3}
-  - {fileID: 8300000, guid: f6f57a46380c32f4892da6cb1a37a718, type: 3}
-  - {fileID: 8300000, guid: f6f57a46380c32f4892da6cb1a37a718, type: 3}
-  - {fileID: 8300000, guid: f6f57a46380c32f4892da6cb1a37a718, type: 3}
-  - {fileID: 8300000, guid: f6f57a46380c32f4892da6cb1a37a718, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   SoundEffect:
     player:
       Attack_Light1: {fileID: 0}

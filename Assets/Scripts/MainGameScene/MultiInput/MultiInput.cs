@@ -16,7 +16,16 @@ public class MultiInput : SceneStartEvent{
         {
             WorkPlayerNo = PlayerNo;
         }
-        
+
+        var controllerNames = Input.GetJoystickNames();
+
+        Debug.Log(controllerNames.Length);
+
+        for (int i = 0;i <controllerNames.Length;i++)
+        {
+            Debug.Log(controllerNames[i]);
+        }
+
     }
 	
 	// Update is called once per frame

@@ -48,7 +48,7 @@ public class PlayerHero : PlayerBase{
         input.PlayerNo = playerno;
         CharCon = this.GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
-        Model = transform.FindChild("BaseModel_Hero").transform;
+        Model = transform.Find("BaseModel_Hero").transform;
         HitAnime = GetComponent<HitAnimationBase>();
         HP = gameObject.GetComponent<ObjectHp>();
 
