@@ -36,15 +36,18 @@ public class EnemyMiniAnimation : ControlAnimatorEnemy {
 			case AnimationType.Attack:
 				Attack();
 				break;
-			case AnimationType.Damage:
-				AnimEnd = AnimationDamageEnd;
-				break;
 			case AnimationType.CityPose:
+				SetState((int)AnimationType.CityPose);
 				AnimEnd = null;
 				break;
 			case AnimationType.RunAway:
+				SetState((int)AnimationType.RunAway);
 				AnimEnd = null;
 				break;
+			case AnimationType.Damage:
+				AnimEnd = AnimationDamageEnd;
+				break;
+			
 			default:
 				break;
 		}
@@ -75,9 +78,9 @@ public class EnemyMiniAnimation : ControlAnimatorEnemy {
 		Move,
 		AttackPose,
 		Attack,
-		Damage,
 		CityPose,
-		RunAway
+		RunAway,
+		Damage,
 	}
 
 	AnimationType _nowType;
