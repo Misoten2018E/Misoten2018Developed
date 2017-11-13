@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultiInput : MonoBehaviour {
+public class MultiInput : SceneStartEvent{
     public int PlayerNo;
     private int WorkPlayerNo;
 
@@ -16,7 +16,16 @@ public class MultiInput : MonoBehaviour {
         {
             WorkPlayerNo = PlayerNo;
         }
-        
+
+        var controllerNames = Input.GetJoystickNames();
+
+        Debug.Log(controllerNames.Length);
+
+        for (int i = 0;i <controllerNames.Length;i++)
+        {
+            Debug.Log(controllerNames[i]);
+        }
+
     }
 	
 	// Update is called once per frame

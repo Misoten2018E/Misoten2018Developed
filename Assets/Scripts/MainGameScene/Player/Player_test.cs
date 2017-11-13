@@ -45,13 +45,13 @@ public class Player_test : PlayerBase
         CharCon = this.GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         HitAnime = GetComponent<HitAnimationBase>();
+        HP = gameObject.GetComponent<ObjectHp>();
 
         MoveSpeed = Player_test_MoveSpeed;
         RotationSpeed = Player_test_RotationSpeed;
         player_test_sta = PLAYER_TEST_STA.NORMAL;
         PlayerSta = (int)player_test_sta;
         ComboFlg = false;
-        HP = Player_test_MAXHP;
         Attack = Player_test_ATTACK;
 
         HitAnime.Initialize(this);
@@ -100,6 +100,8 @@ public class Player_test : PlayerBase
 
     private void Normal()
     {
+        CharCon.center = new Vector3(0,1,0);
+
         if(input.GetButtonSquareTrigger())
         {
             aniendFlg = false;
