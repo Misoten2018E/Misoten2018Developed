@@ -50,6 +50,11 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	protected virtual void Update () {
 
 		if ((NowTarget == null) || IsStop) {
+
+
+			if (NowTarget == null) {
+				print("目標消失");
+			}
 			return;
 		}
 

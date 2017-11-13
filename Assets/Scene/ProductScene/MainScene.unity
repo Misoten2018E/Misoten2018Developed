@@ -1044,22 +1044,22 @@ Prefab:
         type: 2}
       propertyPath: PlayersObject.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1133549282}
     - target: {fileID: 114383496393133534, guid: 205fcb7bf5ec58643aaaa8c951907bde,
         type: 2}
       propertyPath: PlayersObject.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1978746716}
     - target: {fileID: 114383496393133534, guid: 205fcb7bf5ec58643aaaa8c951907bde,
         type: 2}
       propertyPath: PlayersObject.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 639522525}
     - target: {fileID: 114383496393133534, guid: 205fcb7bf5ec58643aaaa8c951907bde,
         type: 2}
       propertyPath: PlayersObject.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 892530457}
     - target: {fileID: 114621568544051604, guid: 205fcb7bf5ec58643aaaa8c951907bde,
         type: 2}
       propertyPath: NoticeWindow
