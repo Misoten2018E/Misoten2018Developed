@@ -96,6 +96,7 @@ public class Player_test : PlayerBase
     {
         player_test_sta = PLAYER_TEST_STA.DAMAGE;
         PlayerSta = (int)player_test_sta;
+        animator.SetTrigger("Damage");
     }
 
     private void Normal()

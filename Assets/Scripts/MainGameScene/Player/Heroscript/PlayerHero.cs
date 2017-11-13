@@ -15,6 +15,7 @@ public class PlayerHero : PlayerBase{
         SPECIAL_START,
         SPECIAL_END,
         DAMAGE,
+        PAUSE,
         PLAYER_TEST_STA_MAX
     }
 
@@ -98,6 +99,9 @@ public class PlayerHero : PlayerBase{
             case PLAYER_TEST_STA.DAMAGE:
                 DamageAction();
                 break;
+            case PLAYER_TEST_STA.PAUSE:
+                PauseAction();
+                break;
         }
 
         SetAnimatorData();
@@ -107,6 +111,15 @@ public class PlayerHero : PlayerBase{
     {
         player_Hero_sta = PLAYER_TEST_STA.DAMAGE;
         PlayerSta = (int)player_Hero_sta;
+        animator.SetTrigger("Damage");
+        ModelTransformReset();
+    }
+
+    public override void PlayerPause()
+    {
+        player_Hero_sta = PLAYER_TEST_STA.PAUSE;
+        PlayerSta = (int)player_Hero_sta;
+        animator.SetTrigger("Pause");
         ModelTransformReset();
     }
 
@@ -128,7 +141,6 @@ public class PlayerHero : PlayerBase{
             aniendFlg = false;
             player_Hero_sta = PLAYER_TEST_STA.STRONGATTACK_START;
             PlayerSta = (int)player_Hero_sta;
-            HitAnime.HitAnimationStrongattack();
             ModelTransformReset();
         }
 
@@ -225,6 +237,7 @@ public class PlayerHero : PlayerBase{
         {
             player_Hero_sta = PLAYER_TEST_STA.STRONGATTACK_END;
             PlayerSta = (int)player_Hero_sta;
+            HitAnime.HitAnimationStrongattack();
             ModelTransformReset();
         }
     }
@@ -275,5 +288,13 @@ public class PlayerHero : PlayerBase{
         }
     }
 
-    
+    private void PauseAction()
+    {
+        if (CheckAnimationEND("Pause"))
+        {
+            player_Hero_sta = PLAYER_TEST_STA.NORMAL;
+            PlayerSta = (int)player_Hero_sta;
+            ModelTransformReset();
+        }
+    }
 }

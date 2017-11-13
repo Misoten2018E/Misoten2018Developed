@@ -106,6 +106,11 @@ public class PlayerBase : SceneStartEvent{
 
     }
 
+    public virtual void PlayerPause()
+    {
+
+    }
+
     public Vector3 GetBodyPosition()
     {
         return animator.bodyPosition;

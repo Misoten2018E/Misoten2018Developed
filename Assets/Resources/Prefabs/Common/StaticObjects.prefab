@@ -2154,22 +2154,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!1 &1971063393580620
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4252731295766312}
-  - component: {fileID: 114383496393133534}
-  m_Layer: 0
-  m_Name: PlayerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
 --- !u!1 &1971244550166822
 GameObject:
   m_ObjectHideFlags: 1
@@ -2363,7 +2347,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4401287937221368}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4050705821972222
 Transform:
@@ -2758,19 +2742,6 @@ Transform:
   m_Father: {fileID: 4401287937221368}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4252731295766312
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1971063393580620}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4401287937221368}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4253035582338978
 Transform:
   m_ObjectHideFlags: 1
@@ -3094,7 +3065,6 @@ Transform:
   - {fileID: 4871352648998862}
   - {fileID: 4553946232810508}
   - {fileID: 4631832544401468}
-  - {fileID: 4252731295766312}
   - {fileID: 4049752481034314}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -8757,10 +8727,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11666e0796d8bb4491fdb98ff3689c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 1
+  StartTime: 5
   isFocusEvent: 1
   FucusTime: 2
   Enemy:
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4351106031949048}
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4090062613396516}
     Route2: {fileID: 4351106031949048}
@@ -8924,7 +8903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11666e0796d8bb4491fdb98ff3689c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 1
+  StartTime: 5
   isFocusEvent: 1
   FucusTime: 2
   Enemy:
@@ -9024,22 +9003,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba48b07740b89e45bdaeb4e3496af2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114383496393133534
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1971063393580620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26dbc044556cae849aad17abe1094f8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayersObject:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114413499858820468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9407,7 +9370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OrderId: 1
-  GraceTime: 15
+  GraceTime: 100
 --- !u!114 &114794383699340254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9419,10 +9382,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11666e0796d8bb4491fdb98ff3689c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 1
+  StartTime: 15
   isFocusEvent: 1
   FucusTime: 2
   Enemy:
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4819184788550008}
+    Route2: {fileID: 4861818360402378}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4819184788550008}
+    Route2: {fileID: 4861818360402378}
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4819184788550008}
     Route2: {fileID: 4861818360402378}
@@ -9450,10 +9419,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11666e0796d8bb4491fdb98ff3689c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 1
+  StartTime: 15
   isFocusEvent: 1
   FucusTime: 2
   Enemy:
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4819184788550008}
+    Route2: {fileID: 4861818360402378}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4819184788550008}
+    Route2: {fileID: 4861818360402378}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4819184788550008}
+    Route2: {fileID: 4861818360402378}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4819184788550008}
+    Route2: {fileID: 4861818360402378}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4819184788550008}
+    Route2: {fileID: 4861818360402378}
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4819184788550008}
     Route2: {fileID: 4861818360402378}
