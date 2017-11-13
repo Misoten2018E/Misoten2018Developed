@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
-public class FocusCamera : PauseSupport {
+public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 
 
 	//========================================================================================
@@ -76,6 +76,9 @@ public class FocusCamera : PauseSupport {
 		NormalUpdate();
 
 		DebugInit();
+
+		EventManager<IFGameEndEvent>.Instance.SetObject(this);
+		EventManager<IFGameEndProduceCheck>.Instance.SetObject(this);
 	}
 
 	int DebugId = -1;
@@ -291,7 +294,49 @@ public class FocusCamera : PauseSupport {
 
 		return ((lenX > lenZ) ? (lenX) : (lenZ)) / 2;
 	}
-	
+
+	/// <summary>
+	/// ゲーム終了時処理
+	/// </summary>
+	public void GameEnd() {
+
+		TargetTransform.Clear();
+		TargetTransform.Add(City.Instance.transform);
+
+		startOrthoSize = CameraComp.orthographicSize;
+		endOrthoSize = 1.8f;
+		isEndProduceActive = true;
+
+		StartCoroutine(GameObjectExtensions.LoopMethod(2f, ProduceLoop, ProduceEnd));
+	}
+
+	float startOrthoSize, endOrthoSize;
+
+	/// <summary>
+	/// 終了演出のループ処理
+	/// </summary>
+	/// <param name="rate"></param>
+	void ProduceLoop(float rate) {
+
+		float size = startOrthoSize + (endOrthoSize - startOrthoSize) * rate;
+		CameraComp.orthographicSize = size;
+	}
+
+	/// <summary>
+	/// 演出完全終了時
+	/// </summary>
+	void ProduceEnd() {
+		CameraComp.orthographicSize = endOrthoSize;
+		isEndProduceActive = false;
+		enabled = false;
+	}
+
+	bool isEndProduceActive;
+
+	public bool IsEndProduce() {
+
+		return (!isEndProduceActive);
+	}
 
 	Vector3Complession PositionComp = new Vector3Complession();
 	floatComplession SizeComp = new floatComplession();

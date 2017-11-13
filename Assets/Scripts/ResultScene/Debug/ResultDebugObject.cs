@@ -15,10 +15,8 @@ public class ResultDebugObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		time += Time.deltaTime;
-		if (time > 5f) {
+		if (Input.GetKey(KeyCode.Space)) {
 			ResultManager.Instance.NextSceneStart();
-			time = -50f;
 		}
 	}
 }

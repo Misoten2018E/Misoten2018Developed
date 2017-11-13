@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class MoveFixedEnemy : PlayerAttackEnemy {
 
 
@@ -13,7 +14,11 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	[Range(3f, 30f)]
 	[SerializeField] private float AggressiveTime = 10f;
 
+	[SerializeField] private float NextAttackInterval = 3f;
+
 	[SerializeField] private List<Transform> TargetTransform;
+
+	
 
 	//========================================================================================
 	//                                    public
@@ -34,15 +39,15 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	//========================================================================================
 
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		TargetIndex = 0;
 		CityTargeted = false;
 		IsEscape = false;
-		NextTargetSearch();
+		NextTargetSearch();	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected virtual void Update () {
 
 		if ((NowTarget == null) || IsStop) {
 			return;
@@ -51,10 +56,12 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		if (!Damaged.isHitted) {
 			MoveAdvanceToTarget(NowTarget, MoveSpeed);
 		}
-		
 
-		
+		if (IsAttackMode && (!IsAttacking)) {
+			ChangeAttackToRange();
+		}
 
+		IntervalTimeUpdate();
 		HitLog.CheckEnd();
 	}
 
@@ -68,6 +75,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		transform.rotation = InitData.BasePosition.rotation;
 		TargetIndex = 0;
 		CityTargeted = false;
+		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
 
 		base.InitEnemy(InitData);
 	}
@@ -76,31 +84,33 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	/// 当たり始めの判定
 	/// </summary>
 	/// <param name="other"></param>
-	private void OnTriggerEnter(Collider other) {
+	protected virtual void OnTriggerEnter(Collider other) {
 
+		//既に逃げ始めている
 		if (IsEscape) {
 			return;
 		}
 
+		// プレイヤの攻撃
 		if (other.CompareTag(ConstTags.PlayerAttack)) {
 
 			var hito = other.GetComponent<HitObject>();
-			hito.DamageHp(MyHp);
-
+			
 			bool isHit = !HitLog.CheckLog(hito);
 			if (isHit) {
 
 				SwtichHitted(hito);
+				hito.DamageHp(MyHp);
 				return;
 			}
 		}
 
-
+		// ターゲット通過
 		if (other.CompareTag(ConstTags.EnemyCheckPoint)) {
 
 			TargetIndex++;
 			NextTargetSearch();
-
+			
 		}else if (other.CompareTag(ConstTags.City)) {
 			NextTargetSearch();
 		}
@@ -114,6 +124,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	int TargetIndex;
 	Transform NowTarget;
 
+	float attackIntervalTime;
+
 	/// <summary>
 	/// 次の獲物へ向かう
 	/// </summary>
@@ -123,7 +135,9 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 
 			// 街に着いたということなので
 			// 一定時間待機状態へ
-			StopMove(5f,()=> { EscapeToOutside(); });
+			StopMove(5f, EscapeToOutside);
+			ChildModel.Animation(EnemyMiniAnimation.AnimationType.CityPose);
+
 			return;
 		}
 
@@ -150,13 +164,16 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		var impact = (transform.position - obj.transform.position).normalized;
 		Damaged.HittedTremble(ChildModel.transform, impact);
 
+		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Damage);
+
+
 		if (MyHp.isDeath && ieDeath == null) {
 			ieDeath = GameObjectExtensions.DelayMethod(0.5f, Destroy);
 			StartCoroutine(ieDeath);
 		}
 
 		// 攻撃元の座標を受け取る
-		HittedPlayerAttack(obj.ParentHit.myPlayer.transform);
+		HittedPlayerAttack(obj.ParentHit.myPlayer);
 
 		switch (obj.hitType) {
 			case HitObject.HitType.Impact:
@@ -186,18 +203,18 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	/// <summary>
 	/// プレイヤーに攻撃された時
 	/// </summary>
-	void HittedPlayerAttack(Transform trs) {
+	void HittedPlayerAttack(PlayerBase player) {
 
 		// 目標初期化
 		TargetTransform.Clear();
 		TargetIndex = 0;
 
-		TargetTransform.Add(trs);
-		NowTarget = trs;
+		TargetTransform.Add(player.transform);
+		NowTarget = player.transform;
 		CityTargeted = false;
 
-		AttackAction = Attack;
-		StartPlayerAttackMode();
+		AttackAction = AttackPose;
+		StartPlayerAttackMode(player.transform);
 
 		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
 		StartCoroutine(ieAttackModeLimit);
@@ -209,29 +226,87 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	HitSeriesofAction MyAttackObj;
 
 	/// <summary>
-	/// 攻撃
+	/// 攻撃体勢に入る
 	/// </summary>
-	private void Attack() {
+	private void AttackPose() {
 
 		var prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitEnemyMin, ConstActionHitData.ActionEnemyMin1);
 		MyAttackObj = Instantiate(prefab);
 		MyAttackObj.Initialize(this);
 
-		MyAttackObj.SetEndCallback(() => {
+		IsAttacking = true;
+		ChildModel.Animation(EnemyMiniAnimation.AnimationType.AttackPose);
 
-			AttackAction = Attack;
-			StartPlayerAttackMode();
-			EnableMove();
-			StartCoroutine(ieAttackModeLimit);
-		});
+		if (ieAttackModeLimit != null) {
+			StopCoroutine(ieAttackModeLimit);
+		}
+		ieAttackModeLimit = AttackStart(1f + attackIntervalTime);
+		StartCoroutine(ieAttackModeLimit);
+
+		StopMove(5f+NextAttackInterval);
+	}
+
+	/// <summary>
+	/// 攻撃開始までの猶予処理 + 起動
+	/// </summary>
+	/// <param name="wait"></param>
+	/// <returns></returns>
+	IEnumerator AttackStart(float wait) {
+
+		yield return new WaitForSeconds(wait);
+
+		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Attack);
+		print("攻撃" + gameObject.name);
+
+		MyAttackObj.SetEndCallback(AttackEnd);
 
 		MyAttackObj.Activate();
 
 		if (ieAttackModeLimit != null) {
 			StopCoroutine(ieAttackModeLimit);
 		}
-		
-		StopMove(5f);
+	}
+
+	/// <summary>
+	/// 攻撃終了時関数
+	/// </summary>
+	private void AttackEnd() {
+
+		// 次の攻撃待機
+		AttackAction = AttackPose;
+		// 攻撃中でなくなる
+		IsAttacking = false;
+		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
+
+		// 次の目標
+		StartPlayerAttackMode(NowTarget.transform);
+
+		// 移動開始
+		EnableMove();
+
+		// 制限時間開始
+		StopCoroutine(ieAttackModeLimit);
+		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
+		StartCoroutine(ieAttackModeLimit);
+		attackIntervalTime = NextAttackInterval;
+
+
+		// 利用したので削除
+		Destroy(MyAttackObj.gameObject);
+	}
+
+	/// <summary>
+	/// 時間経過
+	/// </summary>
+	private void IntervalTimeUpdate() {
+
+		if (attackIntervalTime > 0f) {
+			attackIntervalTime -= Time.deltaTime;
+
+			if (attackIntervalTime < 0f) {
+				attackIntervalTime = 0f;
+			}
+		}
 	}
 
 	/// <summary>
@@ -242,11 +317,15 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		Destroy(this.gameObject);
 	}
 
+	/// <summary>
+	/// 攻撃終了
+	/// </summary>
 	private void StopAttackMode() {
 
 		print("攻撃行動終了");
 		StopPlayerAttackMode();
 		CityTargeted = true;
+		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
 		NowTarget = City.Instance.transform;
 	}
 
@@ -257,6 +336,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 
 		// 逃走モードへ
 		// 今は仮で死ぬ
+		ChildModel.Animation(EnemyMiniAnimation.AnimationType.RunAway);
+		IsEscape = true;
 		print("逃げた");
 		Destroy();
 	}
@@ -269,16 +350,20 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		private set { _IsEscape = value; }
 		get { return _IsEscape; }
 	}
-      
 
-	MeshRenderer _ChildModel;
-	public MeshRenderer ChildModel {
+
+	EnemyMiniAnimation _ChildModel;
+	public EnemyMiniAnimation ChildModel {
 		get {
 			if (_ChildModel == null) {
-				_ChildModel = GetComponentInChildren<MeshRenderer>();
+				_ChildModel = GetComponentInChildren<EnemyMiniAnimation>();
 			}
 			return _ChildModel;
 		}
 	}
-      
+
+	public override bool IsDeath {
+		get { return IsEscape; }
+		protected set { IsEscape = value; }
+	}
 }

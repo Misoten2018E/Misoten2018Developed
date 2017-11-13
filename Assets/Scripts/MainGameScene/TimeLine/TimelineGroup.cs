@@ -10,6 +10,7 @@ public class TimelineGroup : MonoBehaviour {
 	//========================================================================================
 
 	[SerializeField] private uint OrderId = 0;
+	[SerializeField] private float GraceTime = 15f;
 
 	//========================================================================================
 	//                                    public
@@ -18,6 +19,9 @@ public class TimelineGroup : MonoBehaviour {
 	private void Awake() {
 		isEnd = false;
 		isActive = false;
+
+		var p = GetComponents<ProduceEventBase>();
+		produceEvents.AddRange(p);
 	}
 
 	/// <summary>
@@ -30,6 +34,8 @@ public class TimelineGroup : MonoBehaviour {
 
 		NextEventId = 0;
 		SearchChildrenEvents();
+
+		ProduceEventBase.StartProduceLists(produceEvents, ProduceEventBase.EventType.Start);
 	}
 
 	/// <summary>
@@ -39,6 +45,8 @@ public class TimelineGroup : MonoBehaviour {
 
 		isActive = false;
 		isEnd = true;
+
+		ProduceEventBase.StartProduceLists(produceEvents, ProduceEventBase.EventType.End);
 	}
 
 	/// <summary>
@@ -92,8 +100,15 @@ public class TimelineGroup : MonoBehaviour {
 		set { _NextEventId = value; }
 		get { return _NextEventId; }
 	}
+
+	/// <summary>
+	/// 演出リスト
+	/// </summary>
+	private List<ProduceEventBase> produceEvents = new List<ProduceEventBase>();
      
-	
+	/// <summary>
+	/// 起動が行われる順番
+	/// </summary>
 	public uint OrderID {
 		get { return OrderId; }
 	}
@@ -132,9 +147,45 @@ public class TimelineGroup : MonoBehaviour {
 		}
 
 		// 終了チェック
-		if (max <= NextEventId) {
-			TimeLineEnd();
+		if ((max <= NextEventId) && (isActive)) {
+			//TimeLineEnd();
+			isActive = false;
+			StartCoroutine(IETimelineEndEventCheck());
 		}
+	}
+
+	bool IsAllEventEnd {
+		get {
+
+			for (int i = 0; i < EventLists.Count; i++) {
+
+				if (!EventLists[i].IsEnd) {
+					return false;
+				}
+			}
+			return true;
+		}
+	}
+
+	/// <summary>
+	/// イベント終了チェック開始
+	/// </summary>
+	/// <returns></returns>
+	IEnumerator IETimelineEndEventCheck() {
+
+		float time = 0f;
+
+		while (true) {
+
+			if ((time >= GraceTime) || IsAllEventEnd) {
+				break;
+			}
+
+			time += Time.deltaTime;
+			yield return null;
+		}
+
+		TimeLineEnd();
 	}
 
 	/// <summary>

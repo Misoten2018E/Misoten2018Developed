@@ -49,7 +49,7 @@ public static class GameObjectExtensions {
 	/// <param name="act"></param>
 	/// <param name="EndCallback"></param>
 	/// <returns></returns>
-	public static IEnumerator LoopMethod(float MaxTime, System.Action act, System.Action EndCallback = null) {
+	public static IEnumerator LoopMethod(float MaxTime, System.Action<float> act, System.Action EndCallback = null) {
 
 		float time = 0f;
 
@@ -61,7 +61,7 @@ public static class GameObjectExtensions {
 				break;
 			}
 
-			act();
+			act(time / MaxTime);
 
 			yield return null;
 		}

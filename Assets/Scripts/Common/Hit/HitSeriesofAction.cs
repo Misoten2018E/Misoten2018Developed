@@ -29,16 +29,13 @@ public class HitSeriesofAction : PauseSupport {
 
 		var a = Anim;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 
 	public void AnimationEnd() {
 
 		if (EndCallback != null) {
 			EndCallback();
+			EndCallback = null;
 		}
 
 		gameObject.SetActive(false);
@@ -123,7 +120,7 @@ public class HitSeriesofAction : PauseSupport {
 	/// <summary>
 	/// 起動処理
 	/// </summary>
-	public void Activate() {
+	public void Activate(float rate = 1f) {
 
 		gameObject.SetActive(true);
 		AnimatorStateInfo stateInfo = Anim.GetCurrentAnimatorStateInfo(0);
