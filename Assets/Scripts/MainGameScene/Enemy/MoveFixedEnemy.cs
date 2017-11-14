@@ -43,18 +43,18 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		TargetIndex = 0;
 		CityTargeted = false;
 		IsEscape = false;
-		NextTargetSearch();	
+		NextTargetSearch();
 	}
 	
 	// Update is called once per frame
 	protected virtual void Update () {
 
-		if ((NowTarget == null) || IsStop) {
+		if (IsStop) {
+			return;
+		}
 
-
-			if (NowTarget == null) {
-				print("目標消失");
-			}
+		if (NowTarget == null) {
+			NextTargetSearch();
 			return;
 		}
 
@@ -81,6 +81,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		TargetIndex = 0;
 		CityTargeted = false;
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
+		EnableMove();
 
 		base.InitEnemy(InitData);
 	}
