@@ -48,7 +48,8 @@ public abstract class MoveTargetEnemy : WaitEnemy {
 		Vector3 v = transform.forward;
 		v.y = 0f;
 		v.Normalize();
-		transform.position += v * speed * Time.deltaTime;
-
+		v = transform.position + v * speed * Time.deltaTime;
+		v.y = 0f;
+		transform.position = v;
 	}
 }

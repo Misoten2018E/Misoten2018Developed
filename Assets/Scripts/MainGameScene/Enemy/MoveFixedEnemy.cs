@@ -18,8 +18,6 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 
 	[SerializeField] private List<Transform> TargetTransform;
 
-	
-
 	//========================================================================================
 	//                                    public
 	//========================================================================================
@@ -222,6 +220,9 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		AttackAction = AttackPose;
 		StartPlayerAttackMode(player.transform);
 
+		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
+		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
+
 		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
 		StartCoroutine(ieAttackModeLimit);
 	}
@@ -262,6 +263,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		yield return new WaitForSeconds(wait);
 
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Attack);
+		myTrail.StartTrail(TrailSupport.BodyType.LeftArm);
+		myTrail.StartTrail(TrailSupport.BodyType.RightArm);
 		print("攻撃" + gameObject.name);
 
 		MyAttackObj.SetEndCallback(AttackEnd);
@@ -283,6 +286,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		// 攻撃中でなくなる
 		IsAttacking = false;
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
+		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
+		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
 
 		// 次の目標
 		StartPlayerAttackMode(NowTarget.transform);
@@ -357,6 +362,17 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		get { return _IsEscape; }
 	}
 
+
+	TrailBodyManager _myTrail;
+	public TrailBodyManager myTrail {
+		get {
+			if (_myTrail == null) {
+				_myTrail = GetComponentInChildren<TrailBodyManager>();
+			}
+			return _myTrail;
+		}
+	}
+      
 
 	EnemyMiniAnimation _ChildModel;
 	public EnemyMiniAnimation ChildModel {
