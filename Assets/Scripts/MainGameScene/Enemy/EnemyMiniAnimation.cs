@@ -24,6 +24,9 @@ public class EnemyMiniAnimation : ControlAnimatorEnemy {
 	
 	public void Animation(AnimationType type) {
 
+		transform.localRotation = Quaternion.identity;
+		transform.localPosition = Vector3.zero;
+
 		switch (type) {
 			case AnimationType.Move:
 				SetState((int)AnimationType.Move);
