@@ -169,6 +169,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		Damaged.HittedTremble(ChildModel.transform, impact);
 
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Damage);
+		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
 
 
 		if (MyHp.isDeath && ieDeath == null) {
