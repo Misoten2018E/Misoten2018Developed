@@ -38,7 +38,7 @@ public class PlayerHeroHitAnimation : HitAnimationBase{
 
     public override void HitAnimationSpecial()
     {
-        HitSpecialAnimation.Activate();
+        
     }
 
     public override void Destruct()
@@ -50,25 +50,22 @@ public class PlayerHeroHitAnimation : HitAnimationBase{
     {
         myPlayer = player;
 
-        var preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHit, ConstActionHitData.Action);
+        var preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitHero, ConstActionHitData.ActionHeroWeak1);
         HitWeakattack1Animation = Instantiate(preAction);
         HitWeakattack1Animation.Initialize(myPlayer);
 
-        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHit, ConstActionHitData.ActionSuction);
+        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitHero, ConstActionHitData.ActionHeroWeak2);
         HitWeakattack2Animation = Instantiate(preAction);
         HitWeakattack2Animation.Initialize(myPlayer);
 
-        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHit, ConstActionHitData.Action);
+        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitHero, ConstActionHitData.ActionHeroWeak3);
         HitWeakattack3Animation = Instantiate(preAction);
         HitWeakattack3Animation.Initialize(myPlayer);
 
-        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHit, ConstActionHitData.ActionSuction);
+        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitHero, ConstActionHitData.ActionHeroStrong);
         HitStrongattackAnimation = Instantiate(preAction);
         HitStrongattackAnimation.Initialize(myPlayer);
-
-        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHit, ConstActionHitData.ActionSuction);
-        HitSpecialAnimation = Instantiate(preAction);
-        HitSpecialAnimation.Initialize(myPlayer);
+        
     }
 
     // Use this for initialization
@@ -101,5 +98,4 @@ public class PlayerHeroHitAnimation : HitAnimationBase{
     HitSeriesofAction HitWeakattack2Animation;
     HitSeriesofAction HitWeakattack3Animation;
     HitSeriesofAction HitStrongattackAnimation;
-    HitSeriesofAction HitSpecialAnimation;
 }

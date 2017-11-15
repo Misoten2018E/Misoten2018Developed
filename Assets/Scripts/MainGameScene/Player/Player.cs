@@ -15,6 +15,7 @@ public class Player : SceneStartEvent{
 
     MultiInput m_input;
     public int no;
+    public int nodamagetime;
     //public float MoveSpeed;
     //public float RotationSpeed;
 
@@ -31,6 +32,8 @@ public class Player : SceneStartEvent{
     Vector3 ChangeCenterPos;
     int beforeCharacter;
     PLAYER_STA playersta;
+    bool nodamageflg;
+    float nodamtotaltime;
 
     // Use this for initialization
     void Start () {
@@ -123,12 +126,24 @@ public class Player : SceneStartEvent{
                     playerbase.SetCharConNoHit(false);
                     if (CharacterSta != beforeCharacter)
                     {
-
+                        playerbase.PlayerPause();
                     }
                    
                 }
                 break;
 
+        }
+
+        if (nodamageflg)
+        {
+            nodamtotaltime += Time.deltaTime;
+
+            if (nodamtotaltime >= nodamagetime)
+            {
+                nodamtotaltime = 0;
+                nodamageflg = false;
+                print("nodamegiend");
+            }
         }
 
         //print(hitcityflg);
@@ -139,7 +154,7 @@ public class Player : SceneStartEvent{
     public override void SceneMyInit()
     {
         Vector3 workpos = new Vector3();
-
+        
         //input = GetComponent<MultiInput>();
         //CharCon = this.GetComponent<CharacterController>();
 
@@ -150,6 +165,8 @@ public class Player : SceneStartEvent{
         playerbase.Playerinit(no);
         CharacterSta = ConstPlayerSta.NormalCharacter;
         playersta = PLAYER_STA.NORMAL;
+        nodamageflg = false;
+        nodamtotaltime = 0;
 
         isInitialized = true;
     }
@@ -158,11 +175,13 @@ public class Player : SceneStartEvent{
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == ConstTags.EnemyAttack)
+        if(other.gameObject.tag == ConstTags.EnemyAttack && playersta == PLAYER_STA.NORMAL && !nodamageflg)
         {
             HitObjectImpact damage = other.GetComponent<HitObjectImpact>();
             playerbase.PlayerDamage();
             damage.DamageHp(playerbase.GetPlayerHP());
+            nodamageflg = true;
+            print("nodamegi");
         }
     }
 
