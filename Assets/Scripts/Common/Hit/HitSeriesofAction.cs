@@ -147,7 +147,6 @@ public class HitSeriesofAction : PauseSupport {
 		}
 	}
 
-    //testPlayer _myPlayer;//キャラのベースクラスにするためコメントアウト
     PlayerBase _myPlayer;
     //public testPlayer myPlayer{//キャラのベースクラスにするためコメントアウト
     public PlayerBase myPlayer{
