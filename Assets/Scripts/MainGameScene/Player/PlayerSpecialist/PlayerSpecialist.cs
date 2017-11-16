@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHeel : PlayerBase{
+public class PlayerSpecialist : PlayerBase{
 
 	// Use this for initialization
 	void Start () {

@@ -37,11 +37,13 @@ public class Player_test : PlayerBase
 	}
 
     override
-    public void Playerinit(int playerno)
+    public void Playerinit(GameObject playerobj)
     {
-        no = playerno;
+        myPlayer = playerobj;
+        Player player = playerobj.GetComponent<Player>();
+        no = player.no;
         input = GetComponent<MultiInput>();
-        input.PlayerNo = playerno;
+        input.PlayerNo = no;
         CharCon = this.GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         HitAnime = GetComponent<HitAnimationBase>();
@@ -89,14 +91,19 @@ public class Player_test : PlayerBase
                 break;
         }
 
+        NoDameCnt();
         SetAnimatorData();
     }
 
-    public override void PlayerDamage()
+    public override void PlayerDamage(HitObjectImpact damage)
     {
+        if (nodamageflg) return;
+
         player_test_sta = PLAYER_TEST_STA.DAMAGE;
         PlayerSta = (int)player_test_sta;
+        damage.DamageHp(HP);
         animator.SetTrigger("Damage");
+        nodamageflg = true;
     }
 
     private void Normal()
@@ -105,7 +112,6 @@ public class Player_test : PlayerBase
 
         if(input.GetButtonSquareTrigger())
         {
-            aniendFlg = false;
             player_test_sta = PLAYER_TEST_STA.WEAKATTACK1;
             PlayerSta = (int)player_test_sta;
             HitAnime.HitAnimationWeakattack1();
@@ -113,7 +119,6 @@ public class Player_test : PlayerBase
 
         if (input.GetButtonTriangleTrigger())
         {
-            aniendFlg = false;
             player_test_sta = PLAYER_TEST_STA.STRONGATTACK;
             PlayerSta = (int)player_test_sta;
             HitAnime.HitAnimationStrongattack();
@@ -121,7 +126,6 @@ public class Player_test : PlayerBase
 
         if (input.GetButtonCircleTrigger())
         {
-            aniendFlg = false;
             player_test_sta = PLAYER_TEST_STA.SPECIAL;
             PlayerSta = (int)player_test_sta;
             HitAnime.HitAnimationSpecial();

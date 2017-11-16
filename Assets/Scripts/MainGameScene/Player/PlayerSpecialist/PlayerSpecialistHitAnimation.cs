@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHeel : PlayerBase{
+public class PlayerSpecialistHitAnimation : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

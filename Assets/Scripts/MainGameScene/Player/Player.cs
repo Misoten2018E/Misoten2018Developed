@@ -15,7 +15,6 @@ public class Player : SceneStartEvent{
 
     MultiInput m_input;
     public int no;
-    public int nodamagetime;
     //public float MoveSpeed;
     //public float RotationSpeed;
 
@@ -32,8 +31,6 @@ public class Player : SceneStartEvent{
     Vector3 ChangeCenterPos;
     int beforeCharacter;
     PLAYER_STA playersta;
-    bool nodamageflg;
-    float nodamtotaltime;
 
     // Use this for initialization
     void Start () {
@@ -134,18 +131,6 @@ public class Player : SceneStartEvent{
 
         }
 
-        if (nodamageflg)
-        {
-            nodamtotaltime += Time.deltaTime;
-
-            if (nodamtotaltime >= nodamagetime)
-            {
-                nodamtotaltime = 0;
-                nodamageflg = false;
-                print("nodamegiend");
-            }
-        }
-
         //print(hitcityflg);
         transform.position = playerbase.GetBodyPosition();
         
@@ -162,11 +147,9 @@ public class Player : SceneStartEvent{
         NowCharacter = Instantiate(NormalCharacter, workpos, Quaternion.identity) as GameObject;
         
         playerbase = NowCharacter.GetComponent<PlayerBase>();
-        playerbase.Playerinit(no);
+        playerbase.Playerinit(gameObject);
         CharacterSta = ConstPlayerSta.NormalCharacter;
         playersta = PLAYER_STA.NORMAL;
-        nodamageflg = false;
-        nodamtotaltime = 0;
 
         isInitialized = true;
     }
@@ -175,13 +158,10 @@ public class Player : SceneStartEvent{
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == ConstTags.EnemyAttack && playersta == PLAYER_STA.NORMAL && !nodamageflg)
+        if(other.gameObject.tag == ConstTags.EnemyAttack && playersta == PLAYER_STA.NORMAL)
         {
             HitObjectImpact damage = other.GetComponent<HitObjectImpact>();
-            playerbase.PlayerDamage();
-            damage.DamageHp(playerbase.GetPlayerHP());
-            nodamageflg = true;
-            print("nodamegi");
+            playerbase.PlayerDamage(damage);
         }
     }
 
@@ -215,28 +195,28 @@ public class Player : SceneStartEvent{
                 NowCharacter = Instantiate(NormalCharacter, workpos, Quaternion.identity) as GameObject;
 
                 playerbase = NowCharacter.GetComponent<PlayerBase>();
-                playerbase.Playerinit(no);
+                playerbase.Playerinit(gameObject);
                 CharacterSta = ConstPlayerSta.NormalCharacter;
                 break;
             case ConstPlayerSta.HeroCharacter:
                 NowCharacter = Instantiate(HeroCharacter, workpos, Quaternion.identity) as GameObject;
 
                 playerbase = NowCharacter.GetComponent<PlayerBase>();
-                playerbase.Playerinit(no);
+                playerbase.Playerinit(gameObject);
                 CharacterSta = ConstPlayerSta.HeroCharacter;
                 break;
             case ConstPlayerSta.HeelCharacter:
                 NowCharacter = Instantiate(HeelCharacter, workpos, Quaternion.identity) as GameObject;
 
                 playerbase = NowCharacter.GetComponent<PlayerBase>();
-                playerbase.Playerinit(no);
+                playerbase.Playerinit(gameObject);
                 CharacterSta = ConstPlayerSta.HeelCharacter;
                 break;
             case ConstPlayerSta.SpecialistCharacter:
                 NowCharacter = Instantiate(SpecialistCharacter, workpos, Quaternion.identity) as GameObject;
 
                 playerbase = NowCharacter.GetComponent<PlayerBase>();
-                playerbase.Playerinit(no);
+                playerbase.Playerinit(gameObject);
                 CharacterSta = ConstPlayerSta.SpecialistCharacter;
                 break;
         }
