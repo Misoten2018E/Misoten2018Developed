@@ -10,7 +10,7 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 	//                                    inspector
 	//========================================================================================
 
-	[SerializeField] private float OrthoMinSize = 7;
+	[SerializeField] private float OrthoMinSize = 5;
 
 	[SerializeField] private AnimationCurve MoveEvent;
 
@@ -292,7 +292,7 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 		float lenX = sq.xzPlus.x - sq.xzMinus.x;
 		float lenZ = sq.xzPlus.y - sq.xzMinus.y;
 
-		return ((lenX > lenZ) ? (lenX) : (lenZ)) / 2;
+		return ((lenX > lenZ) ? (lenX) : (lenZ)) * 0.4f;
 	}
 
 	/// <summary>
