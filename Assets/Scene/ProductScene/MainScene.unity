@@ -158,7 +158,7 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &226663013
@@ -195,7 +195,7 @@ MonoBehaviour:
     type: 2}
   HeroCharacter: {fileID: 1867772622402742, guid: ea26405228c6fd34f9695c7342c8b03d,
     type: 2}
-  HeelCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
+  HeelCharacter: {fileID: 1585345218581390, guid: e9e4ea79b0e1c644db430114a22722d7,
     type: 2}
   SpecialistCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
     type: 2}
@@ -476,6 +476,52 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1020298275}
   m_Script: {fileID: 11500000, guid: ecc471a418c53df44a1b17fc32b42023, type: 3}
+--- !u!1001 &737291470
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4333332763901948, guid: e917090fc164857408df0574fd2f225f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 13.566889
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333332763901948, guid: e917090fc164857408df0574fd2f225f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -24.747643
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333332763901948, guid: e917090fc164857408df0574fd2f225f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 8.660641
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333332763901948, guid: e917090fc164857408df0574fd2f225f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333332763901948, guid: e917090fc164857408df0574fd2f225f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333332763901948, guid: e917090fc164857408df0574fd2f225f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333332763901948, guid: e917090fc164857408df0574fd2f225f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333332763901948, guid: e917090fc164857408df0574fd2f225f, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479970903245986, guid: e917090fc164857408df0574fd2f225f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e917090fc164857408df0574fd2f225f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &900926140
 Prefab:
   m_ObjectHideFlags: 0
@@ -608,7 +654,7 @@ MonoBehaviour:
     type: 2}
   HeroCharacter: {fileID: 1867772622402742, guid: ea26405228c6fd34f9695c7342c8b03d,
     type: 2}
-  HeelCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
+  HeelCharacter: {fileID: 1585345218581390, guid: e9e4ea79b0e1c644db430114a22722d7,
     type: 2}
   SpecialistCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
     type: 2}
@@ -802,7 +848,7 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &965754848
@@ -839,7 +885,7 @@ MonoBehaviour:
     type: 2}
   HeroCharacter: {fileID: 1867772622402742, guid: ea26405228c6fd34f9695c7342c8b03d,
     type: 2}
-  HeelCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
+  HeelCharacter: {fileID: 1585345218581390, guid: e9e4ea79b0e1c644db430114a22722d7,
     type: 2}
   SpecialistCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
     type: 2}
@@ -2274,7 +2320,7 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1507979487
@@ -2311,7 +2357,7 @@ MonoBehaviour:
     type: 2}
   HeroCharacter: {fileID: 1867772622402742, guid: ea26405228c6fd34f9695c7342c8b03d,
     type: 2}
-  HeelCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
+  HeelCharacter: {fileID: 1585345218581390, guid: e9e4ea79b0e1c644db430114a22722d7,
     type: 2}
   SpecialistCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
     type: 2}

@@ -169,7 +169,7 @@ public class Player : SceneStartEvent{
     {
         if (other.tag == ConstTags.City && playersta == PLAYER_STA.NORMAL)
         {
-            print("stay");
+            
             if (m_input.GetButtonCrossTrigger())
             {
                 playersta = PLAYER_STA.CITYIN;

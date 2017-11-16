@@ -4170,6 +4170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b58be908569cd5c43b7567ffa30ff30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPausePermit: 1
+  no: 0
+  nodamagetime: 0
 --- !u!137 &137765365075056072
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

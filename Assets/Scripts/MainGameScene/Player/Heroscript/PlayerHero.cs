@@ -164,6 +164,7 @@ public class PlayerHero : PlayerBase{
         if (CheckAnimationSTART("wait") || CheckAnimationSTART("run"))
         {
             ModelTransformReset();
+            print("riseto");
         }
     }
 
