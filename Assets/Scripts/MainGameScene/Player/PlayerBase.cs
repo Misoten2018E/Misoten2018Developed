@@ -19,7 +19,9 @@ public class PlayerBase : SceneStartEvent{
     }
 
     public int no;
+    public int nodamagetime;
 
+    protected GameObject myPlayer;
     protected float MoveSpeed;
     protected float RotationSpeed;
     protected Vector3 velocity;
@@ -28,11 +30,12 @@ public class PlayerBase : SceneStartEvent{
     protected Transform Model;
 
     protected int PlayerSta;
-    protected bool aniendFlg;
 
     protected ObjectHp HP;
     
     protected int Attack;
+    protected bool nodamageflg;
+    float nodamtotal = 0;
 
     // Use this for initialization
     void Start () {
@@ -91,7 +94,7 @@ public class PlayerBase : SceneStartEvent{
         Attack += attack;
     }
 
-    public virtual void Playerinit(int playerno)
+    public virtual void Playerinit(GameObject playerobj)
     {
 
     }
@@ -101,7 +104,7 @@ public class PlayerBase : SceneStartEvent{
      
     }
 
-    public virtual void PlayerDamage()
+    public virtual void PlayerDamage(HitObjectImpact damage)
     {
 
     }
@@ -116,9 +119,9 @@ public class PlayerBase : SceneStartEvent{
         return animator.bodyPosition;
     }
 
-    public ObjectHp GetPlayerHP()
+    public GameObject GetPlayerObj()
     {
-        return HP;
+        return myPlayer;
     }
 
     public void SetCharConNoHit(bool flg)
@@ -221,7 +224,23 @@ public class PlayerBase : SceneStartEvent{
 
     protected void ModelTransformReset()
     {
-        Model.position = transform.position;
+        Vector3 v = new Vector3(transform.position.x, 0.0f, transform.position.z);
+
+        Model.position = v;
         Model.rotation = new Quaternion(0, 0, 0, 0);
+    }
+
+    protected void NoDameCnt()
+    {
+        if (nodamageflg)
+        {
+            nodamtotal += Time.deltaTime;
+
+            if (nodamtotal >= nodamagetime)
+            {
+                nodamtotal = 0;
+                nodamageflg = false;
+            }
+        }
     }
 }

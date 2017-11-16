@@ -245,8 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPausePermit: 1
   no: 2
-  nodamagetime: 1
-  NormalCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
+  NormalCharacter: {fileID: 1517073754558554, guid: 6021d1238fc815e4a9ceb3d0762f0099,
     type: 2}
   HeroCharacter: {fileID: 1867772622402742, guid: ea26405228c6fd34f9695c7342c8b03d,
     type: 2}
@@ -306,8 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPausePermit: 1
   no: 1
-  nodamagetime: 1
-  NormalCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
+  NormalCharacter: {fileID: 1517073754558554, guid: 6021d1238fc815e4a9ceb3d0762f0099,
     type: 2}
   HeroCharacter: {fileID: 1867772622402742, guid: ea26405228c6fd34f9695c7342c8b03d,
     type: 2}
@@ -328,8 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPausePermit: 1
   no: 3
-  nodamagetime: 1
-  NormalCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
+  NormalCharacter: {fileID: 1517073754558554, guid: 6021d1238fc815e4a9ceb3d0762f0099,
     type: 2}
   HeroCharacter: {fileID: 1867772622402742, guid: ea26405228c6fd34f9695c7342c8b03d,
     type: 2}
@@ -363,8 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPausePermit: 1
   no: 0
-  nodamagetime: 1
-  NormalCharacter: {fileID: 1429801260952864, guid: 5445fd9e8b93856469938cbabc7d2d2e,
+  NormalCharacter: {fileID: 1517073754558554, guid: 6021d1238fc815e4a9ceb3d0762f0099,
     type: 2}
   HeroCharacter: {fileID: 1867772622402742, guid: ea26405228c6fd34f9695c7342c8b03d,
     type: 2}

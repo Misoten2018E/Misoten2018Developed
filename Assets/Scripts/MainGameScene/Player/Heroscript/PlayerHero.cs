@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHero : PlayerBase{
 
-    private enum PLAYER_TEST_STA
+    private enum PLAYER_HERO_STA
     {
         NORMAL = 0,
         WEAKATTACK1,
@@ -20,7 +20,7 @@ public class PlayerHero : PlayerBase{
     }
 
     MultiInput input;
-    PLAYER_TEST_STA player_Hero_sta;
+    PLAYER_HERO_STA player_Hero_sta;
     bool ComboFlg;
     HitAnimationBase HitAnime;
 
@@ -42,11 +42,13 @@ public class PlayerHero : PlayerBase{
     }
 
     override
-    public void Playerinit(int playerno)
+    public void Playerinit(GameObject playerobj)
     {
-        no = playerno;
+        myPlayer = playerobj;
+        Player player = playerobj.GetComponent<Player>();
+        no = player.no;
         input = GetComponent<MultiInput>();
-        input.PlayerNo = playerno;
+        input.PlayerNo = no;
         CharCon = this.GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         Model = transform.Find("BaseModel_Hero").transform;
@@ -55,10 +57,11 @@ public class PlayerHero : PlayerBase{
 
         MoveSpeed = Player_Hero_MoveSpeed;
         RotationSpeed = Player_Hero_RotationSpeed;
-        player_Hero_sta = PLAYER_TEST_STA.NORMAL;
+        player_Hero_sta = PLAYER_HERO_STA.NORMAL;
         PlayerSta = (int)player_Hero_sta;
         ComboFlg = false;
         Attack = Player_Hero_ATTACK;
+        nodamageflg = false;
 
         HitAnime.Initialize(this);
     }
@@ -72,52 +75,58 @@ public class PlayerHero : PlayerBase{
 
         switch (player_Hero_sta)
         {
-            case PLAYER_TEST_STA.NORMAL:
+            case PLAYER_HERO_STA.NORMAL:
                 Normal();
                 break;
-            case PLAYER_TEST_STA.WEAKATTACK1:
+            case PLAYER_HERO_STA.WEAKATTACK1:
                 NormalAction1();
                 break;
-            case PLAYER_TEST_STA.WEAKATTACK2:
+            case PLAYER_HERO_STA.WEAKATTACK2:
                 NormalAction2();
                 break;
-            case PLAYER_TEST_STA.WEAKATTACK3:
+            case PLAYER_HERO_STA.WEAKATTACK3:
                 NormalAction3();
                 break;
-            case PLAYER_TEST_STA.STRONGATTACK_START:
+            case PLAYER_HERO_STA.STRONGATTACK_START:
                 StrongActionStart();
                 break;
-            case PLAYER_TEST_STA.STRONGATTACK_END:
+            case PLAYER_HERO_STA.STRONGATTACK_END:
                 StrongActionEnd();
                 break;
-            case PLAYER_TEST_STA.SPECIAL_START:
+            case PLAYER_HERO_STA.SPECIAL_START:
                 SpecialActionStart();
                 break;
-            case PLAYER_TEST_STA.SPECIAL_END:
+            case PLAYER_HERO_STA.SPECIAL_END:
                 SpecialActionEnd();
                 break;
-            case PLAYER_TEST_STA.DAMAGE:
+            case PLAYER_HERO_STA.DAMAGE:
                 DamageAction();
                 break;
-            case PLAYER_TEST_STA.PAUSE:
+            case PLAYER_HERO_STA.PAUSE:
                 PauseAction();
                 break;
         }
 
+        NoDameCnt();
+
         SetAnimatorData();
     }
 
-    public override void PlayerDamage()
+    public override void PlayerDamage(HitObjectImpact damage)
     {
-        player_Hero_sta = PLAYER_TEST_STA.DAMAGE;
+        if (nodamageflg) return;
+
+        player_Hero_sta = PLAYER_HERO_STA.DAMAGE;
         PlayerSta = (int)player_Hero_sta;
+        damage.DamageHp(HP);
         animator.SetTrigger("Damage");
+        nodamageflg = true;
         ModelTransformReset();
     }
 
     public override void PlayerPause()
     {
-        player_Hero_sta = PLAYER_TEST_STA.PAUSE;
+        player_Hero_sta = PLAYER_HERO_STA.PAUSE;
         PlayerSta = (int)player_Hero_sta;
         animator.SetTrigger("Pause");
         ModelTransformReset();
@@ -129,8 +138,7 @@ public class PlayerHero : PlayerBase{
 
         if (input.GetButtonSquareTrigger())
         {
-            aniendFlg = false;
-            player_Hero_sta = PLAYER_TEST_STA.WEAKATTACK1;
+            player_Hero_sta = PLAYER_HERO_STA.WEAKATTACK1;
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationWeakattack1();
             ModelTransformReset();
@@ -138,16 +146,14 @@ public class PlayerHero : PlayerBase{
 
         if (input.GetButtonTriangleTrigger())
         {
-            aniendFlg = false;
-            player_Hero_sta = PLAYER_TEST_STA.STRONGATTACK_START;
+            player_Hero_sta = PLAYER_HERO_STA.STRONGATTACK_START;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
         }
 
         if (input.GetButtonCircleTrigger())
         {
-            aniendFlg = false;
-            player_Hero_sta = PLAYER_TEST_STA.SPECIAL_START;
+            player_Hero_sta = PLAYER_HERO_STA.SPECIAL_START;
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationSpecial();
             ModelTransformReset();
@@ -158,6 +164,7 @@ public class PlayerHero : PlayerBase{
         if (CheckAnimationSTART("wait") || CheckAnimationSTART("run"))
         {
             ModelTransformReset();
+            print("riseto");
         }
     }
 
@@ -174,14 +181,14 @@ public class PlayerHero : PlayerBase{
         {
             if (ComboFlg)
             {
-                player_Hero_sta = PLAYER_TEST_STA.WEAKATTACK2;
+                player_Hero_sta = PLAYER_HERO_STA.WEAKATTACK2;
                 PlayerSta = (int)player_Hero_sta;
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack2();
             }
             else
             {
-                player_Hero_sta = PLAYER_TEST_STA.NORMAL;
+                player_Hero_sta = PLAYER_HERO_STA.NORMAL;
                 PlayerSta = (int)player_Hero_sta;
             }
 
@@ -202,14 +209,14 @@ public class PlayerHero : PlayerBase{
         {
             if (ComboFlg)
             {
-                player_Hero_sta = PLAYER_TEST_STA.WEAKATTACK3;
+                player_Hero_sta = PLAYER_HERO_STA.WEAKATTACK3;
                 PlayerSta = (int)player_Hero_sta;
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack3();
             }
             else
             {
-                player_Hero_sta = PLAYER_TEST_STA.NORMAL;
+                player_Hero_sta = PLAYER_HERO_STA.NORMAL;
                 PlayerSta = (int)player_Hero_sta;
             }
 
@@ -223,7 +230,7 @@ public class PlayerHero : PlayerBase{
 
         if (CheckAnimationEND("Combo3"))
         {
-            player_Hero_sta = PLAYER_TEST_STA.NORMAL;
+            player_Hero_sta = PLAYER_HERO_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
         }
@@ -235,7 +242,7 @@ public class PlayerHero : PlayerBase{
         
         if (CheckAnimationEND("StrongAttack_start"))
         {
-            player_Hero_sta = PLAYER_TEST_STA.STRONGATTACK_END;
+            player_Hero_sta = PLAYER_HERO_STA.STRONGATTACK_END;
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationStrongattack();
             ModelTransformReset();
@@ -248,7 +255,7 @@ public class PlayerHero : PlayerBase{
 
         if (CheckAnimationEND("StrongAttack_end"))
         {
-            player_Hero_sta = PLAYER_TEST_STA.NORMAL;
+            player_Hero_sta = PLAYER_HERO_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
         }
@@ -260,7 +267,7 @@ public class PlayerHero : PlayerBase{
 
         if (CheckAnimationEND("Special_start"))
         {
-            player_Hero_sta = PLAYER_TEST_STA.SPECIAL_END;
+            player_Hero_sta = PLAYER_HERO_STA.SPECIAL_END;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
         }
@@ -272,7 +279,7 @@ public class PlayerHero : PlayerBase{
 
         if (CheckAnimationEND("Special_end"))
         {
-            player_Hero_sta = PLAYER_TEST_STA.NORMAL;
+            player_Hero_sta = PLAYER_HERO_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
         }
@@ -282,7 +289,7 @@ public class PlayerHero : PlayerBase{
     {
         if (CheckAnimationEND("Damage"))
         {
-            player_Hero_sta = PLAYER_TEST_STA.NORMAL;
+            player_Hero_sta = PLAYER_HERO_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
         }
@@ -292,7 +299,7 @@ public class PlayerHero : PlayerBase{
     {
         if (CheckAnimationEND("Pause"))
         {
-            player_Hero_sta = PLAYER_TEST_STA.NORMAL;
+            player_Hero_sta = PLAYER_HERO_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
         }
