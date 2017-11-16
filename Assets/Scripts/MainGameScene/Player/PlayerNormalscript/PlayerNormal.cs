@@ -41,7 +41,7 @@ public class PlayerNormal : PlayerBase{
         input.PlayerNo = no;
         CharCon = this.GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
-        Model = transform.Find("BaseModel_Hero").transform;
+        Model = transform.Find("BaseModel_Human").transform;
         HP = gameObject.GetComponent<ObjectHp>();
 
         MoveSpeed = Player_Normal_MoveSpeed;
@@ -78,7 +78,7 @@ public class PlayerNormal : PlayerBase{
 
     public override void PlayerDamage(HitObjectImpact damage)
     {
-        if (nodamageflg) return;
+        if (nodamageflg || player_Normal_sta == PLAYER_NORMAL_STA.SWAY) return;
 
         player_Normal_sta = PLAYER_NORMAL_STA.DAMAGE;
         PlayerSta = (int)player_Normal_sta;
@@ -111,7 +111,7 @@ public class PlayerNormal : PlayerBase{
 
     private void SwayAction()
     {
-        if (CheckAnimationEND("Damage"))
+        if (CheckAnimationEND("sway"))
         {
             player_Normal_sta = PLAYER_NORMAL_STA.NORMAL;
             PlayerSta = (int)player_Normal_sta;
