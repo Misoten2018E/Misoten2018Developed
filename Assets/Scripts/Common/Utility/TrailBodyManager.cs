@@ -52,6 +52,7 @@ public class TrailBodyManager : MonoBehaviour {
 
 	/// <summary>
 	/// トレイル終了
+	/// 単一のものを止める
 	/// </summary>
 	/// <param name="type"></param>
 	public void EndTrail(TrailSupport.BodyType type) {
@@ -61,6 +62,18 @@ public class TrailBodyManager : MonoBehaviour {
 				TrailBodyList[i].EndTrail();
 				return;
 			}
+		}
+	}
+
+	/// <summary>
+	/// トレイル終了
+	/// タイプを渡さない場合全て止める
+	/// </summary>
+	/// <param name="type"></param>
+	public void EndTrail() {
+
+		for (int i = 0; i < TrailBodyList.Count; i++) {
+			TrailBodyList[i].EndTrail();
 		}
 	}
 
