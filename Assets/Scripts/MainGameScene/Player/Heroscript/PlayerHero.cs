@@ -23,6 +23,7 @@ public class PlayerHero : PlayerBase{
     PLAYER_HERO_STA player_Hero_sta;
     bool ComboFlg;
     HitAnimationBase HitAnime;
+    TrailBodyManager TBM;
 
     const int Player_Hero_MoveSpeed = 5;
     const int Player_Hero_RotationSpeed = 750;
@@ -54,6 +55,7 @@ public class PlayerHero : PlayerBase{
         Model = transform.Find("BaseModel_Hero").transform;
         HitAnime = GetComponent<HitAnimationBase>();
         HP = gameObject.GetComponent<ObjectHp>();
+        TBM = GetComponentInChildren<TrailBodyManager>();
 
         MoveSpeed = Player_Hero_MoveSpeed;
         RotationSpeed = Player_Hero_RotationSpeed;
@@ -142,6 +144,7 @@ public class PlayerHero : PlayerBase{
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationWeakattack1();
             ModelTransformReset();
+            TBM.StartTrail(TrailSupport.BodyType.RightArm);
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -164,7 +167,6 @@ public class PlayerHero : PlayerBase{
         if (CheckAnimationSTART("wait") || CheckAnimationSTART("run"))
         {
             ModelTransformReset();
-            print("riseto");
         }
     }
 
@@ -185,11 +187,14 @@ public class PlayerHero : PlayerBase{
                 PlayerSta = (int)player_Hero_sta;
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack2();
+                TBM.EndTrail(TrailSupport.BodyType.RightArm);
+                TBM.StartTrail(TrailSupport.BodyType.LeftArm);
             }
             else
             {
                 player_Hero_sta = PLAYER_HERO_STA.NORMAL;
                 PlayerSta = (int)player_Hero_sta;
+                TBM.EndTrail(TrailSupport.BodyType.RightArm);
             }
 
             ModelTransformReset();
@@ -213,11 +218,14 @@ public class PlayerHero : PlayerBase{
                 PlayerSta = (int)player_Hero_sta;
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack3();
+                TBM.EndTrail(TrailSupport.BodyType.LeftArm);
+                TBM.StartTrail(TrailSupport.BodyType.RightLeg);
             }
             else
             {
                 player_Hero_sta = PLAYER_HERO_STA.NORMAL;
                 PlayerSta = (int)player_Hero_sta;
+                TBM.EndTrail(TrailSupport.BodyType.LeftArm);
             }
 
             ModelTransformReset();
@@ -233,6 +241,7 @@ public class PlayerHero : PlayerBase{
             player_Hero_sta = PLAYER_HERO_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
+            TBM.EndTrail(TrailSupport.BodyType.RightLeg);
         }
     }
 

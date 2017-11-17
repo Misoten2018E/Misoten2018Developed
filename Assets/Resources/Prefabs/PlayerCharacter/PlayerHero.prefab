@@ -4524,7 +4524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637e11450ab16704495d340d3fefc384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyType: 0
+  bodyType: 2
 --- !u!114 &114466719294689824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4538,6 +4538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPausePermit: 1
   no: 0
+  nodamagetime: 0
 --- !u!114 &114473111881998170
 MonoBehaviour:
   m_ObjectHideFlags: 1
