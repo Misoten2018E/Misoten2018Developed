@@ -1639,6 +1639,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4535174168442248}
+  - component: {fileID: 114438910046405522}
   m_Layer: 0
   m_Name: EnemyRelayPoints
   m_TagString: Untagged
@@ -9043,6 +9044,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba48b07740b89e45bdaeb4e3496af2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114438910046405522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1743969884822042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6472fe5a12f6d99448e419ac18fe405a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartTransform: {fileID: 0}
 --- !u!114 &114449477506523332
 MonoBehaviour:
   m_ObjectHideFlags: 1
