@@ -81,33 +81,33 @@ public class Player : SceneStartEvent{
                 
                 break;
             case PLAYER_STA.CHANGE:
-                if (m_input.GetAllButtonCircleTrigger())
+                if (m_input.GetButtonCircleTrigger())
                 {
                     if (beforeCharacter != ConstPlayerSta.HeroCharacter)
                     {
                         
                         ChangeCharacter(ConstPlayerSta.HeroCharacter);
-                        print("chengi");
+                        
                     }
                     playersta = PLAYER_STA.CITYOUT;
                 }
 
-                if (m_input.GetAllButtonTriangleTrigger())
+                if (m_input.GetButtonTriangleTrigger())
                 {
                     if (beforeCharacter != ConstPlayerSta.HeelCharacter)
                     {
                         ChangeCharacter(ConstPlayerSta.HeelCharacter);
-                        print("chengi");
+                       
                     }
                     playersta = PLAYER_STA.CITYOUT;
                 }
 
-                if (m_input.GetAllButtonSquareTrigger())
+                if (m_input.GetButtonSquareTrigger())
                 {
                     if (beforeCharacter != ConstPlayerSta.SpecialistCharacter)
                     {
                         ChangeCharacter(ConstPlayerSta.SpecialistCharacter);
-                        print("chengi");
+                        
                     }
                     playersta = PLAYER_STA.CITYOUT;
                 }
