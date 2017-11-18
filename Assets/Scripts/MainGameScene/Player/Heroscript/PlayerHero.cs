@@ -124,6 +124,7 @@ public class PlayerHero : PlayerBase{
         animator.SetTrigger("Damage");
         nodamageflg = true;
         ModelTransformReset();
+        TBM.EndTrail();
     }
 
     public override void PlayerPause()
