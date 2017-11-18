@@ -19,6 +19,12 @@ public class BossEnemy : MoveTargetEnemy {
 
 	public void InitBossEnemy(BossCheckPointManager mng) {
 
+		CheckMng = mng;
+
+		CameraManager.Instance.FocusCamera.AddTarget(transform);
+
+		NextTarget = CheckMng.GetNextRelayPoint(null);
+		BossSpeed = CheckMng.CalcSpeedPointToPoint(SpownTime);
 	}
 
 	//========================================================================================
@@ -51,5 +57,15 @@ public class BossEnemy : MoveTargetEnemy {
 	//                                     private
 	//========================================================================================
 
+	BossCheckPointManager CheckMng;
 
+	RelayPoint NextTarget;
+
+	float BossSpeed;
+
+	void MoveTarget() {
+
+		MoveAdvanceToTarget(NextTarget.transform, BossSpeed);
+
+	}
 }

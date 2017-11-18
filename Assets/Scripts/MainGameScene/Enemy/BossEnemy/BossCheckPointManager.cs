@@ -57,6 +57,20 @@ public class BossCheckPointManager : MonoBehaviour {
 		return (nextArea == StartTransform);
 	}
 
+	/// <summary>
+	/// 点から点へ移動して1週する際のかかる時間を渡すと、その時間で終えるための速度を返す
+	/// </summary>
+	/// <param name="TakeRoundTime"></param>
+	/// <returns></returns>
+	public float CalcSpeedPointToPoint(float TakeRoundTime = 60) {
+
+		int pointNum = TransList.Count;
+		float oneRootTime = TakeRoundTime / pointNum;
+
+		var len = TransList[0].transform.position - TransList[1].transform.position;
+		return (len.magnitude / oneRootTime);
+	}
+
 	//========================================================================================
 	//                                 public - override
 	//========================================================================================
