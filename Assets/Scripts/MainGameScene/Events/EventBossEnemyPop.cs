@@ -2,69 +2,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossEnemy : MoveTargetEnemy {
+public class EventBossEnemyPop : TimelineEventStandard {
 
 
 	//========================================================================================
 	//                                    inspector
 	//========================================================================================
 
-	[SerializeField] private float SpownTime = 60;
+	[SerializeField] private BossCheckPointManager CheckPointManager;
+	[SerializeField] private BossEnemy Boss;
 
 	//========================================================================================
 	//                                     public
 	//========================================================================================
 
-	public void InitBossEnemy(BossCheckPointManager mng) {
-
-		CheckMng = mng;
-
-		CameraManager.Instance.FocusCamera.AddTarget(transform);
-
-		NextTarget = CheckMng.GetNextRelayPoint(null);
-		BossSpeed = CheckMng.CalcSpeedPointToPoint(SpownTime);
-	}
-
 	//========================================================================================
 	//                                 public - override
 	//========================================================================================
 
+	public override void EventStart() {
+
+		bossObject = Instantiate(Boss);
+		bossObject.InitBossEnemy(CheckPointManager);
+		bossObject.InitEnemy(new UsedInitData());
+	}
+
+	public override bool IsEnd {
+		get {
+			return false;
+		}
+
+		protected set {
+			base.IsEnd = value;
+		}
+	}
 
 	// Use this for initialization
 	void Start() {
-
-
 
 	}
 
 	// Update is called once per frame
 	void Update() {
 
-		MoveTarget();
-	}
-
-	public override void InitEnemy(UsedInitData InitData) {
-		
-	}
-
-	public override bool IsDeath {
-		get { return false; }
-		protected set { throw new System.NotImplementedException(); }
 	}
 
 	//========================================================================================
 	//                                     private
 	//========================================================================================
 
-	BossCheckPointManager CheckMng;
-
-	RelayPoint NextTarget;
-
-	float BossSpeed;
-
-	void MoveTarget() {
-
-		MoveAdvanceToTarget(NextTarget.transform, BossSpeed);
-
-	}
+	BossEnemy bossObject;
 }
