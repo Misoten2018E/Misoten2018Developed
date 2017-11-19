@@ -124,6 +124,11 @@ public class PlayerBase : SceneStartEvent{
         return myPlayer;
     }
 
+    public int GetHP()
+    {
+        return HP.Hp;
+    }
+
     public void SetCharConNoHit(bool flg)
     {
         var c = CharCon;

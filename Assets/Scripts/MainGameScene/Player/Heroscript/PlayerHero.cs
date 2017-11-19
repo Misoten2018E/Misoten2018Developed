@@ -29,6 +29,7 @@ public class PlayerHero : PlayerBase{
     const int Player_Hero_RotationSpeed = 750;
     const int Player_Hero_ActionRotationSpeed = 500;
     const int Player_Hero_ATTACK = 1;
+    const float WarpPos_X = 0.5f;
 
     //Use this for initialization
     void Start()
@@ -261,8 +262,7 @@ public class PlayerHero : PlayerBase{
 
     private void StrongActionEnd()
     {
-        RotationCharacter();
-
+       
         if (CheckAnimationEND("StrongAttack_end"))
         {
             player_Hero_sta = PLAYER_HERO_STA.NORMAL;
@@ -273,20 +273,21 @@ public class PlayerHero : PlayerBase{
 
     private void SpecialActionStart()
     {
-        RotationCharacter();
-
+     
         if (CheckAnimationEND("Special_start"))
         {
             player_Hero_sta = PLAYER_HERO_STA.SPECIAL_END;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
+            GameObject obj = PlayerManager.instance.GetLowHPPlayerObj(no);
+            Vector3 warppos = new Vector3(obj.transform.position.x + WarpPos_X, 0.0f, obj.transform.position.z);
+            transform.position = warppos;
         }
     }
 
     private void SpecialActionEnd()
     {
-        RotationCharacter();
-
+      
         if (CheckAnimationEND("Special_end"))
         {
             player_Hero_sta = PLAYER_HERO_STA.NORMAL;
