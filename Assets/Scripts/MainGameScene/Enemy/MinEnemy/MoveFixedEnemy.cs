@@ -358,9 +358,10 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		print("逃げた");
 
 		NowTarget = RunAwayRelayPointManager.Instance.GetNearPoint(transform.position);
+
+		RotateToTarget(NowTarget, 90f);
 		MoveSpeed = MoveSpeed * 7;
 		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
-	//	Destroy();
 	}
 
 	readonly Vector3 NormalScale = new Vector3(1f, 1f, 1f);
