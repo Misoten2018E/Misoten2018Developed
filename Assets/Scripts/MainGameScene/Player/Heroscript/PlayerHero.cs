@@ -23,11 +23,13 @@ public class PlayerHero : PlayerBase{
     PLAYER_HERO_STA player_Hero_sta;
     bool ComboFlg;
     HitAnimationBase HitAnime;
+    TrailBodyManager TBM;
 
     const int Player_Hero_MoveSpeed = 5;
     const int Player_Hero_RotationSpeed = 750;
     const int Player_Hero_ActionRotationSpeed = 500;
     const int Player_Hero_ATTACK = 1;
+    const float WarpPos_X = 0.5f;
 
     //Use this for initialization
     void Start()
@@ -54,6 +56,7 @@ public class PlayerHero : PlayerBase{
         Model = transform.Find("BaseModel_Hero").transform;
         HitAnime = GetComponent<HitAnimationBase>();
         HP = gameObject.GetComponent<ObjectHp>();
+        TBM = GetComponentInChildren<TrailBodyManager>();
 
         MoveSpeed = Player_Hero_MoveSpeed;
         RotationSpeed = Player_Hero_RotationSpeed;
@@ -122,6 +125,7 @@ public class PlayerHero : PlayerBase{
         animator.SetTrigger("Damage");
         nodamageflg = true;
         ModelTransformReset();
+        TBM.EndTrail();
     }
 
     public override void PlayerPause()
@@ -142,6 +146,7 @@ public class PlayerHero : PlayerBase{
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationWeakattack1();
             ModelTransformReset();
+            TBM.StartTrail(TrailSupport.BodyType.RightArm);
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -164,7 +169,6 @@ public class PlayerHero : PlayerBase{
         if (CheckAnimationSTART("wait") || CheckAnimationSTART("run"))
         {
             ModelTransformReset();
-            print("riseto");
         }
     }
 
@@ -185,11 +189,14 @@ public class PlayerHero : PlayerBase{
                 PlayerSta = (int)player_Hero_sta;
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack2();
+                TBM.EndTrail(TrailSupport.BodyType.RightArm);
+                TBM.StartTrail(TrailSupport.BodyType.LeftArm);
             }
             else
             {
                 player_Hero_sta = PLAYER_HERO_STA.NORMAL;
                 PlayerSta = (int)player_Hero_sta;
+                TBM.EndTrail(TrailSupport.BodyType.RightArm);
             }
 
             ModelTransformReset();
@@ -213,11 +220,14 @@ public class PlayerHero : PlayerBase{
                 PlayerSta = (int)player_Hero_sta;
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack3();
+                TBM.EndTrail(TrailSupport.BodyType.LeftArm);
+                TBM.StartTrail(TrailSupport.BodyType.RightLeg);
             }
             else
             {
                 player_Hero_sta = PLAYER_HERO_STA.NORMAL;
                 PlayerSta = (int)player_Hero_sta;
+                TBM.EndTrail(TrailSupport.BodyType.LeftArm);
             }
 
             ModelTransformReset();
@@ -233,6 +243,7 @@ public class PlayerHero : PlayerBase{
             player_Hero_sta = PLAYER_HERO_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
+            TBM.EndTrail(TrailSupport.BodyType.RightLeg);
         }
     }
 
@@ -251,8 +262,7 @@ public class PlayerHero : PlayerBase{
 
     private void StrongActionEnd()
     {
-        RotationCharacter();
-
+       
         if (CheckAnimationEND("StrongAttack_end"))
         {
             player_Hero_sta = PLAYER_HERO_STA.NORMAL;
@@ -263,20 +273,21 @@ public class PlayerHero : PlayerBase{
 
     private void SpecialActionStart()
     {
-        RotationCharacter();
-
+     
         if (CheckAnimationEND("Special_start"))
         {
             player_Hero_sta = PLAYER_HERO_STA.SPECIAL_END;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
+            GameObject obj = PlayerManager.instance.GetLowHPPlayerObj(no);
+            Vector3 warppos = new Vector3(obj.transform.position.x + WarpPos_X, 0.0f, obj.transform.position.z);
+            transform.position = warppos;
         }
     }
 
     private void SpecialActionEnd()
     {
-        RotationCharacter();
-
+      
         if (CheckAnimationEND("Special_end"))
         {
             player_Hero_sta = PLAYER_HERO_STA.NORMAL;

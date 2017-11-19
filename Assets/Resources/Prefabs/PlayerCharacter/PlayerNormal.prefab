@@ -1074,7 +1074,6 @@ GameObject:
   - component: {fileID: 114934932123628090}
   - component: {fileID: 114027725230021744}
   - component: {fileID: 114069332572160274}
-  - component: {fileID: 114972221829053790}
   m_Layer: 0
   m_Name: PlayerNormal
   m_TagString: Untagged
@@ -4062,17 +4061,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterHp: 100
---- !u!114 &114972221829053790
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1517073754558554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ac0fe43009fa7048a9e3819560d97bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!137 &137243457876845590
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

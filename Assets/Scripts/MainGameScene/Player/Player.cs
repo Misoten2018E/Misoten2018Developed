@@ -159,6 +159,11 @@ public class Player : SceneStartEvent{
 
     public int GetCharacterSta() { return CharacterSta; }
 
+    public int GetPlayerHP()
+    {
+        return playerbase.GetHP();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == ConstTags.EnemyAttack && playersta == PLAYER_STA.NORMAL)

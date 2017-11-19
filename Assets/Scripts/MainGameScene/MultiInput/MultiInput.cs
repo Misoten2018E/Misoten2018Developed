@@ -48,11 +48,7 @@ public class MultiInput : SceneStartEvent{
     //======================================================================
     public bool GetButtonCircleTrigger()
     {
-        if (Input.GetButtonDown("Player_Circle" + WorkPlayerNo))
-        {
-            print(WorkPlayerNo + "○");
-
-        }
+        
         return Input.GetButtonDown("Player_Circle" + WorkPlayerNo);
     }
 
@@ -70,11 +66,7 @@ public class MultiInput : SceneStartEvent{
     //======================================================================
     public bool GetButtonTriangleTrigger()
     {
-        if (Input.GetButtonDown("Player_Triangle" + WorkPlayerNo))
-        {
-            print(WorkPlayerNo + "△");
-
-        }
+        
         return Input.GetButtonDown("Player_Triangle" + WorkPlayerNo);
     }
 
@@ -92,10 +84,6 @@ public class MultiInput : SceneStartEvent{
     //======================================================================
     public bool GetButtonSquareTrigger()
     {
-        if (Input.GetButtonDown("Player_Square" + WorkPlayerNo))
-        {
-            print(WorkPlayerNo + "□");
-        }
         
         return Input.GetButtonDown("Player_Square" + WorkPlayerNo);
     }
@@ -114,11 +102,7 @@ public class MultiInput : SceneStartEvent{
     //======================================================================
     public bool GetButtonCrossTrigger()
     {
-        if (Input.GetButtonDown("Player_Cross" + WorkPlayerNo))
-        {
-            print(WorkPlayerNo + "X");
-        }
-        
+       
         return Input.GetButtonDown("Player_Cross" + WorkPlayerNo);
     }
 
