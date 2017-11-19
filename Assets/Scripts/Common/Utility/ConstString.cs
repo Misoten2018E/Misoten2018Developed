@@ -46,6 +46,7 @@ public static class ConstTags {
     public const string HeroArea = "HeroArea";
     public const string HeelArea = "HeelArea";
     public const string SpecialistArea = "SpecialistArea";
+	public const string RunAwayPoint = "RunAwayArea";
 }
 
 public static class ConstPlayerSta

@@ -92,6 +92,11 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 
 		//既に逃げ始めている
 		if (IsEscape) {
+
+			if (other.CompareTag(ConstTags.RunAwayPoint)) {
+				Destroy();
+			}
+
 			return;
 		}
 
@@ -351,7 +356,19 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.RunAway);
 		IsEscape = true;
 		print("逃げた");
-		Destroy();
+
+		NowTarget = RunAwayRelayPointManager.Instance.GetNearPoint(transform.position);
+		MoveSpeed = MoveSpeed * 7;
+		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
+	//	Destroy();
+	}
+
+	readonly Vector3 NormalScale = new Vector3(1f, 1f, 1f);
+	readonly Vector3 RunAwayScale = new Vector3(0.7f, 0.7f, 0.7f);
+
+	private void LoopScaleMin(float rate) {
+
+		ChildModel.transform.localScale = (NormalScale - RunAwayScale * rate);
 	}
 
 	bool _IsEscape;

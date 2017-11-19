@@ -23,6 +23,16 @@ public class RunAwayRelayPointManager : MonoBehaviour {
 		return point.transform;
 	}
 
+
+	// シングルトンインスタンス
+	static RunAwayRelayPointManager myInstance;
+	static public RunAwayRelayPointManager Instance {
+		get {
+			return myInstance;
+		}
+	}
+
+
 	//========================================================================================
 	//                                 public - override
 	//========================================================================================
@@ -31,7 +41,7 @@ public class RunAwayRelayPointManager : MonoBehaviour {
 	void Start() {
 
 		PointList = GetComponentsInChildren<RelayPoint>();
-
+		myInstance = this;
 	}
 
 	//========================================================================================
