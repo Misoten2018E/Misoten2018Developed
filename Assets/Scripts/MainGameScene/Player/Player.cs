@@ -32,6 +32,9 @@ public class Player : SceneStartEvent{
     int beforeCharacter;
     PLAYER_STA playersta;
 
+	// 11/20 UIを管理するため追加
+	[SerializeField] private UIPlayerInput UIPlayer;
+
     // Use this for initialization
     void Start () {
         m_input = GetComponent<MultiInput>();
@@ -220,5 +223,9 @@ public class Player : SceneStartEvent{
                 CharacterSta = ConstPlayerSta.SpecialistCharacter;
                 break;
         }
-    }
+
+		// 11/20 UIを管理するため追加
+		UIPlayer.ChangeIcons(Changechar);
+
+	}
 }
