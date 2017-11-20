@@ -9,6 +9,7 @@ public class Player : SceneStartEvent{
         CITYIN,
         CHANGE,
         CITYOUT,
+        FORCIBLY,
         PLAYER_STA_MAX
     }
     const float CORRECTION = 0.5f;
@@ -131,6 +132,16 @@ public class Player : SceneStartEvent{
                    
                 }
                 break;
+            case PLAYER_STA.FORCIBLY:
+                playerbase.ForciblyMove(ChangeCenterPos);
+
+                r = (Mathf.Abs(transform.position.x - ChangeCenterPos.x) * Mathf.Abs(transform.position.x - ChangeCenterPos.x)) +
+                   (Mathf.Abs(transform.position.z - ChangeCenterPos.z) * Mathf.Abs(transform.position.z - ChangeCenterPos.z));
+                if (r < CORRECTION * CORRECTION)
+                {
+                    playersta = PLAYER_STA.NORMAL;
+                }
+                break;
 
         }
 
@@ -162,6 +173,12 @@ public class Player : SceneStartEvent{
     public int GetPlayerHP()
     {
         return playerbase.GetHP();
+    }
+
+    public void PlayerForcibly(Vector3 target)
+    {
+        playersta = PLAYER_STA.FORCIBLY;
+        ChangeCenterPos = target;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerBase : SceneStartEvent{
 
     const int ChangeMoveSpeed = 5;
+    const float ChangeScale = 0.05f;
 
     CharacterController _CharCon;
     public CharacterController CharCon
@@ -71,6 +72,18 @@ public class PlayerBase : SceneStartEvent{
         
         MoveCharacter();
 
+        Vector3 S = Model.localScale;
+        S.x -= ChangeScale;
+        S.y -= ChangeScale;
+        S.z -= ChangeScale;
+        if (S.x < 0.1f)
+        {
+            S.x = 0.1f;
+            S.y = 0.1f;
+            S.z = 0.1f;
+        }
+        Model.localScale = S;
+
         PlayerSta = 0;
         SetAnimatorData();
     }
@@ -84,6 +97,18 @@ public class PlayerBase : SceneStartEvent{
         velocity *= ChangeMoveSpeed;
         
         MoveCharacter();
+
+        Vector3 S = Model.localScale;
+        S.x += ChangeScale;
+        S.y += ChangeScale;
+        S.z += ChangeScale;
+        if (S.x > 1)
+        {
+            S.x = 1;
+            S.y = 1;
+            S.z = 1;
+        }
+        Model.localScale = S;
 
         PlayerSta = 0;
         SetAnimatorData();

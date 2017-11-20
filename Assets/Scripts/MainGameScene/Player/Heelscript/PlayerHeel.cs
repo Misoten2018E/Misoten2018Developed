@@ -249,11 +249,26 @@ public class PlayerHeel : PlayerBase{
     {
         RotationCharacter();
 
-        if (CheckAnimationEND("Special_start"))
+        if (input.GetButtonCircleRelease())
         {
             player_Heel_sta = PLAYER_HEEL_STA.SPECIAL_END;
             PlayerSta = (int)player_Heel_sta;
             ModelTransformReset();
+            Vector3 front = transform.forward;
+            front.Normalize();
+            GameObject hitobj = PlayerManager.instance.GetHeelSpecialObj(front,transform.position,no);
+            
+            if (hitobj)
+            {   
+                print(hitobj.name);
+                Player P = hitobj.GetComponent<Player>();
+                P.PlayerForcibly(transform.position);
+            }
+            else
+            {
+                print("heelnohit");
+            }
+            
         }
     }
 
