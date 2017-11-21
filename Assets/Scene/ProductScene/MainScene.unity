@@ -337,6 +337,7 @@ MonoBehaviour:
   - {fileID: 226663010}
   - {fileID: 965754845}
   - {fileID: 1507979484}
+  Dopingobj: {fileID: 1858862633808310, guid: eb934cc7eab966741a5a321f468baff2, type: 2}
 --- !u!4 &387207920
 Transform:
   m_ObjectHideFlags: 0

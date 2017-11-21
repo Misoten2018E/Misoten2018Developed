@@ -117,11 +117,18 @@ public class PlayerBase : SceneStartEvent{
     public void AttackUP(float attack)
     {
         Attack *= attack;
+        print("stk"+ Attack);
     }
 
     public void AttackDOWN(float attack)
     {
         Attack /= attack;
+        print("stk" + Attack);
+    }
+
+    public int GetCharacterSta()
+    {
+        return PlayerSta;
     }
 
     public virtual void Playerinit(GameObject playerobj)

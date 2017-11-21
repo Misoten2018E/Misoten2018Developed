@@ -183,6 +183,16 @@ public class Player : SceneStartEvent{
         ChangeCenterPos = target;
     }
 
+    public void AttackUP(float atk)
+    {
+        playerbase.AttackUP(atk);
+    }
+
+    public void AttackDOWN(float atk)
+    {
+        playerbase.AttackDOWN(atk);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == ConstTags.EnemyAttack && playersta == PLAYER_STA.NORMAL)
@@ -197,7 +207,7 @@ public class Player : SceneStartEvent{
         if (other.tag == ConstTags.City && playersta == PLAYER_STA.NORMAL)
         {
             
-            if (m_input.GetButtonCrossTrigger())
+            if (m_input.GetButtonCrossTrigger() && playerbase.GetCharacterSta() == 0)
             {
                 playersta = PLAYER_STA.CITYIN;
                 ChangeStartPos = transform.position;

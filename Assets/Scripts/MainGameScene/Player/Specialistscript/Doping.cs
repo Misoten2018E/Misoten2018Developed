@@ -6,11 +6,13 @@ public class Doping : SceneStartEvent{
 
     const float DOPINGUP = 1.5f;
     float totaltime;
-    float maxtime = 10;
+    const float maxtime = 1000;
     bool initflg = false;
+    int Charactersta;
+    Player P;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         
     }
 	
@@ -18,20 +20,28 @@ public class Doping : SceneStartEvent{
 	void Update () {
         if (!initflg) return;
 
+        if (Charactersta != P.GetCharacterSta())
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         totaltime += Time.deltaTime;
         if (totaltime > maxtime)
         {
-            PlayerBase PB = transform.parent.GetComponent<PlayerBase>();
-            PB.AttackDOWN(DOPINGUP);
+            P.AttackDOWN(DOPINGUP);
             Destroy(gameObject);
         }
     }
 
     public void DopingInit()
     {
-        PlayerBase PB = transform.parent.GetComponent<PlayerBase>();
-        PB.AttackUP(DOPINGUP);
+        P = transform.parent.GetComponent<Player>();
+        P.AttackUP(DOPINGUP);
         totaltime = 0;
+        Charactersta = P.GetCharacterSta();
+
         initflg = true;
     }
+
 }
