@@ -34,7 +34,7 @@ public class PlayerBase : SceneStartEvent{
 
     protected ObjectHp HP;
     
-    protected int Attack;
+    protected float Attack;
     protected bool nodamageflg;
     float nodamtotal = 0;
 
@@ -114,9 +114,14 @@ public class PlayerBase : SceneStartEvent{
         SetAnimatorData();
     }
 
-    public void ChangeAttack(int attack)
+    public void AttackUP(float attack)
     {
-        Attack += attack;
+        Attack *= attack;
+    }
+
+    public void AttackDOWN(float attack)
+    {
+        Attack /= attack;
     }
 
     public virtual void Playerinit(GameObject playerobj)

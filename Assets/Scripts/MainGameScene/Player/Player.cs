@@ -13,6 +13,7 @@ public class Player : SceneStartEvent{
         PLAYER_STA_MAX
     }
     const float CORRECTION = 0.5f;
+    const int MOVERITU = 2;
 
     MultiInput m_input;
     public int no;
@@ -125,6 +126,7 @@ public class Player : SceneStartEvent{
                 {
                     playersta = PLAYER_STA.NORMAL;
                     playerbase.SetCharConNoHit(false);
+                    GetComponent<CapsuleCollider>().enabled = true;
                     if (CharacterSta != beforeCharacter)
                     {
                         playerbase.PlayerPause();
@@ -202,7 +204,11 @@ public class Player : SceneStartEvent{
                 ChangeCenterPos = other.gameObject.transform.position;
                 ChangeStartPos.y = 0.0f;
                 ChangeCenterPos.y = 0.0f;
+                Vector3 v = ChangeStartPos - ChangeCenterPos;
+                v.Normalize();
+                ChangeStartPos += v * MOVERITU;
                 beforeCharacter = CharacterSta;
+                GetComponent<CapsuleCollider>().enabled = false;
             }
         }
     }
