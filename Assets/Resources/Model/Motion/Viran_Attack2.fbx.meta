@@ -126,7 +126,43 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'Character1_LeftUpLeg' : position
+      error = 57.046520 mm\n\t'Character1_LeftLeg' : position error = 129.289795 mm\n\t'Character1_LeftFoot'
+      : position error = 225.354996 mm\n\t'Character1_LeftToeBase' : position error
+      = 97.171234 mm\n\t'Character1_Spine' : position error = 27.314266 mm\n\t'Character1_Spine1'
+      : position error = 12.262576 mm\n\t'Character1_Spine2' : position error = 29.381475
+      mm\n\t'Character1_LeftShoulder' : position error = 55.568268 mm\n\t'Character1_LeftArm'
+      : position error = 42.617023 mm\n\t'Character1_LeftForeArm' : position error
+      = 100.284096 mm\n\t'Character1_LeftHand' : position error = 47.380856 mm\n\t'Character1_LeftHandThumb1'
+      : position error = 34.206112 mm\n\t'Character1_LeftHandThumb2' : position error
+      = 42.387089 mm\n\t'Character1_LeftHandThumb3' : position error = 75.803047 mm\n\t'Character1_LeftHandIndex1'
+      : position error = 51.285885 mm\n\t'Character1_LeftHandIndex2' : position error
+      = 41.026218 mm\n\t'Character1_LeftHandIndex3' : position error = 130.515457
+      mm\n\t'Character1_LeftHandMiddle1' : position error = 57.024540 mm\n\t'Character1_LeftHandMiddle2'
+      : position error = 44.313656 mm\n\t'Character1_LeftHandMiddle3' : position error
+      = 137.370636 mm\n\t'Character1_LeftHandRing1' : position error = 53.490032 mm\n\t'Character1_LeftHandRing2'
+      : position error = 42.423168 mm\n\t'Character1_LeftHandRing3' : position error
+      = 111.632957 mm\n\t'Character1_LeftHandPinky1' : position error = 50.624527
+      mm\n\t'Character1_LeftHandPinky2' : position error = 32.160465 mm\n\t'Character1_LeftHandPinky3'
+      : position error = 114.664345 mm\n\t'Character1_Neck' : position error = 22.610872
+      mm\n\t'Character1_RightShoulder' : position error = 55.566589 mm\n\t'Character1_RightArm'
+      : position error = 42.616825 mm\n\t'Character1_RightForeArm' : position error
+      = 117.991379 mm\n\t'Character1_RightHand' : position error = 58.681213 mm\n\t'Character1_RightHandThumb1'
+      : position error = 92.968872 mm\n\t'Character1_RightHandThumb2' : position error
+      = 72.716469 mm\n\t'Character1_RightHandThumb3' : position error = 75.950150
+      mm\n\t'Character1_RightHandIndex1' : position error = 85.183662 mm\n\t'Character1_RightHandIndex2'
+      : position error = 42.706223 mm\n\t'Character1_RightHandIndex3' : position error
+      = 142.764618 mm\n\t'Character1_RightHandMiddle1' : position error = 64.306732
+      mm\n\t'Character1_RightHandMiddle2' : position error = 47.261921 mm\n\t'Character1_RightHandMiddle3'
+      : position error = 145.490662 mm\n\t'Character1_RightHandRing1' : position error
+      = 66.400856 mm\n\t'Character1_RightHandRing2' : position error = 45.763100 mm\n\t'Character1_RightHandRing3'
+      : position error = 121.436279 mm\n\t'Character1_RightHandPinky1' : position
+      error = 92.363167 mm\n\t'Character1_RightHandPinky2' : position error = 34.891472
+      mm\n\t'Character1_RightHandPinky3' : position error = 124.546211 mm\n\t'Character1_RightUpLeg'
+      : position error = 57.046551 mm\n\t'Character1_RightLeg' : position error =
+      861.287903 mm\n\t'Character1_RightFoot' : position error = 594.013184 mm\n\t'Character1_RightToeBase'
+      : position error = 299.139771 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -144,7 +180,7 @@ ModelImporter:
       name: Viran_Attack2
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 30
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
