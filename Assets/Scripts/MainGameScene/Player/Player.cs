@@ -13,6 +13,7 @@ public class Player : SceneStartEvent{
         PLAYER_STA_MAX
     }
     const float CORRECTION = 0.5f;
+    const int MOVERITU = 2;
 
     MultiInput m_input;
     public int no;
@@ -125,6 +126,7 @@ public class Player : SceneStartEvent{
                 {
                     playersta = PLAYER_STA.NORMAL;
                     playerbase.SetCharConNoHit(false);
+                    GetComponent<CapsuleCollider>().enabled = true;
                     if (CharacterSta != beforeCharacter)
                     {
                         playerbase.PlayerPause();
@@ -181,6 +183,16 @@ public class Player : SceneStartEvent{
         ChangeCenterPos = target;
     }
 
+    public void AttackUP(float atk)
+    {
+        playerbase.AttackUP(atk);
+    }
+
+    public void AttackDOWN(float atk)
+    {
+        playerbase.AttackDOWN(atk);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == ConstTags.EnemyAttack && playersta == PLAYER_STA.NORMAL)
@@ -195,14 +207,18 @@ public class Player : SceneStartEvent{
         if (other.tag == ConstTags.City && playersta == PLAYER_STA.NORMAL)
         {
             
-            if (m_input.GetButtonCrossTrigger())
+            if (m_input.GetButtonCrossTrigger() && playerbase.GetCharacterSta() == 0)
             {
                 playersta = PLAYER_STA.CITYIN;
                 ChangeStartPos = transform.position;
                 ChangeCenterPos = other.gameObject.transform.position;
                 ChangeStartPos.y = 0.0f;
                 ChangeCenterPos.y = 0.0f;
+                Vector3 v = ChangeStartPos - ChangeCenterPos;
+                v.Normalize();
+                ChangeStartPos += v * MOVERITU;
                 beforeCharacter = CharacterSta;
+                GetComponent<CapsuleCollider>().enabled = false;
             }
         }
     }

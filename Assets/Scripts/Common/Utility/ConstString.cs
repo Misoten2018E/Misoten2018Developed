@@ -6,7 +6,8 @@ public static class ConstDirectry {
     public const string DirPrefabsHitHero = DirPrefabs + "Hit/Hero/";
 	public const string DirPrefabsHitEnemyMin = DirPrefabsHit + "Enemy_Mini/";
 	public const string DirPrefabsEnemy = DirPrefabs + "Enemy/";
-	public const string DirPopup = DirPrefabs + "Popup/";
+    public const string DirPrefabsPlayerChar = DirPrefabs + "PlayerCharacter/";
+    public const string DirPopup = DirPrefabs + "Popup/";
 	public const string DirScene = "Scene/ProductScene/";
 	public const string DirSceneDebug = "Scene/DebugScene/";
 }

@@ -281,6 +281,7 @@ public class PlayerSpecialist : PlayerBase{
             player_Special_sta = PLAYER_SPECIALIST_STA.NORMAL;
             PlayerSta = (int)player_Special_sta;
             ModelTransformReset();
+            PlayerManager.instance.PlyerDoping(transform.position,no);
         }
     }
 

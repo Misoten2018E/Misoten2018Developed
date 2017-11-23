@@ -24,10 +24,12 @@ public class PlayerManager : SceneStartEvent{
     }
 
     public List<GameObject> PlayersObject;
+    public GameObject Dopingobj;
 
     int Playercnt;
 
     readonly float HEEL_COS = Mathf.Cos(Mathf.PI/6);
+    const float DOPINGAREA = 2;
 
     // Use this for initialization
     void Start () {
@@ -76,8 +78,8 @@ public class PlayerManager : SceneStartEvent{
 
         for (int i = 1;i < Playercnt;i++)
         {
-            length = (Mathf.Abs(PlayersObject[i].transform.position.x - myPos.x) * Mathf.Abs(PlayersObject[0].transform.position.x - myPos.x)) +
-                     (Mathf.Abs(PlayersObject[i].transform.position.y - myPos.y) * Mathf.Abs(PlayersObject[0].transform.position.y - myPos.y)) +
+            length = (Mathf.Abs(PlayersObject[i].transform.position.x - myPos.x) * Mathf.Abs(PlayersObject[i].transform.position.x - myPos.x)) +
+                     (Mathf.Abs(PlayersObject[i].transform.position.y - myPos.y) * Mathf.Abs(PlayersObject[i].transform.position.y - myPos.y)) +
                      (Mathf.Abs(PlayersObject[i].transform.position.z - myPos.z) * Mathf.Abs(PlayersObject[i].transform.position.z - myPos.z));
 
             if (length < nearlength)
@@ -112,8 +114,8 @@ public class PlayerManager : SceneStartEvent{
 
             if (dot > HEEL_COS)
             {
-                length = (Mathf.Abs(PlayersObject[i].transform.position.x - myPos.x) * Mathf.Abs(PlayersObject[0].transform.position.x - myPos.x)) +
-                         (Mathf.Abs(PlayersObject[i].transform.position.y - myPos.y) * Mathf.Abs(PlayersObject[0].transform.position.y - myPos.y)) +
+                length = (Mathf.Abs(PlayersObject[i].transform.position.x - myPos.x) * Mathf.Abs(PlayersObject[i].transform.position.x - myPos.x)) +
+                         (Mathf.Abs(PlayersObject[i].transform.position.y - myPos.y) * Mathf.Abs(PlayersObject[i].transform.position.y - myPos.y)) +
                          (Mathf.Abs(PlayersObject[i].transform.position.z - myPos.z) * Mathf.Abs(PlayersObject[i].transform.position.z - myPos.z));
                 
                 if (length < nearlength)
@@ -126,5 +128,36 @@ public class PlayerManager : SceneStartEvent{
         }
 
         return resobj;
+    }
+
+    public void PlyerDoping(Vector3 mypos,int myno)
+    {
+        float length;
+        GameObject obj;
+        Vector3 objpos;
+
+        for (int i = 0;i < Playercnt ;i++)
+        {
+            Player P = PlayersObject[i].GetComponent<Player>();
+            if (P.no == myno)
+            {
+                continue;
+            }
+
+            length = (Mathf.Abs(PlayersObject[i].transform.position.x - mypos.x) * Mathf.Abs(PlayersObject[i].transform.position.x - mypos.x)) +
+                         (Mathf.Abs(PlayersObject[i].transform.position.y - mypos.y) * Mathf.Abs(PlayersObject[i].transform.position.y - mypos.y)) +
+                         (Mathf.Abs(PlayersObject[i].transform.position.z - mypos.z) * Mathf.Abs(PlayersObject[i].transform.position.z - mypos.z));
+
+
+            if (DOPINGAREA * DOPINGAREA > length)
+            {
+                objpos = PlayersObject[i].transform.position;
+
+                obj = Instantiate(Dopingobj, objpos, Quaternion.identity) as GameObject;
+                obj.transform.parent = PlayersObject[i].transform;
+                Doping doping = obj.GetComponent<Doping>();
+                doping.DopingInit();
+            }
+        }
     }
 }
