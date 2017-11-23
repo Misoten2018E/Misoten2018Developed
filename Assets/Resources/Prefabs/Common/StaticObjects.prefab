@@ -1059,6 +1059,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!1 &1486192310632608
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4747098050773780}
+  - component: {fileID: 114028796881859344}
+  m_Layer: 0
+  m_Name: Event4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
 --- !u!1 &1517378754351722
 GameObject:
   m_ObjectHideFlags: 1
@@ -3587,6 +3603,19 @@ Transform:
   m_Father: {fileID: 4125199953778588}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4747098050773780
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1486192310632608}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -33.89, y: 0.5, z: -17.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4821675424538198}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4758990537533490
 Transform:
   m_ObjectHideFlags: 1
@@ -3769,6 +3798,7 @@ Transform:
   - {fileID: 4914364224853594}
   - {fileID: 4213914623888330}
   - {fileID: 4480800661210344}
+  - {fileID: 4747098050773780}
   m_Father: {fileID: 4871352648998862}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8662,6 +8692,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba48b07740b89e45bdaeb4e3496af2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114028796881859344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1486192310632608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eae6bb25b34c9a4fb6fdeb9db395263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartTime: 1
+  isFocusEvent: 1
+  FucusTime: 5
+  CheckPointManager: {fileID: 114438910046405522}
+  Boss: {fileID: 114891388584652482, guid: cf158f1097dc4484d92387b422f011b6, type: 2}
 --- !u!114 &114032682960317338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9055,7 +9101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6472fe5a12f6d99448e419ac18fe405a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTransform: {fileID: 0}
+  StartTransform: {fileID: 114074064129424644}
+  MovePointList:
+  - {fileID: 114074064129424644}
+  - {fileID: 114316668340311584}
+  - {fileID: 114452113327873242}
 --- !u!114 &114449477506523332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9383,7 +9433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OrderId: 1
-  GraceTime: 100
+  GraceTime: 5000
 --- !u!114 &114794383699340254
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -232,3 +232,35 @@ public class floatComplession {
 
 	float Length;
 }
+
+
+
+public class TimeComplession {
+
+	public TimeComplession(float _MaxTime) {
+		Initialize(_MaxTime);
+	}
+
+	public void Initialize(float _MaxTime) {
+
+		MaxTime = _MaxTime;
+		NowTime = 0f;
+	}
+
+	public void TimeUpdate() {
+		NowTime += Time.deltaTime;
+		TimeRate = (NowTime / MaxTime);
+	}
+
+	public bool IsEnd {
+		get { return (NowTime >= MaxTime); }
+	}
+
+	public float Rate {
+		get { return TimeRate; }
+	}
+
+	float TimeRate;
+	float NowTime;
+	float MaxTime;
+}

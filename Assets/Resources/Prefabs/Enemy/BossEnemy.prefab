@@ -200,6 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4703583609012934}
   - component: {fileID: 95396984335116894}
+  - component: {fileID: 114319296594773016}
   m_Layer: 0
   m_Name: BaseModel_Viran
   m_TagString: Untagged
@@ -1329,6 +1330,7 @@ GameObject:
   - component: {fileID: 114593754766952182}
   - component: {fileID: 114662168542281440}
   - component: {fileID: 114891388584652482}
+  - component: {fileID: 114864957748528512}
   m_Layer: 0
   m_Name: BossEnemy
   m_TagString: Untagged
@@ -4034,6 +4036,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114319296594773016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1114956943875732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c022f5410d2c0848824a6b03d02f273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114593754766952182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4064,6 +4077,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterHp: 100
+--- !u!114 &114864957748528512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1633552418903710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee1d33619bd095478769989873bade2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114891388584652482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4077,7 +4101,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPausePermit: 1
   MoveSpeed: 1
-  SpownTime: 60
+  BossActData:
+  - ActType: 4
+    StartTime: 5
+    GeneralNum: 0
+  - ActType: 4
+    StartTime: 10
+    GeneralNum: 0
+  JumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 4.6688304
+      outSlope: 4.6688304
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.49950352
+      value: 0.99996626
+      inSlope: 0.012841846
+      outSlope: 0.012841846
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1.0001124
+      value: -0.00047945976
+      inSlope: -4.09216
+      outSlope: -4.09216
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!137 &137709543710869006
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
