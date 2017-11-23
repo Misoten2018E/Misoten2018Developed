@@ -4102,11 +4102,20 @@ MonoBehaviour:
   isPausePermit: 1
   MoveSpeed: 1
   BossActData:
-  - ActType: 4
+  - ActType: 1
     StartTime: 5
-    GeneralNum: 0
+    GeneralNum: 2
   - ActType: 4
     StartTime: 10
+    GeneralNum: 0
+  - ActType: 0
+    StartTime: 15
+    GeneralNum: 0
+  - ActType: 1
+    StartTime: 20
+    GeneralNum: 3
+  - ActType: 4
+    StartTime: 25
     GeneralNum: 0
   JumpCurve:
     serializedVersion: 2

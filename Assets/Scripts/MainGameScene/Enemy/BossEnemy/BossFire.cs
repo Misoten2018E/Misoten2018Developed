@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossFire : MonoBehaviour {
+public class BossFire : PauseSupport {
 
 
 	//========================================================================================
@@ -10,6 +10,10 @@ public class BossFire : MonoBehaviour {
 	//========================================================================================
 
 	[SerializeField] private AnimationCurve YAnim;
+
+	[SerializeField] private float MaxLandingTime = 3f;
+
+	[SerializeField] private float Height = 14f;
 
 	//========================================================================================
 	//                                     public
@@ -20,26 +24,48 @@ public class BossFire : MonoBehaviour {
 	/// </summary>
 	/// <param name="startPos"></param>
 	/// <param name="TargetPos"></param>
-	void	StartFire(Vector3 startPos, Vector3 TargetPos) {
+	public void	StartFire(Vector3 startPos, Vector3 TargetPos) {
 
+		transform.position = startPos;
+		Vec3Comp = new Vector3Complession(startPos, TargetPos);
+
+		var hit = GetComponentInChildren<HitSeriesofAction>();
+		hit.Initialize(this.gameObject);
+		hit.Activate();
+
+		FireUpdateCort = GameObjectExtensions.LoopMethod(MaxLandingTime, PositionMove, PositionMoveEnd);
+		StartCoroutine(FireUpdateCort);
 	}
 
 	//========================================================================================
 	//                                 public - override
 	//========================================================================================
 
+
 	//========================================================================================
 	//                                     private
 	//========================================================================================
 
+	Vector3Complession Vec3Comp;
 
-	// Use this for initialization
-	void Start () {
-		
+	IEnumerator FireUpdateCort;
+
+	/// <summary>
+	/// 移動
+	/// </summary>
+	/// <param name="rate"></param>
+	void PositionMove(float rate) {
+
+		Vector3 v = Vec3Comp.CalcPosition(rate);
+		v.y = YAnim.Evaluate(rate) * Height;
+		transform.position = v;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	/// <summary>
+	/// 移動終了
+	/// </summary>
+	void PositionMoveEnd() {
+
+		Destroy(gameObject);
 	}
 }

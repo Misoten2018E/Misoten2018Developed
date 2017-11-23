@@ -65,7 +65,7 @@ public class HitSeriesofAction : PauseSupport {
 	/// 初期処理(敵側)
 	/// </summary>
 	/// <param name="enemy"></param>
-	public void Initialize(PlayerAttackEnemy enemy) {
+	public void Initialize(GameObject enemy) {
 		myEnemy = enemy;
 
 		var Hits = GetComponentsInChildren<HitObject>();
@@ -119,14 +119,40 @@ public class HitSeriesofAction : PauseSupport {
 
 	/// <summary>
 	/// 起動処理
+	/// ダメージの数値プラス処理
+	/// </summary>
+	public void Activate(int plus) {
+
+		var Hits = GetComponentsInChildren<HitObject>();
+		for (int i = 0; i < Hits.Length; i++) {
+			Hits[i].DamageUpPlus(plus);
+		}
+
+		Activate();
+	}
+
+	/// <summary>
+	/// 起動処理
+	/// ダメージ倍率変更
 	/// </summary>
 	public void Activate(float rate = 1f) {
+
+		var Hits = GetComponentsInChildren<HitObject>();
+		for (int i = 0; i < Hits.Length; i++) {
+			Hits[i].DamageUpMulti(rate);
+		}
+
+		Activate();
+	}
+
+	/// <summary>
+	/// 通常起動処理
+	/// </summary>
+	public void Activate() {
 
 		gameObject.SetActive(true);
 		AnimatorStateInfo stateInfo = Anim.GetCurrentAnimatorStateInfo(0);
 		Anim.Play(stateInfo.fullPathHash, 0, 0.0f);  //初期位置に戻す
-	//	Anim.SetBool(ANIM_ACCESS_STATUS, true);
-		
 	}
 
 	public bool isActive {
@@ -154,8 +180,8 @@ public class HitSeriesofAction : PauseSupport {
 		get { return _myPlayer; }
 	}
 
-	PlayerAttackEnemy _myEnemy;
-	public PlayerAttackEnemy myEnemy {
+	GameObject _myEnemy;
+	public GameObject myEnemy {
 		private set { _myEnemy = value; }
 		get { return _myEnemy; }
 	}

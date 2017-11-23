@@ -109,6 +109,14 @@ public class Vector3Complession{
 		}
 	}
 
+	public Vector3Complession() {
+
+	}
+
+	public Vector3Complession(Vector3 start, Vector3 end) {
+		Initialize(start, end);
+	}
+
 	public void Initialize(Vector3 start,Vector3 end) {
 		StartPosition = start;
 		EndPosition = end;

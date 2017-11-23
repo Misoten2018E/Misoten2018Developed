@@ -296,12 +296,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25616d98d100d034b99dba9ee2774c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPausePermit: 1
   YAnim:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: -0.0011100769
+      value: 0.7028198
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.4786935
+      value: 0.9453962
+      inSlope: -0.6213784
+      outSlope: -0.6213784
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1.0021973
+      value: 0.00699234
+      inSlope: -2.1355197
+      outSlope: -2.1355197
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
+  MaxLandingTime: 3
+  Height: 14
 --- !u!114 &114933513809764464
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -23,43 +23,6 @@ public abstract class HitObject : MonoBehaviour,DebuggableObject {
 	//                                    public
 	//========================================================================================
 
-	/// <summary>
-	/// 当たり判定開始
-	/// </summary>
-	//public virtual void Activate() {
-
-	//	ReStart();
-	//}
-
-	/// <summary>
-	/// 再度開始
-	/// </summary>
-	//public virtual void ReStart() {
-
-	//	gameObject.SetActive(true);
-	//	collider.enabled = true;
-	//	NowTime = 0f;
-	//}
-
-	///// <summary>
-	///// 終了(基本外からは呼ばない)
-	///// </summary>
-	//public virtual void Finish() {
-
-	//	gameObject.SetActive(false);
-	//	collider.enabled = false;
-	//	NowTime = 0f;
-	//}
-
-	//// Update is called once per frame
-	//virtual protected void Update () {
-
-	//	NowTime += Time.deltaTime;
-	//	if (NowTime >= AppearanceTime) {
-	//		Finish();
-	//	}
-	//}
-
 	public enum HitType{
 		Impact,		// 衝撃
 		BlowOff,	// 吹き飛ばし
@@ -88,6 +51,22 @@ public abstract class HitObject : MonoBehaviour,DebuggableObject {
 
 	public virtual void DamageHp(ObjectHp hp) {
 		hp.Damage(Damage);
+	}
+
+	/// <summary>
+	/// ダメージ倍率変更
+	/// </summary>
+	/// <param name="rate"></param>
+	public virtual void DamageUpMulti(float rate) {
+		Damage = (int)(Damage * rate);
+	}
+
+	/// <summary>
+	/// ダメージ追加
+	/// </summary>
+	/// <param name="plus"></param>
+	public virtual void DamageUpPlus(int plus) {
+		Damage += plus;
 	}
 
 

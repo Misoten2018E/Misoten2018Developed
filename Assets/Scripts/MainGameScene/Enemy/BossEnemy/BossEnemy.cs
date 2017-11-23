@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossEnemy : MoveTargetEnemy {
+public class BossEnemy : PlayerAttackEnemy {
 
 
 	//========================================================================================
@@ -35,6 +35,25 @@ public class BossEnemy : MoveTargetEnemy {
 		IsEnabled = true;
 	}
 
+	public enum BossAct {
+
+		TalePushOff,
+		FireBreath,
+		SoOA,   // 最適な行動の選択　(Selection of optimal action)
+		PopedNoob,
+		JumpMove,
+
+	}
+
+	bool _IsEnabled;
+	/// <summary>
+	/// 行動状態ならtrue
+	/// </summary>
+	public bool IsEnabled {
+		private set { _IsEnabled = value; }
+		get { return _IsEnabled; }
+	}
+
 	//========================================================================================
 	//                                 public - override
 	//========================================================================================
@@ -47,7 +66,12 @@ public class BossEnemy : MoveTargetEnemy {
 		}
 
 		ElapsedTime += Time.deltaTime;
-		var actData = BossActData[ActedId];
+
+		if (ActedId >= BossActData.Count) {
+			return;
+		}
+
+		var actData = NowAction;
 		if (actData.StartTime <= ElapsedTime) {
 
 			SwitchAction(actData.ActType);
@@ -80,26 +104,6 @@ public class BossEnemy : MoveTargetEnemy {
 	// 終了済み行動ID
 	int ActedId = -1;
 
-	bool _IsEnabled;
-	/// <summary>
-	/// 行動状態ならtrue
-	/// </summary>
-	public bool IsEnabled {
-		private set { _IsEnabled = value; }
-		get { return _IsEnabled; }
-	}
-
-	public enum BossAct {
-
-		TalePushOff,
-		FireBreath,
-		SoOA,   // 最適な行動の選択　(Selection of optimal action)
-		PopedNoob,
-		JumpMove,
-
-	}
-
-
 	BossAnimationController _BossControll;
 	/// <summary>
 	/// ボスのアニメーション管理
@@ -112,6 +116,11 @@ public class BossEnemy : MoveTargetEnemy {
 			return _BossControll;
 		}
 	}
+
+	public BossActionData NowAction {
+		get { return BossActData[ActedId]; }
+	}
+
 
 	/// <summary>
 	/// 行動変化
@@ -126,7 +135,7 @@ public class BossEnemy : MoveTargetEnemy {
 				break;
 
 			case BossAct.FireBreath:
-				StartFireBreath();
+				StartFireBreath(NowAction.GeneralNum);
 				break;
 
 			case BossAct.SoOA:
@@ -134,7 +143,7 @@ public class BossEnemy : MoveTargetEnemy {
 				break;
 
 			case BossAct.PopedNoob:
-				StartPopedEnemy();
+				StartPopedEnemy(NowAction.GeneralNum);
 				break;
 
 			case BossAct.JumpMove:
@@ -191,16 +200,19 @@ public class BossEnemy : MoveTargetEnemy {
 	/// <summary>
 	/// 火球攻撃開始
 	/// </summary>
-	void StartFireBreath() {
+	void StartFireBreath(int num) {
 
-
-
+		if (ProduceCort != null) {
+			StopCoroutine(ProduceCort);
+		}
+		ProduceCort = IEUpdateFireBreath(num);
+		StartCoroutine(ProduceCort);
 	}
 
 	/// <summary>
 	/// 雑魚発射
 	/// </summary>
-	void StartPopedEnemy() {
+	void StartPopedEnemy(int num) {
 
 	}
 
@@ -274,6 +286,62 @@ public class BossEnemy : MoveTargetEnemy {
 		yield return new WaitForSeconds(MaxTime);
 
 		BossControll.SetState(BossAnimationController.EnemyState.Wait);
+	}
+
+
+	/// <summary>
+	/// 火球攻撃
+	/// </summary>
+	IEnumerator IEUpdateFireBreath(int Count) {
+
+		const float MaxTime = 0.7f;
+		var fire = ResourceManager.Instance.Get<BossFire>(ConstDirectry.DirPrefabsEnemy, ConstActionHitData.ActionBossFire);
+
+		var plObjs = PlayerManager.instance.PlayersObject;
+		int AlreadyAttacked = 0;
+
+		Count = Count >= plObjs.Count ? plObjs.Count : Count;
+
+		for (int i = 0; i < Count; i++) {
+
+			BossControll.SetState(BossAnimationController.EnemyState.Fire);
+			int plNum = GetRandomPlayer(AlreadyAttacked);
+			yield return new WaitForSeconds(MaxTime);
+
+			var f = Instantiate(fire);
+			f.StartFire(transform.position, plObjs[plNum].transform.position);
+
+			AlreadyAttacked |= 1 << plNum;
+
+			yield return new WaitForSeconds(MaxTime / 2);
+		}
+
+		BossControll.SetState(BossAnimationController.EnemyState.Wait);
+	}
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="NoSelectBit"></param>
+	/// <returns></returns>
+	int GetRandomPlayer(int NoSelectBit) {
+
+		int maxPlayer = PlayerManager.instance.PlayersObject.Count;
+		int rand = Random.Range(0, maxPlayer);
+
+		while (true) {
+
+			int bitCheck = (1 << rand);
+
+			// 選択可能なNoなら
+			if ((NoSelectBit & bitCheck) == 0) {
+				break;
+			}
+
+			rand = Random.Range(0, maxPlayer);
+		}
+
+		return rand;
 	}
 
 	/// <summary>
