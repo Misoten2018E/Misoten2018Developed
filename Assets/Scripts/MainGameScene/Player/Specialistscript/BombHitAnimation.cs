@@ -48,7 +48,7 @@ public class BombHitAnimation : HitAnimationBase{
     {
         myPlayer = player;
 
-        var preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitHero, ConstActionHitData.ActionHeroWeak1);
+        var preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeroWeak1);
         HitStrongAtack1Animation = Instantiate(preAction);
         HitStrongAtack1Animation.Initialize(myPlayer);
 
