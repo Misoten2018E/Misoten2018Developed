@@ -18,11 +18,14 @@ public class PlayerSpecialist : PlayerBase{
         PLAYER_STA_MAX
     }
 
+    public GameObject Bombprefab;
+
     MultiInput input;
     PLAYER_SPECIALIST_STA player_Special_sta;
     bool ComboFlg;
     HitAnimationBase HitAnime;
     bool bomsetflg;
+    Bomb bomb;
 
     const int Player_Special_MoveSpeed = 5;
     const int Player_Special_RotationSpeed = 750;
@@ -54,6 +57,7 @@ public class PlayerSpecialist : PlayerBase{
         Model = transform.Find("BaseModel_Hero").transform;
         HitAnime = GetComponent<HitAnimationBase>();
         HP = gameObject.GetComponent<ObjectHp>();
+       
 
         MoveSpeed = Player_Special_MoveSpeed;
         RotationSpeed = Player_Special_RotationSpeed;
@@ -248,14 +252,19 @@ public class PlayerSpecialist : PlayerBase{
 
     private void BomSetAction()
     {
+        Vector3 bombpos;
         RotationCharacter();
 
         if (CheckAnimationEND("set"))
         {
+            bombpos = transform.position;
+            bombpos.y = 0.0f;
             player_Special_sta = PLAYER_SPECIALIST_STA.NORMAL;
             PlayerSta = (int)player_Special_sta;
             ModelTransformReset();
             bomsetflg = true;
+            GameObject obj = Instantiate(Bombprefab, bombpos, Quaternion.identity);
+            bomb = obj.GetComponent<Bomb>();
         }
     }
 
@@ -269,6 +278,7 @@ public class PlayerSpecialist : PlayerBase{
             PlayerSta = (int)player_Special_sta;
             ModelTransformReset();
             bomsetflg = false;
+            bomb.BombswitchON();
         }
     }
 
