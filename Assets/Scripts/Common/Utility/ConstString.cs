@@ -25,15 +25,15 @@ public static class ConstActionHitData {
     public const string ActionHeroWeak3 = "HeroAttack_Light3";
     public const string ActionHeroStrong = "HeroAttack_Strong";
 
-    public const string ActionHeelWeak1 = "HeroAttack_Light1";
-    public const string ActionHeelWeak2 = "HeroAttack_Light2";
-    public const string ActionHeelWeak3 = "HeroAttack_Light3";
-    public const string ActionHeelStrong = "HeroAttack_Strong";
+    public const string ActionHeelWeak1 = "HeelAttack_Light1";
+    public const string ActionHeelWeak2 = "HeelAttack_Light2";
+    public const string ActionHeelWeak3 = "HeelAttack_Light3";
+    public const string ActionHeelStrong = "HeelAttack_Strong";
 
-    public const string ActionSpecialistWeak1 = "HeroAttack_Light1";
-    public const string ActionSpecialistWeak2 = "HeroAttack_Light2";
-    public const string ActionSpecialistWeak3 = "HeroAttack_Light3";
-    public const string ActionSpecialistStrong = "HeroAttack_Strong";
+    public const string ActionSpecialistWeak1 = "SpecialistAttack_Light1";
+    public const string ActionSpecialistWeak2 = "SpecialistAttack_Light2";
+    public const string ActionSpecialistWeak3 = "SpecialistAttack_Light3";
+    public const string ActionSpecialistStrong = "SpecialistAttack_Strong";
 }
 
 public static class ConstString {
