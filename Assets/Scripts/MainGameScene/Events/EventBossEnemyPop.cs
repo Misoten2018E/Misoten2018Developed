@@ -25,6 +25,7 @@ public class EventBossEnemyPop : TimelineEventStandard {
 		bossObject = Instantiate(Boss);
 		bossObject.InitBossEnemy(CheckPointManager);
 		bossObject.InitEnemy(new UsedInitData());
+		CameraManager.Instance.FocusCamera.AddTarget(bossObject.transform);
 	}
 
 	public override bool IsEnd {
@@ -35,16 +36,6 @@ public class EventBossEnemyPop : TimelineEventStandard {
 		protected set {
 			base.IsEnd = value;
 		}
-	}
-
-	// Use this for initialization
-	void Start() {
-
-	}
-
-	// Update is called once per frame
-	void Update() {
-
 	}
 
 	//========================================================================================

@@ -9,7 +9,9 @@ public class BossCheckPointManager : MonoBehaviour {
 	//                                    inspector
 	//========================================================================================
 
-	[SerializeField] private RelayPoint StartTransform;
+	//[SerializeField] private RelayPoint StartTransform;
+
+	[SerializeField] List<RelayPoint> MovePointList;
 
 	//========================================================================================
 	//                                     public
@@ -21,41 +23,51 @@ public class BossCheckPointManager : MonoBehaviour {
 	/// <param name="point"></param>
 	/// <param name="isClockwise"></param>
 	/// <returns></returns>
-	public RelayPoint GetNextRelayPoint(RelayPoint point,bool isClockwise = false) {
+
+	public RelayPoint GetNextRelayPoint(int num) {
 
 		// もしnullなら最初のエリアを渡す
-		if (point == null) {
-			return StartTransform;
+		if (MovePointList.Count <= num) {
+			return null;
 		}
 
-		int max = TransList.Count;
-		for (int i = 0; i < max; i++) {
-
-			if (point == TransList[i]) {
-
-				int next = isClockwise ? i + 1 : i - 1;
-				if (next < 0) {
-					next = max - 1;
-				}else if(next >= max) {
-					next = 0;
-				}
-				return TransList[next];
-			}
-		}
-
-		print("同一のものが見つからない異常値");
-		return null;
+		return MovePointList[num];
 	}
+	//public RelayPoint GetNextRelayPoint(RelayPoint point,bool isClockwise = false) {
+
+	//	// もしnullなら最初のエリアを渡す
+	//	if (point == null) {
+	//		return StartTransform;
+	//	}
+
+	//	int max = TransList.Count;
+	//	for (int i = 0; i < max; i++) {
+
+	//		if (point == TransList[i]) {
+
+	//			int next = isClockwise ? i + 1 : i - 1;
+	//			if (next < 0) {
+	//				next = max - 1;
+	//			}else if(next >= max) {
+	//				next = 0;
+	//			}
+	//			return TransList[next];
+	//		}
+	//	}
+
+	//	print("同一のものが見つからない異常値");
+	//	return null;
+	//}
 
 	/// <summary>
 	/// 一周していたらtrue
 	/// </summary>
 	/// <param name="nextArea"></param>
 	/// <returns></returns>
-	public bool IsEndCheck(RelayPoint nextArea) {
+	//public bool IsEndCheck(RelayPoint nextArea) {
 
-		return (nextArea == StartTransform);
-	}
+	//	return (nextArea == StartTransform);
+	//}
 
 	/// <summary>
 	/// 点から点へ移動して1週する際のかかる時間を渡すと、その時間で終えるための速度を返す

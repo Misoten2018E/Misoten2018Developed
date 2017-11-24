@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GUIControllerFlying : MonoBehaviour {
 	
@@ -159,7 +160,8 @@ public class GUIControllerFlying : MonoBehaviour {
 		
 		if (GUI.Button (new Rect (Screen.width -100,700,100,100), "to Stnd Mode"))
 		{
-			Application.LoadLevel("01_OperateQuery_Standing");
+			SceneManager.LoadScene("01_OperateQuery_Standing");
+			//Application.LoadLevel("01_OperateQuery_Standing");
 		}
 
 	}

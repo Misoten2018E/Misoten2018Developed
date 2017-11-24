@@ -109,6 +109,14 @@ public class Vector3Complession{
 		}
 	}
 
+	public Vector3Complession() {
+
+	}
+
+	public Vector3Complession(Vector3 start, Vector3 end) {
+		Initialize(start, end);
+	}
+
 	public void Initialize(Vector3 start,Vector3 end) {
 		StartPosition = start;
 		EndPosition = end;
@@ -231,4 +239,36 @@ public class floatComplession {
 	float end;
 
 	float Length;
+}
+
+
+
+public class TimeComplession {
+
+	public TimeComplession(float _MaxTime) {
+		Initialize(_MaxTime);
+	}
+
+	public void Initialize(float _MaxTime) {
+
+		MaxTime = _MaxTime;
+		NowTime = 0f;
+	}
+
+	public void TimeUpdate() {
+		NowTime += Time.deltaTime;
+		TimeRate = (NowTime / MaxTime);
+	}
+
+	public bool IsEnd {
+		get { return (NowTime >= MaxTime); }
+	}
+
+	public float Rate {
+		get { return TimeRate; }
+	}
+
+	float TimeRate;
+	float NowTime;
+	float MaxTime;
 }

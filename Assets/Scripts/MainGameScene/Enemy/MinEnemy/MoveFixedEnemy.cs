@@ -245,7 +245,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 
 		var prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitEnemyMin, ConstActionHitData.ActionEnemyMin1);
 		MyAttackObj = Instantiate(prefab);
-		MyAttackObj.Initialize(this);
+		MyAttackObj.Initialize(this.gameObject);
 
 		IsAttacking = true;
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.AttackPose);
