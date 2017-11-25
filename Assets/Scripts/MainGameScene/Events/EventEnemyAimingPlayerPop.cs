@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventEnemyFixedPop : EventEnemyTimePop<EventEnemyFixedPop.EnemyData> {
+public class EventEnemyAimingPlayerPop : EventEnemyTimePop<EventEnemyAimingPlayerPop.EnemyData> {
 
 	//========================================================================================
 	//                                    inspector
@@ -38,18 +38,12 @@ public class EventEnemyFixedPop : EventEnemyTimePop<EventEnemyFixedPop.EnemyData
 		eneData.BasePosition = this.transform;
 		enemy.InitEnemy(eneData);
 
-		enemy.AddTarget(Enemy[EventIndex].Route1, true);
-		enemy.AddTarget(Enemy[EventIndex].Route2);
-
 		PopEnemyList.Add(enemy);
 	}
 
 	[System.Serializable]
 	public class EnemyData {
 
-		[SerializeField] public MoveFixedEnemy Enemy;
-		[SerializeField] public Transform Route1;
-		[SerializeField] public Transform Route2;
-
+		[SerializeField] public AimingPlayerEnemy Enemy;
 	}
 }
