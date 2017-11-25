@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using System.IO;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class ErrorDialog : MonoBehaviour {
 
@@ -43,10 +46,12 @@ public class ErrorDialog : MonoBehaviour {
 
 		var tex = CameraCapture.Capture(Camera.main);
 		tex.name = texName;
-
+#if UNITY_EDITOR
 		// ファイルダイアログの表示.
 		string filePath = EditorUtility.SaveFilePanel("Save Texture", "Log/", tex.name + ".png", "png");
-
+#else
+		string filePath = tex.name + ".png";
+#endif
 		byte[] pngData = tex.EncodeToPNG();   // pngのバイト情報を取得.
 		if (filePath.Length > 0) {
 			// pngファイル保存.
