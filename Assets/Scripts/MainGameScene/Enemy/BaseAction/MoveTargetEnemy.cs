@@ -36,11 +36,12 @@ public abstract class MoveTargetEnemy : WaitEnemy {
 	protected void RotateToTarget(Transform target, float angle) {
 
 		Vector3 rot = target.position - transform.position;
-		//rot.x = 0f; // 回転を無しに
 		var endQt = Quaternion.LookRotation(rot.normalized);
-		//endQt.x = 0f;
 
 		transform.rotation = Quaternion.Slerp(transform.rotation, endQt, (angle));
+		rot = transform.rotation.eulerAngles;
+		rot.x = rot.z = 0f;
+		transform.rotation = Quaternion.Euler(rot);
 	}
 
 	protected void MoveForward(float speed) {

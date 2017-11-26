@@ -14,14 +14,14 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	[SerializeField] private float AttackRange;
 	[SerializeField] private float AttackAngle;
 
-	[SerializeField] private CheckEnemyAttackArea AttackCheckArea;
+//	[SerializeField] private CheckEnemyAttackArea AttackCheckArea;
 
 	//========================================================================================
 	//                                    public- override
 	//========================================================================================
 
 	public override void InitEnemy(UsedInitData InitData) {
-		AttackCheckArea.gameObject.SetActive(false);
+//		AttackCheckArea.gameObject.SetActive(false);
 	}
 
 

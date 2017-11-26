@@ -14,7 +14,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	[Range(3f, 30f)]
 	[SerializeField] private float AggressiveTime = 10f;
 
-	[SerializeField] private float NextAttackInterval = 3f;
+	[SerializeField] protected float NextAttackInterval = 3f;
 
 	[SerializeField] private List<Transform> TargetTransform;
 
@@ -37,15 +37,15 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	//========================================================================================
 
 	// Use this for initialization
-	protected virtual void Start () {
+	protected virtual void Start() {
 		TargetIndex = 0;
 		CityTargeted = false;
 		IsEscape = false;
 		NextTargetSearch();
 	}
-	
+
 	// Update is called once per frame
-	protected virtual void Update () {
+	protected virtual void Update() {
 
 		if (IsStop) {
 			return;
@@ -80,6 +80,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		CityTargeted = false;
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
 		EnableMove();
+		MyType = EnemyType.MoveFixed;
+		EnemyManager.Instance.SetEnemy(this);
 
 		base.InitEnemy(InitData);
 	}
@@ -94,7 +96,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		if (IsEscape) {
 
 			if (other.CompareTag(ConstTags.RunAwayPoint)) {
-				Destroy();
+				DestroyMe();
 			}
 
 			return;
@@ -104,9 +106,12 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		if (other.CompareTag(ConstTags.PlayerAttack)) {
 
 			var hito = other.GetComponent<HitObject>();
-			
+
 			bool isHit = !HitLog.CheckLog(hito);
 			if (isHit) {
+
+				// 攻撃元の座標を受け取る
+				HittedPlayerAttack(hito.ParentHit.myPlayer);
 
 				SwtichHitted(hito);
 				hito.DamageHp(MyHp);
@@ -119,8 +124,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 
 			TargetIndex++;
 			NextTargetSearch();
-			
-		}else if (other.CompareTag(ConstTags.City)) {
+
+		} else if (other.CompareTag(ConstTags.City)) {
 			NextTargetSearch();
 		}
 	}
@@ -129,16 +134,25 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	//                                    private
 	//========================================================================================
 
-	bool CityTargeted; // 街をターゲットしているかどうか
+	bool _cityTargeted; // 街をターゲットしているかどうか
+	protected bool CityTargeted {
+		set { _cityTargeted = value; }
+		get { return _cityTargeted; }
+	}
 	int TargetIndex;
-	Transform NowTarget;
 
-	float attackIntervalTime;
+	Transform _nowTarget;
+	protected Transform NowTarget{
+		set { _nowTarget = value; }
+		get { return _nowTarget; }
+	}
+
+	protected float attackIntervalTime;
 
 	/// <summary>
 	/// 次の獲物へ向かう
 	/// </summary>
-	void NextTargetSearch() {
+	protected void NextTargetSearch() {
 
 		if (CityTargeted && (!IsStop)) {
 
@@ -167,7 +181,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	/// 当たったものに応じた処理
 	/// </summary>
 	/// <param name="obj"></param>
-	void SwtichHitted(HitObject obj) {
+	protected void SwtichHitted(HitObject obj) {
 
 		// (衝撃の方向)
 		var impact = (transform.position - obj.transform.position).normalized;
@@ -176,14 +190,10 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Damage);
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
 
-
 		if (MyHp.isDeath && ieDeath == null) {
-			ieDeath = GameObjectExtensions.DelayMethod(0.5f, Destroy);
+			ieDeath = GameObjectExtensions.DelayMethod(0.5f, DestroyMe);
 			StartCoroutine(ieDeath);
 		}
-
-		// 攻撃元の座標を受け取る
-		HittedPlayerAttack(obj.ParentHit.myPlayer);
 
 		switch (obj.hitType) {
 			case HitObject.HitType.Impact:
@@ -233,10 +243,10 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		StartCoroutine(ieAttackModeLimit);
 	}
 
-	IEnumerator ieAttackModeLimit;
+	protected IEnumerator ieAttackModeLimit;
 	IEnumerator ieDeath;
 
-	HitSeriesofAction MyAttackObj;
+	protected HitSeriesofAction MyAttackObj;
 
 	/// <summary>
 	/// 攻撃体勢に入る
@@ -329,7 +339,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	/// <summary>
 	/// 死亡
 	/// </summary>
-	private void Destroy() {
+	protected void DestroyMe() {
 
 		Destroy(this.gameObject);
 	}
@@ -377,7 +387,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	/// 逃走flag
 	/// </summary>
 	public bool IsEscape {
-		private set { _IsEscape = value; }
+		protected set { _IsEscape = value; }
 		get { return _IsEscape; }
 	}
 

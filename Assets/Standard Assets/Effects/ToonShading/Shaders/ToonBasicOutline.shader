@@ -9,6 +9,8 @@ Shader "Toon/Basic Outline" {
 	
 	CGINCLUDE
 	#include "UnityCG.cginc"
+
+	#pragma enable_d3d11_debug_symbols
 	
 	struct appdata {
 		float4 vertex : POSITION;
