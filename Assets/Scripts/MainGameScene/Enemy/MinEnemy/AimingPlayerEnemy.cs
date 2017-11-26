@@ -13,6 +13,8 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		AttackAction = AttackPose;
 		StartPlayerAttackMode();
 		NowTarget = TargetPlayer;
+
+		MyType = EnemyType.PlayerAttack;
 	}
 
 	// Update is called once per frame
@@ -32,6 +34,12 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		}
 
 		HitLog.CheckEnd();
+	}
+
+	public override void InitEnemy(UsedInitData InitData) {
+
+		MyType = EnemyType.PlayerAttack;
+		EnemyManager.Instance.SetEnemy(this);
 	}
 
 	/// <summary>
@@ -140,7 +148,7 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 
 
 	public IEnumerator ieAttackMode {
-		private set { ieAttackModeLimit = value; }
+		protected set { ieAttackModeLimit = value; }
 		get { return ieAttackModeLimit; }
 	}
       

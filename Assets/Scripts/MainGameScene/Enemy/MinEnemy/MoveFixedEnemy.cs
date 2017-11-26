@@ -80,6 +80,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		CityTargeted = false;
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
 		EnableMove();
+		MyType = EnemyType.MoveFixed;
+		EnemyManager.Instance.SetEnemy(this);
 
 		base.InitEnemy(InitData);
 	}
