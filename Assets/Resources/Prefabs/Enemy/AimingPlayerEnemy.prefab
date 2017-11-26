@@ -3070,8 +3070,8 @@ MonoBehaviour:
   isPausePermit: 1
   MoveSpeed: 1
   PlayerCheckPeriod: 5
-  AttackRange: 3
-  AttackAngle: 80
+  AttackRange: 2.5
+  AttackAngle: 70
   AggressiveTime: 10
   NextAttackInterval: 2
   TargetTransform: []
