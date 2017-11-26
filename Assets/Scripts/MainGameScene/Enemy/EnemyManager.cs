@@ -25,6 +25,7 @@ public class EnemyManager : MonoBehaviour {
 	public void SetEnemy(EnemyTypeBase enemy) {
 
 		EnemyLists[(int)enemy.MyType].Add(enemy);
+		enemy.transform.SetParent(this.transform);
 	}
 
 	/// <summary>
@@ -56,7 +57,7 @@ public class EnemyManager : MonoBehaviour {
 		myInstance = this;
 
 		for (int i = 0; i < EnemyTypeBase.EnemyTypeMax; i++) {
-			EnemyLists[i] = new List<EnemyTypeBase>();
+			EnemyLists.Add(new List<EnemyTypeBase>());
 		}
 	}
 
