@@ -38,6 +38,7 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 
 	public override void InitEnemy(UsedInitData InitData) {
 
+		transform.position = InitData.BasePosition.position;
 		MyType = EnemyType.PlayerAttack;
 		EnemyManager.Instance.SetEnemy(this);
 	}
@@ -136,7 +137,7 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
 
 		// 次の目標
-		StartPlayerAttackMode(NowTarget.transform);
+		//StartPlayerAttackMode(NowTarget.transform);
 
 		// 移動開始
 		EnableMove();
