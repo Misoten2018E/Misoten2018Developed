@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class City : SceneStartEvent{
 
-	// シングルトンインスタンス
-	static City myInstance;
-	static public City Instance {
-		get {
-			return myInstance;
-		}
-	}    
-
     public List<int> ScoreList;
     public int CityModelCnt;
 
@@ -73,5 +65,16 @@ public class City : SceneStartEvent{
         score = 0;
 
         isInitialized = true;
+    }
+
+
+    // シングルトンインスタンス
+    static City myInstance;
+    static public City Instance
+    {
+        get
+        {
+            return myInstance;
+        }
     }
 }
