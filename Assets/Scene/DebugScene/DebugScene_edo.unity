@@ -113,6 +113,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &173695197 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4258191137331970, guid: 536b241ee745e804890773d528c46318,
+    type: 2}
+  m_PrefabInternal: {fileID: 1479266236}
+--- !u!4 &327159383 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4749556767918606, guid: 205fcb7bf5ec58643aaaa8c951907bde,
+    type: 2}
+  m_PrefabInternal: {fileID: 2105176962}
 --- !u!1001 &389779150
 Prefab:
   m_ObjectHideFlags: 0
@@ -175,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0722e69695797cc41a034bc8ec76594e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CorrectLength: 5
 --- !u!1 &459135677
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +299,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   TargetTransform:
-  - {fileID: 1046858617}
+  - {fileID: 327159383}
   - {fileID: 1263220774}
   - {fileID: 1541753965}
   - {fileID: 1773301196}
@@ -569,11 +580,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2105176962}
   m_Script: {fileID: 11500000, guid: 4af2b6d2c429f974a9f7d0bf47aca6d6, type: 3}
---- !u!4 &1046858617 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4248182888815350, guid: 205fcb7bf5ec58643aaaa8c951907bde,
-    type: 2}
-  m_PrefabInternal: {fileID: 2105176962}
 --- !u!1001 &1216382694
 Prefab:
   m_ObjectHideFlags: 0
@@ -717,7 +723,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.87, y: 1, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 173695197}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1012,6 +1019,48 @@ Transform:
   m_PrefabParentObject: {fileID: 4821738007063174, guid: ea26405228c6fd34f9695c7342c8b03d,
     type: 2}
   m_PrefabInternal: {fileID: 1436734615}
+--- !u!1001 &1479266236
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1263220774}
+    m_Modifications:
+    - target: {fileID: 4258191137331970, guid: 536b241ee745e804890773d528c46318, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258191137331970, guid: 536b241ee745e804890773d528c46318, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258191137331970, guid: 536b241ee745e804890773d528c46318, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258191137331970, guid: 536b241ee745e804890773d528c46318, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258191137331970, guid: 536b241ee745e804890773d528c46318, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258191137331970, guid: 536b241ee745e804890773d528c46318, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258191137331970, guid: 536b241ee745e804890773d528c46318, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258191137331970, guid: 536b241ee745e804890773d528c46318, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 536b241ee745e804890773d528c46318, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1541753960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,12 +1356,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114621568544051604, guid: 205fcb7bf5ec58643aaaa8c951907bde,
+    - target: {fileID: 114845899626939386, guid: 205fcb7bf5ec58643aaaa8c951907bde,
         type: 2}
       propertyPath: NoticeWindow
       value: 
       objectReference: {fileID: 2107682365}
-    - target: {fileID: 114845899626939386, guid: 205fcb7bf5ec58643aaaa8c951907bde,
+    - target: {fileID: 114621568544051604, guid: 205fcb7bf5ec58643aaaa8c951907bde,
         type: 2}
       propertyPath: NoticeWindow
       value: 
