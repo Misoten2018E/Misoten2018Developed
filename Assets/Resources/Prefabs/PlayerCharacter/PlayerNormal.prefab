@@ -4048,7 +4048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPausePermit: 1
   no: 0
-  nodamagetime: 0
+  nodamagetime: 2
 --- !u!114 &114934932123628090
 MonoBehaviour:
   m_ObjectHideFlags: 1
