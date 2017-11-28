@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class MoveFixedEnemy : PlayerAttackEnemy {
+public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 
 	//========================================================================================
@@ -111,7 +111,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 			if (isHit) {
 
 				// 攻撃元の座標を受け取る
-				HittedPlayerAttack(hito.ParentHit.myPlayer);
+				HittedPlayerAttack(hito.ParentHit.myPlayer.GetPlayerObj());
 
 				SwtichHitted(hito);
 				hito.DamageHp(MyHp);
@@ -191,8 +191,9 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
 
 		if (MyHp.isDeath && ieDeath == null) {
-			ieDeath = GameObjectExtensions.DelayMethod(0.5f, DestroyMe);
-			StartCoroutine(ieDeath);
+			//ieDeath = GameObjectExtensions.DelayMethod(0.5f, DestroyMe);
+			//StartCoroutine(ieDeath);
+			EscapeToCity();
 		}
 
 		switch (obj.hitType) {
@@ -223,7 +224,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	/// <summary>
 	/// プレイヤーに攻撃された時
 	/// </summary>
-	void HittedPlayerAttack(PlayerBase player) {
+	void HittedPlayerAttack(GameObject player) {
 
 		// 目標初期化
 		TargetTransform.Clear();
@@ -362,7 +363,6 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	private void EscapeToOutside() {
 
 		// 逃走モードへ
-		// 今は仮で死ぬ
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.RunAway);
 		IsEscape = true;
 		print("逃げた");
@@ -372,6 +372,25 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		RotateToTarget(NowTarget, 90f);
 		MoveSpeed = MoveSpeed * 7;
 		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
+		
+	}
+
+	/// <summary>
+	/// 街へ逃げていく
+	/// </summary>
+	private void EscapeToCity() {
+
+		// 逃走モードへ
+		ChildModel.Animation(EnemyMiniAnimation.AnimationType.RunAway);
+		IsEscape = true;
+		print("街に行った");
+
+		NowTarget = City.Instance.transform;
+
+		RotateToTarget(NowTarget, 90f);
+		MoveSpeed = MoveSpeed * 7;
+		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
+		GetComponent<CapsuleCollider>().isTrigger = true;
 	}
 
 	readonly Vector3 NormalScale = new Vector3(1f, 1f, 1f);
@@ -380,6 +399,27 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 	private void LoopScaleMin(float rate) {
 
 		ChildModel.transform.localScale = (NormalScale - RunAwayScale * rate);
+	}
+
+
+	//========================================================================================
+	//                                    GroupMode
+	//========================================================================================
+
+	public void GroupStart(Transform target) {
+		throw new NotImplementedException();
+	}
+
+	public void GroupAttack() {
+		throw new NotImplementedException();
+	}
+
+	public void GroupEnd() {
+		throw new NotImplementedException();
+	}
+
+	public bool IsGroupMode {
+		get { return true; }
 	}
 
 	bool _IsEscape;
@@ -417,4 +457,6 @@ public class MoveFixedEnemy : PlayerAttackEnemy {
 		get { return IsEscape; }
 		protected set { IsEscape = value; }
 	}
+
+	
 }

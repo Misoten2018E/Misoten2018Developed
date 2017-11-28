@@ -2,7 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public abstract class EffectBase : PauseSupport {
+
+
+	//========================================================================================
+	//                                    inspector
+	//========================================================================================
+
+	[SerializeField] protected float LocalScale = 1f;
+
+	protected virtual void Start() {
+		ScaleChange(LocalScale);
+	}
 
 	/// <summary>
 	/// 起動する
@@ -27,5 +39,10 @@ public abstract class EffectBase : PauseSupport {
 	/// </summary>
 	public abstract bool IsActive {
 		get;
+	}
+
+	public virtual void ScaleChange(float rate) {
+		LocalScale = rate;
+		transform.localScale = new Vector3(LocalScale, LocalScale, LocalScale);
 	}
 }
