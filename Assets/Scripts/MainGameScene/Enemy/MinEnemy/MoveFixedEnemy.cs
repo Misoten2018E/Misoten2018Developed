@@ -391,7 +391,10 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		MoveSpeed = MoveSpeed * 7;
 		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
 		GetComponent<CapsuleCollider>().isTrigger = true;
-	}
+
+        //街に行く＝倒されたからスコア加算
+        Score.instance.AddScore(1);
+    }
 
 	readonly Vector3 NormalScale = new Vector3(1f, 1f, 1f);
 	readonly Vector3 RunAwayScale = new Vector3(0.7f, 0.7f, 0.7f);

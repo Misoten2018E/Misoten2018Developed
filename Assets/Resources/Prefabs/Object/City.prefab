@@ -4097,7 +4097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPausePermit: 1
-  ScoreList: 0a0000003200000064000000f4010000
+  ScoreList: 02000000050000000a0000000f000000
   CityModelCnt: 4
 --- !u!135 &135213300184588276
 SphereCollider:
