@@ -13,8 +13,6 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		AttackAction = AttackPose;
 		StartPlayerAttackMode();
 		NowTarget = TargetPlayer;
-
-		MyType = EnemyType.PlayerAttack;
 	}
 
 	// Update is called once per frame
@@ -89,7 +87,7 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		MyAttackObj.Initialize(this.gameObject);
 
 		IsAttacking = true;
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.AttackPose);
+		AnimationAttackPose();
 
 		if (ieAttackMode != null) {
 			StopCoroutine(ieAttackMode);
@@ -105,13 +103,11 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 	/// </summary>
 	/// <param name="wait"></param>
 	/// <returns></returns>
-	IEnumerator AttackStart(float wait) {
+	protected IEnumerator AttackStart(float wait) {
 
 		yield return new WaitForSeconds(wait);
 
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Attack);
-		myTrail.StartTrail(TrailSupport.BodyType.LeftArm);
-		myTrail.StartTrail(TrailSupport.BodyType.RightArm);
+		AnimationAttack();
 		print("攻撃" + gameObject.name);
 
 		MyAttackObj.SetEndCallback(AttackEnd);
@@ -132,9 +128,8 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		AttackAction = AttackPose;
 		// 攻撃中でなくなる
 		IsAttacking = false;
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
-		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
-		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
+
+		AnimationMove();
 
 		// 次の目標
 		//StartPlayerAttackMode(NowTarget.transform);
