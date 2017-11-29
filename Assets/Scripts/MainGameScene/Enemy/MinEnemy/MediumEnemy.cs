@@ -173,13 +173,17 @@ public class MediumEnemy : AimingPlayerEnemy {
 		get { return _GroupFormRate; }
 	}
       
-
-	EnemyMediumAnimation _ChildModelMedium;
 	/// <summary>
 	/// 中型用のキャッシュ
 	/// </summary>
+	EnemyMediumAnimation _ChildModelMedium;
 	public EnemyMediumAnimation ChildModelMedium {
-		private set { _ChildModelMedium = value; }
-		get { return _ChildModelMedium; }
+		get {
+			if (_ChildModelMedium == null) {
+				_ChildModelMedium = GetComponentInChildren<EnemyMediumAnimation>();
+			}
+			return _ChildModelMedium;
+		}
 	}
+      
 }
