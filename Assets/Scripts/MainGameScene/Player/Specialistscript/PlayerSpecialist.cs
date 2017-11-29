@@ -136,7 +136,7 @@ public class PlayerSpecialist : PlayerBase{
 
     private void Normal()
     {
-        CharCon.center = new Vector3(0, 1, 0);
+        CharCon.center = new Vector3(0, 0, 0);
 
         if (input.GetButtonSquareTrigger())
         {
