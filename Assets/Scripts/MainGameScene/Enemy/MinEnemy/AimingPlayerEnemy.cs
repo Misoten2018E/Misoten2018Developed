@@ -18,6 +18,12 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 	// Update is called once per frame
 	protected override void Update () {
 
+		if (IsEscape) {
+			MoveAdvanceToTarget(NowTarget, MoveSpeed);
+			HitLog.CheckEnd();
+			return;
+		}
+
 		NowTarget = TargetPlayer;
 		if (NowTarget == null) {
 			return;

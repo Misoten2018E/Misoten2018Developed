@@ -49,7 +49,7 @@ public class EnemyMiniAnimation : ControlAnimatorEnemy {
 				break;
 			case AnimationType.Damage:
 				Damaged();
-				AnimEnd = AnimationDamageEnd;
+				AnimEnd += AnimationDamageEnd;
 				break;
 			
 			default:
