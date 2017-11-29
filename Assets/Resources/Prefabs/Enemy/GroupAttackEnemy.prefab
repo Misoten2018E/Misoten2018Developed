@@ -1539,7 +1539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4714967225312228}
   - component: {fileID: 95624830110108664}
-  - component: {fileID: 114152229451813546}
+  - component: {fileID: 114528173180344522}
   m_Layer: 0
   m_Name: BaseModel_Hero
   m_TagString: Untagged
@@ -1873,9 +1873,10 @@ GameObject:
   - component: {fileID: 4561122875132778}
   - component: {fileID: 136369160112914008}
   - component: {fileID: 54823583665769308}
-  - component: {fileID: 114119506610541812}
   - component: {fileID: 114343950557851576}
   - component: {fileID: 114555548051868050}
+  - component: {fileID: 114957164514813580}
+  - component: {fileID: 114899234527833880}
   m_Layer: 9
   m_Name: GroupAttackEnemy
   m_TagString: Enemy
@@ -3324,7 +3325,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1850577900053106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -5.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4714967225312228}
@@ -4282,7 +4283,7 @@ Animator:
   m_GameObject: {fileID: 1760312170135276}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: bf102e1927e90c24bb80383dc04bfb33, type: 3}
-  m_Controller: {fileID: 9100000, guid: 60d366826b30b3d4e91922db34afd6ba, type: 2}
+  m_Controller: {fileID: 9100000, guid: ea2b8ae730556aa47a38f6e2c0cd942e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -4290,27 +4291,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114119506610541812
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1850577900053106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 821f714d3d23e6447af9cc6df404c1b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPausePermit: 1
-  MoveSpeed: 1
-  PlayerCheckPeriod: 5
-  AttackRange: 2
-  AttackAngle: 60
-  AggressiveTime: 15
-  NextAttackInterval: 3
-  TargetTransform:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114130840028479824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4320,17 +4300,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edf77a07cdd901545b882c6ec9c5d7b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114152229451813546
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1760312170135276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be843832edecda04c8cd1c058c879d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114343950557851576
@@ -4365,6 +4334,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edf77a07cdd901545b882c6ec9c5d7b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114528173180344522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1760312170135276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b008b17a74f22f940901ff6ad5306262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114555548051868050
@@ -4449,6 +4429,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf77a07cdd901545b882c6ec9c5d7b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114899234527833880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850577900053106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbce3b2f7d697640a70da2e9cb4e39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPausePermit: 1
+  MoveSpeed: 1
+  PlayerCheckPeriod: 0
+  AttackRange: 2
+  AttackAngle: 60
+  AggressiveTime: 10
+  NextAttackInterval: 1
+  TargetTransform: []
+  GroupCheckTime: 0.5
+--- !u!114 &114957164514813580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850577900053106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0722e69695797cc41a034bc8ec76594e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CorrectLength: 5
 --- !u!114 &114968412592498190
 MonoBehaviour:
   m_ObjectHideFlags: 1
