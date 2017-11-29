@@ -90,6 +90,18 @@ public class MediumEnemy : AimingPlayerEnemy {
 		myTrail.EndTrail();
 	}
 
+	protected override void EscapeToCity() {
+
+		base.EscapeToCity();
+		StopPlayerAttackMode();
+	}
+
+	protected override Transform ChildModelTrans {
+		get {
+			return ChildModelMedium.transform;
+		}
+	}
+
 	//========================================================================================
 	//                                     private
 	//========================================================================================

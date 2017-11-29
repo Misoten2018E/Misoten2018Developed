@@ -186,18 +186,15 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// 当たったものに応じた処理
 	/// </summary>
 	/// <param name="obj"></param>
-	protected void SwtichHitted(HitObject obj) {
+	virtual protected void SwtichHitted(HitObject obj) {
 
 		// (衝撃の方向)
 		var impact = (transform.position - obj.transform.position).normalized;
-		Damaged.HittedTremble(ChildModel.transform, impact);
+		Damaged.HittedTremble(ChildModelTrans, impact);
 
 		AnimationDamaged();
-//		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
 
 		if (MyHp.isDeath && ieDeath == null) {
-			//ieDeath = GameObjectExtensions.DelayMethod(0.5f, DestroyMe);
-			//StartCoroutine(ieDeath);
 			EscapeToCity();
 		}
 
@@ -250,7 +247,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	}
 
 	protected IEnumerator ieAttackModeLimit;
-	IEnumerator ieDeath;
+	protected IEnumerator ieDeath;
 
 	protected HitSeriesofAction MyAttackObj;
 
@@ -404,7 +401,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// <param name="rate"></param>
 	private void LoopScaleMin(float rate) {
 
-		ChildModel.transform.localScale = (NormalScale - RunAwayScale * rate);
+		ChildModelTrans.localScale = (NormalScale - RunAwayScale * rate);
 	}
 
 
@@ -415,19 +412,19 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 	protected virtual void AnimationMove() {
 
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
+		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.Move);
 		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
 		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
 	}
 
 	protected virtual void AnimationAttackPose() {
 
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.AttackPose);
+		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.AttackPose);
 	}
 
 	protected virtual void AnimationAttack() {
 
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Attack);
+		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.Attack);
 		myTrail.StartTrail(TrailSupport.BodyType.LeftArm);
 		myTrail.StartTrail(TrailSupport.BodyType.RightArm);
 	}
@@ -437,7 +434,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// </summary>
 	protected virtual void AnimationDamaged() {
 
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Damage);
+		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.Damage);
 		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
 		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
 	}
@@ -446,13 +443,13 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// 逃げる時アニメーション
 	/// </summary>
 	protected virtual void AnimationRunAway() {
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.RunAway);
+		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.RunAway);
 		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
 		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
 	}
 
 	protected virtual void AnimationCityPose() {
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.CityPose);
+		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.CityPose);
 	}
 
 	//========================================================================================
@@ -481,13 +478,17 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 
 	EnemyMiniAnimation _ChildModel;
-	public EnemyMiniAnimation ChildModel {
+	public EnemyMiniAnimation ChildModelAnim {
 		get {
 			if (_ChildModel == null) {
 				_ChildModel = GetComponentInChildren<EnemyMiniAnimation>();
 			}
 			return _ChildModel;
 		}
+	}
+
+	virtual protected Transform ChildModelTrans {
+		get { return ChildModelAnim.transform; }
 	}
 
 	public override bool IsDeath {
