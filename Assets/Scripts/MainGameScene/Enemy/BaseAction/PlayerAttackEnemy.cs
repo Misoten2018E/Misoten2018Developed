@@ -11,8 +11,8 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	//========================================================================================
 
 	[SerializeField] private float PlayerCheckPeriod;
-	[SerializeField] private float AttackRange;
-	[SerializeField] private float AttackAngle;
+	[SerializeField] private float AttackRange = 2f;
+	[SerializeField] private float AttackAngle = 60f;
 
 //	[SerializeField] private CheckEnemyAttackArea AttackCheckArea;
 
