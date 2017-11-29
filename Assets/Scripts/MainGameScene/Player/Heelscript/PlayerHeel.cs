@@ -303,4 +303,16 @@ public class PlayerHeel : PlayerBase{
             ModelTransformReset();
         }
     }
+
+    public override bool PlayerIsDeath()
+    {
+        bool res = false;
+
+        if (HP.isDeath && player_Heel_sta != PLAYER_HEEL_STA.DAMAGE)
+        {
+            res = true;
+        }
+
+        return res;
+    }
 }

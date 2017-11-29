@@ -180,12 +180,12 @@ public class PlayerBase : SceneStartEvent{
         }
         else
         {
-            CharCon.center = new Vector3(0, 1, 0);
+            CharCon.center = new Vector3(0, 0, 0);
         }
         
     }
 
-    public bool PlayerIsDeath()
+    public virtual bool PlayerIsDeath()
     {
         bool res = false;
         

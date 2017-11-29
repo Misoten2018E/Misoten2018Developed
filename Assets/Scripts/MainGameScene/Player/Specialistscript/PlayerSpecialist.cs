@@ -314,4 +314,16 @@ public class PlayerSpecialist : PlayerBase{
             ModelTransformReset();
         }
     }
+
+    public override bool PlayerIsDeath()
+    {
+        bool res = false;
+
+        if (HP.isDeath && player_Special_sta != PLAYER_SPECIALIST_STA.DAMAGE)
+        {
+            res = true;
+        }
+
+        return res;
+    }
 }

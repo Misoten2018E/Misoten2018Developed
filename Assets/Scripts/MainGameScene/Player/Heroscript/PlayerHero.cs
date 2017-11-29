@@ -315,4 +315,16 @@ public class PlayerHero : PlayerBase{
             ModelTransformReset();
         }
     }
+
+    public override bool PlayerIsDeath()
+    {
+        bool res = false;
+
+        if (HP.isDeath && player_Hero_sta != PLAYER_HERO_STA.DAMAGE)
+        {
+            res = true;
+        }
+
+        return res;
+    }
 }
