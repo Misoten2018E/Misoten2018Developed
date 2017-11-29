@@ -47,8 +47,8 @@ public class HitSeriesofAction : PauseSupport {
 	/// <param name="player"></param>
 	//public void Initialize(testPlayer player) {//キャラのベースクラスにするためコメントアウト
     public void Initialize(PlayerBase player)
-        {
-            myPlayer = player;
+    {
+        myPlayer = player;
 
 		var Hits = GetComponentsInChildren<HitObject>();
 		for (int i = 0; i < Hits.Length; i++) {

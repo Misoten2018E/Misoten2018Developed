@@ -119,7 +119,7 @@ public class MediumEnemy : AimingPlayerEnemy {
 	/// <summary>
 	/// 攻撃体勢に入る
 	/// </summary>
-	private void AttackPoseMedium() {
+	override protected void AttackPose() {
 
 		SelectAttackId();
 
