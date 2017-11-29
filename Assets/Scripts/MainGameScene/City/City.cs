@@ -27,9 +27,8 @@ public class City : SceneStartEvent{
 	void Update() {
         if (!isInitialized) return;
 
-        score += 1;
- //       print("スコア" + score);
-
+        score = Score.instance.GetScore();
+       
         for (int i = 0;i < ScoreList.Count ;i++)
         {
             if (ScoreList[i] <= score)
