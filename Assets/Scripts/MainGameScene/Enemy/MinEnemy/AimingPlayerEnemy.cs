@@ -41,6 +41,12 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		EnemyManager.Instance.SetEnemy(this);
 	}
 
+	protected override void EscapeToCity() {
+
+		base.EscapeToCity();
+		StopPlayerAttackMode();
+	}
+
 	/// <summary>
 	/// 当たった時
 	/// </summary>

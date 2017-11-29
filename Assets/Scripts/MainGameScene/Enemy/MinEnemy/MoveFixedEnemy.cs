@@ -380,7 +380,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// <summary>
 	/// 街へ逃げていく
 	/// </summary>
-	private void EscapeToCity() {
+	virtual protected void EscapeToCity() {
 
 		// 逃走モードへ
 		AnimationRunAway();
@@ -447,6 +447,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// </summary>
 	protected virtual void AnimationRunAway() {
 		ChildModel.Animation(EnemyMiniAnimation.AnimationType.RunAway);
+		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
+		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
 	}
 
 	protected virtual void AnimationCityPose() {
