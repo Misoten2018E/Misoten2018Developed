@@ -25,11 +25,19 @@ public class MediumEnemy : AimingPlayerEnemy {
 		base.Start();
 	}
 
+
+	override protected void Update() {
+		base.Update();
+		Debug();
+	}
+
 	public override void InitEnemy(UsedInitData InitData) {
 
 		transform.position = InitData.BasePosition.position;
 		MyType = EnemyType.Middle;
 		EnemyManager.Instance.SetEnemy(this);
+
+		ChildModelMedium.SetParentTransform(transform);
 	}
 
 	/// <summary>
@@ -126,6 +134,7 @@ public class MediumEnemy : AimingPlayerEnemy {
 		var prefab = GetResource();
 		MyAttackObj = Instantiate(prefab);
 		MyAttackObj.Initialize(this.gameObject);
+		
 
 		IsAttacking = true;
 		AnimationAttackPose();
@@ -150,15 +159,15 @@ public class MediumEnemy : AimingPlayerEnemy {
 		switch (AttackId) {
 
 			case 0:
-				prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeroWeak1);
+				prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitMediumEnemy, ConstActionHitData.ActionEnemyHeroWeak1);
 				break;
 
 			case 1:
-				prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeroWeak2);
+				prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitMediumEnemy, ConstActionHitData.ActionEnemyHeroWeak2);
 				break;
 
 			case 2:
-				prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeroWeak3);
+				prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitMediumEnemy, ConstActionHitData.ActionEnemyHeroWeak3);
 				break;
 
 			default:
@@ -197,5 +206,11 @@ public class MediumEnemy : AimingPlayerEnemy {
 			return _ChildModelMedium;
 		}
 	}
-      
+
+	int id = -1;
+	private void Debug() {
+
+		string s = "MediumEnemy : " + NowTarget.name;
+		id = DebugLog.ChaseLog(s, id);
+	}
 }
