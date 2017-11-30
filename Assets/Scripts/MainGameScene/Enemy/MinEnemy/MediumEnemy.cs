@@ -28,6 +28,12 @@ public class MediumEnemy : AimingPlayerEnemy {
 
 	override protected void Update() {
 		base.Update();
+
+		if ((!IsGroupLeader) && CheckGroupFormation()) {
+			IsGroupLeader = true;
+			GroupCommand.NoticeEnemiesGather();
+		}
+
 		Debug();
 	}
 
@@ -38,6 +44,10 @@ public class MediumEnemy : AimingPlayerEnemy {
 		EnemyManager.Instance.SetEnemy(this);
 
 		ChildModelMedium.SetParentTransform(transform);
+
+		IsGroupLeader = false;
+		ElapsedCheckTime = GroupCheckTime;
+		GroupCommand.GroupInitialize();
 	}
 
 	/// <summary>
@@ -102,26 +112,9 @@ public class MediumEnemy : AimingPlayerEnemy {
 
 		base.EscapeToCity();
 		StopPlayerAttackMode();
-	}
 
-	protected override Transform ChildModelTrans {
-		get {
-			return ChildModelMedium.transform;
-		}
-	}
-
-	//========================================================================================
-	//                                     private
-	//========================================================================================
-
-	/// <summary>
-	/// グループを組むかどうか
-	/// </summary>
-	/// <returns></returns>
-	private bool CheckGroupFormation() {
-
-		int rand = Random.Range(0, 100);
-		return (rand <= GroupFormRate);
+		GroupCommand.NoticeEnemiesGroupEnd();
+		IsGroupLeader = false;
 	}
 
 	/// <summary>
@@ -134,10 +127,11 @@ public class MediumEnemy : AimingPlayerEnemy {
 		var prefab = GetResource();
 		MyAttackObj = Instantiate(prefab);
 		MyAttackObj.Initialize(this.gameObject);
-		
+
 
 		IsAttacking = true;
 		AnimationAttackPose();
+		GroupCommand.NoticeEnemiesAttack();
 
 		if (ieAttackMode != null) {
 			StopCoroutine(ieAttackMode);
@@ -147,6 +141,53 @@ public class MediumEnemy : AimingPlayerEnemy {
 
 		StopMove(2f + NextAttackInterval);
 	}
+
+
+	protected override void AttackEnd() {
+
+		base.AttackEnd();
+		GroupCommand.NoticeEnemiesGroupEnd();
+	}
+
+
+	protected override Transform ChildModelTrans {
+		get {
+			return ChildModelMedium.transform;
+		}
+	}
+
+	//========================================================================================
+	//                                     private
+	//========================================================================================
+
+	float ElapsedCheckTime;
+
+
+	bool _IsGroupLeader;
+	public bool IsGroupLeader {
+		private set { _IsGroupLeader = value; }
+		get { return _IsGroupLeader; }
+	}
+      
+
+	/// <summary>
+	/// グループを組むかどうか
+	/// </summary>
+	/// <returns></returns>
+	private bool CheckGroupFormation() {
+
+		ElapsedCheckTime -= Time.deltaTime;
+		if (ElapsedCheckTime <= 0f) {
+
+			ElapsedCheckTime = GroupCheckTime;
+			int rand = Random.Range(0, 100);
+			return (rand <= GroupFormRate);
+		}
+
+		return false;
+	}
+
+	
 
 	/// <summary>
 	/// 攻撃当たり判定プレハブゲット
@@ -213,4 +254,15 @@ public class MediumEnemy : AimingPlayerEnemy {
 		string s = "MediumEnemy : " + NowTarget.name;
 		id = DebugLog.ChaseLog(s, id);
 	}
+
+
+	GroupLeaderEnemyCommand _GroupCommand;
+	public GroupLeaderEnemyCommand GroupCommand {
+		get {
+			if (_GroupCommand == null) {
+				_GroupCommand = GetComponent<GroupLeaderEnemyCommand>();
+			}
+			return _GroupCommand;
+		}
+	} 
 }
