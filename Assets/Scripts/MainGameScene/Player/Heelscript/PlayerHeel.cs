@@ -130,7 +130,7 @@ public class PlayerHeel : PlayerBase{
 
     private void Normal()
     {
-        CharCon.center = new Vector3(0, 1, 0);
+        CharCon.center = new Vector3(0, 0, 0);
 
         if (input.GetButtonSquareTrigger())
         {
@@ -302,5 +302,17 @@ public class PlayerHeel : PlayerBase{
             PlayerSta = (int)player_Heel_sta;
             ModelTransformReset();
         }
+    }
+
+    public override bool PlayerIsDeath()
+    {
+        bool res = false;
+
+        if (HP.isDeath && player_Heel_sta != PLAYER_HEEL_STA.DAMAGE)
+        {
+            res = true;
+        }
+
+        return res;
     }
 }

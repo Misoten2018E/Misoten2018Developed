@@ -19,6 +19,7 @@ public class Score : SceneStartEvent{
     public void AddScore(int ten)
     {
         score += ten;
+        print("スコア" + score);
     }
 
     public int GetScore()
