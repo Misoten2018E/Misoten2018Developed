@@ -14,7 +14,7 @@ public class Bomb : PlayerBase{
     BombHitAnimation bombhit;
     BOMB_STA bombsta;
 
-    const int maxtime = 1; 
+    const int maxtime = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -39,9 +39,9 @@ public class Bomb : PlayerBase{
 
    
 
-    public void BombswitchON()
+    public void BombswitchON(float atk)
     {
-        bombhit.HitAnimationStrongattack();
+        bombhit.HitAnimationStrongattack(atk);
         bombsta = BOMB_STA.SWITHON;
     }
 
