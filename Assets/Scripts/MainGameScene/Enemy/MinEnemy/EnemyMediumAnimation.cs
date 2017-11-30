@@ -63,10 +63,12 @@ public class EnemyMediumAnimation : ControlAnimatorEnemy {
 		NowType = type;
 	}
 
-	private void AnimationDamageEnd() {
-
-		SetState((int)AnimationType.Move);
-		base.DamageEnd();
+	/// <summary>
+	/// 親座標のセット
+	/// </summary>
+	/// <param name="parent"></param>
+	public void SetParentTransform(Transform parent) {
+		ParentTransform = parent;
 	}
 
 	/// <summary>
@@ -77,6 +79,8 @@ public class EnemyMediumAnimation : ControlAnimatorEnemy {
 
 		AnimEnd = callback;
 	}
+
+	
 
 	//========================================================================================
 	//                                    private
@@ -98,37 +102,9 @@ public class EnemyMediumAnimation : ControlAnimatorEnemy {
 		get { return _nowType; }
 	}
 
-	//System.Action AnimEndCallback;
+	private void AnimationDamageEnd() {
 
-	/// <summary>
-	/// 攻撃開始モーション終了
-	/// </summary>
-	//void AttackAnimationPoseEnd() {
-
-	//	if (AnimEndCallback != null) {
-	//		AnimEndCallback();
-	//		AnimEndCallback = null;
-	//	}
-	//}
-
-	///// <summary>
-	///// 攻撃モーション終了
-	///// </summary>
-	//void AttackAnimationEnd() {
-	//	if (AnimEndCallback != null) {
-	//		AnimEndCallback();
-	//		AnimEndCallback = null;
-	//	}
-	//}
-
-	///// <summary>
-	///// ダメージモーション終了
-	///// </summary>
-	//void DamageAnimationEnd() {
-
-	//	if (AnimEndCallback != null) {
-	//		AnimEndCallback();
-	//		AnimEndCallback = null;
-	//	}
-	//}
+		SetState((int)AnimationType.Move);
+		base.DamageEnd();
+	}
 }
