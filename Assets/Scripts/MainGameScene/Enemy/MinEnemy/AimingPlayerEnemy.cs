@@ -29,7 +29,8 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 			return;
 		}
 
-		if (!Damaged.isHitted) {
+		// 攻撃を喰らっていなくて、かつ移動出来る状態なら
+		if (!Damaged.isHitted && (!IsStop)) {
 			MoveAdvanceToTarget(NowTarget, MoveSpeed);
 		}
 
@@ -92,7 +93,7 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 	/// <summary>
 	/// 攻撃体勢に入る
 	/// </summary>
-	private void AttackPose() {
+	override protected void AttackPose() {
 
 		var prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitEnemyMin, ConstActionHitData.ActionEnemyMin1);
 		MyAttackObj = Instantiate(prefab);
