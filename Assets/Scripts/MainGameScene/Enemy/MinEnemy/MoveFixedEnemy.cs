@@ -203,6 +203,35 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		StopMove(5f + NextAttackInterval);
 	}
 
+
+	/// <summary>
+	/// 攻撃終了時関数
+	/// </summary>
+	virtual protected void AttackEnd() {
+
+		// 次の攻撃待機
+		AttackAction = AttackPose;
+		// 攻撃中でなくなる
+		IsAttacking = false;
+		AnimationMove();
+
+		// 次の目標
+		StartPlayerAttackMode(NowTarget.transform);
+
+		// 移動開始
+		EnableMove();
+
+		// 制限時間開始
+		StopCoroutine(ieAttackModeLimit);
+		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
+		StartCoroutine(ieAttackModeLimit);
+		attackIntervalTime = NextAttackInterval;
+
+
+		// 利用したので削除
+		Destroy(MyAttackObj.gameObject);
+	}
+
 	/// <summary>
 	/// 外周へ逃げていく
 	/// </summary>
@@ -398,34 +427,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		}
 	}
 
-	/// <summary>
-	/// 攻撃終了時関数
-	/// </summary>
-	private void AttackEnd() {
-
-		// 次の攻撃待機
-		AttackAction = AttackPose;
-		// 攻撃中でなくなる
-		IsAttacking = false;
-		AnimationMove();
-		
-
-		// 次の目標
-		StartPlayerAttackMode(NowTarget.transform);
-
-		// 移動開始
-		EnableMove();
-
-		// 制限時間開始
-		StopCoroutine(ieAttackModeLimit);
-		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
-		StartCoroutine(ieAttackModeLimit);
-		attackIntervalTime = NextAttackInterval;
-
-
-		// 利用したので削除
-		Destroy(MyAttackObj.gameObject);
-	}
+	
 
 	/// <summary>
 	/// 時間経過
@@ -550,6 +552,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	public void GroupEnd() {
 
 		NextTargetSearch();
+		EnableMove();
+		IsAttackMode = false;
 		IsGroupMode = false;
 	}
 
