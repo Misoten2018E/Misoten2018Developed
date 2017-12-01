@@ -56,7 +56,9 @@ public class CheckProducePhotoCamera : IFGameEndEvent {
 
 	// Use this for initialization
 	void Start() {
-		
+
+		myInstance = this;
+
 		int max = ConstPlayerSta.StatusMax; ;
 		for (int i = 0; i < max; i++) {
 
@@ -71,6 +73,9 @@ public class CheckProducePhotoCamera : IFGameEndEvent {
 		}
 	}
 
+	/// <summary>
+	/// プレイヤー操作終了時関数
+	/// </summary>
 	public void GameEnd() {
 
 		for (int i = 0; i < PhotoShotList.Count; i++) {
