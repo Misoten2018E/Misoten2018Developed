@@ -241,7 +241,7 @@ public class PlayerBase : SceneStartEvent{
         if(info.IsName(str) && info.normalizedTime > 1.0f)
         {
             Vector3 bodypos = GetBodyPosition();
-            bodypos.y = 0.0f;
+            bodypos.y = 1.0f;
             transform.position = bodypos;
             return true;
         }

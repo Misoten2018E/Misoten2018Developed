@@ -144,7 +144,7 @@ public class PlayerHero : PlayerBase{
         {
             player_Hero_sta = PLAYER_HERO_STA.WEAKATTACK1;
             PlayerSta = (int)player_Hero_sta;
-            HitAnime.HitAnimationWeakattack1();
+            HitAnime.HitAnimationWeakattack1(Attack);
             ModelTransformReset();
             TBM.StartTrail(TrailSupport.BodyType.RightArm);
         }
@@ -188,7 +188,7 @@ public class PlayerHero : PlayerBase{
                 player_Hero_sta = PLAYER_HERO_STA.WEAKATTACK2;
                 PlayerSta = (int)player_Hero_sta;
                 ComboFlg = false;
-                HitAnime.HitAnimationWeakattack2();
+                HitAnime.HitAnimationWeakattack2(Attack);
                 TBM.EndTrail(TrailSupport.BodyType.RightArm);
                 TBM.StartTrail(TrailSupport.BodyType.LeftArm);
             }
@@ -219,7 +219,7 @@ public class PlayerHero : PlayerBase{
                 player_Hero_sta = PLAYER_HERO_STA.WEAKATTACK3;
                 PlayerSta = (int)player_Hero_sta;
                 ComboFlg = false;
-                HitAnime.HitAnimationWeakattack3();
+                HitAnime.HitAnimationWeakattack3(Attack);
                 TBM.EndTrail(TrailSupport.BodyType.LeftArm);
                 TBM.StartTrail(TrailSupport.BodyType.RightLeg);
             }
@@ -255,7 +255,7 @@ public class PlayerHero : PlayerBase{
         {
             player_Hero_sta = PLAYER_HERO_STA.STRONGATTACK_END;
             PlayerSta = (int)player_Hero_sta;
-            HitAnime.HitAnimationStrongattack();
+            HitAnime.HitAnimationStrongattack(Attack);
             ModelTransformReset();
         }
     }

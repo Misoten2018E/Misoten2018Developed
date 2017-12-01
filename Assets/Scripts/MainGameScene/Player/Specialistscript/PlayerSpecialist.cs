@@ -142,7 +142,7 @@ public class PlayerSpecialist : PlayerBase{
         {
             player_Special_sta = PLAYER_SPECIALIST_STA.WEAKATTACK1;
             PlayerSta = (int)player_Special_sta;
-            HitAnime.HitAnimationWeakattack1();
+            HitAnime.HitAnimationWeakattack1(Attack);
             ModelTransformReset();
         }
 
@@ -152,14 +152,12 @@ public class PlayerSpecialist : PlayerBase{
             {
                 player_Special_sta = PLAYER_SPECIALIST_STA.BOON;
                 PlayerSta = (int)player_Special_sta;
-                HitAnime.HitAnimationStrongattack();
                 ModelTransformReset();
             }
             else
             {
                 player_Special_sta = PLAYER_SPECIALIST_STA.SET;
                 PlayerSta = (int)player_Special_sta;
-                HitAnime.HitAnimationStrongattack();
                 ModelTransformReset();
             }
             
@@ -198,7 +196,7 @@ public class PlayerSpecialist : PlayerBase{
                 player_Special_sta = PLAYER_SPECIALIST_STA.WEAKATTACK2;
                 PlayerSta = (int)player_Special_sta;
                 ComboFlg = false;
-                HitAnime.HitAnimationWeakattack2();
+                HitAnime.HitAnimationWeakattack2(Attack);
             }
             else
             {
@@ -226,7 +224,7 @@ public class PlayerSpecialist : PlayerBase{
                 player_Special_sta = PLAYER_SPECIALIST_STA.WEAKATTACK3;
                 PlayerSta = (int)player_Special_sta;
                 ComboFlg = false;
-                HitAnime.HitAnimationWeakattack3();
+                HitAnime.HitAnimationWeakattack3(Attack);
             }
             else
             {
@@ -265,6 +263,7 @@ public class PlayerSpecialist : PlayerBase{
             bomsetflg = true;
             GameObject obj = Instantiate(Bombprefab, bombpos, Quaternion.identity);
             bomb = obj.GetComponent<Bomb>();
+            bomb.InitBomb(myPlayer);
         }
     }
 
@@ -278,7 +277,7 @@ public class PlayerSpecialist : PlayerBase{
             PlayerSta = (int)player_Special_sta;
             ModelTransformReset();
             bomsetflg = false;
-            bomb.BombswitchON();
+            bomb.BombswitchON(Attack);
         }
     }
 

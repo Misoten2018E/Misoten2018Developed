@@ -14,22 +14,22 @@ public class PlayerSpecialistHitAnimation : HitAnimationBase{
     //                                    public override
     //========================================================================================
 
-    public override void HitAnimationWeakattack1()
+    public override void HitAnimationWeakattack1(float atk)
     {
-        HitWeakattack1Animation.Activate();
+        HitWeakattack1Animation.Activate(atk);
     }
 
-    public override void HitAnimationWeakattack2()
+    public override void HitAnimationWeakattack2(float atk)
     {
-        HitWeakattack2Animation.Activate();
+        HitWeakattack2Animation.Activate(atk);
     }
 
-    public override void HitAnimationWeakattack3()
+    public override void HitAnimationWeakattack3(float atk)
     {
-        HitWeakattack3Animation.Activate();
+        HitWeakattack3Animation.Activate(atk);
     }
 
-    public override void HitAnimationStrongattack()
+    public override void HitAnimationStrongattack(float atk)
     {
         
     }

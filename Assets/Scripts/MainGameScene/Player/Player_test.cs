@@ -114,14 +114,14 @@ public class Player_test : PlayerBase
         {
             player_test_sta = PLAYER_TEST_STA.WEAKATTACK1;
             PlayerSta = (int)player_test_sta;
-            HitAnime.HitAnimationWeakattack1();
+            HitAnime.HitAnimationWeakattack1(Attack);
         }
 
         if (input.GetButtonTriangleTrigger())
         {
             player_test_sta = PLAYER_TEST_STA.STRONGATTACK;
             PlayerSta = (int)player_test_sta;
-            HitAnime.HitAnimationStrongattack();
+            HitAnime.HitAnimationStrongattack(Attack);
         }
 
         if (input.GetButtonCircleTrigger())
@@ -150,7 +150,7 @@ public class Player_test : PlayerBase
                 player_test_sta = PLAYER_TEST_STA.WEAKATTACK2;
                 PlayerSta = (int)player_test_sta;
                 ComboFlg = false;
-                HitAnime.HitAnimationWeakattack2();
+                HitAnime.HitAnimationWeakattack2(Attack);
             }
             else
             {
@@ -176,7 +176,7 @@ public class Player_test : PlayerBase
                 player_test_sta = PLAYER_TEST_STA.WEAKATTACK3;
                 PlayerSta = (int)player_test_sta;
                 ComboFlg = false;
-                HitAnime.HitAnimationWeakattack3();
+                HitAnime.HitAnimationWeakattack3(Attack);
             }
             else
             {
