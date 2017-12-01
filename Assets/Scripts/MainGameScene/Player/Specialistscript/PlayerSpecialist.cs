@@ -263,6 +263,7 @@ public class PlayerSpecialist : PlayerBase{
             bomsetflg = true;
             GameObject obj = Instantiate(Bombprefab, bombpos, Quaternion.identity);
             bomb = obj.GetComponent<Bomb>();
+            bomb.InitBomb(myPlayer);
         }
     }
 

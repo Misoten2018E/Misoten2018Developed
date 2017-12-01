@@ -37,7 +37,10 @@ public class Bomb : PlayerBase{
         }	
 	}
 
-   
+    public void InitBomb(GameObject Player)
+    {
+        myPlayer = Player;
+    }
 
     public void BombswitchON(float atk)
     {
