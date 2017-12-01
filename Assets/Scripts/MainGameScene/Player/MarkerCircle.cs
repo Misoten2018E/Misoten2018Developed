@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class MarkerCircle : SceneStartEvent{
 
-    float starty;
+    public int TargetNo;
+    Transform tra;
 
 	// Use this for initialization
 	void Start () {
-        starty = transform.position.y;
-	}
+        tra = PlayerManager.instance.GetPlayerSearchNo(TargetNo).transform;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 v = new Vector3(transform.position.x, starty, transform.position.z);
+        Vector3 v = new Vector3(tra.position.x, transform.position.y, tra.position.z);
         transform.position = v;
 	}
 }
