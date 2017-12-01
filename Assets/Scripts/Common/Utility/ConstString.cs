@@ -82,4 +82,6 @@ public static class ConstPlayerSta
     public const int HeelCharacter = 2;
     public const int SpecialistCharacter = 3;
     public const int MonsterCharacter = 4;
+
+	public const int StatusMax = SpecialistCharacter + 1;
 }
