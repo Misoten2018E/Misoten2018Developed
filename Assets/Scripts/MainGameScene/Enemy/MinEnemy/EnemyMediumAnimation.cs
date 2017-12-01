@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class EnemyMiniAnimation : ControlAnimatorEnemy {
+public class EnemyMediumAnimation : ControlAnimatorEnemy {
 
 
 	//========================================================================================
@@ -36,20 +36,24 @@ public class EnemyMiniAnimation : ControlAnimatorEnemy {
 			case AnimationType.AttackPose:
 				AttackPose();
 				break;
-			case AnimationType.Attack:
+			case AnimationType.Attack1:
+				SetState((int)AnimationType.Attack1);
 				Attack();
 				break;
-			case AnimationType.CityPose:
-				SetState((int)AnimationType.CityPose);
-				AnimEnd = null;
+			case AnimationType.Attack2:
+				SetState((int)AnimationType.Attack2);
+				Attack();
+				break;
+			case AnimationType.Attack3:
+				SetState((int)AnimationType.Attack3);
+				Attack();
 				break;
 			case AnimationType.RunAway:
 				SetState((int)AnimationType.RunAway);
 				AnimEnd = null;
 				break;
 			case AnimationType.Damage:
-				Damaged();
-				AnimEnd += AnimationDamageEnd;
+				AnimEnd = AnimationDamageEnd;
 				break;
 			
 			default:
@@ -59,10 +63,12 @@ public class EnemyMiniAnimation : ControlAnimatorEnemy {
 		NowType = type;
 	}
 
-	private void AnimationDamageEnd() {
-
-		SetState((int)AnimationType.Move);
-		base.DamageEnd();
+	/// <summary>
+	/// 親座標のセット
+	/// </summary>
+	/// <param name="parent"></param>
+	public void SetParentTransform(Transform parent) {
+		ParentTransform = parent;
 	}
 
 	/// <summary>
@@ -74,6 +80,8 @@ public class EnemyMiniAnimation : ControlAnimatorEnemy {
 		AnimEnd = callback;
 	}
 
+	
+
 	//========================================================================================
 	//                                    private
 	//========================================================================================
@@ -81,8 +89,9 @@ public class EnemyMiniAnimation : ControlAnimatorEnemy {
 	public enum AnimationType {
 		Move,
 		AttackPose,
-		Attack,
-		CityPose,
+		Attack1,
+		Attack2,
+		Attack3,
 		RunAway,
 		Damage,
 	}
@@ -93,37 +102,9 @@ public class EnemyMiniAnimation : ControlAnimatorEnemy {
 		get { return _nowType; }
 	}
 
-	//System.Action AnimEndCallback;
+	private void AnimationDamageEnd() {
 
-	/// <summary>
-	/// 攻撃開始モーション終了
-	/// </summary>
-	//void AttackAnimationPoseEnd() {
-
-	//	if (AnimEndCallback != null) {
-	//		AnimEndCallback();
-	//		AnimEndCallback = null;
-	//	}
-	//}
-
-	///// <summary>
-	///// 攻撃モーション終了
-	///// </summary>
-	//void AttackAnimationEnd() {
-	//	if (AnimEndCallback != null) {
-	//		AnimEndCallback();
-	//		AnimEndCallback = null;
-	//	}
-	//}
-
-	///// <summary>
-	///// ダメージモーション終了
-	///// </summary>
-	//void DamageAnimationEnd() {
-
-	//	if (AnimEndCallback != null) {
-	//		AnimEndCallback();
-	//		AnimEndCallback = null;
-	//	}
-	//}
+		SetState((int)AnimationType.Move);
+		base.DamageEnd();
+	}
 }

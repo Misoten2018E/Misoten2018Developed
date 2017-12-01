@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public abstract class ControlAnimatorEnemy : MonoBehaviour {
 
 
@@ -18,6 +19,8 @@ public abstract class ControlAnimatorEnemy : MonoBehaviour {
 			AnimEnd();
 			AnimEnd = null;
 		}
+
+		AnimationMoveWorld();
 	}
 
 	/// <summary>
@@ -83,6 +86,25 @@ public abstract class ControlAnimatorEnemy : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// アニメーションの移動を親に反映
+	/// </summary>
+	protected void AnimationMoveWorld() {
+
+		var anim = Anim.GetCurrentAnimatorStateInfo(0);
+		if (ParentTransform != null && (!anim.loop)) {
+
+			// 位置補正
+			ParentTransform.position += transform.localPosition;
+			transform.localPosition = Vector3.zero;
+
+			// 回転補正
+		//	ParentTransform.rotation *= transform.localRotation;
+		//	transform.localRotation = Quaternion.identity;
+		}
+
+		transform.localRotation = Quaternion.identity;
+	}
 
 	System.Action _AnimEndCallBack;
 	/// <summary>
@@ -92,7 +114,7 @@ public abstract class ControlAnimatorEnemy : MonoBehaviour {
 		set { _AnimEndCallBack = value; }
 		get { return _AnimEndCallBack; }
 	}
-      
+    
 
 	//========================================================================================
 	//                                    private
@@ -106,6 +128,8 @@ public abstract class ControlAnimatorEnemy : MonoBehaviour {
 
 	private float OldFrameTime;
 
+	protected Transform ParentTransform;
+
 	/// <summary>
 	/// アニメーションの区切りが来ていたらtrue
 	/// </summary>
@@ -116,6 +140,6 @@ public abstract class ControlAnimatorEnemy : MonoBehaviour {
 		float nowTime = a.normalizedTime;
 		setNowTime = nowTime;
 
-		return (nowTime >= 1.0f || (oldTime >= nowTime));
+		return (nowTime >= 0.95f || (oldTime >= nowTime));
 	}
 }

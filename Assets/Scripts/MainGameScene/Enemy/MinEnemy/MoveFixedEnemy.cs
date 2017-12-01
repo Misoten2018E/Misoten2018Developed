@@ -51,6 +51,11 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 			return;
 		}
 
+		if (IsGroupMode) {
+			GroupModeUpdate();
+			return;
+		}
+
 		if (NowTarget == null) {
 			NextTargetSearch();
 			return;
@@ -66,24 +71,6 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 		IntervalTimeUpdate();
 		HitLog.CheckEnd();
-	}
-
-	/// <summary>
-	/// 敵初期化
-	/// </summary>
-	/// <param name="InitData"></param>
-	public override void InitEnemy(UsedInitData InitData) {
-
-		transform.position = InitData.BasePosition.position;
-		transform.rotation = InitData.BasePosition.rotation;
-		TargetIndex = 0;
-		CityTargeted = false;
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
-		EnableMove();
-		MyType = EnemyType.MoveFixed;
-		EnemyManager.Instance.SetEnemy(this);
-
-		base.InitEnemy(InitData);
 	}
 
 	/// <summary>
@@ -125,74 +112,48 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 			TargetIndex++;
 			NextTargetSearch();
 
-		} else if (other.CompareTag(ConstTags.City)) {
+		}
+		else if (other.CompareTag(ConstTags.City)) {
 			NextTargetSearch();
 		}
 	}
 
-	//========================================================================================
-	//                                    private
-	//========================================================================================
-
-	bool _cityTargeted; // 街をターゲットしているかどうか
-	protected bool CityTargeted {
-		set { _cityTargeted = value; }
-		get { return _cityTargeted; }
-	}
-	int TargetIndex;
-
-	Transform _nowTarget;
-	protected Transform NowTarget{
-		set { _nowTarget = value; }
-		get { return _nowTarget; }
-	}
-
-	protected float attackIntervalTime;
-
 	/// <summary>
-	/// 次の獲物へ向かう
+	/// 敵初期化
 	/// </summary>
-	protected void NextTargetSearch() {
+	/// <param name="InitData"></param>
+	public override void InitEnemy(UsedInitData InitData) {
 
-		if (CityTargeted && (!IsStop)) {
+		transform.position = InitData.BasePosition.position;
+		transform.rotation = InitData.BasePosition.rotation;
+		TargetIndex = 0;
+		CityTargeted = false;
+		AnimationMove();
+		EnableMove();
+		MyType = EnemyType.MoveFixed;
+		EnemyManager.Instance.SetEnemy(this);
 
-			// 街に着いたということなので
-			// 一定時間待機状態へ
-			StopMove(5f, EscapeToOutside);
-			ChildModel.Animation(EnemyMiniAnimation.AnimationType.CityPose);
-
-			return;
-		}
-
-
-		// 次のターゲットが存在しない場合
-		if (((TargetIndex) >= TargetTransform.Count)) {
-
-			CityTargeted = true;
-			NowTarget = City.Instance.transform;
-		}
-		else {
-			NowTarget = TargetTransform[TargetIndex];
-		}
-
+		base.InitEnemy(InitData);
 	}
+
+
+	//========================================================================================
+	//                                    protected - virtual
+	//========================================================================================
 
 	/// <summary>
 	/// 当たったものに応じた処理
 	/// </summary>
 	/// <param name="obj"></param>
-	protected void SwtichHitted(HitObject obj) {
+	virtual protected void SwtichHitted(HitObject obj) {
 
 		// (衝撃の方向)
 		var impact = (transform.position - obj.transform.position).normalized;
-		Damaged.HittedTremble(ChildModel.transform, impact);
+		Damaged.HittedTremble(ChildModelTrans, impact);
 
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Damage);
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
+		AnimationDamaged();
 
 		if (MyHp.isDeath && ieDeath == null) {
-			//ieDeath = GameObjectExtensions.DelayMethod(0.5f, DestroyMe);
-			//StartCoroutine(ieDeath);
 			EscapeToCity();
 		}
 
@@ -222,6 +183,207 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	}
 
 	/// <summary>
+	/// 攻撃体勢に入る
+	/// </summary>
+	virtual protected void AttackPose() {
+
+		var prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitEnemyMin, ConstActionHitData.ActionEnemyMin1);
+		MyAttackObj = Instantiate(prefab);
+		MyAttackObj.Initialize(this.gameObject);
+
+		IsAttacking = true;
+		AnimationAttackPose();
+
+		if (ieAttackModeLimit != null) {
+			StopCoroutine(ieAttackModeLimit);
+		}
+		ieAttackModeLimit = AttackStart(1f + attackIntervalTime);
+		StartCoroutine(ieAttackModeLimit);
+
+		StopMove(5f + NextAttackInterval);
+	}
+
+
+	/// <summary>
+	/// 攻撃終了時関数
+	/// </summary>
+	virtual protected void AttackEnd() {
+
+		// 次の攻撃待機
+		AttackAction = AttackPose;
+		// 攻撃中でなくなる
+		IsAttacking = false;
+		AnimationMove();
+
+		// 次の目標
+		StartPlayerAttackMode(NowTarget.transform);
+
+		// 移動開始
+		EnableMove();
+
+		// 制限時間開始
+		StopCoroutine(ieAttackModeLimit);
+		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
+		StartCoroutine(ieAttackModeLimit);
+		attackIntervalTime = NextAttackInterval;
+
+
+		// 利用したので削除
+		Destroy(MyAttackObj.gameObject);
+	}
+
+	/// <summary>
+	/// 外周へ逃げていく
+	/// </summary>
+	virtual protected void EscapeToOutside() {
+
+		// 逃走モードへ
+		AnimationRunAway();
+		IsEscape = true;
+		print("逃げた");
+
+		NowTarget = RunAwayRelayPointManager.Instance.GetNearPoint(transform.position);
+
+		RotateToTarget(NowTarget, 90f);
+		MoveSpeed = MoveSpeed * 7;
+		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
+
+	}
+
+	/// <summary>
+	/// 街へ逃げていく
+	/// </summary>
+	virtual protected void EscapeToCity() {
+
+		// 逃走モードへ
+		AnimationRunAway();
+		IsEscape = true;
+		print("街に行った");
+
+		NowTarget = City.Instance.transform;
+
+		RotateToTarget(NowTarget, 90f);
+		MoveSpeed = MoveSpeed * 7;
+		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
+		GetComponent<CapsuleCollider>().isTrigger = true;
+	}
+
+	virtual protected Transform ChildModelTrans {
+		get { return ChildModelAnim.transform; }
+	}
+
+	//========================================================================================
+	//                                    Animation - protected
+	//========================================================================================
+
+	protected virtual void AnimationMove() {
+
+		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.Move);
+		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
+		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
+	}
+
+	protected virtual void AnimationAttackPose() {
+
+		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.AttackPose);
+	}
+
+	protected virtual void AnimationAttack() {
+
+		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.Attack);
+		myTrail.StartTrail(TrailSupport.BodyType.LeftArm);
+		myTrail.StartTrail(TrailSupport.BodyType.RightArm);
+	}
+
+	/// <summary>
+	/// ダメージ時アニメーションなど
+	/// </summary>
+	protected virtual void AnimationDamaged() {
+
+		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.Damage);
+		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
+		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
+	}
+
+	/// <summary>
+	/// 逃げる時アニメーション
+	/// </summary>
+	protected virtual void AnimationRunAway() {
+		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.RunAway);
+		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
+		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
+	}
+
+	protected virtual void AnimationCityPose() {
+		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.CityPose);
+	}
+
+	//========================================================================================
+	//                                    protected
+	//========================================================================================
+
+	bool _cityTargeted; // 街をターゲットしているかどうか
+	protected bool CityTargeted {
+		set { _cityTargeted = value; }
+		get { return _cityTargeted; }
+	}
+
+	Transform _nowTarget;
+	protected Transform NowTarget {
+		set { _nowTarget = value; }
+		get { return _nowTarget; }
+	}
+
+	protected float attackIntervalTime;
+
+	/// <summary>
+	/// 次の獲物へ向かう
+	/// </summary>
+	protected void NextTargetSearch() {
+
+		if (CityTargeted && (!IsStop)) {
+
+			// 街に着いたということなので
+			// 一定時間待機状態へ
+			StopMove(5f, EscapeToOutside);
+			AnimationCityPose();
+
+			return;
+		}
+
+
+		// 次のターゲットが存在しない場合
+		if (((TargetIndex) >= TargetTransform.Count)) {
+
+			CityTargeted = true;
+			NowTarget = City.Instance.transform;
+		}
+		else {
+			NowTarget = TargetTransform[TargetIndex];
+		}
+	}
+
+	/// <summary>
+	/// 死亡
+	/// </summary>
+	protected void DestroyMe() {
+
+		Destroy(this.gameObject);
+	}
+
+	protected IEnumerator ieAttackModeLimit;
+	protected IEnumerator ieDeath;
+
+	protected HitSeriesofAction MyAttackObj;
+
+	//========================================================================================
+	//                                    private
+	//========================================================================================
+
+
+	int TargetIndex;
+
+	/// <summary>
 	/// プレイヤーに攻撃された時
 	/// </summary>
 	void HittedPlayerAttack(GameObject player) {
@@ -244,32 +406,6 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		StartCoroutine(ieAttackModeLimit);
 	}
 
-	protected IEnumerator ieAttackModeLimit;
-	IEnumerator ieDeath;
-
-	protected HitSeriesofAction MyAttackObj;
-
-	/// <summary>
-	/// 攻撃体勢に入る
-	/// </summary>
-	private void AttackPose() {
-
-		var prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitEnemyMin, ConstActionHitData.ActionEnemyMin1);
-		MyAttackObj = Instantiate(prefab);
-		MyAttackObj.Initialize(this.gameObject);
-
-		IsAttacking = true;
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.AttackPose);
-
-		if (ieAttackModeLimit != null) {
-			StopCoroutine(ieAttackModeLimit);
-		}
-		ieAttackModeLimit = AttackStart(1f + attackIntervalTime);
-		StartCoroutine(ieAttackModeLimit);
-
-		StopMove(5f+NextAttackInterval);
-	}
-
 	/// <summary>
 	/// 攻撃開始までの猶予処理 + 起動
 	/// </summary>
@@ -279,9 +415,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 		yield return new WaitForSeconds(wait);
 
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Attack);
-		myTrail.StartTrail(TrailSupport.BodyType.LeftArm);
-		myTrail.StartTrail(TrailSupport.BodyType.RightArm);
+		AnimationAttack();
 		print("攻撃" + gameObject.name);
 
 		MyAttackObj.SetEndCallback(AttackEnd);
@@ -293,35 +427,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		}
 	}
 
-	/// <summary>
-	/// 攻撃終了時関数
-	/// </summary>
-	private void AttackEnd() {
-
-		// 次の攻撃待機
-		AttackAction = AttackPose;
-		// 攻撃中でなくなる
-		IsAttacking = false;
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
-		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
-		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
-
-		// 次の目標
-		StartPlayerAttackMode(NowTarget.transform);
-
-		// 移動開始
-		EnableMove();
-
-		// 制限時間開始
-		StopCoroutine(ieAttackModeLimit);
-		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
-		StartCoroutine(ieAttackModeLimit);
-		attackIntervalTime = NextAttackInterval;
-
-
-		// 利用したので削除
-		Destroy(MyAttackObj.gameObject);
-	}
+	
 
 	/// <summary>
 	/// 時間経過
@@ -337,13 +443,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		}
 	}
 
-	/// <summary>
-	/// 死亡
-	/// </summary>
-	protected void DestroyMe() {
-
-		Destroy(this.gameObject);
-	}
+	
 
 	/// <summary>
 	/// 攻撃終了
@@ -353,77 +453,27 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		print("攻撃行動終了");
 		StopPlayerAttackMode();
 		CityTargeted = true;
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
+		AnimationMove();
 		NowTarget = City.Instance.transform;
 	}
 
-	/// <summary>
-	/// 外周へ逃げていく
-	/// </summary>
-	private void EscapeToOutside() {
-
-		// 逃走モードへ
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.RunAway);
-		IsEscape = true;
-		print("逃げた");
-
-		NowTarget = RunAwayRelayPointManager.Instance.GetNearPoint(transform.position);
-
-		RotateToTarget(NowTarget, 90f);
-		MoveSpeed = MoveSpeed * 7;
-		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
-		
-	}
-
-	/// <summary>
-	/// 街へ逃げていく
-	/// </summary>
-	private void EscapeToCity() {
-
-		// 逃走モードへ
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.RunAway);
-		IsEscape = true;
-		print("街に行った");
-
-		NowTarget = City.Instance.transform;
-
-		RotateToTarget(NowTarget, 90f);
-		MoveSpeed = MoveSpeed * 7;
-		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
-		GetComponent<CapsuleCollider>().isTrigger = true;
-
-        //街に行く＝倒されたからスコア加算
-        Score.instance.AddScore(1);
-    }
+	
 
 	readonly Vector3 NormalScale = new Vector3(1f, 1f, 1f);
 	readonly Vector3 RunAwayScale = new Vector3(0.7f, 0.7f, 0.7f);
 
+	/// <summary>
+	/// スケール変更
+	/// </summary>
+	/// <param name="rate"></param>
 	private void LoopScaleMin(float rate) {
 
-		ChildModel.transform.localScale = (NormalScale - RunAwayScale * rate);
+		ChildModelTrans.localScale = (NormalScale - RunAwayScale * rate);
 	}
-
 
 	//========================================================================================
-	//                                    GroupMode
+	//                                    Cache
 	//========================================================================================
-
-	public void GroupStart(Transform target) {
-		throw new NotImplementedException();
-	}
-
-	public void GroupAttack() {
-		throw new NotImplementedException();
-	}
-
-	public void GroupEnd() {
-		throw new NotImplementedException();
-	}
-
-	public bool IsGroupMode {
-		get { return true; }
-	}
 
 	bool _IsEscape;
 	/// <summary>
@@ -444,10 +494,10 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 			return _myTrail;
 		}
 	}
-      
+
 
 	EnemyMiniAnimation _ChildModel;
-	public EnemyMiniAnimation ChildModel {
+	public EnemyMiniAnimation ChildModelAnim {
 		get {
 			if (_ChildModel == null) {
 				_ChildModel = GetComponentInChildren<EnemyMiniAnimation>();
@@ -456,10 +506,64 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		}
 	}
 
+	
+
 	public override bool IsDeath {
 		get { return IsEscape; }
 		protected set { IsEscape = value; }
 	}
 
+
+	//========================================================================================
+	//                                    GroupMode
+	//========================================================================================
+
+	/// <summary>
+	/// グループ行動開始
+	/// </summary>
+	/// <param name="target"></param>
+	public void GroupStart(Transform target) {
+
+		NowTarget = target;
+		IsGroupMode = true;
+	}
+
+	void GroupModeUpdate() {
+
+		if (!Damaged.isHitted) {
+			MoveAdvanceToTarget(NowTarget, MoveSpeed);
+		}
+
+		IntervalTimeUpdate();
+		HitLog.CheckEnd();
+	}
+
+	/// <summary>
+	/// グループでの攻撃開始
+	/// </summary>
+	public void GroupAttack() {
+
+		AttackPose();
+	}
+
+	/// <summary>
+	/// グループ行動終了
+	/// </summary>
+	public void GroupEnd() {
+
+		NextTargetSearch();
+		EnableMove();
+		IsAttackMode = false;
+		IsGroupMode = false;
+	}
+
+	bool _IsGroupMode;
+	/// <summary>
+	/// グループ行動状態かどうか
+	/// </summary>
+	public bool IsGroupMode {
+		protected set { _IsGroupMode = value; }
+		get { return _IsGroupMode; }
+	}
 	
 }

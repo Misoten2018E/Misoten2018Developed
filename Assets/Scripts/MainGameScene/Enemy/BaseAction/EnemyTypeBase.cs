@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(HittedDamage),typeof(ObjectHp))]
+[DisallowMultipleComponent]
 public abstract class EnemyTypeBase : PauseSupport {
 
 	public enum EnemyType {
