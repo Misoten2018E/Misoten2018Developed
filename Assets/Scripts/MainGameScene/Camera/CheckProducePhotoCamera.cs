@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckProducePhotoCamera : IFGameEndEvent {
+public class CheckProducePhotoCamera : MonoBehaviour,IFGameEndEvent {
 
 	//========================================================================================
 	//                                    inspector
@@ -33,10 +33,17 @@ public class CheckProducePhotoCamera : IFGameEndEvent {
 			return;
 		}
 
+		CalcCameraPosition(player, target);
+
 		var tex = PhotoCamera.Photo(TexWidth, TexHeight);
 		var list = PhotoShotList[playerSta];
 		list[(int)type].photo = tex;
 		list[(int)type].isShootted = true;
+
+#if UNITY_DEBUG
+		DebugCaptureImages.SetImages(tex);
+#endif
+
 	}
 
 
@@ -55,7 +62,7 @@ public class CheckProducePhotoCamera : IFGameEndEvent {
 	//========================================================================================
 
 	// Use this for initialization
-	void Start() {
+	void Awake() {
 
 		myInstance = this;
 
@@ -71,6 +78,8 @@ public class CheckProducePhotoCamera : IFGameEndEvent {
 			}
 			PhotoShotList.Add(list);
 		}
+
+		gameObject.SetActive(false);
 	}
 
 	/// <summary>
@@ -110,14 +119,22 @@ public class CheckProducePhotoCamera : IFGameEndEvent {
 		return !(list[(int)type].isShootted);
 	}
 
-	private void CalcCameraPosition() {
+	private void CalcCameraPosition(Transform player, Transform target) {
 
 		// 位置計算
-
+		Vector3 doubleLange = player.position + target.position;
+		Vector3 lookat = doubleLange / 3;
+		Vector3 pos = doubleLange / 2;
+		pos.y += lookat.y;
 
 		// 方向計算
 
-
+		Camera cam = PhotoCamera.MyCamera;
+		//var qt = Quaternion.LookRotation((lookat - pos).normalized);
+		//Matrix4x4 m = new Matrix4x4();
+		//m.SetTRS(pos, qt, new Vector3(1, 1, 1));
+		cam.transform.position = pos;
+		cam.transform.LookAt(lookat);
 	}
 
 

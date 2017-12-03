@@ -61,12 +61,14 @@ public class PlayerHeroHitAnimation : HitAnimationBase{
         preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeroWeak3);
         HitWeakattack3Animation = Instantiate(preAction);
         HitWeakattack3Animation.Initialize(myPlayer);
+		HitWeakattack3Animation.actionType = HitSeriesofAction.ActionType.LightEnd;
 
         preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeroStrong);
         HitStrongattackAnimation = Instantiate(preAction);
         HitStrongattackAnimation.Initialize(myPlayer);
-        
-    }
+		HitStrongattackAnimation.actionType = HitSeriesofAction.ActionType.Strong;
+
+	}
 
     // Use this for initialization
     void Start()

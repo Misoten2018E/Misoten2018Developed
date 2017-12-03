@@ -102,6 +102,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 				SwtichHitted(hito);
 				hito.DamageHp(MyHp);
+				CameraChance(hito);
 				return;
 			}
 		}
@@ -469,6 +470,32 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	private void LoopScaleMin(float rate) {
 
 		ChildModelTrans.localScale = (NormalScale - RunAwayScale * rate);
+	}
+
+	/// <summary>
+	/// カメラチャンスを知らせる
+	/// </summary>
+	/// <param name="hito"></param>
+	private void CameraChance(HitObject hito) {
+
+		var ph = hito.ParentHit;
+
+		if (ph == null) {
+			return;
+		}
+
+		CheckProducePhotoCamera.PhotoType type = CheckProducePhotoCamera.PhotoType.Strong;
+		switch (ph.actionType) {
+			case HitSeriesofAction.ActionType.LightEnd:
+				type = CheckProducePhotoCamera.PhotoType.LightEnd;
+				break;
+			case HitSeriesofAction.ActionType.Strong:
+				break;
+			default:
+				return;
+		}
+
+		CheckProducePhotoCamera.Instance.PhotoChance(hito.transform, transform, type, 0/*ph.myPlayer.GetPlayerObj()*/);
 	}
 
 	//========================================================================================

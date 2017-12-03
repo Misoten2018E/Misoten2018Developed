@@ -49,16 +49,7 @@ public class HitSeriesofAction : PauseSupport {
     public void Initialize(PlayerBase player)
     {
         myPlayer = player;
-
-		var Hits = GetComponentsInChildren<HitObject>();
-		for (int i = 0; i < Hits.Length; i++) {
-			Hits[i].Initialize(this);
-		}
-
-		TransformInitialize(player.transform, isToFollowParent);
-
-		EndCallback = null;
-		gameObject.SetActive(false);
+		Initialize(player.transform);
 	}
 
 	/// <summary>
@@ -67,14 +58,23 @@ public class HitSeriesofAction : PauseSupport {
 	/// <param name="enemy"></param>
 	public void Initialize(GameObject enemy) {
 		myEnemy = enemy;
+		Initialize(enemy.transform);
+	}
+
+	/// <summary>
+	/// 初期処理
+	/// </summary>
+	/// <param name="trs"></param>
+	private void Initialize(Transform trs) {
 
 		var Hits = GetComponentsInChildren<HitObject>();
 		for (int i = 0; i < Hits.Length; i++) {
 			Hits[i].Initialize(this);
 		}
 
-		TransformInitialize(enemy.transform, isToFollowParent);
+		TransformInitialize(trs, isToFollowParent);
 
+		actionType = ActionType.Normal;
 		EndCallback = null;
 		gameObject.SetActive(false);
 	}
@@ -172,6 +172,21 @@ public class HitSeriesofAction : PauseSupport {
 			return _Anim;
 		}
 	}
+
+	public enum ActionType {
+
+		Normal,
+		LightEnd,
+		Strong,
+	}
+
+
+	ActionType _actionType;
+	public ActionType actionType {
+		set { _actionType = value; }
+		get { return _actionType; }
+	}
+      
 
     PlayerBase _myPlayer;
     //public testPlayer myPlayer{//キャラのベースクラスにするためコメントアウト
