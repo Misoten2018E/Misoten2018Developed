@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 149268824}
   - component: {fileID: 149268826}
   - component: {fileID: 149268825}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,6 +216,8 @@ GameObject:
   - component: {fileID: 313544806}
   - component: {fileID: 313544805}
   - component: {fileID: 313544803}
+  - component: {fileID: 313544808}
+  - component: {fileID: 313544804}
   m_Layer: 0
   m_Name: PhotographCamera
   m_TagString: Untagged
@@ -234,6 +236,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e22627b4348154491be895911416b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &313544804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 313544802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75c7bb60703f384fa75832ec997b179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TexWidth: 384
+  TexHeight: 216
 --- !u!124 &313544805
 Behaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +304,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &313544808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 313544802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: d0f5cd59669087545a60f64986a48508, type: 2}
 --- !u!1 &390070051
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,12 +609,12 @@ Prefab:
     - target: {fileID: 224408566316153586, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 960
+      value: 250.5
       objectReference: {fileID: 0}
     - target: {fileID: 224408566316153586, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 540
+      value: 141
       objectReference: {fileID: 0}
     - target: {fileID: 224408566316153586, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
         type: 2}
@@ -707,12 +734,12 @@ Prefab:
     - target: {fileID: 224044501502650798, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 960
+      value: 250.5
       objectReference: {fileID: 0}
     - target: {fileID: 224044501502650798, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 540
+      value: 141
       objectReference: {fileID: 0}
     - target: {fileID: 224044501502650798, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
@@ -867,7 +894,7 @@ GameObject:
   - component: {fileID: 1313016573}
   - component: {fileID: 1313016575}
   - component: {fileID: 1313016574}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -954,7 +981,7 @@ GameObject:
   - component: {fileID: 1367966368}
   - component: {fileID: 1367966370}
   - component: {fileID: 1367966369}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1041,7 +1068,7 @@ GameObject:
   - component: {fileID: 1495533603}
   - component: {fileID: 1495533605}
   - component: {fileID: 1495533604}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
