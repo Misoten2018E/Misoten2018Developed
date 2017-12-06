@@ -59,10 +59,12 @@ public class PlayerHeelHitAnimation : HitAnimationBase{
         preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeelWeak3);
         HitWeakattack3Animation = Instantiate(preAction);
         HitWeakattack3Animation.Initialize(myPlayer);
+        HitWeakattack3Animation.actionType = HitSeriesofAction.ActionType.LightEnd;
 
         preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeelStrong);
         HitStrongattackAnimation = Instantiate(preAction);
         HitStrongattackAnimation.Initialize(myPlayer);
+        HitStrongattackAnimation.actionType = HitSeriesofAction.ActionType.Strong;
 
     }
 
