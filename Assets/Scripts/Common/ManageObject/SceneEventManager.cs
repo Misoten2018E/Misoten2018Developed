@@ -63,8 +63,16 @@ public class SceneEventManager : MonoBehaviour {
 			pauses[i].OnPause();
 		}
 
-		GameSceneManager.Instance.LoadScene(GameSceneManager.SceneType.Result,()=> {
-			GameSceneManager.Instance.SetActiveScene(GameSceneManager.SceneType.Result);
+		var gameMng = GameSceneManager.Instance;
+
+		var fade = GameObject.FindObjectOfType<SceneFade>();
+		fade.FadeOut(() => { gameMng.PermitLoad = true; });
+
+		gameMng.PermitLoad = false;
+
+		gameMng.LoadScene(GameSceneManager.SceneType.Result,()=> {
+			gameMng.SetActiveScene(GameSceneManager.SceneType.Result);
+			fade.gameObject.SetActive(false);
 		});
 	}
 
