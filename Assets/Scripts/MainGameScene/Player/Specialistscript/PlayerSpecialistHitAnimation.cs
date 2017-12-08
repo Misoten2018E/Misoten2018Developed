@@ -59,6 +59,7 @@ public class PlayerSpecialistHitAnimation : HitAnimationBase{
         preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionSpecialistWeak3);
         HitWeakattack3Animation = Instantiate(preAction);
         HitWeakattack3Animation.Initialize(myPlayer);
+        HitWeakattack3Animation.actionType = HitSeriesofAction.ActionType.LightEnd;
 
     }
 

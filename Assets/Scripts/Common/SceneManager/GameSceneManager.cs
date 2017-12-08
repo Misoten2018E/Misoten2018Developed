@@ -88,6 +88,10 @@ public class GameSceneManager : MonoBehaviour {
 
 	}
 
+	public bool PermitLoad {
+		set { Loader.PermitLoading = value; }
+		get { return Loader.PermitLoading; }
+	}
 
 	//========================================================================================
 	//                                    public - override

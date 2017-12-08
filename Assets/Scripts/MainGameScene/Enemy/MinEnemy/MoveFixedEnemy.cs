@@ -570,6 +570,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// </summary>
 	public void GroupAttack() {
 
+		attackIntervalTime = 0f;
 		AttackPose();
 	}
 

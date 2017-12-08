@@ -6,6 +6,7 @@ public class PlayerBase : SceneStartEvent{
 
     const int ChangeMoveSpeed = 5;
     const float ChangeScale = 0.05f;
+    const float InitY = 1.0f;
 
     CharacterController _CharCon;
     public CharacterController CharCon
@@ -241,7 +242,7 @@ public class PlayerBase : SceneStartEvent{
         if(info.IsName(str) && info.normalizedTime > 1.0f)
         {
             Vector3 bodypos = GetBodyPosition();
-            bodypos.y = 1.0f;
+            bodypos.y = InitY;
             transform.position = bodypos;
             return true;
         }
