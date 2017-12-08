@@ -142,7 +142,6 @@ public class Player : SceneStartEvent{
 
         //print(hitcityflg);
         transform.position = playerbase.GetBodyPosition();
-        
     }
 
     private void LateUpdate()
