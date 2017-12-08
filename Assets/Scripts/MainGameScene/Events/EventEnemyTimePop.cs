@@ -16,10 +16,12 @@ public class EventEnemyTimePop<T> : TimelineEventStandard {
 	//                                    public
 	//========================================================================================
 
-	virtual public void EventEnd() {
+	override public void EventEnd() {
 
 		IsActive = false;
 		IsEnd = true;
+
+		base.EventEnd();
 	}
 
 	//========================================================================================
@@ -45,6 +47,8 @@ public class EventEnemyTimePop<T> : TimelineEventStandard {
 		EventIndex = 0;
 
 		base.SetFocus(this.transform);
+
+		base.EventStart();
 	}
 
 

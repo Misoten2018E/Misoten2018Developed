@@ -26,6 +26,8 @@ public class EventBossEnemyPop : TimelineEventStandard {
 		bossObject.InitBossEnemy(CheckPointManager);
 		bossObject.InitEnemy(new UsedInitData());
 		CameraManager.Instance.FocusCamera.AddTarget(bossObject.transform);
+
+		base.EventStart();
 	}
 
 	public override bool IsEnd {
