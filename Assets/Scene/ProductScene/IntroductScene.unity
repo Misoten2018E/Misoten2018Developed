@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 94784148}
   - component: {fileID: 94784147}
   - component: {fileID: 94784149}
+  - component: {fileID: 94784150}
   m_Layer: 5
   m_Name: titlelogo
   m_TagString: Untagged
@@ -475,6 +476,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &94784150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 94784145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPausePermit: 1
+  PlayerNo: 0
 --- !u!1 &152912457
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,6 +3510,7 @@ GameObject:
   - component: {fileID: 945731162}
   - component: {fileID: 945731164}
   - component: {fileID: 945731163}
+  - component: {fileID: 945731165}
   m_Layer: 5
   m_Name: P3
   m_TagString: Untagged
@@ -3554,6 +3569,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 945731161}
+--- !u!114 &945731165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 945731161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPausePermit: 1
+  PlayerNo: 3
 --- !u!1001 &946473954
 Prefab:
   m_ObjectHideFlags: 0
@@ -4488,6 +4516,7 @@ GameObject:
   - component: {fileID: 1331060815}
   - component: {fileID: 1331060817}
   - component: {fileID: 1331060816}
+  - component: {fileID: 1331060818}
   m_Layer: 5
   m_Name: P0
   m_TagString: Untagged
@@ -4546,6 +4575,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1331060814}
+--- !u!114 &1331060818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1331060814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPausePermit: 1
+  PlayerNo: 0
 --- !u!1 &1394748314
 GameObject:
   m_ObjectHideFlags: 0
@@ -4710,6 +4752,7 @@ GameObject:
   - component: {fileID: 1436099205}
   - component: {fileID: 1436099207}
   - component: {fileID: 1436099206}
+  - component: {fileID: 1436099208}
   m_Layer: 5
   m_Name: P2
   m_TagString: Untagged
@@ -4768,6 +4811,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436099204}
+--- !u!114 &1436099208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1436099204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPausePermit: 1
+  PlayerNo: 2
 --- !u!1001 &1456038505
 Prefab:
   m_ObjectHideFlags: 0
@@ -5227,7 +5283,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1529778054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 288, y: 162, z: 0}
+  m_LocalPosition: {x: 252.5, y: 142, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 94784146}
@@ -5467,6 +5523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1604656978}
   - component: {fileID: 1604656979}
+  - component: {fileID: 1604656980}
   m_Layer: 0
   m_Name: Player1Model
   m_TagString: Untagged
@@ -5505,6 +5562,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1604656980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1604656977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPausePermit: 1
+  PlayerNo: 1
 --- !u!1001 &1619192697
 Prefab:
   m_ObjectHideFlags: 0
@@ -5806,6 +5876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1700367091}
   - component: {fileID: 1700367092}
+  - component: {fileID: 1700367093}
   m_Layer: 0
   m_Name: Player2Model
   m_TagString: Untagged
@@ -5844,6 +5915,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1700367093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1700367090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPausePermit: 1
+  PlayerNo: 2
 --- !u!1 &1707271735
 GameObject:
   m_ObjectHideFlags: 0
@@ -6139,6 +6223,7 @@ GameObject:
   - component: {fileID: 1791397677}
   - component: {fileID: 1791397679}
   - component: {fileID: 1791397678}
+  - component: {fileID: 1791397680}
   m_Layer: 5
   m_Name: P1
   m_TagString: Untagged
@@ -6197,6 +6282,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1791397676}
+--- !u!114 &1791397680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791397676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPausePermit: 1
+  PlayerNo: 1
 --- !u!1 &1796658025
 GameObject:
   m_ObjectHideFlags: 0
@@ -6546,6 +6644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884980037}
   - component: {fileID: 1884980038}
+  - component: {fileID: 1884980039}
   m_Layer: 0
   m_Name: Player3Model
   m_TagString: Untagged
@@ -6584,6 +6683,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1884980039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1884980036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPausePermit: 1
+  PlayerNo: 3
 --- !u!1 &1885500547
 GameObject:
   m_ObjectHideFlags: 0
@@ -7576,6 +7688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2147267738}
   - component: {fileID: 2147267739}
+  - component: {fileID: 2147267740}
   m_Layer: 0
   m_Name: Player0Model
   m_TagString: Untagged
@@ -7614,3 +7727,16 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &2147267740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2147267737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPausePermit: 1
+  PlayerNo: 0
