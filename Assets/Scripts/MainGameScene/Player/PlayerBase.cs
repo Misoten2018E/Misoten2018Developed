@@ -238,12 +238,14 @@ public class PlayerBase : SceneStartEvent{
 
     protected bool CheckAnimationEND(string str)
     {
+        
         AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
         if(info.IsName(str) && info.normalizedTime > 1.0f)
         {
-            Vector3 bodypos = GetBodyPosition();
+            Vector3 bodypos = animator.bodyPosition;
             bodypos.y = InitY;
             transform.position = bodypos;
+            
             return true;
         }
         else

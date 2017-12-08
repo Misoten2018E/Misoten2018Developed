@@ -113,7 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &122689882
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -213,7 +212,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e238c6971dc251d4c963b3f9b30df938, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &126641288 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4699297218060788, guid: 500bfd657de1a5a409f10a268c27fd74,
     type: 2}
@@ -824,12 +822,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1020298276 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224408566316153586, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
     type: 2}
   m_PrefabInternal: {fileID: 1020298275}
---- !u!1001 &1181189340
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
