@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224706881633881518}
   - component: {fileID: 95824820399903232}
   m_Layer: 5
-  m_Name: ProduceTutorialWindowImage
+  m_Name: ProduceTutorialWindow_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
