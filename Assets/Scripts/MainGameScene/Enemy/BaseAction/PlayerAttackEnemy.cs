@@ -10,8 +10,11 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	//                                    inspector
 	//========================================================================================
 
+	[Tooltip("狙うプレイヤーを再検索する頻度(秒)")]
 	[SerializeField] private float PlayerCheckPeriod;
+	[Tooltip("攻撃を行う範囲")]
 	[SerializeField] private float AttackRange = 2f;
+	[Tooltip("攻撃を行う角度")]
 	[SerializeField] private float AttackAngle = 60f;
 
 //	[SerializeField] private CheckEnemyAttackArea AttackCheckArea;

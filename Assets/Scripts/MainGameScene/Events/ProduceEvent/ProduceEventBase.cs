@@ -10,6 +10,7 @@ public abstract class ProduceEventBase : MonoBehaviour {
 	//                                    inspector
 	//========================================================================================
 
+	[Tooltip("イベントを行うタイミング(起動時、終了時など)")]
 	[SerializeField] protected EventType eventType = ProduceEventBase.EventType.End;
 
 	public enum EventType {

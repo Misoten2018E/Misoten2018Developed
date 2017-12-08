@@ -11,11 +11,13 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	//                                    inspector
 	//========================================================================================
 
-	[Range(3f, 30f)]
+	[Range(3f, 30f)] [Tooltip("攻撃的な時間(攻撃された時にやり返す時間)")]
 	[SerializeField] private float AggressiveTime = 10f;
 
+	[Tooltip("前回の攻撃から次の攻撃を出すまでの猶予")]
 	[SerializeField] protected float NextAttackInterval = 3f;
 
+	[Tooltip("基本的にデバッグ用なので触る必要無し")]
 	[SerializeField] private List<Transform> TargetTransform;
 
 	//========================================================================================

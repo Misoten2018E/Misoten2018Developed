@@ -10,6 +10,7 @@ public abstract class MoveTargetEnemy : WaitEnemy {
 	//                                    inspector
 	//========================================================================================
 
+	[Tooltip("移動速度")]
 	[SerializeField] protected float MoveSpeed = 1f;
 
 	//========================================================================================

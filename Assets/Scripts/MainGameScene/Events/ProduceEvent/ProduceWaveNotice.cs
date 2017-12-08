@@ -9,6 +9,7 @@ public class ProduceWaveNotice : ProduceEventBase {
 	//                                    inspector
 	//========================================================================================
 
+	[Tooltip("使用する演出オブジェクトをセット")]
 	[SerializeField] AnimatorControllStandard NoticeWindow;
 
 	//========================================================================================

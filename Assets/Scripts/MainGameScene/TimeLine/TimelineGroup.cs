@@ -9,7 +9,9 @@ public class TimelineGroup : MonoBehaviour {
 	//                                    inspector
 	//========================================================================================
 
+	[Tooltip("起動する順番")]
 	[SerializeField] private uint OrderId = 0;
+	[Tooltip("ウェーブ終了までの猶予時間(秒)")]
 	[SerializeField] private float GraceTime = 15f;
 
 	//========================================================================================
