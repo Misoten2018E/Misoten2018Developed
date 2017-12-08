@@ -112,6 +112,7 @@ ModelImporter:
     400102: Character1_Spine2
     400104: //RootNode
     7400000: viran_Attack
+    7400002: Take 001
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -126,7 +127,43 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'Character1_LeftUpLeg' : position
+      error = 56.498753 mm\n\t'Character1_LeftLeg' : position error = 128.047943 mm\n\t'Character1_LeftFoot'
+      : position error = 223.190842 mm\n\t'Character1_LeftToeBase' : position error
+      = 96.238266 mm\n\t'Character1_RightUpLeg' : position error = 56.498795 mm\n\t'Character1_RightLeg'
+      : position error = 853.017883 mm\n\t'Character1_RightFoot' : position error
+      = 588.309631 mm\n\t'Character1_RightToeBase' : position error = 296.267639 mm\n\t'Character1_Spine'
+      : position error = 27.052011 mm\n\t'Character1_Spine1' : position error = 12.144798
+      mm\n\t'Character1_Spine2' : position error = 29.099297 mm\n\t'Character1_LeftShoulder'
+      : position error = 55.034721 mm\n\t'Character1_LeftArm' : position error = 42.207821
+      mm\n\t'Character1_LeftForeArm' : position error = 99.321434 mm\n\t'Character1_LeftHand'
+      : position error = 46.925842 mm\n\t'Character1_LeftHandThumb1' : position error
+      = 33.877701 mm\n\t'Character1_LeftHandThumb2' : position error = 41.980179 mm\n\t'Character1_LeftHandThumb3'
+      : position error = 75.075104 mm\n\t'Character1_LeftHandIndex1' : position error
+      = 50.793411 mm\n\t'Character1_LeftHandIndex2' : position error = 40.632381 mm\n\t'Character1_LeftHandIndex3'
+      : position error = 129.262222 mm\n\t'Character1_LeftHandMiddle1' : position
+      error = 56.476898 mm\n\t'Character1_LeftHandMiddle2' : position error = 43.888222
+      mm\n\t'Character1_LeftHandMiddle3' : position error = 136.051605 mm\n\t'Character1_LeftHandRing1'
+      : position error = 52.976398 mm\n\t'Character1_LeftHandRing2' : position error
+      = 42.015766 mm\n\t'Character1_LeftHandRing3' : position error = 110.561028 mm\n\t'Character1_LeftHandPinky1'
+      : position error = 50.138336 mm\n\t'Character1_LeftHandPinky2' : position error
+      = 31.851730 mm\n\t'Character1_LeftHandPinky3' : position error = 113.563278
+      mm\n\t'Character1_RightShoulder' : position error = 55.033051 mm\n\t'Character1_RightArm'
+      : position error = 42.207615 mm\n\t'Character1_RightForeArm' : position error
+      = 116.858543 mm\n\t'Character1_RightHand' : position error = 58.117580 mm\n\t'Character1_RightHandThumb1'
+      : position error = 92.076218 mm\n\t'Character1_RightHandThumb2' : position error
+      = 72.018227 mm\n\t'Character1_RightHandThumb3' : position error = 75.220795
+      mm\n\t'Character1_RightHandIndex1' : position error = 84.365875 mm\n\t'Character1_RightHandIndex2'
+      : position error = 42.296143 mm\n\t'Character1_RightHandIndex3' : position error
+      = 141.393890 mm\n\t'Character1_RightHandMiddle1' : position error = 63.689262
+      mm\n\t'Character1_RightHandMiddle2' : position error = 46.808075 mm\n\t'Character1_RightHandMiddle3'
+      : position error = 144.093643 mm\n\t'Character1_RightHandRing1' : position error
+      = 65.763199 mm\n\t'Character1_RightHandRing2' : position error = 45.323654 mm\n\t'Character1_RightHandRing3'
+      : position error = 120.270248 mm\n\t'Character1_RightHandPinky1' : position
+      error = 91.476204 mm\n\t'Character1_RightHandPinky2' : position error = 34.556370
+      mm\n\t'Character1_RightHandPinky3' : position error = 123.350502 mm\n\t'Character1_Neck'
+      : position error = 22.394726 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
