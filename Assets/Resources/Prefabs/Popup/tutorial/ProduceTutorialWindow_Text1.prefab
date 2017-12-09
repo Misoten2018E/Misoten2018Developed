@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224214389415080522}
   - component: {fileID: 95021820973791084}
+  - component: {fileID: 114210059598728348}
   m_Layer: 5
   m_Name: ProduceTutorialWindow_Text1
   m_TagString: Untagged
@@ -78,6 +79,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114210059598728348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1299768116828590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f2987f40dc38f45976a0fec3387c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImage: {fileID: 0}
+  _ImageSize: {x: 0, y: 0}
+  Text: 
 --- !u!114 &114648361777348306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +190,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1299768116828590}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -250, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

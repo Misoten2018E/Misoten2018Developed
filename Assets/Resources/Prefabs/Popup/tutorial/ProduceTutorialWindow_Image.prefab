@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224706881633881518}
   - component: {fileID: 95824820399903232}
+  - component: {fileID: 114321152508591534}
   m_Layer: 5
   m_Name: ProduceTutorialWindow_Image
   m_TagString: Untagged
@@ -78,6 +79,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114321152508591534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1772760407937450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f2987f40dc38f45976a0fec3387c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImage: {fileID: 0}
+  _ImageSize: {x: 0, y: 0}
+  Text: 
 --- !u!114 &114323822357517000
 MonoBehaviour:
   m_ObjectHideFlags: 1

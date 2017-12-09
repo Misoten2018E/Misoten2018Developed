@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224172848557179988}
   - component: {fileID: 95824399525470754}
+  - component: {fileID: 114520278092869110}
   m_Layer: 5
   m_Name: ProduceTutorialWindow_Image1Text1
   m_TagString: Untagged
@@ -128,6 +129,20 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "\u30C6\u30B9\u30C8\n\u30C6\u30AD\u30B9\u30C8"
+--- !u!114 &114520278092869110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248114962048658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f2987f40dc38f45976a0fec3387c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImage: {fileID: 0}
+  _ImageSize: {x: 0, y: 0}
+  Text: 
 --- !u!114 &114521438643291710
 MonoBehaviour:
   m_ObjectHideFlags: 1
