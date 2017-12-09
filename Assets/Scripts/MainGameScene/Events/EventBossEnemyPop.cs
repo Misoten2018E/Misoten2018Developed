@@ -36,7 +36,7 @@ public class EventBossEnemyPop : TimelineEventStandard {
 		}
 
 		protected set {
-			base.IsEnd = value;
+			
 		}
 	}
 
