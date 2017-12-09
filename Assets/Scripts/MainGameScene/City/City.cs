@@ -23,12 +23,15 @@ public class City : SceneStartEvent{
 
 	}
 
+	int debugId = -1;
+
 	// Update is called once per frame
 	void Update() {
         if (!isInitialized) return;
 
-        score = Score.instance.GetScore();
-        print("city"+score);
+		score = Score.instance.GetScore();
+		debugId = DebugLog.ChaseLog("city" + score, debugId);
+		
         for (int i = 0;i < ScoreList.Count ;i++)
         {
             if (ScoreList[i] <= score)
