@@ -3,7 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(HittedDamage),typeof(ObjectHp))]
+[DisallowMultipleComponent]
 public abstract class EnemyTypeBase : PauseSupport {
+
+	public enum EnemyType {
+		MoveFixed ,
+		PlayerAttack,
+		Middle,
+		BossPop,
+		Boss
+	}
+
+	public const int EnemyTypeMax = (int)EnemyType.Boss + 1;
+
+	EnemyType _MyType;
+	public EnemyType MyType {
+		protected set { _MyType = value; }
+		get { return _MyType; }
+	}      
 
 	/// <summary>
 	/// 敵初期化

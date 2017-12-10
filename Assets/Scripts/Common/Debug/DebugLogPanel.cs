@@ -14,7 +14,7 @@ public class DebugLogPanel : StandardAppearDebugObject {
 	[SerializeField] private Button logOpenButton;
 
 	private void Start() {
-		gameObject.SetActive(false);
+		gameObject.SetActive(true);
 	}
 
 	public void OpenLog() {

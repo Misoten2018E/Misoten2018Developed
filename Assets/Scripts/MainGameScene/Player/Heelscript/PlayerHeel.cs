@@ -130,13 +130,13 @@ public class PlayerHeel : PlayerBase{
 
     private void Normal()
     {
-        CharCon.center = new Vector3(0, 1, 0);
+        CharCon.center = new Vector3(0, 0, 0);
 
         if (input.GetButtonSquareTrigger())
         {
             player_Heel_sta = PLAYER_HEEL_STA.WEAKATTACK1;
             PlayerSta = (int)player_Heel_sta;
-            HitAnime.HitAnimationWeakattack1();
+            HitAnime.HitAnimationWeakattack1(Attack);
             ModelTransformReset();
         }
 
@@ -144,7 +144,7 @@ public class PlayerHeel : PlayerBase{
         {
             player_Heel_sta = PLAYER_HEEL_STA.STRONGATTACK;
             PlayerSta = (int)player_Heel_sta;
-            HitAnime.HitAnimationStrongattack();
+            HitAnime.HitAnimationStrongattack(Attack);
             ModelTransformReset();
         }
 
@@ -181,7 +181,7 @@ public class PlayerHeel : PlayerBase{
                 player_Heel_sta = PLAYER_HEEL_STA.WEAKATTACK2;
                 PlayerSta = (int)player_Heel_sta;
                 ComboFlg = false;
-                HitAnime.HitAnimationWeakattack2();
+                HitAnime.HitAnimationWeakattack2(Attack);
             }
             else
             {
@@ -209,7 +209,7 @@ public class PlayerHeel : PlayerBase{
                 player_Heel_sta = PLAYER_HEEL_STA.WEAKATTACK3;
                 PlayerSta = (int)player_Heel_sta;
                 ComboFlg = false;
-                HitAnime.HitAnimationWeakattack3();
+                HitAnime.HitAnimationWeakattack3(Attack);
             }
             else
             {
@@ -302,5 +302,17 @@ public class PlayerHeel : PlayerBase{
             PlayerSta = (int)player_Heel_sta;
             ModelTransformReset();
         }
+    }
+
+    public override bool PlayerIsDeath()
+    {
+        bool res = false;
+
+        if (HP.isDeath && player_Heel_sta != PLAYER_HEEL_STA.DAMAGE)
+        {
+            res = true;
+        }
+
+        return res;
     }
 }

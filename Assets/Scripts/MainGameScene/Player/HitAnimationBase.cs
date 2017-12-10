@@ -13,9 +13,9 @@ public abstract class HitAnimationBase : MonoBehaviour {
     //public abstract void ActionSquare();
     //public abstract void ActionTriangle();
 
-    public abstract void HitAnimationWeakattack1();
-    public abstract void HitAnimationWeakattack2();
-    public abstract void HitAnimationWeakattack3();
-    public abstract void HitAnimationStrongattack();
+    public abstract void HitAnimationWeakattack1(float atk);
+    public abstract void HitAnimationWeakattack2(float atk);
+    public abstract void HitAnimationWeakattack3(float atk);
+    public abstract void HitAnimationStrongattack(float atk);
     public abstract void HitAnimationSpecial();
 }

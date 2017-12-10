@@ -38,7 +38,7 @@ public class ParticleSupport : EffectBase {
 	public override bool IsActive {
 		get {
 			// 0が親となるので
-			return ChildrenList[0].isPlaying;
+			return ChildrenList[0].isPlaying && (!ChildrenList[0].isStopped);
 		}
 	}
 
@@ -52,6 +52,11 @@ public class ParticleSupport : EffectBase {
 		for (int i = 0; i < ChildrenList.Count; i++) {
 			ChildrenList[i].Play();
 		}
+	}
+
+	public override void ScaleChange(float rate) {
+		LocalScale = rate;
+		transform.localScale = new Vector3(LocalScale, LocalScale, LocalScale);
 	}
 
 	//========================================================================================

@@ -7,7 +7,12 @@ public class PhotographCamera : MonoBehaviour {
 	Camera _MyCamera;
 	public Camera MyCamera {
 		private set { _MyCamera = value; }
-		get { return _MyCamera; }
+		get {
+			if (_MyCamera == null) {
+				MyCamera = GetComponent<Camera>();
+			}
+			return _MyCamera;
+		}
 	}
       
 
@@ -20,7 +25,10 @@ public class PhotographCamera : MonoBehaviour {
 
 	public Texture2D Photo(int width,int height) {
 
-		return CameraCapture.Capture(MyCamera, width, height);
-
+		gameObject.SetActive(true);
+		var tex = CameraCapture.Capture(MyCamera, width, height);
+		DebugLog.log("キャプチャ");
+		gameObject.SetActive(false);
+		return tex;
 	}
 }

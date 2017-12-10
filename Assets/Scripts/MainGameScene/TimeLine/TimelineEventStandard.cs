@@ -26,8 +26,18 @@ public class TimelineEventStandard : MonoBehaviour {
 	/// </summary>
 	public virtual void EventStart() {
 
-		
+		var p = GetComponents<ProduceEventBase>();
+		produceEvents.AddRange(p);
 
+		ProduceEventBase.StartProduceLists(produceEvents, ProduceEventBase.EventType.Start);
+	}
+	
+	/// <summary>
+	/// イベント終了
+	/// </summary>
+	public virtual void EventEnd() {
+
+		ProduceEventBase.StartProduceLists(produceEvents, ProduceEventBase.EventType.End);
 	}
 
 	public float time {
@@ -71,5 +81,11 @@ public class TimelineEventStandard : MonoBehaviour {
 		}
 		return 0;
 	}
+
+
+	/// <summary>
+	/// 演出リスト
+	/// </summary>
+	private List<ProduceEventBase> produceEvents = new List<ProduceEventBase>();
 }
 

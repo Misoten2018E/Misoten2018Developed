@@ -14,24 +14,24 @@ public class PlayerHeelHitAnimation : HitAnimationBase{
     //                                    public override
     //========================================================================================
 
-    public override void HitAnimationWeakattack1()
+    public override void HitAnimationWeakattack1(float atk)
     {
-        HitWeakattack1Animation.Activate();
+        HitWeakattack1Animation.Activate(atk);
     }
 
-    public override void HitAnimationWeakattack2()
+    public override void HitAnimationWeakattack2(float atk)
     {
-        HitWeakattack2Animation.Activate();
+        HitWeakattack2Animation.Activate(atk);
     }
 
-    public override void HitAnimationWeakattack3()
+    public override void HitAnimationWeakattack3(float atk)
     {
-        HitWeakattack3Animation.Activate();
+        HitWeakattack3Animation.Activate(atk);
     }
 
-    public override void HitAnimationStrongattack()
+    public override void HitAnimationStrongattack(float atk)
     {
-        HitStrongattackAnimation.Activate();
+        HitStrongattackAnimation.Activate(atk);
     }
 
     public override void HitAnimationSpecial()
@@ -48,21 +48,23 @@ public class PlayerHeelHitAnimation : HitAnimationBase{
     {
         myPlayer = player;
 
-        var preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeroWeak1);
+        var preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeelWeak1);
         HitWeakattack1Animation = Instantiate(preAction);
         HitWeakattack1Animation.Initialize(myPlayer);
 
-        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeroWeak2);
+        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeelWeak2);
         HitWeakattack2Animation = Instantiate(preAction);
         HitWeakattack2Animation.Initialize(myPlayer);
 
-        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeroWeak3);
+        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeelWeak3);
         HitWeakattack3Animation = Instantiate(preAction);
         HitWeakattack3Animation.Initialize(myPlayer);
+        HitWeakattack3Animation.actionType = HitSeriesofAction.ActionType.LightEnd;
 
-        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeroStrong);
+        preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeelStrong);
         HitStrongattackAnimation = Instantiate(preAction);
         HitStrongattackAnimation.Initialize(myPlayer);
+        HitStrongattackAnimation.actionType = HitSeriesofAction.ActionType.Strong;
 
     }
 

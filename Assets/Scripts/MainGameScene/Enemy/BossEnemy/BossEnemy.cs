@@ -31,6 +31,8 @@ public class BossEnemy : PlayerAttackEnemy {
 
 		ActedId = 0;
 		ElapsedTime = 0f;
+		MyType = EnemyType.Boss;
+		EnemyManager.Instance.SetEnemy(this);
 
 		IsEnabled = true;
 	}

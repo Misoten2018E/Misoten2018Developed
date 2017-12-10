@@ -24,9 +24,9 @@ namespace EDO {
 		//==========================================================
 		public enum BGMType {
 			TITLE = 0,
-			GAME1,
-			GAME2,
-			GAME3,
+			GAME_TUTORIAL,
+			GAME_MAIN,
+			GAME_BOSS,
 			RESULT,
 			BGMMAX
 		}
@@ -34,13 +34,15 @@ namespace EDO {
 		const int AUDIO_MAX = (int)BGMType.BGMMAX;
 
 		public enum SEType {
-			OK,
+			GameStart,
+			BossStart,
 			SEMAX
 		}
 
 		const string ROOTNAME = "Sound/";
 		const string ROOTNAME_SE = ROOTNAME + "SE/";
 		const string ROOTNAME_BGM = ROOTNAME + "BGM/";
+		const string ROOTNAME_JINGLE = ROOTNAME + "Jingle/";
 
 
 		//==========================================================
@@ -77,10 +79,7 @@ namespace EDO {
 
 		void Init() {
 
-			for (int i = 0; i < (int)SEType.SEMAX; i++) {
-
-				Clip_se.Add(SoundEffect.systemSE.Decide);
-			}
+			
 
 			for (int i = 0; i < AUDIO_MAX; i++) {
 
@@ -271,32 +270,101 @@ namespace EDO {
 		public Evil evil;
 		public Effecter effecter;
 		public Common common;
-		public SystemSE systemSE;
+		public Jingle systemSE;
 
 		[System.Serializable]
 		public struct Player {
 
 			public AudioClip Attack_Light1;
+
+			/// <summary>
+			/// リスト作成
+			/// </summary>
+			/// <returns></returns>
+			public List<AudioClip> CreateList() {
+
+				List<AudioClip> list = new List<AudioClip>();
+
+				list.Add(Attack_Light1);
+
+				return list;
+			}
 		}
 
 		[System.Serializable]
 		public struct Evil {
 			public AudioClip Attack_Light1;
+
+			/// <summary>
+			/// リスト作成
+			/// </summary>
+			/// <returns></returns>
+			public List<AudioClip> CreateList() {
+
+				List<AudioClip> list = new List<AudioClip>();
+
+				list.Add(Attack_Light1);
+
+				return list;
+			}
 		}
 
 		[System.Serializable]
 		public struct Effecter {
 			public AudioClip Attack_Light1;
+
+			/// <summary>
+			/// リスト作成
+			/// </summary>
+			/// <returns></returns>
+			public List<AudioClip> CreateList() {
+
+				List<AudioClip> list = new List<AudioClip>();
+
+				list.Add(Attack_Light1);
+
+				return list;
+			}
 		}
 
 		[System.Serializable]
 		public struct Common {
 			public AudioClip Run;
+
+			/// <summary>
+			/// リスト作成
+			/// </summary>
+			/// <returns></returns>
+			public List<AudioClip> CreateList() {
+
+				List<AudioClip> list = new List<AudioClip>();
+
+				list.Add(Run);
+
+				return list;
+			}
 		}
 
 		[System.Serializable]
-		public struct SystemSE {
-			public AudioClip Decide;
+		public struct Jingle {
+		//	public AudioClip Decide;
+			public AudioClip GameStart;
+			public AudioClip BossStart;
+
+			/// <summary>
+			/// リスト作成
+			/// </summary>
+			/// <returns></returns>
+			public List<AudioClip> CreateList() {
+
+				List<AudioClip> list = new List<AudioClip>();
+
+		//		list.Add(Decide);
+				list.Add(GameStart);
+				list.Add(BossStart);
+
+				return list;
+			}
 		}
 	}
 

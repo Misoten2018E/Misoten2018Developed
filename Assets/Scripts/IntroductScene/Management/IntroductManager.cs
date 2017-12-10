@@ -24,6 +24,10 @@ public class IntroductManager : MonoBehaviour {
 
 	public void NextSceneStart() {
 
+		var fade = GameObject.FindObjectOfType<SceneFade>();
+		fade.FadeOut(()=> { GameSceneManager.Instance.PermitLoad = true; });
+
+		GameSceneManager.Instance.PermitLoad = false;
 		GameSceneManager.Instance.LoadScene(GameSceneManager.SceneType.Main,()=> { EndIntroScene(); });
 	}
 

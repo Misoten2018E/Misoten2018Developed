@@ -43,6 +43,7 @@ public class PlayerNormal : PlayerBase{
         animator = GetComponentInChildren<Animator>();
         Model = transform.Find("BaseModel_Human").transform;
         HP = gameObject.GetComponent<ObjectHp>();
+        Attack = 1;
 
         MoveSpeed = Player_Normal_MoveSpeed;
         RotationSpeed = Player_Normal_RotationSpeed;
@@ -92,7 +93,7 @@ public class PlayerNormal : PlayerBase{
 
     private void Normal()
     {
-        CharCon.center = new Vector3(0, 1, 0);
+        CharCon.center = new Vector3(0, 0, 0);
 
         if (input.GetButtonSquareTrigger())
         {

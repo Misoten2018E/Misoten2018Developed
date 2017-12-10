@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimelineSystem : SceneStartEvent , IFGameStartEvent, IFGameEndEvent{
+public class TimelineSystem : SceneStartEvent , IFGameStartEvent{
 
 
 	//========================================================================================
@@ -52,13 +52,6 @@ public class TimelineSystem : SceneStartEvent , IFGameStartEvent, IFGameEndEvent
 		NextEventId = 0;
 		SearchNextEventGroup();
 		enabled = true;
-	}
-
-	/// <summary>
-	/// ゲーム終了
-	/// </summary>
-	public void GameEnd() {
-		
 	}
 
 	// Update is called once per frame

@@ -10,6 +10,7 @@ public abstract class MoveTargetEnemy : WaitEnemy {
 	//                                    inspector
 	//========================================================================================
 
+	[Tooltip("移動速度")]
 	[SerializeField] protected float MoveSpeed = 1f;
 
 	//========================================================================================
@@ -22,6 +23,11 @@ public abstract class MoveTargetEnemy : WaitEnemy {
 	/// <param name="target"></param>
 	/// <param name="speed"></param>
 	protected void MoveAdvanceToTarget(Transform target, float speed, float angle = 0.03f) {
+
+		if (target == null) {
+			DebugLog.log(gameObject.name + ": target error");
+			return;
+		}
 
 		RotateToTarget(target, angle);
 		MoveForward(speed);
@@ -36,11 +42,12 @@ public abstract class MoveTargetEnemy : WaitEnemy {
 	protected void RotateToTarget(Transform target, float angle) {
 
 		Vector3 rot = target.position - transform.position;
-		//rot.x = 0f; // 回転を無しに
 		var endQt = Quaternion.LookRotation(rot.normalized);
-		//endQt.x = 0f;
 
 		transform.rotation = Quaternion.Slerp(transform.rotation, endQt, (angle));
+		rot = transform.rotation.eulerAngles;
+		rot.x = rot.z = 0f;
+		transform.rotation = Quaternion.Euler(rot);
 	}
 
 	protected void MoveForward(float speed) {
