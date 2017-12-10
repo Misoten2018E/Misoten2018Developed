@@ -47,7 +47,8 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
 		for (int i = 0; i < playerList.Count; i++) {
 			playerList[i].CheckStart(this);
 		}
-	}
+
+    }
 
 #if UNITY_DEBUG
 

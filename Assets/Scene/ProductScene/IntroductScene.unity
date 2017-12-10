@@ -986,16 +986,16 @@ Prefab:
     - target: {fileID: 114940254907453608, guid: e238c6971dc251d4c963b3f9b30df938,
         type: 2}
       propertyPath: AwakeFadeIn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1265527628588590, guid: e238c6971dc251d4c963b3f9b30df938, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224078578193112522, guid: e238c6971dc251d4c963b3f9b30df938,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1763
+      value: -4613
       objectReference: {fileID: 0}
     - target: {fileID: 224078578193112522, guid: e238c6971dc251d4c963b3f9b30df938,
         type: 2}
@@ -1006,6 +1006,21 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224078578193112522, guid: e238c6971dc251d4c963b3f9b30df938,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -4613
+      objectReference: {fileID: 0}
+    - target: {fileID: 224548587068961336, guid: e238c6971dc251d4c963b3f9b30df938,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -96
+      objectReference: {fileID: 0}
+    - target: {fileID: 224548587068961336, guid: e238c6971dc251d4c963b3f9b30df938,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -96
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e238c6971dc251d4c963b3f9b30df938, type: 2}
