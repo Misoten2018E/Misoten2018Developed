@@ -284,7 +284,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a35cdf3e672bfa342891aa60e57ed7ba, type: 3}
+  m_Motion: {fileID: 7400000, guid: 7a51062867ec2684abaf93408988f783, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -375,7 +375,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: CityPose
-  m_Speed: 1
+  m_Speed: 0.3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101626335840338894}
@@ -389,7 +389,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400018, guid: e8397bfde2758f942a04edaaf7ad57ec, type: 3}
+  m_Motion: {fileID: 7400000, guid: 5b4a37ef6fc69e149a65ee10f7c05ec3, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
