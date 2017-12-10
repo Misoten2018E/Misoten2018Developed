@@ -43,6 +43,13 @@ public class SceneEventManager : MonoBehaviour {
 	/// </summary>
 	public void GameStart() {
 
+		SoundManager.Instance.PlaySE(SoundManager.SEType.GameStart, Vector3.zero);
+		
+		StartCoroutine(GameObjectExtensions.DelayMethod(3f, DelayBGMStart));
+	}
+
+	private void DelayBGMStart() {
+
 		EventManager<IFGameStartEvent>.Instance.MethodStart((IFGameStartEvent ev) => { ev.GameStart(); });
 
 		SoundManager.Instance.PlayBGM(SoundManager.BGMType.GAME_MAIN);
