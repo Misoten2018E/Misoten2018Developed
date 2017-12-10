@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
+    const float max_time = 1.5f;
+    float nowtime;
+    bool CheckOK;
 
+    //========================================================================================
+    //                                    public
+    //========================================================================================
 
-	//========================================================================================
-	//                                    public
-	//========================================================================================
-
-	/// <summary>
-	/// 準備チェック
-	/// </summary>
-	public void CheckReady() {
+    /// <summary>
+    /// 準備チェック
+    /// </summary>
+    public void CheckReady() {
 
 		for (int i = 0; i < playerList.Count; i++) {
 
@@ -22,7 +24,10 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
 			}
 		}
 
-		StartMainGameScene();
+        CheckOK = true;
+
+        //一定時間後にシーンチェンジにするためコメントアウト
+       // StartMainGameScene();
 		
 	}
 
@@ -33,8 +38,10 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
 	public void StartEvent() {
 
 		isEnd = false;
+        nowtime = 0;
+        CheckOK = false;
 
-		var players = GetComponentsInChildren<IntroPlayer>();
+        var players = GetComponentsInChildren<IntroPlayer>();
 		playerList.AddRange(players);
 
 		for (int i = 0; i < playerList.Count; i++) {
@@ -49,6 +56,16 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			StartMainGameScene();
 		}
+
+        if (CheckOK)
+        {
+            nowtime += Time.deltaTime;
+
+            if (nowtime > max_time)
+            {
+                StartMainGameScene();
+            }
+        }
 	}
 
 #endif
