@@ -11,7 +11,7 @@ public class TutorialWindowController : MonoBehaviour {
 	//========================================================================================
 
 	[SerializeField] private Sprite SetImage;
-	[SerializeField] private Vector2 _ImageSize;
+	[SerializeField] private Vector2 _ImageSize = new Vector2(0, 0);
 
 	[TextArea(1,3)]
 	[SerializeField] private string Text;
@@ -44,7 +44,7 @@ public class TutorialWindowController : MonoBehaviour {
 	public Sprite ImageArea {
 		set {
 			SetImage = value;
-			
+			SetImageTexture(value);
 		}
 		get { return SetImage; }
 	}
@@ -58,6 +58,20 @@ public class TutorialWindowController : MonoBehaviour {
 	//                                    override
 	//========================================================================================
 
+	private void Awake() {
+		
+		if(Text.Length != 0) {
+			TextArea = Text;
+		}
+
+		if (ImageArea != null) {
+			SetImageTexture(ImageArea);
+		}
+
+		if (ImageSize.x != 0f && ImageSize.y != 0) {
+			SetImageSize(ImageSize);
+		}
+	}
 
 	//========================================================================================
 	//                                     private
