@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using EDO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,6 +44,8 @@ public class SceneEventManager : MonoBehaviour {
 	public void GameStart() {
 
 		EventManager<IFGameStartEvent>.Instance.MethodStart((IFGameStartEvent ev) => { ev.GameStart(); });
+
+		SoundManager.Instance.PlayBGM(SoundManager.BGMType.GAME_MAIN);
 	}
 
 	/// <summary>
@@ -69,6 +72,9 @@ public class SceneEventManager : MonoBehaviour {
 		fade.FadeOut(() => { gameMng.PermitLoad = true; });
 
 		gameMng.PermitLoad = false;
+
+		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_MAIN);
+		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_BOSS);
 
 		gameMng.LoadScene(GameSceneManager.SceneType.Result,()=> {
 			gameMng.SetActiveScene(GameSceneManager.SceneType.Result);

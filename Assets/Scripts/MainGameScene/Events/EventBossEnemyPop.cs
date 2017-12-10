@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using EDO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +27,9 @@ public class EventBossEnemyPop : TimelineEventStandard {
 		bossObject.InitBossEnemy(CheckPointManager);
 		bossObject.InitEnemy(new UsedInitData());
 		CameraManager.Instance.FocusCamera.AddTarget(bossObject.transform);
+
+		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_MAIN);
+		SoundManager.Instance.PlayBGM(SoundManager.BGMType.GAME_BOSS);
 
 		base.EventStart();
 	}
