@@ -49,15 +49,15 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
 		}
 	}
 
-#if UNITY_DEBUG
+
 
 	void Update() {
-
+#if UNITY_DEBUG
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			StartMainGameScene();
 		}
-
-        if (CheckOK)
+#endif
+		if (CheckOK)
         {
             nowtime += Time.deltaTime;
 
@@ -68,13 +68,13 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
         }
 	}
 
-#endif
 
-	//========================================================================================
-	//                                    private
-	//========================================================================================
 
-	List<IntroPlayer> playerList = new List<IntroPlayer>();
+		//========================================================================================
+		//                                    private
+		//========================================================================================
+
+		List<IntroPlayer> playerList = new List<IntroPlayer>();
 
 	/// <summary>
 	/// メインのゲームに移る
