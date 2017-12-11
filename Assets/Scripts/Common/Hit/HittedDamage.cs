@@ -123,7 +123,7 @@ public class HitLogList {
 
 		for (int i = 0; i < LogList.Count; i++) {
 
-			if (LogList[i].checkEqual(log)) {
+			if (LogList[i] != null && LogList[i].checkEqual(log)) {
 				return true;
 			}
 		}
@@ -137,7 +137,7 @@ public class HitLogList {
 
 		for (int i = 0; i < LogList.Count; i++) {
 
-			if (LogList[i].isEnd) {
+			if (LogList[i] == null || LogList[i].isEnd) {
 				LogList.Remove(LogList[i]);
 				i--;
 			}

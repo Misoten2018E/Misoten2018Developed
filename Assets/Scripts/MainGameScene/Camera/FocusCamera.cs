@@ -14,6 +14,10 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 
 	[SerializeField] private AnimationCurve MoveEvent;
 
+	[SerializeField] private AnimationCurve CameraLimitArea;
+
+	[SerializeField] private float MaxOrthoSize = 25;
+
 	[SerializeField] private List<Transform> TargetTransform;
 
 	//========================================================================================
@@ -27,7 +31,7 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 	public void AddTarget(Transform trs) {
 
 		if (trs != null) {
-			print("ターゲット追加");
+		//	print("ターゲット追加");
 			TargetTransform.Add(trs);
 		}
 	}
@@ -39,7 +43,7 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 	public void DeleteTarget(Transform trs) {
 
 		if (trs != null) {
-			print("ターゲット削除");
+		//	print("ターゲット削除");
 			TargetTransform.Remove(trs);
 		}
 	}
@@ -106,7 +110,7 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 
 			// 大きく動くべきターゲットと現状を比較して更に移動が必要なら
 			if (isEventStart(NowFrameData,EventTargetData)) {
-				DebugLog.log("イベント中に更に移動する");
+			//	DebugLog.log("イベント中に更に移動する");
 				CreateEventData(NowFrameData);
 			}
 			// イベントの続行
@@ -118,7 +122,7 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 
 			// 前フレームと比較して大きく動く必要が有るかどうかをチェック
 			if (isEventStart(NowFrameData,OldData)) {
-				DebugLog.log("イベント開始");
+			//	DebugLog.log("イベント開始");
 				CreateEventData(NowFrameData);
 			}
 			else {
@@ -200,7 +204,7 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 		if (rate >= 1f) {
 			rate = 1f;
 			isEventActive = false;
-			DebugLog.log("イベント終了");
+		//	DebugLog.log("イベント終了");
 		}
 		rate = MoveEvent.Evaluate(rate);
 
@@ -291,8 +295,10 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 
 		float lenX = sq.xzPlus.x - sq.xzMinus.x;
 		float lenZ = sq.xzPlus.y - sq.xzMinus.y;
+		float len = ((lenX > lenZ) ? (lenX) : (lenZ));
 
-		return ((lenX > lenZ) ? (lenX) : (lenZ)) * 0.4f;
+		len = CameraLimitArea.Evaluate(len / MaxOrthoSize) * MaxOrthoSize;
+		return len;
 	}
 
 	/// <summary>

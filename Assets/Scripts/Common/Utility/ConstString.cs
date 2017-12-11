@@ -3,11 +3,15 @@ public static class ConstDirectry {
 
 	public const string DirPrefabs = "Prefabs/";
 	public const string DirPrefabsHit = DirPrefabs + "Hit/";
-    public const string DirPrefabsHitPlayer = DirPrefabs + "Hit/Player/";
+
+    public const string DirPrefabsHitPlayer = DirPrefabsHit + "Player/";
+	public const string DirPrefabsHitMediumEnemy = DirPrefabsHit + "Enemy_Medium/";
 	public const string DirPrefabsHitEnemyMin = DirPrefabsHit + "Enemy_Mini/";
+
 	public const string DirPrefabsEnemy = DirPrefabs + "Enemy/";
     public const string DirPrefabsPlayerChar = DirPrefabs + "PlayerCharacter/";
     public const string DirPopup = DirPrefabs + "Popup/";
+	public const string DirIcons = DirPopup + "Icons/";
 	public const string DirScene = "Scene/ProductScene/";
 	public const string DirSceneDebug = "Scene/DebugScene/";
 }
@@ -34,6 +38,15 @@ public static class ConstActionHitData {
     public const string ActionSpecialistWeak2 = "SpecialistAttack_Light2";
     public const string ActionSpecialistWeak3 = "SpecialistAttack_Light3";
     public const string ActionSpecialistStrong = "SpecialistAttack_Strong";
+
+
+	public const string ActionEnemyHeroWeak1 = "Enemy_HeroAttack_Light1";
+	public const string ActionEnemyHeroWeak2 = "Enemy_HeroAttack_Light2";
+	public const string ActionEnemyHeroWeak3 = "Enemy_HeroAttack_Light3";
+
+	public const string ActionEnemyHeelWeak1 = "Enemy_HeelAttack_Light1";
+	public const string ActionEnemyHeelWeak2 = "Enemy_HeelAttack_Light2";
+	public const string ActionEnemyHeelWeak3 = "Enemy_HeelAttack_Light3";
 }
 
 public static class ConstString {
@@ -70,4 +83,6 @@ public static class ConstPlayerSta
     public const int HeelCharacter = 2;
     public const int SpecialistCharacter = 3;
     public const int MonsterCharacter = 4;
+
+	public const int StatusMax = SpecialistCharacter + 1;
 }

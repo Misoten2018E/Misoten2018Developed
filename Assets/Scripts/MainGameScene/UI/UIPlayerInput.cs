@@ -76,19 +76,19 @@ public class UIPlayerInput : MonoBehaviour {
 		switch (playerSta) {
 
 			case ConstPlayerSta.HeroCharacter:
-				newIcon = ResourceManager.Instance.Get<CharacterIcons>(ConstDirectry.DirPopup, HeroIcons);
+				newIcon = ResourceManager.Instance.Get<CharacterIcons>(ConstDirectry.DirIcons, HeroIcons);
 				break;
 
 			case ConstPlayerSta.HeelCharacter:
-				newIcon = ResourceManager.Instance.Get<CharacterIcons>(ConstDirectry.DirPopup, ViranIcons);
+				newIcon = ResourceManager.Instance.Get<CharacterIcons>(ConstDirectry.DirIcons, ViranIcons);
 				break;
 
 			case ConstPlayerSta.NormalCharacter:
-				newIcon = ResourceManager.Instance.Get<CharacterIcons>(ConstDirectry.DirPopup, NormalIcons);
+				newIcon = ResourceManager.Instance.Get<CharacterIcons>(ConstDirectry.DirIcons, NormalIcons);
 				break;
 
 			case ConstPlayerSta.SpecialistCharacter:
-				newIcon = ResourceManager.Instance.Get<CharacterIcons>(ConstDirectry.DirPopup, SpecialistIcons);
+				newIcon = ResourceManager.Instance.Get<CharacterIcons>(ConstDirectry.DirIcons, SpecialistIcons);
 				break;
 
 			default:

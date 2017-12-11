@@ -14,24 +14,24 @@ public class PlayerHeelHitAnimation : HitAnimationBase{
     //                                    public override
     //========================================================================================
 
-    public override void HitAnimationWeakattack1()
+    public override void HitAnimationWeakattack1(float atk)
     {
-        HitWeakattack1Animation.Activate();
+        HitWeakattack1Animation.Activate(atk);
     }
 
-    public override void HitAnimationWeakattack2()
+    public override void HitAnimationWeakattack2(float atk)
     {
-        HitWeakattack2Animation.Activate();
+        HitWeakattack2Animation.Activate(atk);
     }
 
-    public override void HitAnimationWeakattack3()
+    public override void HitAnimationWeakattack3(float atk)
     {
-        HitWeakattack3Animation.Activate();
+        HitWeakattack3Animation.Activate(atk);
     }
 
-    public override void HitAnimationStrongattack()
+    public override void HitAnimationStrongattack(float atk)
     {
-        HitStrongattackAnimation.Activate();
+        HitStrongattackAnimation.Activate(atk);
     }
 
     public override void HitAnimationSpecial()
@@ -59,10 +59,12 @@ public class PlayerHeelHitAnimation : HitAnimationBase{
         preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeelWeak3);
         HitWeakattack3Animation = Instantiate(preAction);
         HitWeakattack3Animation.Initialize(myPlayer);
+        HitWeakattack3Animation.actionType = HitSeriesofAction.ActionType.LightEnd;
 
         preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionHeelStrong);
         HitStrongattackAnimation = Instantiate(preAction);
         HitStrongattackAnimation.Initialize(myPlayer);
+        HitStrongattackAnimation.actionType = HitSeriesofAction.ActionType.Strong;
 
     }
 

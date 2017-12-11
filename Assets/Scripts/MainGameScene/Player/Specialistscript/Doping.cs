@@ -6,7 +6,7 @@ public class Doping : SceneStartEvent{
 
     const float DOPINGUP = 1.5f;
     float totaltime;
-    const float maxtime = 1000;
+    const float maxtime = 10;
     bool initflg = false;
     int Charactersta;
     Player P;

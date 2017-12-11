@@ -14,22 +14,22 @@ public class BombHitAnimation : HitAnimationBase{
     //                                    public override
     //========================================================================================
 
-    public override void HitAnimationWeakattack1()
+    public override void HitAnimationWeakattack1(float atk)
     {
        
     }
 
-    public override void HitAnimationWeakattack2()
+    public override void HitAnimationWeakattack2(float atk)
     {
        
     }
 
-    public override void HitAnimationWeakattack3()
+    public override void HitAnimationWeakattack3(float atk)
     {
        
     }
 
-    public override void HitAnimationStrongattack()
+    public override void HitAnimationStrongattack(float atk)
     {
         HitStrongAtack1Animation.Activate();
     }
@@ -51,8 +51,8 @@ public class BombHitAnimation : HitAnimationBase{
         var preAction = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitPlayer, ConstActionHitData.ActionSpecialistStrong);
         HitStrongAtack1Animation = Instantiate(preAction);
         HitStrongAtack1Animation.Initialize(myPlayer);
+        HitStrongAtack1Animation.actionType = HitSeriesofAction.ActionType.Strong;
 
-        
 
     }
 

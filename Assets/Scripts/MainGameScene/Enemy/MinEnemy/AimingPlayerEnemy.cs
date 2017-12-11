@@ -13,19 +13,24 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		AttackAction = AttackPose;
 		StartPlayerAttackMode();
 		NowTarget = TargetPlayer;
-
-		MyType = EnemyType.PlayerAttack;
 	}
 
 	// Update is called once per frame
 	protected override void Update () {
+
+		if (IsEscape) {
+			MoveAdvanceToTarget(NowTarget, MoveSpeed);
+			HitLog.CheckEnd();
+			return;
+		}
 
 		NowTarget = TargetPlayer;
 		if (NowTarget == null) {
 			return;
 		}
 
-		if (!Damaged.isHitted) {
+		// 攻撃を喰らっていなくて、かつ移動出来る状態なら
+		if (!Damaged.isHitted && (!IsStop)) {
 			MoveAdvanceToTarget(NowTarget, MoveSpeed);
 		}
 
@@ -38,8 +43,15 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 
 	public override void InitEnemy(UsedInitData InitData) {
 
+		transform.position = InitData.BasePosition.position;
 		MyType = EnemyType.PlayerAttack;
 		EnemyManager.Instance.SetEnemy(this);
+	}
+
+	protected override void EscapeToCity() {
+
+		base.EscapeToCity();
+		StopPlayerAttackMode();
 	}
 
 	/// <summary>
@@ -81,14 +93,14 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 	/// <summary>
 	/// 攻撃体勢に入る
 	/// </summary>
-	private void AttackPose() {
+	override protected void AttackPose() {
 
 		var prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitEnemyMin, ConstActionHitData.ActionEnemyMin1);
 		MyAttackObj = Instantiate(prefab);
 		MyAttackObj.Initialize(this.gameObject);
 
 		IsAttacking = true;
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.AttackPose);
+		AnimationAttackPose();
 
 		if (ieAttackMode != null) {
 			StopCoroutine(ieAttackMode);
@@ -104,13 +116,11 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 	/// </summary>
 	/// <param name="wait"></param>
 	/// <returns></returns>
-	IEnumerator AttackStart(float wait) {
+	protected IEnumerator AttackStart(float wait) {
 
 		yield return new WaitForSeconds(wait);
 
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Attack);
-		myTrail.StartTrail(TrailSupport.BodyType.LeftArm);
-		myTrail.StartTrail(TrailSupport.BodyType.RightArm);
+		AnimationAttack();
 		print("攻撃" + gameObject.name);
 
 		MyAttackObj.SetEndCallback(AttackEnd);
@@ -131,12 +141,11 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		AttackAction = AttackPose;
 		// 攻撃中でなくなる
 		IsAttacking = false;
-		ChildModel.Animation(EnemyMiniAnimation.AnimationType.Move);
-		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
-		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
+
+		AnimationMove();
 
 		// 次の目標
-		StartPlayerAttackMode(NowTarget.transform);
+		//StartPlayerAttackMode(NowTarget.transform);
 
 		// 移動開始
 		EnableMove();

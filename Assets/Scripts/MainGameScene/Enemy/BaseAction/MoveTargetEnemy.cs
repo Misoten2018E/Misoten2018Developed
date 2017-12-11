@@ -10,6 +10,7 @@ public abstract class MoveTargetEnemy : WaitEnemy {
 	//                                    inspector
 	//========================================================================================
 
+	[Tooltip("移動速度")]
 	[SerializeField] protected float MoveSpeed = 1f;
 
 	//========================================================================================
@@ -22,6 +23,11 @@ public abstract class MoveTargetEnemy : WaitEnemy {
 	/// <param name="target"></param>
 	/// <param name="speed"></param>
 	protected void MoveAdvanceToTarget(Transform target, float speed, float angle = 0.03f) {
+
+		if (target == null) {
+			DebugLog.log(gameObject.name + ": target error");
+			return;
+		}
 
 		RotateToTarget(target, angle);
 		MoveForward(speed);

@@ -65,13 +65,6 @@ public class Player : SceneStartEvent{
             case PLAYER_STA.NORMAL:
                 playerbase.PlayerUpdate();
 
-                if (playerbase.PlayerIsDeath())
-                {
-                    if (CharacterSta != ConstPlayerSta.NormalCharacter)
-                    {
-                        ChangeCharacter(ConstPlayerSta.NormalCharacter);
-                    }
-                }
                 break;
             case PLAYER_STA.CITYIN:
                 playerbase.SetCharConNoHit(true);
@@ -149,7 +142,19 @@ public class Player : SceneStartEvent{
 
         //print(hitcityflg);
         transform.position = playerbase.GetBodyPosition();
-        
+    }
+
+    private void LateUpdate()
+    {
+        if (!isInitialized) return;
+
+        if (playerbase.PlayerIsDeath() && playersta == PLAYER_STA.NORMAL)
+        {
+            if (CharacterSta != ConstPlayerSta.NormalCharacter)
+            {
+                ChangeCharacter(ConstPlayerSta.NormalCharacter);
+            }
+        }
     }
 
     public override void SceneMyInit()

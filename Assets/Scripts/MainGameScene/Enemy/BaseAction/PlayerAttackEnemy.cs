@@ -10,9 +10,12 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	//                                    inspector
 	//========================================================================================
 
+	[Tooltip("狙うプレイヤーを再検索する頻度(秒)")]
 	[SerializeField] private float PlayerCheckPeriod;
-	[SerializeField] private float AttackRange;
-	[SerializeField] private float AttackAngle;
+	[Tooltip("攻撃を行う範囲")]
+	[SerializeField] private float AttackRange = 2f;
+	[Tooltip("攻撃を行う角度")]
+	[SerializeField] private float AttackAngle = 60f;
 
 //	[SerializeField] private CheckEnemyAttackArea AttackCheckArea;
 
@@ -36,6 +39,7 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	protected void StartPlayerAttackMode() {
 
 		iePlCheck = PlayerCheck();
+
 		StartPlayerAttackMode(GetNearPlayer());
 		StartCoroutine(iePlCheck);
 		//	AttackCheckArea.gameObject.SetActive(true);
@@ -146,11 +150,17 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	/// <returns></returns>
 	IEnumerator PlayerCheck() {
 
+		var pls = GameObject.FindObjectsOfType<Player>();
+		List<GameObject> list = new List<GameObject>();
+		for (int i = 0; i < pls.Length; i++) {
+			list.Add(pls[i].gameObject);
+		}
+
 		while (true) {
 
 			yield return new WaitForSeconds(PlayerCheckPeriod);
 
-			var pl = GetNearPlayer();
+			var pl = GetNearPlayer(list);
 			if (pl != TargetPlayer) {
 				TargetPlayer = pl;
 			}
@@ -161,16 +171,14 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 	/// 近くのプレイヤーサーチ
 	/// </summary>
 	/// <returns></returns>
-	Transform GetNearPlayer() {
-
-		var pls = GameObject.FindObjectsOfType<PlayerBase>();
+	Transform GetNearPlayer(List<GameObject> playerList) {
 
 		float length = 99999f;
 		int id = -1;
 
-		for (int i = 0; i < pls.Length; i++) {
+		for (int i = 0; i < playerList.Count; i++) {
 
-			float mag = pls[i].transform.position.magnitude;
+			float mag = (transform.position - playerList[i].transform.position).magnitude;
 
 			if (length > mag) {
 				length = mag;
@@ -178,7 +186,36 @@ public abstract class PlayerAttackEnemy : MoveTargetEnemy {
 			}
 		}
 
-		return pls[id].transform;
+		return playerList[id].transform;
+	}
+
+
+	/// <summary>
+	/// 近くのプレイヤーサーチ
+	/// </summary>
+	/// <returns></returns>
+	Transform GetNearPlayer() {
+
+		var pls = GameObject.FindObjectsOfType<Player>();
+		List<GameObject> playerList = new List<GameObject>();
+		for (int i = 0; i < pls.Length; i++) {
+			playerList.Add(pls[i].gameObject);
+		}
+
+		float length = 99999f;
+		int id = -1;
+
+		for (int i = 0; i < playerList.Count; i++) {
+
+			float mag = (transform.position - playerList[i].transform.position).magnitude;
+
+			if (length > mag) {
+				length = mag;
+				id = i;
+			}
+		}
+
+		return playerList[id].transform;
 	}
 
 	/// <summary>

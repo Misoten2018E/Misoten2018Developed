@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using EDO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,7 +43,16 @@ public class SceneEventManager : MonoBehaviour {
 	/// </summary>
 	public void GameStart() {
 
+		SoundManager.Instance.PlaySE(SoundManager.SEType.GameStart, Vector3.zero);
+		
+		StartCoroutine(GameObjectExtensions.DelayMethod(3f, DelayBGMStart));
+	}
+
+	private void DelayBGMStart() {
+
 		EventManager<IFGameStartEvent>.Instance.MethodStart((IFGameStartEvent ev) => { ev.GameStart(); });
+
+		SoundManager.Instance.PlayBGM(SoundManager.BGMType.GAME_MAIN);
 	}
 
 	/// <summary>
@@ -63,8 +73,19 @@ public class SceneEventManager : MonoBehaviour {
 			pauses[i].OnPause();
 		}
 
-		GameSceneManager.Instance.LoadScene(GameSceneManager.SceneType.Result,()=> {
-			GameSceneManager.Instance.SetActiveScene(GameSceneManager.SceneType.Result);
+		var gameMng = GameSceneManager.Instance;
+
+		var fade = GameObject.FindObjectOfType<SceneFade>();
+		fade.FadeOut(() => { gameMng.PermitLoad = true; });
+
+		gameMng.PermitLoad = false;
+
+		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_MAIN);
+		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_BOSS);
+
+		gameMng.LoadScene(GameSceneManager.SceneType.Result,()=> {
+			gameMng.SetActiveScene(GameSceneManager.SceneType.Result);
+			fade.gameObject.SetActive(false);
 		});
 	}
 

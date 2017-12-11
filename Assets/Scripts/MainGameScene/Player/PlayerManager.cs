@@ -160,4 +160,9 @@ public class PlayerManager : SceneStartEvent{
             }
         }
     }
+
+    public GameObject GetPlayerSearchNo(int no)
+    {
+        return PlayersObject[no];
+    }
 }

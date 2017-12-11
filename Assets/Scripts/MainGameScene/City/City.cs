@@ -23,13 +23,15 @@ public class City : SceneStartEvent{
 
 	}
 
+	int debugId = -1;
+
 	// Update is called once per frame
 	void Update() {
         if (!isInitialized) return;
 
-        score += 1;
-        print("スコア" + score);
-
+		score = Score.instance.GetScore();
+		debugId = DebugLog.ChaseLog("city" + score, debugId);
+		
         for (int i = 0;i < ScoreList.Count ;i++)
         {
             if (ScoreList[i] <= score)
@@ -56,7 +58,6 @@ public class City : SceneStartEvent{
         AnimatorArray[0] = transform.Find("city1").GetComponent<Animator>();
         AnimatorArray[1] = transform.Find("city2").GetComponent<Animator>();
         AnimatorArray[2] = transform.Find("city3").GetComponent<Animator>();
-        AnimatorArray[3] = transform.Find("city4").GetComponent<Animator>();
 
         for (int i = 0;i <  CityModelCnt;i++)
         {
