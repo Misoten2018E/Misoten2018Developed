@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using EDO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +21,7 @@ public class ProduceGameEnd : ProduceEventBase {
 
 	public override void ProduceStart() {
 
+		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_BOSS);
 		SceneEventManager.Instance.GameEnd();
 	}
 

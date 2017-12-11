@@ -19,6 +19,8 @@ namespace EDO {
 
 		[SerializeField] SE SoundEffect;
 
+		[SerializeField] AudioSource SamplePrefab;
+
 		//==========================================================
 		//						定数定義
 		//==========================================================
@@ -79,7 +81,12 @@ namespace EDO {
 
 		void Init() {
 
-			
+			var list = SoundEffect.systemSE.CreateList();
+
+			// ジングル追加
+			for (int i = 0; i < list.Count; i++) {
+				Clip_se.Add(list[i]);
+			}
 
 			for (int i = 0; i < AUDIO_MAX; i++) {
 
@@ -228,7 +235,7 @@ namespace EDO {
 				}
 			}
 
-			var s = Instantiate(audioSource);
+			var s = Instantiate(SamplePrefab);
 			s.transform.SetParent(transform);
 			sourceList.Add(s);
 			return s;

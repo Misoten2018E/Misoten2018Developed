@@ -14,6 +14,10 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 
 	[SerializeField] private AnimationCurve MoveEvent;
 
+	[SerializeField] private AnimationCurve CameraLimitArea;
+
+	[SerializeField] private float MaxOrthoSize = 25;
+
 	[SerializeField] private List<Transform> TargetTransform;
 
 	//========================================================================================
@@ -291,8 +295,10 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 
 		float lenX = sq.xzPlus.x - sq.xzMinus.x;
 		float lenZ = sq.xzPlus.y - sq.xzMinus.y;
+		float len = ((lenX > lenZ) ? (lenX) : (lenZ));
 
-		return ((lenX > lenZ) ? (lenX) : (lenZ)) * 0.4f;
+		len = CameraLimitArea.Evaluate(len / MaxOrthoSize) * MaxOrthoSize;
+		return len;
 	}
 
 	/// <summary>
