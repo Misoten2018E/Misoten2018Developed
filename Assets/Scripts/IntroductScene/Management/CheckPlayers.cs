@@ -50,13 +50,15 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
 
     }
 
-#if UNITY_DEBUG
+
 
 	void Update() {
 
-		if (Input.GetKeyDown(KeyCode.Space)) {
+#if UNITY_DEBUG
+        if (Input.GetKeyDown(KeyCode.Space)) {
 			StartMainGameScene();
 		}
+#endif
 
         if (CheckOK)
         {
@@ -69,7 +71,7 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
         }
 	}
 
-#endif
+
 
 	//========================================================================================
 	//                                    private
