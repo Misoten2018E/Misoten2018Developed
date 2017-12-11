@@ -152,8 +152,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 		// (衝撃の方向)
 		var impact = (transform.position - obj.transform.position).normalized;
-		Damaged.HittedTremble(ChildModelTrans, impact);
-
+		
 		AnimationDamaged();
 
 		if (MyHp.isDeath && ieDeath == null) {
@@ -165,7 +164,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 				var HitImpact = obj as HitObjectImpact;
 				HitImpact.Impact(Damaged, impact);
-				print("hitImpact");
+				Damaged.HittedTremble(ChildModelTrans, impact);
+				//		print("hitImpact");
 
 				break;
 			case HitObject.HitType.BlowOff:
@@ -177,7 +177,13 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 				var HitSuction = obj as HitObjectSuction;
 				HitSuction.Sucion(Damaged);
-				print("hitSuction");
+				Damaged.HittedTremble(ChildModelTrans, impact);
+				//		print("hitSuction");
+				break;
+
+			case HitObject.HitType.Freeze:
+
+				HittedFreezeAction((obj as HitObjectFreeze), impact);
 				break;
 
 			default:
@@ -273,6 +279,18 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 	virtual protected Transform ChildModelTrans {
 		get { return ChildModelAnim.transform; }
+	}
+
+	/// <summary>
+	/// 動きを止める攻撃を受けた
+	/// </summary>
+	/// <param name="hitObj"></param>
+	virtual protected void HittedFreezeAction(HitObjectFreeze hitObj,Vector3 impact) {
+
+		hitObj.Freeze(Damaged);
+		Damaged.HittedStoppedAction(hitObj.FreezeTime, ChildModelTrans, impact);
+
+		print("hitFreeze");
 	}
 
 	//========================================================================================

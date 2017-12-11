@@ -45,8 +45,26 @@ public class DamagedAction : MonoBehaviour {
 		Vector3 moved = (centerPos - transform.position);
 		moved.y = 0f;
 		moved *= Mathf.Clamp01(rate);
+
+		// 中心へ位置移動
 		ienumMethod = IEMovePosition(moved, Curve,Time);
 		StartCoroutine(ienumMethod);
+	}
+
+	/// <summary>
+	/// 動きを止める
+	/// </summary>
+	/// <param name="centerPos"></param>
+	/// <param name="length"></param>
+	public void Freeze(float freezeTime) {
+
+		if (ienumMethod != null) {
+
+			// 止める
+			StopCoroutine(ienumMethod);
+		}
+
+		FreezeTime = freezeTime;
 	}
 
 	static public Vector3 NormalizeWithoutY(Vector3 v) {
@@ -83,4 +101,10 @@ public class DamagedAction : MonoBehaviour {
 	}
 
 	IEnumerator ienumMethod;
+
+	float _freezeTime;
+	public float FreezeTime {
+		private set { _freezeTime = value; }
+		get { return _freezeTime; }
+	}
 }
