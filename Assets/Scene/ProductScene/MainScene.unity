@@ -466,11 +466,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114394944457920318, guid: ba460535427316c468ed8658c9070e6e,
+    - target: {fileID: 114574907019405574, guid: ba460535427316c468ed8658c9070e6e,
         type: 2}
-      propertyPath: SubRender
+      propertyPath: TargetTransform.Array.data[0]
       value: 
-      objectReference: {fileID: 598604498}
+      objectReference: {fileID: 1366303391}
     - target: {fileID: 114574907019405574, guid: ba460535427316c468ed8658c9070e6e,
         type: 2}
       propertyPath: TargetTransform.Array.data[1]
@@ -483,19 +483,19 @@ Prefab:
       objectReference: {fileID: 2003408289}
     - target: {fileID: 114574907019405574, guid: ba460535427316c468ed8658c9070e6e,
         type: 2}
-      propertyPath: TargetTransform.Array.data[4]
-      value: 
-      objectReference: {fileID: 648562967}
-    - target: {fileID: 114574907019405574, guid: ba460535427316c468ed8658c9070e6e,
-        type: 2}
       propertyPath: TargetTransform.Array.data[3]
       value: 
       objectReference: {fileID: 1567186973}
     - target: {fileID: 114574907019405574, guid: ba460535427316c468ed8658c9070e6e,
         type: 2}
-      propertyPath: TargetTransform.Array.data[0]
+      propertyPath: TargetTransform.Array.data[4]
       value: 
-      objectReference: {fileID: 1366303391}
+      objectReference: {fileID: 648562967}
+    - target: {fileID: 114394944457920318, guid: ba460535427316c468ed8658c9070e6e,
+        type: 2}
+      propertyPath: SubRender
+      value: 
+      objectReference: {fileID: 598604498}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba460535427316c468ed8658c9070e6e, type: 2}
   m_IsPrefabParent: 0
