@@ -1937,6 +1937,12 @@ Prefab:
       propertyPath: UIPlayer
       value: 
       objectReference: {fileID: 1992622998}
+    - target: {fileID: 114150706420293720, guid: 11f331d35a704214aa91eb6de4f23f43,
+        type: 2}
+      propertyPath: NormalCharacter
+      value: 
+      objectReference: {fileID: 1479970903245986, guid: e917090fc164857408df0574fd2f225f,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11f331d35a704214aa91eb6de4f23f43, type: 2}
   m_IsPrefabParent: 0
