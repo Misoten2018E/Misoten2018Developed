@@ -15,6 +15,7 @@ public class CameraManager : MonoBehaviour {
 
 	[SerializeField] private PhotographCamera PhotographCamera;
 
+	[SerializeField] private ProduceEventCamera _EventCamera;
 
 	//========================================================================================
 	//                                    public - override
@@ -55,6 +56,10 @@ public class CameraManager : MonoBehaviour {
 
 	public FocusCamera FocusCamera {
 		get { return focusCamera; }
+	}
+
+	public ProduceEventCamera EventCamera {
+		get { return _EventCamera; }
 	}
 
 	//========================================================================================
