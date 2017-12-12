@@ -9,6 +9,8 @@ public class CameraManager : MonoBehaviour {
 	//                                    inspector
 	//========================================================================================
 
+	[SerializeField] private FocusCamera focusCamera;
+
 	[SerializeField] private AnotherScreenFocusCamera AnotherCamera;
 
 	[SerializeField] private PhotographCamera PhotographCamera;
@@ -22,7 +24,6 @@ public class CameraManager : MonoBehaviour {
 	void Awake () {
 
 		myInstance = this;
-		FocusCamera = GetComponent<FocusCamera>();
 	}
 	
 	// Update is called once per frame
@@ -52,15 +53,14 @@ public class CameraManager : MonoBehaviour {
 		get { return PhotographCamera; }
 	}
 
+	public FocusCamera FocusCamera {
+		get { return focusCamera; }
+	}
 
 	//========================================================================================
 	//                                    private
 	//========================================================================================
 
-	FocusCamera _FocusCamera;
-	public FocusCamera FocusCamera {
-		private set { _FocusCamera = value; }
-		get { return _FocusCamera; }
-	}
-      
+
+
 }
