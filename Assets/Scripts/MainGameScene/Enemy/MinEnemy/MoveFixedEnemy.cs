@@ -290,8 +290,23 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		hitObj.Freeze(Damaged);
 		Damaged.HittedStoppedAction(hitObj.FreezeTime, ChildModelTrans, impact);
 
+		if (ieFreezeCort != null) {
+			StopCoroutine(ieFreezeCort);
+		}
+
+		IsStop = true;
+		ieFreezeCort = GameObjectExtensions.DelayMethod(hitObj.FreezeTime, () => {
+
+			ChildModelAnim.AnimationRestart();
+			IsStop = false;
+		});
+
+		StartCoroutine(ieFreezeCort);
+
 		print("hitFreeze");
 	}
+
+	protected IEnumerator ieFreezeCort;
 
 	//========================================================================================
 	//                                    Animation - protected
@@ -569,13 +584,13 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// グループ行動開始
 	/// </summary>
 	/// <param name="target"></param>
-	public void GroupStart(Transform target) {
+	virtual public void GroupStart(Transform target) {
 
 		NowTarget = target;
 		IsGroupMode = true;
 	}
 
-	void GroupModeUpdate() {
+	protected void GroupModeUpdate() {
 
 		if (!Damaged.isHitted) {
 			MoveAdvanceToTarget(NowTarget, MoveSpeed);
@@ -597,7 +612,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// <summary>
 	/// グループ行動終了
 	/// </summary>
-	public void GroupEnd() {
+	virtual public void GroupEnd() {
 
 		NextTargetSearch();
 		EnableMove();
