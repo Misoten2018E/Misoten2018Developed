@@ -30,6 +30,7 @@ public class PlayerBase : SceneStartEvent{
 
     protected Animator animator;
     protected Transform Model;
+    protected Transform RootPos;
 
     protected int PlayerSta;
 
@@ -154,8 +155,7 @@ public class PlayerBase : SceneStartEvent{
 
     public Vector3 GetBodyPosition()
     {
-        Vector3 pos = new Vector3(Model.transform.position.x, Model.transform.position.y+InitY, Model.transform.position.z);
-        return pos;
+        return RootPos.position;
     }
 
     public GameObject GetPlayerObj()

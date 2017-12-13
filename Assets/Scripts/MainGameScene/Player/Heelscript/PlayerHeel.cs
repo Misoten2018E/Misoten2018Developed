@@ -53,6 +53,7 @@ public class PlayerHeel : PlayerBase{
         Model = transform.Find("BaseModel_Viran").transform;
         HitAnime = GetComponent<HitAnimationBase>();
         HP = gameObject.GetComponent<ObjectHp>();
+        RootPos = Model.Find("Character1_Reference1").GetComponent<Transform>().Find("Character1_Hips").GetComponent<Transform>();
 
         MoveSpeed = Player_Heel_MoveSpeed;
         RotationSpeed = Player_Heel_RotationSpeed;
