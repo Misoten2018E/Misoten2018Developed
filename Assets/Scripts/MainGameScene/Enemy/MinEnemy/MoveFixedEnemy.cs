@@ -249,7 +249,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		// 逃走モードへ
 		AnimationRunAway();
 		IsEscape = true;
-		print("逃げた");
+	//	print("逃げた");
 
 		NowTarget = RunAwayRelayPointManager.Instance.GetNearPoint(transform.position);
 
@@ -257,6 +257,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		MoveSpeed = MoveSpeed * 7;
 		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
 
+		CreateParticle(ConstEffects.Disappointed);
 	}
 
 	/// <summary>
@@ -267,7 +268,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		// 逃走モードへ
 		AnimationRunAway();
 		IsEscape = true;
-		print("街に行った");
+	//	print("街に行った");
 
 		NowTarget = City.Instance.transform;
 
@@ -275,6 +276,17 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		MoveSpeed = MoveSpeed * 7;
 		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
 		GetComponent<CapsuleCollider>().isTrigger = true;
+
+		CreateParticle(ConstEffects.Happiness);
+
+		ClushedPlusScore();
+	}
+
+	/// <summary>
+	/// 撃破時スコア追加
+	/// </summary>
+	virtual protected void ClushedPlusScore() {
+		Score.instance.AddScore(Score.ScoreType.E_Fixed);
 	}
 
 	virtual protected Transform ChildModelTrans {
@@ -452,7 +464,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		yield return new WaitForSeconds(wait);
 
 		AnimationAttack();
-		print("攻撃" + gameObject.name);
+	//	print("攻撃" + gameObject.name);
 
 		MyAttackObj.SetEndCallback(AttackEnd);
 
@@ -531,6 +543,17 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		}
 
 		CheckProducePhotoCamera.Instance.PhotoChance(hito.transform, transform, type, 0/*ph.myPlayer.GetPlayerObj()*/);
+	}
+
+	protected void CreateParticle(string particleName) {
+
+		var ef = ResourceManager.Instance.Get<ParticleSupport>(ConstDirectry.DirParticleEdo, particleName);
+		var e = Instantiate(ef);
+		Vector3 p = transform.position;
+		p.y += 2f;
+		e.transform.SetParent(transform);
+		e.transform.position = p;
+		e.Play();
 	}
 
 	//========================================================================================

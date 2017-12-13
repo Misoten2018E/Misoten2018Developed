@@ -150,6 +150,13 @@ public class MediumEnemy : AimingPlayerEnemy {
 	}
 
 	/// <summary>
+	/// 撃破時スコア追加
+	/// </summary>
+	override protected void ClushedPlusScore() {
+		Score.instance.AddScore(Score.ScoreType.E_Medium);
+	}
+
+	/// <summary>
 	/// 停止時
 	/// </summary>
 	/// <param name="hitObj"></param>
