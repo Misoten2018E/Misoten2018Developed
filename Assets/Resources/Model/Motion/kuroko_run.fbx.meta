@@ -69,6 +69,11 @@ ModelImporter:
     100122: Character1_Spine
     100124: Character1_Spine1
     100126: Character1_Spine2
+    100128: joint1
+    100130: joint2
+    100132: joint3
+    100134: joint4
+    100136: joint5
     400000: Character1_Reference
     400002: group1
     400004: //RootNode
@@ -133,6 +138,11 @@ ModelImporter:
     400122: Character1_Spine
     400124: Character1_Spine1
     400126: Character1_Spine2
+    400128: joint1
+    400130: joint2
+    400132: joint3
+    400134: joint4
+    400136: joint5
     2300000: kuroko_tool:pCone1
     2300002: kuroko_tool:pCube1
     2300004: kuroko_tool:pCube2
@@ -255,7 +265,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: Character1_Reference
+    rootMotionBoneName: Character1_Hips
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 1

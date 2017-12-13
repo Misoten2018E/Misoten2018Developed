@@ -1621,12 +1621,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114805404576945544, guid: 11f331d35a704214aa91eb6de4f23f43,
-        type: 2}
-      propertyPath: UIPlayer
-      value: 
-      objectReference: {fileID: 1992622998}
-    - target: {fileID: 114150706420293720, guid: 11f331d35a704214aa91eb6de4f23f43,
+    - target: {fileID: 114098696570412668, guid: 11f331d35a704214aa91eb6de4f23f43,
         type: 2}
       propertyPath: UIPlayer
       value: 
@@ -1636,7 +1631,12 @@ Prefab:
       propertyPath: UIPlayer
       value: 
       objectReference: {fileID: 1992622998}
-    - target: {fileID: 114098696570412668, guid: 11f331d35a704214aa91eb6de4f23f43,
+    - target: {fileID: 114150706420293720, guid: 11f331d35a704214aa91eb6de4f23f43,
+        type: 2}
+      propertyPath: UIPlayer
+      value: 
+      objectReference: {fileID: 1992622998}
+    - target: {fileID: 114805404576945544, guid: 11f331d35a704214aa91eb6de4f23f43,
         type: 2}
       propertyPath: UIPlayer
       value: 
