@@ -42,9 +42,9 @@ GameObject:
   - component: {fileID: 135533431541290416}
   - component: {fileID: 23344161874511310}
   - component: {fileID: 114032988542247728}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointN4
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -159,7 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4323645933618360}
   - component: {fileID: 114813824518160302}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,9 +178,9 @@ GameObject:
   - component: {fileID: 135354534286450754}
   - component: {fileID: 23276130735503518}
   - component: {fileID: 114046945401167958}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointL3
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -197,9 +197,9 @@ GameObject:
   - component: {fileID: 135606468052642360}
   - component: {fileID: 23949775160705802}
   - component: {fileID: 114591998380306410}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointS2
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -249,9 +249,9 @@ GameObject:
   - component: {fileID: 135212386073061562}
   - component: {fileID: 23571060695018884}
   - component: {fileID: 114893345417860314}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointR4
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -284,9 +284,9 @@ GameObject:
   - component: {fileID: 135908826874118758}
   - component: {fileID: 23809169575105808}
   - component: {fileID: 114252582131634898}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointL4
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -338,9 +338,9 @@ GameObject:
   - component: {fileID: 135394969849179042}
   - component: {fileID: 23336773513723626}
   - component: {fileID: 114500340160931296}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointS
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -656,9 +656,9 @@ GameObject:
   - component: {fileID: 135976531695465566}
   - component: {fileID: 23160987007347392}
   - component: {fileID: 114486263694562110}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointN2
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -675,9 +675,9 @@ GameObject:
   - component: {fileID: 135594681620307718}
   - component: {fileID: 23920469045091592}
   - component: {fileID: 114692847617560998}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointR3
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -797,9 +797,9 @@ GameObject:
   - component: {fileID: 135839940913515128}
   - component: {fileID: 23847862725206460}
   - component: {fileID: 114618502728122066}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointS1
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -816,9 +816,9 @@ GameObject:
   - component: {fileID: 135387829699271834}
   - component: {fileID: 23314198518610868}
   - component: {fileID: 114370630498354758}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointL2
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -851,9 +851,9 @@ GameObject:
   - component: {fileID: 135711922699870804}
   - component: {fileID: 23939998174692516}
   - component: {fileID: 114902160680497250}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointR2
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -924,9 +924,9 @@ GameObject:
   - component: {fileID: 135829233812561154}
   - component: {fileID: 23990884819918674}
   - component: {fileID: 114815089325060664}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointL
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1035,9 +1035,9 @@ GameObject:
   - component: {fileID: 135973515551134172}
   - component: {fileID: 23913178291030482}
   - component: {fileID: 114047065225655446}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointL1
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1054,9 +1054,9 @@ GameObject:
   - component: {fileID: 135810489296106646}
   - component: {fileID: 23999835785787554}
   - component: {fileID: 114414926524239178}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointN1
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1198,9 +1198,9 @@ GameObject:
   - component: {fileID: 135144034270750458}
   - component: {fileID: 23035323217078280}
   - component: {fileID: 114260678292427484}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointS3
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1338,9 +1338,9 @@ GameObject:
   - component: {fileID: 135139119678485442}
   - component: {fileID: 23706929994883642}
   - component: {fileID: 114872575795046858}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointN3
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1474,9 +1474,9 @@ GameObject:
   - component: {fileID: 135942145950380886}
   - component: {fileID: 23743721941075338}
   - component: {fileID: 114354047285225518}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointN
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1578,9 +1578,9 @@ GameObject:
   - component: {fileID: 135120835798360810}
   - component: {fileID: 23816444997065506}
   - component: {fileID: 114676769324333466}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointR1
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1752,9 +1752,9 @@ GameObject:
   - component: {fileID: 135394304824666700}
   - component: {fileID: 23170134741386220}
   - component: {fileID: 114315964375501876}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointS4
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1824,9 +1824,9 @@ GameObject:
   - component: {fileID: 135249889443113086}
   - component: {fileID: 23962373907901620}
   - component: {fileID: 114470216860265318}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RunAwayPointR
-  m_TagString: Untagged
+  m_TagString: RunAwayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6268,8 +6268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovePointList:
   - {fileID: 114074064129424644}
-  - {fileID: 114316668340311584}
   - {fileID: 114452113327873242}
+  - {fileID: 114428615659440826}
 --- !u!114 &114449477506523332
 MonoBehaviour:
   m_ObjectHideFlags: 1

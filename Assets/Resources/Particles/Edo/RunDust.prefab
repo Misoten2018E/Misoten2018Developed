@@ -55,6 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPausePermit: 1
+  LocalScale: 1
 --- !u!114 &114646919498067206
 MonoBehaviour:
   m_ObjectHideFlags: 1

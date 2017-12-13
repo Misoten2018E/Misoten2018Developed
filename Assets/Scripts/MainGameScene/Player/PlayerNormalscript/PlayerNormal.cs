@@ -14,7 +14,7 @@ public class PlayerNormal : PlayerBase{
 
     MultiInput input;
     PLAYER_NORMAL_STA player_Normal_sta;
-    
+    public AnimationCurve SwayCurve;//回避時の高さ
     
     const int Player_Normal_MoveSpeed = 5;
     const int Player_Normal_RotationSpeed = 750;

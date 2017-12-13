@@ -14,6 +14,9 @@ public static class ConstDirectry {
 	public const string DirIcons = DirPopup + "Icons/";
 	public const string DirScene = "Scene/ProductScene/";
 	public const string DirSceneDebug = "Scene/DebugScene/";
+
+	public const string DirParticle = "Particles/";
+	public const string DirParticleEdo = DirParticle + "Edo/";
 }
 
 public static class ConstActionHitData {
@@ -52,6 +55,12 @@ public static class ConstActionHitData {
 public static class ConstString {
 
 
+}
+
+public static class ConstEffects {
+
+	public const string Happiness = "HappinessNotes";
+	public const string Disappointed = "DisappointedMark";
 }
 
 public static class ConstScene {

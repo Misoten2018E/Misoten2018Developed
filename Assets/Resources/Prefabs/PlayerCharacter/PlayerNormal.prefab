@@ -4049,6 +4049,42 @@ MonoBehaviour:
   isPausePermit: 1
   no: 0
   nodamagetime: 2
+  SwayCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: -0.004166668
+      value: -0.0062499978
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+    - serializedVersion: 2
+      time: 0.27402848
+      value: 0.16707337
+      inSlope: 0.68379265
+      outSlope: 0.68379265
+      tangentMode: 136
+    - serializedVersion: 2
+      time: 0.50903314
+      value: 0.34467226
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+    - serializedVersion: 2
+      time: 0.7406442
+      value: 0.13232064
+      inSlope: -0.6527718
+      outSlope: -0.6527718
+      tangentMode: 136
+    - serializedVersion: 2
+      time: 1.0048175
+      value: 0.021038227
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114934932123628090
 MonoBehaviour:
   m_ObjectHideFlags: 1

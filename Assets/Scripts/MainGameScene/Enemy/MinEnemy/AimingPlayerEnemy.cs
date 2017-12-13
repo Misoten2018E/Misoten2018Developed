@@ -24,6 +24,11 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 			return;
 		}
 
+		if (IsGroupMode) {
+			GroupModeUpdate();
+			return;
+		}
+
 		NowTarget = TargetPlayer;
 		if (NowTarget == null) {
 			return;
@@ -55,6 +60,13 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 	}
 
 	/// <summary>
+	/// 撃破時スコア追加
+	/// </summary>
+	override protected void ClushedPlusScore() {
+		Score.instance.AddScore(Score.ScoreType.E_Attack);
+	}
+
+	/// <summary>
 	/// 当たった時
 	/// </summary>
 	/// <param name="other"></param>
@@ -83,6 +95,19 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 				return;
 			}
 		}
+	}
+
+	public override void GroupStart(Transform target) {
+		base.GroupStart(target);
+
+		StopPlayerAttackMode();
+	}
+
+	public override void GroupEnd() {
+
+		EnableMove();
+		IsGroupMode = false;
+		StartPlayerAttackMode();
 	}
 
 
@@ -135,7 +160,7 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 	/// <summary>
 	/// 攻撃終了時関数
 	/// </summary>
-	private void AttackEnd() {
+	override protected void AttackEnd() {
 
 		// 次の攻撃待機
 		AttackAction = AttackPose;
