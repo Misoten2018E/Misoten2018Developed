@@ -10,7 +10,7 @@ Shader "Hidden/Post FX/Screen Space Reflection"
 
     CGINCLUDE
 
-        #pragma target 3.0
+        #pragma target 4.0
         #include "UnityCG.cginc"
         #include "UnityPBSLighting.cginc"
         #include "UnityStandardBRDF.cginc"
