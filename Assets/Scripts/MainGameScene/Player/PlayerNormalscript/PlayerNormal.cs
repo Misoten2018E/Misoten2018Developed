@@ -44,6 +44,7 @@ public class PlayerNormal : PlayerBase{
         Model = transform.Find("BaseModel_Human").transform;
         HP = gameObject.GetComponent<ObjectHp>();
         Attack = 1;
+        RootPos = Model.Find("Character1_Reference").GetComponent<Transform>().Find("Character1_Hips").GetComponent<Transform>();
 
         MoveSpeed = Player_Normal_MoveSpeed;
         RotationSpeed = Player_Normal_RotationSpeed;

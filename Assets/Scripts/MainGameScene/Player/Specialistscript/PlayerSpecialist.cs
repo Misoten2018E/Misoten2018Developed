@@ -57,7 +57,7 @@ public class PlayerSpecialist : PlayerBase{
         Model = transform.Find("kuroko").transform;
         HitAnime = GetComponent<HitAnimationBase>();
         HP = gameObject.GetComponent<ObjectHp>();
-       
+        RootPos = Model.Find("Character1_Reference").GetComponent<Transform>().Find("Character1_Hips").GetComponent<Transform>();
 
         MoveSpeed = Player_Special_MoveSpeed;
         RotationSpeed = Player_Special_RotationSpeed;

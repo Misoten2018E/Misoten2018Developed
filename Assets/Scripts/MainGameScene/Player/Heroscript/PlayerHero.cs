@@ -57,6 +57,7 @@ public class PlayerHero : PlayerBase{
         HitAnime = GetComponent<HitAnimationBase>();
         HP = gameObject.GetComponent<ObjectHp>();
         TBM = GetComponentInChildren<TrailBodyManager>();
+        RootPos = Model.Find("Character1_Reference").GetComponent<Transform>().Find("Character1_Hips").GetComponent<Transform>();
 
         MoveSpeed = Player_Hero_MoveSpeed;
         RotationSpeed = Player_Hero_RotationSpeed;
