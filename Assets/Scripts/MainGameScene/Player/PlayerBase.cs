@@ -289,4 +289,17 @@ public class PlayerBase : SceneStartEvent{
             }
         }
     }
+
+    protected float GetAninormalizedTime(string str)
+    {
+        float time = 0;
+
+        AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+        if (info.IsName(str))
+        {
+            time = info.normalizedTime;
+        }
+
+        return time;
+    }
 }
