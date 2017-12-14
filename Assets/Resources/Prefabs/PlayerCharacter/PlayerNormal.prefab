@@ -4053,32 +4053,32 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: -0.004166668
-      value: -0.0062499978
+      time: 0.0028218576
+      value: 0.011282351
       inSlope: 0
       outSlope: 0
       tangentMode: 136
     - serializedVersion: 2
       time: 0.27402848
-      value: 0.16707337
-      inSlope: 0.68379265
-      outSlope: 0.68379265
+      value: 0.100618
+      inSlope: 0.6798365
+      outSlope: 0.6798365
       tangentMode: 136
     - serializedVersion: 2
-      time: 0.50903314
-      value: 0.34467226
+      time: 0.52845204
+      value: 1.0015427
       inSlope: 0
       outSlope: 0
       tangentMode: 136
     - serializedVersion: 2
       time: 0.7406442
       value: 0.13232064
-      inSlope: -0.6527718
-      outSlope: -0.6527718
+      inSlope: -1.0280169
+      outSlope: -1.0280169
       tangentMode: 136
     - serializedVersion: 2
-      time: 1.0048175
-      value: 0.021038227
+      time: 1.0006135
+      value: 0.010973165
       inSlope: 0
       outSlope: 0
       tangentMode: 136

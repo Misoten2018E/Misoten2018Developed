@@ -15,7 +15,8 @@ public class PlayerNormal : PlayerBase{
     MultiInput input;
     PLAYER_NORMAL_STA player_Normal_sta;
     public AnimationCurve SwayCurve;//回避時の高さ
-    
+    float SwayCurveOldtime;
+
     const int Player_Normal_MoveSpeed = 5;
     const int Player_Normal_RotationSpeed = 750;
     
@@ -101,6 +102,7 @@ public class PlayerNormal : PlayerBase{
             player_Normal_sta = PLAYER_NORMAL_STA.SWAY;
             PlayerSta = (int)player_Normal_sta;
             ModelTransformReset();
+            SwayCurveOldtime = 0;
         }
 
         MoveCharacter();
@@ -113,6 +115,25 @@ public class PlayerNormal : PlayerBase{
 
     private void SwayAction()
     {
+        float nowtime = GetAninormalizedTime("sway");
+
+        if (nowtime > 1.0f)
+        {
+            nowtime = 1.0f;
+        }
+        float nowCurveSta = SwayCurve.Evaluate(nowtime);
+        float CurveSta = nowCurveSta - SwayCurve.Evaluate(SwayCurveOldtime);
+       
+        velocity.x = transform.forward.x * nowCurveSta * MoveSpeed;
+        velocity.z = transform.forward.z * nowCurveSta * MoveSpeed;
+        velocity.y = 0.0f;
+        
+        MoveCharacter();
+
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y + CurveSta, transform.position.z);
+        transform.position = pos;
+        SwayCurveOldtime = nowtime;
+
         if (CheckAnimationEND("sway"))
         {
             player_Normal_sta = PLAYER_NORMAL_STA.NORMAL;
