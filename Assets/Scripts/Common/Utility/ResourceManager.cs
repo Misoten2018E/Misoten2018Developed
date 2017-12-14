@@ -40,6 +40,12 @@ public class ResourceManager : MonoBehaviour {
 		else {
 
 			var obj = Load(directryName, PrefabName);
+
+#if UNITY_DEBUG
+			if (obj == null) {
+				Debug.LogError(PrefabName + " : Load Error");
+			}
+#endif
 			return obj.GetComponent<T>();
 		}
 	}

@@ -152,8 +152,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 		// (衝撃の方向)
 		var impact = (transform.position - obj.transform.position).normalized;
-		Damaged.HittedTremble(ChildModelTrans, impact);
-
+		
 		AnimationDamaged();
 
 		if (MyHp.isDeath && ieDeath == null) {
@@ -165,7 +164,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 				var HitImpact = obj as HitObjectImpact;
 				HitImpact.Impact(Damaged, impact);
-				print("hitImpact");
+				Damaged.HittedTremble(ChildModelTrans, impact);
+				//		print("hitImpact");
 
 				break;
 			case HitObject.HitType.BlowOff:
@@ -177,7 +177,13 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 				var HitSuction = obj as HitObjectSuction;
 				HitSuction.Sucion(Damaged);
-				print("hitSuction");
+				Damaged.HittedTremble(ChildModelTrans, impact);
+				//		print("hitSuction");
+				break;
+
+			case HitObject.HitType.Freeze:
+
+				HittedFreezeAction((obj as HitObjectFreeze), impact);
 				break;
 
 			default:
@@ -243,7 +249,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		// 逃走モードへ
 		AnimationRunAway();
 		IsEscape = true;
-		print("逃げた");
+	//	print("逃げた");
 
 		NowTarget = RunAwayRelayPointManager.Instance.GetNearPoint(transform.position);
 
@@ -251,6 +257,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		MoveSpeed = MoveSpeed * 7;
 		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
 
+		CreateParticle(ConstEffects.Disappointed);
 	}
 
 	/// <summary>
@@ -261,7 +268,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		// 逃走モードへ
 		AnimationRunAway();
 		IsEscape = true;
-		print("街に行った");
+	//	print("街に行った");
 
 		NowTarget = City.Instance.transform;
 
@@ -269,11 +276,49 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		MoveSpeed = MoveSpeed * 7;
 		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
 		GetComponent<CapsuleCollider>().isTrigger = true;
+
+		CreateParticle(ConstEffects.Happiness);
+
+		ClushedPlusScore();
+	}
+
+	/// <summary>
+	/// 撃破時スコア追加
+	/// </summary>
+	virtual protected void ClushedPlusScore() {
+		Score.instance.AddScore(Score.ScoreType.E_Fixed);
 	}
 
 	virtual protected Transform ChildModelTrans {
 		get { return ChildModelAnim.transform; }
 	}
+
+	/// <summary>
+	/// 動きを止める攻撃を受けた
+	/// </summary>
+	/// <param name="hitObj"></param>
+	virtual protected void HittedFreezeAction(HitObjectFreeze hitObj,Vector3 impact) {
+
+		hitObj.Freeze(Damaged);
+		Damaged.HittedStoppedAction(hitObj.FreezeTime, ChildModelTrans, impact);
+
+		if (ieFreezeCort != null) {
+			StopCoroutine(ieFreezeCort);
+		}
+
+		IsStop = true;
+		ieFreezeCort = GameObjectExtensions.DelayMethod(hitObj.FreezeTime, () => {
+
+			ChildModelAnim.AnimationRestart();
+			IsStop = false;
+		});
+
+		StartCoroutine(ieFreezeCort);
+
+		print("hitFreeze");
+	}
+
+	protected IEnumerator ieFreezeCort;
 
 	//========================================================================================
 	//                                    Animation - protected
@@ -419,7 +464,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		yield return new WaitForSeconds(wait);
 
 		AnimationAttack();
-		print("攻撃" + gameObject.name);
+	//	print("攻撃" + gameObject.name);
 
 		MyAttackObj.SetEndCallback(AttackEnd);
 
@@ -500,6 +545,17 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		CheckProducePhotoCamera.Instance.PhotoChance(hito.transform, transform, type, 0/*ph.myPlayer.GetPlayerObj()*/);
 	}
 
+	protected void CreateParticle(string particleName) {
+
+		var ef = ResourceManager.Instance.Get<ParticleSupport>(ConstDirectry.DirParticleEdo, particleName);
+		var e = Instantiate(ef);
+		Vector3 p = transform.position;
+		p.y += 2f;
+		e.transform.SetParent(transform);
+		e.transform.position = p;
+		e.Play();
+	}
+
 	//========================================================================================
 	//                                    Cache
 	//========================================================================================
@@ -551,13 +607,13 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// グループ行動開始
 	/// </summary>
 	/// <param name="target"></param>
-	public void GroupStart(Transform target) {
+	virtual public void GroupStart(Transform target) {
 
 		NowTarget = target;
 		IsGroupMode = true;
 	}
 
-	void GroupModeUpdate() {
+	protected void GroupModeUpdate() {
 
 		if (!Damaged.isHitted) {
 			MoveAdvanceToTarget(NowTarget, MoveSpeed);
@@ -579,7 +635,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// <summary>
 	/// グループ行動終了
 	/// </summary>
-	public void GroupEnd() {
+	virtual public void GroupEnd() {
 
 		NextTargetSearch();
 		EnableMove();

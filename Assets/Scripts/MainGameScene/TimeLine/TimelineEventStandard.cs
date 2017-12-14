@@ -59,7 +59,7 @@ public class TimelineEventStandard : MonoBehaviour {
 
 	protected IEnumerator FucusTimeUpdate(Transform trs) {
 
-		print("event開始");
+		print(gameObject.name + " : event開始");
 		yield return new WaitForSeconds(FucusTime);
 		CameraManager.Instance.FocusCamera.DeleteTarget(trs);
 	}
