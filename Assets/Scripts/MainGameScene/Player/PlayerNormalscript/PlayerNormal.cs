@@ -14,7 +14,7 @@ public class PlayerNormal : PlayerBase{
 
     MultiInput input;
     PLAYER_NORMAL_STA player_Normal_sta;
-    
+    public AnimationCurve SwayCurve;//回避時の高さ
     
     const int Player_Normal_MoveSpeed = 5;
     const int Player_Normal_RotationSpeed = 750;
@@ -44,6 +44,7 @@ public class PlayerNormal : PlayerBase{
         Model = transform.Find("BaseModel_Human").transform;
         HP = gameObject.GetComponent<ObjectHp>();
         Attack = 1;
+        RootPos = Model.Find("Character1_Reference").GetComponent<Transform>().Find("Character1_Hips").GetComponent<Transform>();
 
         MoveSpeed = Player_Normal_MoveSpeed;
         RotationSpeed = Player_Normal_RotationSpeed;

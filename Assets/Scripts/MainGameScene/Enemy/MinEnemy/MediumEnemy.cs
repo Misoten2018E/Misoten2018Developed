@@ -149,12 +149,48 @@ public class MediumEnemy : AimingPlayerEnemy {
 		GroupCommand.NoticeEnemiesGroupEnd();
 	}
 
+	/// <summary>
+	/// 撃破時スコア追加
+	/// </summary>
+	override protected void ClushedPlusScore() {
+		Score.instance.AddScore(Score.ScoreType.E_Medium);
+	}
+
+	/// <summary>
+	/// 停止時
+	/// </summary>
+	/// <param name="hitObj"></param>
+	/// <param name="impact"></param>
+	protected override void HittedFreezeAction(HitObjectFreeze hitObj, Vector3 impact) {
+
+		float freezeTime = hitObj.FreezeTime / 3;
+
+		hitObj.Freeze(Damaged);
+		Damaged.HittedStoppedAction(freezeTime, ChildModelTrans, impact);
+
+		if (ieFreezeCort != null) {
+			StopCoroutine(ieFreezeCort);
+		}
+
+		IsStop = true;
+		ieFreezeCort = GameObjectExtensions.DelayMethod(freezeTime, () => {
+
+			ChildModelAnim.AnimationRestart();
+			IsStop = false;
+		});
+
+		StartCoroutine(ieFreezeCort);
+
+		print("hitFreeze");
+	}
+
 
 	protected override Transform ChildModelTrans {
 		get {
 			return ChildModelMedium.transform;
 		}
 	}
+
 
 	//========================================================================================
 	//                                     private

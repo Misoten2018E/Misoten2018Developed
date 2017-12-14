@@ -6,7 +6,7 @@ public class PlayerBase : SceneStartEvent{
 
     const int ChangeMoveSpeed = 5;
     const float ChangeScale = 0.05f;
-    const float InitY = 1.0f;
+    protected const float InitY = 1.0f;
 
     CharacterController _CharCon;
     public CharacterController CharCon
@@ -30,6 +30,7 @@ public class PlayerBase : SceneStartEvent{
 
     protected Animator animator;
     protected Transform Model;
+    protected Transform RootPos;
 
     protected int PlayerSta;
 
@@ -154,7 +155,7 @@ public class PlayerBase : SceneStartEvent{
 
     public Vector3 GetBodyPosition()
     {
-        return animator.bodyPosition;
+        return RootPos.position;
     }
 
     public GameObject GetPlayerObj()
@@ -242,7 +243,7 @@ public class PlayerBase : SceneStartEvent{
         AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
         if(info.IsName(str) && info.normalizedTime > 1.0f)
         {
-            Vector3 bodypos = animator.bodyPosition;
+            Vector3 bodypos = Model.transform.position;
             bodypos.y = InitY;
             transform.position = bodypos;
             

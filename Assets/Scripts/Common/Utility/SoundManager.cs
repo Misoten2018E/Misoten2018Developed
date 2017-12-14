@@ -36,8 +36,60 @@ namespace EDO {
 		const int AUDIO_MAX = (int)BGMType.BGMMAX;
 
 		public enum SEType {
+			// ジングル
+			TitlePlayerOK,
 			GameStart,
+			StandartWaveStart,
 			BossStart,
+			WindowPop,
+			CityLevelUp,
+
+			// 汎用
+			Common_Move,
+			Common_CityBuild,
+			Common_Avoid,
+
+			// ヒーロー
+			Hero_Light1,
+			Hero_Light2,
+			Hero_Light3,
+			Hero_Strong,
+			Hero_SP_Jump,
+			Hero_SP_Landed,
+			Hero_Hit_Panch,
+			Hero_Hit_kick,
+
+			// 悪役
+			Heel_Light1,
+			Heel_Light2,
+			Heel_Light3,
+			Heel_Strong,
+			Heel_SP_Catch,
+			Heel_SP_Pull,
+			Heel_Hit_Light,
+			Heel_Hit_Strong,
+
+			// 演出役
+			Specialist_Light1,
+			Specialist_Light2,
+			Specialist_Light3,
+			Specialist_Strong_Set,
+			Specialist_Strong_Exp,
+			Specialist_SP_Megaphone,
+			Specialist_SP_PowerUp,
+			Specialist_Hit_Light,
+			Specialist_Hit_Strong,
+
+			// 敵系
+			Mob_Attack,
+			Mob_HitAttack,
+			Boss_Attack1,
+			Boss_Attack2,
+			Boss_Attack3,
+			Boss_HitAttack,
+			Boss_JumpMove,
+			Boss_Landed,
+
 			SEMAX
 		}
 
@@ -81,9 +133,38 @@ namespace EDO {
 
 		void Init() {
 
-			var list = SoundEffect.systemSE.CreateList();
-
 			// ジングル追加
+			var list = SoundEffect.jingle.CreateList();
+			for (int i = 0; i < list.Count; i++) {
+				Clip_se.Add(list[i]);
+			}
+
+			// 汎用系追加
+			list = SoundEffect.common.CreateList();
+			for (int i = 0; i < list.Count; i++) {
+				Clip_se.Add(list[i]);
+			}
+
+			// ヒーロー系追加
+			list = SoundEffect.Hero.CreateList();
+			for (int i = 0; i < list.Count; i++) {
+				Clip_se.Add(list[i]);
+			}
+
+			// 悪役系追加
+			list = SoundEffect.evil.CreateList();
+			for (int i = 0; i < list.Count; i++) {
+				Clip_se.Add(list[i]);
+			}
+
+			// 演出役系追加
+			list = SoundEffect.effecter.CreateList();
+			for (int i = 0; i < list.Count; i++) {
+				Clip_se.Add(list[i]);
+			}
+
+			// 敵系追加
+			list = SoundEffect.enemy.CreateList();
 			for (int i = 0; i < list.Count; i++) {
 				Clip_se.Add(list[i]);
 			}
@@ -273,16 +354,25 @@ namespace EDO {
 	[System.Serializable]
 	public struct SE {
 
-		public Player player;
+		public Player Hero;
 		public Evil evil;
 		public Effecter effecter;
+		public Enemy enemy;
 		public Common common;
-		public Jingle systemSE;
+		public Jingle jingle;
 
 		[System.Serializable]
 		public struct Player {
 
 			public AudioClip Attack_Light1;
+			public AudioClip Attack_Light2;
+			public AudioClip Attack_Light3;
+			public AudioClip Attack_Strong;
+			
+			public AudioClip Special_Jump;
+			public AudioClip Special_Landed;
+			public AudioClip HitAttack_Panch;
+			public AudioClip HitAttack_Kick;
 
 			/// <summary>
 			/// リスト作成
@@ -293,6 +383,13 @@ namespace EDO {
 				List<AudioClip> list = new List<AudioClip>();
 
 				list.Add(Attack_Light1);
+				list.Add(Attack_Light2);
+				list.Add(Attack_Light3);
+				list.Add(Attack_Strong);
+				list.Add(Special_Jump);
+				list.Add(Special_Landed);
+				list.Add(HitAttack_Panch);
+				list.Add(HitAttack_Kick);
 
 				return list;
 			}
@@ -301,6 +398,14 @@ namespace EDO {
 		[System.Serializable]
 		public struct Evil {
 			public AudioClip Attack_Light1;
+			public AudioClip Attack_Light2;
+			public AudioClip Attack_Light3;
+			public AudioClip Attack_Strong;
+
+			public AudioClip Special_Catch;
+			public AudioClip Special_Pull;
+			public AudioClip HitAttack_Light;
+			public AudioClip HitAttack_Strong;
 
 			/// <summary>
 			/// リスト作成
@@ -311,6 +416,13 @@ namespace EDO {
 				List<AudioClip> list = new List<AudioClip>();
 
 				list.Add(Attack_Light1);
+				list.Add(Attack_Light2);
+				list.Add(Attack_Light3);
+				list.Add(Attack_Strong);
+				list.Add(Special_Catch);
+				list.Add(Special_Pull);
+				list.Add(HitAttack_Light);
+				list.Add(HitAttack_Strong);
 
 				return list;
 			}
@@ -319,6 +431,15 @@ namespace EDO {
 		[System.Serializable]
 		public struct Effecter {
 			public AudioClip Attack_Light1;
+			public AudioClip Attack_Light2;
+			public AudioClip Attack_Light3;
+			public AudioClip Attack_Strong_Set;
+			public AudioClip Attack_Strong_Explosion;
+
+			public AudioClip Special_Megaphone;
+			public AudioClip Special_PowerUp;
+			public AudioClip HitAttack_Light;
+			public AudioClip HitAttack_Strong;
 
 			/// <summary>
 			/// リスト作成
@@ -329,6 +450,48 @@ namespace EDO {
 				List<AudioClip> list = new List<AudioClip>();
 
 				list.Add(Attack_Light1);
+				list.Add(Attack_Light2);
+				list.Add(Attack_Light3);
+				list.Add(Attack_Strong_Set);
+				list.Add(Attack_Strong_Explosion);
+				list.Add(Special_Megaphone);
+				list.Add(Special_PowerUp);
+				list.Add(HitAttack_Light);
+				list.Add(HitAttack_Strong);
+
+				return list;
+			}
+		}
+
+
+		[System.Serializable]
+		public struct Enemy {
+			public AudioClip Mob_Attack;
+			public AudioClip Mob_HitAttack;
+			public AudioClip Boss_Attack1;
+			public AudioClip Boss_Attack2;
+			public AudioClip Boss_Attack3;
+			public AudioClip Boss_HitAttack;
+			public AudioClip Boss_JumpMove;
+			public AudioClip Boss_Landed;
+
+			/// <summary>
+			/// リスト作成
+			/// </summary>
+			/// <returns></returns>
+			public List<AudioClip> CreateList() {
+
+				List<AudioClip> list = new List<AudioClip>();
+
+				list.Add(Mob_Attack);
+				list.Add(Mob_HitAttack);
+				list.Add(Boss_Attack1);
+				list.Add(Boss_Attack2);
+				list.Add(Boss_Attack3);
+
+				list.Add(Boss_HitAttack);
+				list.Add(Boss_JumpMove);
+				list.Add(Boss_Landed);
 
 				return list;
 			}
@@ -337,6 +500,8 @@ namespace EDO {
 		[System.Serializable]
 		public struct Common {
 			public AudioClip Run;
+			public AudioClip CityBuild;
+			public AudioClip Avoidance;
 
 			/// <summary>
 			/// リスト作成
@@ -347,6 +512,8 @@ namespace EDO {
 				List<AudioClip> list = new List<AudioClip>();
 
 				list.Add(Run);
+				list.Add(CityBuild);
+				list.Add(Avoidance);
 
 				return list;
 			}
@@ -354,9 +521,12 @@ namespace EDO {
 
 		[System.Serializable]
 		public struct Jingle {
-		//	public AudioClip Decide;
+			public AudioClip TitlePlayerOK;
 			public AudioClip GameStart;
+			public AudioClip StandardWaveStart;
 			public AudioClip BossStart;
+			public AudioClip WindowPop;
+			public AudioClip CityLevelUp;
 
 			/// <summary>
 			/// リスト作成
@@ -366,9 +536,12 @@ namespace EDO {
 
 				List<AudioClip> list = new List<AudioClip>();
 
-		//		list.Add(Decide);
+				list.Add(TitlePlayerOK);
 				list.Add(GameStart);
+				list.Add(StandardWaveStart);
 				list.Add(BossStart);
+				list.Add(WindowPop);
+				list.Add(CityLevelUp);
 
 				return list;
 			}

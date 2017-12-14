@@ -28,8 +28,11 @@ public abstract class EnemyTypeBase : PauseSupport {
 	public abstract void InitEnemy(UsedInitData InitData);
 
 	HittedDamage _Damaged;
-	public HittedDamage Damaged {
-		protected set { _Damaged = value; }
+	/// <summary>
+	/// ダメージ時の動き
+	/// </summary>
+	protected HittedDamage Damaged {
+		private set { _Damaged = value; }
 		get {
 			if (_Damaged == null) {
 				_Damaged = GetComponent<HittedDamage>();
@@ -39,6 +42,9 @@ public abstract class EnemyTypeBase : PauseSupport {
 	}
 
 	ObjectHp _MyHp;
+	/// <summary>
+	/// HP
+	/// </summary>
 	public ObjectHp MyHp {
 		protected set { _MyHp = value; }
 		get {
@@ -50,10 +56,17 @@ public abstract class EnemyTypeBase : PauseSupport {
 	}
 
 	HitLogList _HitLog = new HitLogList();
-	public HitLogList HitLog {
+	/// <summary>
+	/// 当たったオブジェクト管理
+	/// </summary>
+	protected HitLogList HitLog {
 		private set { _HitLog = value; }
 		get { return _HitLog; }
 	}
+
+
+	
+      
 
 	public abstract bool IsDeath {
 		protected set;
