@@ -95,6 +95,8 @@ public class CameraCapture : MonoBehaviour {
 		m_isSavedScreenCapture = true;
 	}
 
+	const string LayerMaskStrings = "UI";
+
 	/// <summary>
 	/// カメラからテクスチャ生成
 	/// </summary>
@@ -107,6 +109,8 @@ public class CameraCapture : MonoBehaviour {
 
 		RenderTexture prev = cam.targetTexture;
 		cam.targetTexture = rt;
+		int mask = LayerMask.GetMask(LayerMaskStrings);
+		cam.cullingMask = 0xffff ^ mask;
 		cam.Render();
 		cam.targetTexture = prev;
 
