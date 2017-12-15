@@ -67,6 +67,7 @@ public class PlayerSpecialist : PlayerBase{
         Attack = Player_Special_ATTACK;
         nodamageflg = false;
         bomsetflg = false;
+        CharCon.center = new Vector3(0, 10 + no * 3, 0);
 
         HitAnime.Initialize(this);
     }

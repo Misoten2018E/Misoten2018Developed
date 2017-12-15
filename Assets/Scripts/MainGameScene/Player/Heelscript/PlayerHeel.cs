@@ -62,6 +62,7 @@ public class PlayerHeel : PlayerBase{
         ComboFlg = false;
         Attack = Player_Heel_ATTACK;
         nodamageflg = false;
+        CharCon.center = new Vector3(0, 10 + no * 3, 0);
 
         HitAnime.Initialize(this);
     }

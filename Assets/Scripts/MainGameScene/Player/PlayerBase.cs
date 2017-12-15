@@ -178,7 +178,7 @@ public class PlayerBase : SceneStartEvent{
 
         if (flg)
         {
-            CharCon.center = new Vector3(0,10,0);
+            CharCon.center = new Vector3(0,10+no*3,0);
         }
         else
         {
