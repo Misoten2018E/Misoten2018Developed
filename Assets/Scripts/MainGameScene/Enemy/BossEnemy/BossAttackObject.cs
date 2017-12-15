@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossHittedObject : MonoBehaviour {
+[RequireComponent(typeof(HitObject))]
+public class BossAttackObject : MonoBehaviour {
 
 
 	//========================================================================================
@@ -26,20 +27,24 @@ public class BossHittedObject : MonoBehaviour {
 	//                                    override
 	//========================================================================================
 
+	// Use this for initialization
+	void Start() {
+
+	}
+
 
 	//========================================================================================
 	//                                     private
 	//========================================================================================
 
 
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	HitObject _HitObj;
+	public HitObject HitObj {
+		get {
+			if (_HitObj == null) {
+				_HitObj = GetComponent<HitObject>();
+			}
+			return _HitObj;
+		}
 	}
 }
