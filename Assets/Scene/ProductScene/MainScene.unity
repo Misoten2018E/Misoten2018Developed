@@ -258,12 +258,12 @@ Prefab:
     - target: {fileID: 224044501502650798, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 960
+      value: 261
       objectReference: {fileID: 0}
     - target: {fileID: 224044501502650798, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 540
+      value: 147
       objectReference: {fileID: 0}
     - target: {fileID: 224044501502650798, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
@@ -569,12 +569,12 @@ Prefab:
     - target: {fileID: 224408566316153586, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 960
+      value: 261
       objectReference: {fileID: 0}
     - target: {fileID: 224408566316153586, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 540
+      value: 147
       objectReference: {fileID: 0}
     - target: {fileID: 224408566316153586, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
         type: 2}
@@ -909,6 +909,10 @@ Prefab:
         type: 2}
       propertyPath: m_Radius
       value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993674896497266, guid: 500bfd657de1a5a409f10a268c27fd74, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 500bfd657de1a5a409f10a268c27fd74, type: 2}
@@ -1621,12 +1625,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114098696570412668, guid: 11f331d35a704214aa91eb6de4f23f43,
-        type: 2}
-      propertyPath: UIPlayer
-      value: 
-      objectReference: {fileID: 1992622998}
-    - target: {fileID: 114100857490150344, guid: 11f331d35a704214aa91eb6de4f23f43,
+    - target: {fileID: 114805404576945544, guid: 11f331d35a704214aa91eb6de4f23f43,
         type: 2}
       propertyPath: UIPlayer
       value: 
@@ -1636,7 +1635,12 @@ Prefab:
       propertyPath: UIPlayer
       value: 
       objectReference: {fileID: 1992622998}
-    - target: {fileID: 114805404576945544, guid: 11f331d35a704214aa91eb6de4f23f43,
+    - target: {fileID: 114100857490150344, guid: 11f331d35a704214aa91eb6de4f23f43,
+        type: 2}
+      propertyPath: UIPlayer
+      value: 
+      objectReference: {fileID: 1992622998}
+    - target: {fileID: 114098696570412668, guid: 11f331d35a704214aa91eb6de4f23f43,
         type: 2}
       propertyPath: UIPlayer
       value: 
