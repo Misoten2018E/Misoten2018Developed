@@ -446,6 +446,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 		AttackAction = AttackPose;
 		StartPlayerAttackMode(player.transform);
+		attackIntervalTime = NextAttackInterval;
 
 		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
 		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
