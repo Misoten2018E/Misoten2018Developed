@@ -6,7 +6,7 @@ public class PlayerBase : SceneStartEvent{
 
     const int ChangeMoveSpeed = 5;
     const float ChangeScale = 0.05f;
-    protected const float InitY = 1.0f;
+    const float InitY = 1.0f;
 
     CharacterController _CharCon;
     public CharacterController CharCon

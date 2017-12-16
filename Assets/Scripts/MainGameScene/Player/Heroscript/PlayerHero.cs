@@ -141,7 +141,6 @@ public class PlayerHero : PlayerBase{
     private void Normal()
     {
         CharCon.center = new Vector3(0, 0, 0);
-        RotationSpeed = Player_Hero_RotationSpeed;
 
         if (input.GetButtonSquareTrigger())
         {
@@ -150,7 +149,6 @@ public class PlayerHero : PlayerBase{
             HitAnime.HitAnimationWeakattack1(Attack);
             ModelTransformReset();
             TBM.StartTrail(TrailSupport.BodyType.RightArm);
-            RotationSpeed = Player_Hero_ActionRotationSpeed;
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -158,7 +156,6 @@ public class PlayerHero : PlayerBase{
             player_Hero_sta = PLAYER_HERO_STA.STRONGATTACK_START;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
-            RotationSpeed = Player_Hero_ActionRotationSpeed;
         }
 
         if (input.GetButtonCircleTrigger())
@@ -262,7 +259,6 @@ public class PlayerHero : PlayerBase{
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationStrongattack(Attack);
             ModelTransformReset();
-            TBM.StartTrail(TrailSupport.BodyType.RightLeg);
         }
     }
 
@@ -274,7 +270,6 @@ public class PlayerHero : PlayerBase{
             player_Hero_sta = PLAYER_HERO_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
-            TBM.EndTrail(TrailSupport.BodyType.RightLeg);
         }
     }
 
@@ -287,7 +282,7 @@ public class PlayerHero : PlayerBase{
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
             GameObject obj = PlayerManager.instance.GetLowHPPlayerObj(no);
-            Vector3 warppos = new Vector3(obj.transform.position.x + WarpPos_X, InitY, obj.transform.position.z);
+            Vector3 warppos = new Vector3(obj.transform.position.x + WarpPos_X, 0.0f, obj.transform.position.z);
             transform.position = warppos;
         }
     }

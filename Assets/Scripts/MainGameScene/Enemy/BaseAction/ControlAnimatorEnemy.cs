@@ -24,22 +24,6 @@ public abstract class ControlAnimatorEnemy : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// アニメーション再起動
-	/// </summary>
-	public void AnimationRestart() {
-
-		Anim.speed = 0f;
-	}
-
-	/// <summary>
-	/// アニメーション停止
-	/// </summary>
-	public void AnimationStop() {
-
-		Anim.speed = 0f;
-	}
-
-	/// <summary>
 	/// 更新
 	/// </summary>
 	private void Update() {

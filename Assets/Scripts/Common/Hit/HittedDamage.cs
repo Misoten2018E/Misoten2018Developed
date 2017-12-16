@@ -15,11 +15,22 @@ public class HittedDamage : DamagedAction {
 
 	[Range(0f, 1f)]
 	[SerializeField]
-	private float TremblePower = 0.4f;
+	private float TremblePower = 0.2f;
 
 	//========================================================================================
 	//                                    public
 	//========================================================================================
+
+	// Use this for initialization
+	void Start() {
+
+	}
+
+	// Update is called once per frame
+	void Update() {
+
+		
+	}
 
 	/// <summary>
 	/// モデルのトランスフォームを渡すこと
@@ -43,29 +54,7 @@ public class HittedDamage : DamagedAction {
 		TrembleStartPosition = trs.localPosition;
 
 		// 新しいものに差し替え
-		ieTrembled = IETremble(impact, 0.2f);
-		StartCoroutine(ieTrembled);
-	}
-
-	public void HittedStoppedAction(float StopTime ,Transform trs, Vector3 impact) {
-
-		StopAction.HittedStopAction(StopTime);
-
-		if (ieTrembled != null) {
-
-			// 止める
-			StopCoroutine(ieTrembled);
-
-			// 初期座標に戻す
-			TrembledTrs.localPosition = TrembleStartPosition;
-		}
-
-		// 今回の初期化
-		TrembledTrs = trs;
-		TrembleStartPosition = trs.localPosition;
-
-		// 新しいものに差し替え
-		ieTrembled = IETremble(impact, StopTime);
+		ieTrembled = IETremble(impact);
 		StartCoroutine(ieTrembled);
 	}
 
@@ -73,11 +62,6 @@ public class HittedDamage : DamagedAction {
 		get { return (ieTrembled != null); }
 	}
 
-	StopActionTime _StopAction = new StopActionTime();
-	public StopActionTime StopAction {
-		private set { _StopAction = value; }
-		get { return _StopAction; }
-	}
 
 	//========================================================================================
 	//                                    private
@@ -89,9 +73,9 @@ public class HittedDamage : DamagedAction {
 	/// <param name="trs"></param>
 	/// <param name="impact"></param>
 	/// <returns></returns>
-	IEnumerator IETremble(Vector3 impact ,float MaxTime) {
+	IEnumerator IETremble(Vector3 impact) {
 
-		const float trembleTime = 0.2f;
+		const float MaxTime = 0.2f;
 		float time = 0f;
 
 		impact = impact * TremblePower;
@@ -104,8 +88,7 @@ public class HittedDamage : DamagedAction {
 				break;
 			}
 
-			float tremBuff = time >= trembleTime ? time - trembleTime : time;
-			float rate = ImpactTremble.Evaluate(tremBuff / trembleTime);
+			float rate = ImpactTremble.Evaluate(time / MaxTime);
 			TrembledTrs.localPosition = TrembleStartPosition + impact * rate;
 
 			yield return null;
@@ -179,10 +162,7 @@ public class HitLogList {
 		}
 
 		public bool isEnd {
-			get {
-				// 親が空のオブジェクトか、アクティブでないオブジェクトなら終了
-				return ((Hit.ParentHit == null) || (!Hit.ParentHit.isActive));
-			}
+			get { return !(Hit.ParentHit.isActive); }
 		}
 
 		public bool checkEqual(HitLog log) {
@@ -208,38 +188,3 @@ public class HitLogList {
 }
 
 
-public class StopActionTime {
-
-	public StopActionTime() {
-
-		ElapsedTime = -1;
-	}
-
-	/// <summary>
-	/// 止められる攻撃に当たった
-	/// </summary>
-	public void HittedStopAction(float stopTime) {
-
-		ElapsedTime = stopTime;
-
-	}
-
-	/// <summary>
-	/// 更新
-	/// </summary>
-	public void Update() {
-
-		if (ElapsedTime > 0) {
-
-			ElapsedTime -= Time.deltaTime;
-		}
-	}
-
-	public bool IsStopped {
-		get { return (ElapsedTime > 0f); }
-	}
-
-	// 経過時間
-	float ElapsedTime;
-
-}

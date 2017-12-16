@@ -54,7 +54,7 @@ public class PlayerSpecialist : PlayerBase{
         input.PlayerNo = no;
         CharCon = this.GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
-        Model = transform.Find("kuroko").transform;
+        Model = transform.Find("BaseModel_Hero").transform;
         HitAnime = GetComponent<HitAnimationBase>();
         HP = gameObject.GetComponent<ObjectHp>();
         RootPos = Model.Find("Character1_Reference").GetComponent<Transform>().Find("Character1_Hips").GetComponent<Transform>();

@@ -26,22 +26,22 @@ public abstract class HitObject : MonoBehaviour,DebuggableObject {
 	public enum HitType{
 		Impact,		// 衝撃
 		BlowOff,	// 吹き飛ばし
-		Suction,	// 吸引
-		Freeze,		// 動きを止める
+		Suction		// 吸引
 	}
 
 	public void Initialize(HitSeriesofAction parent) {
 		ParentHit = parent;
 
 #if UNITY_DEBUG
-
+		
 #else
-		Debug(false);
+		var m = GetComponent<MeshRenderer>();
+		m.enabled = false;
 #endif
 
 	}
 
-
+	
 
 	public void Debug(bool isDebugMode) {
 
@@ -92,6 +92,13 @@ public abstract class HitObject : MonoBehaviour,DebuggableObject {
 	public AnimationCurve MoveCurve {
 		get { return _MoveCurve; }
 	}
+
+
+	//float _NowTime;
+	//public float NowTime {
+	//	private set { _NowTime = value; }
+	//	get { return _NowTime; }
+	//}
 
 	HitSeriesofAction _ParentHit;
 	public HitSeriesofAction ParentHit {

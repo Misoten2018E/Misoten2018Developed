@@ -295,11 +295,9 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 
 		float lenX = sq.xzPlus.x - sq.xzMinus.x;
 		float lenZ = sq.xzPlus.y - sq.xzMinus.y;
-		// 一応予定の数値を算出
-		float len = ((lenX > lenZ) ? (lenX) : (lenZ)) * 0.5f;
+		float len = ((lenX > lenZ) ? (lenX) : (lenZ));
 
-		// カーブによる特殊補正を追加
-		len += CameraLimitArea.Evaluate(len / MaxOrthoSize) * MaxOrthoSize;
+		len = CameraLimitArea.Evaluate(len / MaxOrthoSize) * MaxOrthoSize;
 		return len;
 	}
 

@@ -53,23 +53,24 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
 
 
 	void Update() {
-
 #if UNITY_DEBUG
-        if (Input.GetKeyDown(KeyCode.Space)) {
+		if (Input.GetKeyDown(KeyCode.Space)) {
 			StartMainGameScene();
 		}
 #endif
-		if (CheckOK) {
-			nowtime += Time.deltaTime;
+		if (CheckOK)
+        {
+            nowtime += Time.deltaTime;
 
-			if (nowtime > max_time) {
-				StartMainGameScene();
-			}
-		}
+            if (nowtime > max_time)
+            {
+                StartMainGameScene();
+            }
+        }
 	}
 
 
-	//========================================================================================
+
 		//========================================================================================
 		//                                    private
 		//========================================================================================

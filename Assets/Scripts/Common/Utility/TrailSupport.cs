@@ -17,17 +17,11 @@ public class TrailSupport : MonoBehaviour {
 	//                                     public
 	//========================================================================================
 
-	/// <summary>
-	/// トレイル開始
-	/// </summary>
 	public void StartTrail() {
 
 		TrailRen.enabled = true;
 	}
 
-	/// <summary>
-	/// トレイル終了
-	/// </summary>
 	public void EndTrail() {
 
 		TrailRen.enabled = false;
