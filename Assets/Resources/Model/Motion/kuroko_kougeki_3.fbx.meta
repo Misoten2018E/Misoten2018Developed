@@ -226,95 +226,11 @@ ModelImporter:
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
-  copyAvatar: 0
+  copyAvatar: 1
   humanDescription:
     serializedVersion: 2
-    human:
-    - boneName: group1
-      humanName: Hips
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: kuroko_tool:group2
-      humanName: Spine
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: kuroko_tool:pCylinder2
-      humanName: RightShoulder
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    skeleton:
-    - name: kuroko_kougeki_3(Clone)
-      parentName: 
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Character1_Reference
-      parentName: kuroko_kougeki_3(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: group1
-      parentName: kuroko_kougeki_3(Clone)
-      position: {x: -0.065893516, y: 0.2581682, z: 1.5005095}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1.6666458, y: 1.6666458, z: 1.6666458}
-    - name: kuroko_tool:group1
-      parentName: group1
-      position: {x: 0.123716444, y: -0.118435554, z: 0.06043154}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1.6802464, y: 1.6802464, z: 1.6802464}
-    - name: kuroko_tool:pCube1
-      parentName: kuroko_tool:group1
-      position: {x: -0.0013019434, y: -4.075485, z: -0.0010269596}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: -0.57630146, y: -0.02084619, z: 1}
-    - name: kuroko_tool:pCylinder1
-      parentName: kuroko_tool:group1
-      position: {x: -5.0746243e-17, y: -4.0826874, z: 0.03339439}
-      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-      scale: {x: -1.1801509, y: -0.027167084, z: 2.0478013}
-    - name: kuroko_tool:pSphere1
-      parentName: kuroko_tool:group1
-      position: {x: -0.03369373, y: -3.992175, z: 0.0031334225}
-      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-      scale: {x: -2.5601358, y: -0.061712187, z: 4.4423556}
-    - name: kuroko_tool:group2
-      parentName: group1
-      position: {x: 0.4375968, y: -0.052012995, z: 0.06043154}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: kuroko_tool:pCube2
-      parentName: kuroko_tool:group2
-      position: {x: 0.12599365, y: -6.848017, z: 0.010164168}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: -0.57630146, y: -0.024871692, z: 1}
-    - name: kuroko_tool:pCylinder2
-      parentName: kuroko_tool:group2
-      position: {x: 0.12599365, y: -6.6250906, z: 0.010164168}
-      rotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
-      scale: {x: -0.57630146, y: -0.024871692, z: 1}
-    - name: kuroko_tool:pCone1
-      parentName: group1
-      position: {x: -0.44362342, y: -6.8475485, z: 0.06043154}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: -8.644522, y: -0.43516344, z: 15}
-    - name: kuroko_tool:pCylinder3
-      parentName: group1
-      position: {x: 0.32963234, y: -6.8677354, z: 0.06043154}
-      rotation: {x: 0.719564, y: 0, z: 0, w: 0.6944261}
-      scale: {x: -1.1262736, y: -0.048607085, z: 1.9543134}
+    human: []
+    skeleton: []
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -322,13 +238,14 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: Character1_Hips
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 3
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: f8082b99432b5754ebca9c24e18e4806,
+    type: 3}
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
