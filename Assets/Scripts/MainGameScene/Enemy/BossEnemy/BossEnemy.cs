@@ -242,7 +242,7 @@ public class BossEnemy : PlayerAttackEnemy {
 		Vector3Complession compPos = new Vector3Complession();
 		compPos.Initialize(transform.position, trans.position);
 
-		float Height = 5f;
+		float Height = 8f;
 
 		// 角度計算系
 		QuaternionComplession compQt = new QuaternionComplession();
