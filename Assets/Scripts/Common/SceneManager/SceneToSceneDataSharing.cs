@@ -24,10 +24,22 @@ public class SceneToSceneDataSharing : MonoBehaviour {
 	/// メインからリザルトへ渡すデータ群
 	/// </summary>
 	public MainToResult mainToResultData {
-		private set { _mainToResultData = value; }
+		set { _mainToResultData = value; }
 		get { return _mainToResultData; }
 	}
-      
+
+
+
+	private void Start() {
+
+		
+		if (myInstance != null) {
+			Destroy(gameObject);
+			return;
+		}
+
+		myInstance = this;
+	}
 
 	//========================================================================================
 	//                                     private
