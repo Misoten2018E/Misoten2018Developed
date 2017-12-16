@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using EDO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class BossEnemy : PlayerAttackEnemy {
 
 	[SerializeField] private AnimationCurve JumpCurve;
 
+	[SerializeField] private Transform FacePoint;
+
 	//========================================================================================
 	//                                     public
 	//========================================================================================
@@ -21,7 +24,7 @@ public class BossEnemy : PlayerAttackEnemy {
 
 		CheckMng = mng;
 
-		CameraManager.Instance.FocusCamera.AddTarget(transform);
+		CameraManager.Instance.FocusCamera.AddTarget(FacePoint);
 
 		NextPosition = 0;
 		var NextTarget = CheckMng.GetNextRelayPoint(NextPosition);
@@ -311,7 +314,9 @@ public class BossEnemy : PlayerAttackEnemy {
 			yield return new WaitForSeconds(MaxTime);
 
 			var f = Instantiate(fire);
-			f.StartFire(transform.position, plObjs[plNum].transform.position);
+			f.StartFire(FacePoint.position, plObjs[plNum].transform.position);
+
+			SoundManager.Instance.PlaySE(SoundManager.SEType.Boss_Attack2, FacePoint.position);
 
 			AlreadyAttacked |= 1 << plNum;
 
