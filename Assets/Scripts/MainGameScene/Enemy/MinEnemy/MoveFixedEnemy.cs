@@ -152,8 +152,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 		// (衝撃の方向)
 		var impact = (transform.position - obj.transform.position).normalized;
-		Damaged.HittedTremble(ChildModelTrans, impact);
-
+		
 		AnimationDamaged();
 
 		if (MyHp.isDeath && ieDeath == null) {
@@ -165,7 +164,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 				var HitImpact = obj as HitObjectImpact;
 				HitImpact.Impact(Damaged, impact);
-				print("hitImpact");
+				Damaged.HittedTremble(ChildModelTrans, impact);
+				//		print("hitImpact");
 
 				break;
 			case HitObject.HitType.BlowOff:
@@ -177,7 +177,13 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 				var HitSuction = obj as HitObjectSuction;
 				HitSuction.Sucion(Damaged);
-				print("hitSuction");
+				Damaged.HittedTremble(ChildModelTrans, impact);
+				//		print("hitSuction");
+				break;
+
+			case HitObject.HitType.Freeze:
+
+				HittedFreezeAction((obj as HitObjectFreeze), impact);
 				break;
 
 			default:
@@ -286,6 +292,33 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	virtual protected Transform ChildModelTrans {
 		get { return ChildModelAnim.transform; }
 	}
+
+	/// <summary>
+	/// 動きを止める攻撃を受けた
+	/// </summary>
+	/// <param name="hitObj"></param>
+	virtual protected void HittedFreezeAction(HitObjectFreeze hitObj,Vector3 impact) {
+
+		hitObj.Freeze(Damaged);
+		Damaged.HittedStoppedAction(hitObj.FreezeTime, ChildModelTrans, impact);
+
+		if (ieFreezeCort != null) {
+			StopCoroutine(ieFreezeCort);
+		}
+
+		IsStop = true;
+		ieFreezeCort = GameObjectExtensions.DelayMethod(hitObj.FreezeTime, () => {
+
+			ChildModelAnim.AnimationRestart();
+			IsStop = false;
+		});
+
+		StartCoroutine(ieFreezeCort);
+
+		print("hitFreeze");
+	}
+
+	protected IEnumerator ieFreezeCort;
 
 	//========================================================================================
 	//                                    Animation - protected
@@ -575,13 +608,13 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// グループ行動開始
 	/// </summary>
 	/// <param name="target"></param>
-	public void GroupStart(Transform target) {
+	virtual public void GroupStart(Transform target) {
 
 		NowTarget = target;
 		IsGroupMode = true;
 	}
 
-	void GroupModeUpdate() {
+	protected void GroupModeUpdate() {
 
 		if (!Damaged.isHitted) {
 			MoveAdvanceToTarget(NowTarget, MoveSpeed);
@@ -603,7 +636,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// <summary>
 	/// グループ行動終了
 	/// </summary>
-	public void GroupEnd() {
+	virtual public void GroupEnd() {
 
 		NextTargetSearch();
 		EnableMove();

@@ -141,6 +141,7 @@ public class PlayerHero : PlayerBase{
     private void Normal()
     {
         CharCon.center = new Vector3(0, 0, 0);
+        RotationSpeed = Player_Hero_RotationSpeed;
 
         if (input.GetButtonSquareTrigger())
         {
@@ -149,6 +150,7 @@ public class PlayerHero : PlayerBase{
             HitAnime.HitAnimationWeakattack1(Attack);
             ModelTransformReset();
             TBM.StartTrail(TrailSupport.BodyType.RightArm);
+            RotationSpeed = Player_Hero_ActionRotationSpeed;
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -156,6 +158,7 @@ public class PlayerHero : PlayerBase{
             player_Hero_sta = PLAYER_HERO_STA.STRONGATTACK_START;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
+            RotationSpeed = Player_Hero_ActionRotationSpeed;
         }
 
         if (input.GetButtonCircleTrigger())

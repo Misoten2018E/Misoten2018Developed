@@ -94,14 +94,20 @@ public class GroupLeaderEnemyCommand : MonoBehaviour {
 	/// <param name="enemyList"></param>
 	void CollectMembers() {
 
+		var list = new List<EnemyTypeBase>();
+
 		var move = EnemyManager.Instance.GetEnemyList(EnemyTypeBase.EnemyType.MoveFixed);
+		var attack = EnemyManager.Instance.GetEnemyList(EnemyTypeBase.EnemyType.PlayerAttack);
+
+		list.AddRange(move);
+		list.AddRange(attack);
 
 		float len2 = CorrectLength * CorrectLength;
 		int id = 0;
 
-		for (int i = 0; i < move.Count; i++) {
+		for (int i = 0; i < list.Count; i++) {
 
-			var enemy = move[i] as MoveFixedEnemy;
+			var enemy = list[i] as MoveFixedEnemy;
 			float diff = (enemy.transform.position - transform.position).sqrMagnitude;
 
 			if (len2 >= diff && (!enemy.IsEscape) && (!enemy.IsGroupMode)) {

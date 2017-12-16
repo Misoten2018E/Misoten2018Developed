@@ -42,7 +42,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4544836899922948
 Transform:
@@ -251,13 +251,50 @@ MonoBehaviour:
   SoundEffect:
     player:
       Attack_Light1: {fileID: 0}
+      Attack_Light2: {fileID: 0}
+      Attack_Light3: {fileID: 0}
+      Attack_Strong: {fileID: 0}
+      Special_Jump: {fileID: 0}
+      Special_Landed: {fileID: 0}
+      HitAttack_Panch: {fileID: 0}
+      HitAttack_Kick: {fileID: 0}
     evil:
       Attack_Light1: {fileID: 0}
+      Attack_Light2: {fileID: 0}
+      Attack_Light3: {fileID: 0}
+      Attack_Strong: {fileID: 0}
+      Special_Catch: {fileID: 0}
+      Special_Pull: {fileID: 0}
+      HitAttack_Light: {fileID: 0}
+      HitAttack_Strong: {fileID: 0}
     effecter:
       Attack_Light1: {fileID: 0}
+      Attack_Light2: {fileID: 0}
+      Attack_Light3: {fileID: 0}
+      Attack_Strong_Set: {fileID: 0}
+      Attack_Strong_Explosion: {fileID: 0}
+      Special_Megaphone: {fileID: 0}
+      Special_PowerUp: {fileID: 0}
+      HitAttack_Light: {fileID: 0}
+      HitAttack_Strong: {fileID: 0}
+    enemy:
+      Mob_Attack: {fileID: 0}
+      Mob_HitAttack: {fileID: 0}
+      Boss_Attack1: {fileID: 0}
+      Boss_Attack2: {fileID: 0}
+      Boss_Attack3: {fileID: 0}
+      Boss_HitAttack: {fileID: 0}
+      Boss_JumpMove: {fileID: 0}
+      Boss_Landed: {fileID: 0}
     common:
       Run: {fileID: 0}
-    systemSE:
+      CityBuild: {fileID: 0}
+      Avoidance: {fileID: 0}
+    jingle:
+      TitlePlayerOK: {fileID: 0}
       GameStart: {fileID: 8300000, guid: 34d8fce04abfa7946a95160a1234e6b6, type: 3}
+      StandardWaveStart: {fileID: 0}
       BossStart: {fileID: 8300000, guid: 76e4f4d5921bfe740ba26cbcfb0f4685, type: 3}
+      WindowPop: {fileID: 0}
+      CityLevelUp: {fileID: 0}
   SamplePrefab: {fileID: 82938390538790510}

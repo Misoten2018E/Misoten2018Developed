@@ -24,6 +24,11 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 			return;
 		}
 
+		if (IsGroupMode) {
+			GroupModeUpdate();
+			return;
+		}
+
 		NowTarget = TargetPlayer;
 		if (NowTarget == null) {
 			return;
@@ -92,6 +97,19 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		}
 	}
 
+	public override void GroupStart(Transform target) {
+		base.GroupStart(target);
+
+		StopPlayerAttackMode();
+	}
+
+	public override void GroupEnd() {
+
+		EnableMove();
+		IsGroupMode = false;
+		StartPlayerAttackMode();
+	}
+
 
 	//========================================================================================
 	//                                    private
@@ -142,7 +160,7 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 	/// <summary>
 	/// 攻撃終了時関数
 	/// </summary>
-	private void AttackEnd() {
+	override protected void AttackEnd() {
 
 		// 次の攻撃待機
 		AttackAction = AttackPose;
