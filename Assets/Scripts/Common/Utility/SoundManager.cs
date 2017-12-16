@@ -465,9 +465,9 @@ public struct SE {
 	public struct Enemy {
 		public AudioClip Mob_Attack;
 		public AudioClip Mob_HitAttack;
-		public AudioClip Boss_Attack1;
-		public AudioClip Boss_Attack2;
-		public AudioClip Boss_Attack3;
+		public AudioClip Boss_Attack1;	// しっぽ	
+		public AudioClip Boss_Attack2;	// 火球
+		public AudioClip Boss_Attack3;	// 雑魚ポップ
 		public AudioClip Boss_HitAttack;
 		public AudioClip Boss_JumpMove;
 		public AudioClip Boss_Landed;
