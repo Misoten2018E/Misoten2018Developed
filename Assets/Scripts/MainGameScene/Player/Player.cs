@@ -12,7 +12,7 @@ public class Player : SceneStartEvent{
         FORCIBLY,
         PLAYER_STA_MAX
     }
-    const float CORRECTION = 0.5f;
+    const float CORRECTION = 1.5f;
     const int MOVERITU = 2;
 
     MultiInput m_input;
@@ -186,6 +186,7 @@ public class Player : SceneStartEvent{
     {
         playersta = PLAYER_STA.FORCIBLY;
         ChangeCenterPos = target;
+        playerbase.PlayerDamageMotion();
     }
 
     public void AttackUP(float atk)

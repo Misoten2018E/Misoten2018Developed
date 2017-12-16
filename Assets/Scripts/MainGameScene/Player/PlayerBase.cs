@@ -60,7 +60,6 @@ public class PlayerBase : SceneStartEvent{
 
         MoveCharacter();
 
-        PlayerSta = 0;
         SetAnimatorData();
     }
 
@@ -144,6 +143,11 @@ public class PlayerBase : SceneStartEvent{
     }
 
     public virtual void PlayerDamage(HitObjectImpact damage)
+    {
+
+    }
+
+    public virtual void PlayerDamageMotion()
     {
 
     }

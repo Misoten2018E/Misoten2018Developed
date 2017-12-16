@@ -127,6 +127,14 @@ public class PlayerSpecialist : PlayerBase{
         ModelTransformReset();
     }
 
+    public override void PlayerDamageMotion()
+    {
+        player_Special_sta = PLAYER_SPECIALIST_STA.DAMAGE;
+        PlayerSta = (int)player_Special_sta;
+        animator.SetTrigger("Damage");
+        ModelTransformReset();
+    }
+
     public override void PlayerPause()
     {
         player_Special_sta = PLAYER_SPECIALIST_STA.PAUSE;

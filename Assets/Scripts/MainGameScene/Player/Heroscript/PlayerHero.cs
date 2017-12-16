@@ -130,6 +130,14 @@ public class PlayerHero : PlayerBase{
         TBM.EndTrail();
     }
 
+    public override void PlayerDamageMotion()
+    {
+        player_Hero_sta = PLAYER_HERO_STA.DAMAGE;
+        PlayerSta = (int)player_Hero_sta;
+        animator.SetTrigger("Damage");
+        ModelTransformReset();
+    }
+
     public override void PlayerPause()
     {
         player_Hero_sta = PLAYER_HERO_STA.PAUSE;

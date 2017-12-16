@@ -13,6 +13,8 @@ public class Bomb : PlayerBase{
     float time;
     BombHitAnimation bombhit;
     BOMB_STA bombsta;
+    Player p;
+    int Settype;
 
     const int maxtime = 1;
 
@@ -26,6 +28,13 @@ public class Bomb : PlayerBase{
 	
 	// Update is called once per frame
 	void Update () {
+       
+        if (Settype != p.GetCharacterSta())
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         if (bombsta == BOMB_STA.SWITHON)
         {
             time += Time.deltaTime;
@@ -40,6 +49,8 @@ public class Bomb : PlayerBase{
     public void InitBomb(GameObject Player)
     {
         myPlayer = Player;
+        p = myPlayer.GetComponent<Player>();
+        Settype = p.GetCharacterSta();
     }
 
     public void BombswitchON(float atk)

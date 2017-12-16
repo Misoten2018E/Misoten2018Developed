@@ -91,7 +91,13 @@ public class PlayerNormal : PlayerBase{
         ModelTransformReset();
     }
 
-    
+    public override void PlayerDamageMotion()
+    {
+        player_Normal_sta = PLAYER_NORMAL_STA.DAMAGE;
+        PlayerSta = (int)player_Normal_sta;
+        animator.SetTrigger("Damage");
+        ModelTransformReset();
+    }
 
     private void Normal()
     {

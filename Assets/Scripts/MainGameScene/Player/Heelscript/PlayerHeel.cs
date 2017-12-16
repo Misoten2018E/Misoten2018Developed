@@ -22,6 +22,8 @@ public class PlayerHeel : PlayerBase{
     PLAYER_HEEL_STA player_Heel_sta;
     bool ComboFlg;
     HitAnimationBase HitAnime;
+    Transform Specialtarget;
+    LineRenderer linerenderer;
 
     const int Player_Heel_MoveSpeed = 5;
     const int Player_Heel_RotationSpeed = 750;
@@ -54,6 +56,7 @@ public class PlayerHeel : PlayerBase{
         HitAnime = GetComponent<HitAnimationBase>();
         HP = gameObject.GetComponent<ObjectHp>();
         RootPos = Model.Find("Character1_Reference1").GetComponent<Transform>().Find("Character1_Hips").GetComponent<Transform>();
+        linerenderer = GetComponent<LineRenderer>();
 
         MoveSpeed = Player_Heel_MoveSpeed;
         RotationSpeed = Player_Heel_RotationSpeed;
@@ -63,6 +66,7 @@ public class PlayerHeel : PlayerBase{
         Attack = Player_Heel_ATTACK;
         nodamageflg = false;
         CharCon.center = new Vector3(0, 10 + no * 3, 0);
+        linerenderer.enabled = false;
 
         HitAnime.Initialize(this);
     }
@@ -121,6 +125,15 @@ public class PlayerHeel : PlayerBase{
         nodamageflg = true;
         ModelTransformReset();
     }
+
+    public override void PlayerDamageMotion()
+    {
+        player_Heel_sta = PLAYER_HEEL_STA.DAMAGE;
+        PlayerSta = (int)player_Heel_sta;
+        animator.SetTrigger("Damage");
+        ModelTransformReset();
+    }
+
 
     public override void PlayerPause()
     {
@@ -262,14 +275,13 @@ public class PlayerHeel : PlayerBase{
             
             if (hitobj)
             {   
-                print(hitobj.name);
+                
                 Player P = hitobj.GetComponent<Player>();
                 P.PlayerForcibly(transform.position);
+                Specialtarget = hitobj.transform;
+                linerenderer.enabled = true;
             }
-            else
-            {
-                print("heelnohit");
-            }
+            
             
         }
     }
@@ -278,11 +290,18 @@ public class PlayerHeel : PlayerBase{
     {
         RotationCharacter();
 
+        Vector3[] poss = new Vector3[2];
+        poss[0] = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        poss[1] = new Vector3(Specialtarget.position.x, Specialtarget.position.y, Specialtarget.position.z);
+
+        linerenderer.SetPositions(poss);
+
         if (CheckAnimationEND("Special_end"))
         {
             player_Heel_sta = PLAYER_HEEL_STA.NORMAL;
             PlayerSta = (int)player_Heel_sta;
             ModelTransformReset();
+            linerenderer.enabled = false;
         }
     }
 
