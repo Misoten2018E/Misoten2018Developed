@@ -123,16 +123,21 @@ public class CheckProducePhotoCamera : MonoBehaviour,IFGameEndEvent {
 
 		// 位置計算
 		Vector3 doubleLange = player.position + target.position;
-		Vector3 lookat = doubleLange / 3;
+		Vector3 lookat = doubleLange / 2;
 		Vector3 pos = doubleLange / 2;
-		pos.y += lookat.y;
+		pos.y = pos.y * 2f;
+
+		var PlForward = (player.position - pos).normalized + player.right;
+		PlForward.Normalize();
+		pos = pos - PlForward * 5f;
+
+
+		DebugLog.log("カメラ想定位置" + pos);
+		DebugLog.log("カメラの見ている位置 : " + lookat);
 
 		// 方向計算
 
 		Camera cam = PhotoCamera.MyCamera;
-		//var qt = Quaternion.LookRotation((lookat - pos).normalized);
-		//Matrix4x4 m = new Matrix4x4();
-		//m.SetTRS(pos, qt, new Vector3(1, 1, 1));
 		cam.transform.position = pos;
 		cam.transform.LookAt(lookat);
 	}
