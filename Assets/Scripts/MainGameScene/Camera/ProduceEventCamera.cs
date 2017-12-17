@@ -9,7 +9,7 @@ public class ProduceEventCamera : MonoBehaviour {
 	//                                    inspector
 	//========================================================================================
 
-	[SerializeField] private Animator EventAnimator;
+	[SerializeField] private CameraEndCall EventAnimator;
 
 	//========================================================================================
 	//                                     public
@@ -52,7 +52,16 @@ public class ProduceEventCamera : MonoBehaviour {
 		set { _EndCallback = value; }
 		get { return _EndCallback; }
 	}
-      
+
+
+	//========================================================================================
+	//                                    override
+	//========================================================================================
+
+	private void Awake() {
+
+		EventAnimator.enabled = false;
+	}
 
 	//========================================================================================
 	//                                     private
@@ -62,6 +71,15 @@ public class ProduceEventCamera : MonoBehaviour {
 
 		// 最高優先度に
 		MyCamera.depth = 5f;
+
+		EventAnimator.EndCallBack += AnimationEnd;
+
+
+		gameObject.SetActive(true);
+		EventAnimator.enabled = true;
+		AnimatorStateInfo stateInfo = EventAnimator.MyAnim.GetCurrentAnimatorStateInfo(0);
+		EventAnimator.MyAnim.Play(stateInfo.fullPathHash, 0, 0.0f);  //初期位置に戻す
+
 	}
 
 	/// <summary>
