@@ -37,7 +37,9 @@ public class City : SceneStartEvent{
             if (ScoreList[i] <= score)
             {
                 CityStaArray[i] = 1;
-            }
+				CityLevel = i;
+
+			}
             else
             {
                 break;
@@ -78,4 +80,12 @@ public class City : SceneStartEvent{
             return myInstance;
         }
     }
+
+
+	int _CityLevel;
+	public int CityLevel {
+		private set { _CityLevel = value; }
+		get { return _CityLevel; }
+	}
+      
 }

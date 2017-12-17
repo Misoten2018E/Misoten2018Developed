@@ -61,6 +61,8 @@ public static class ConstEffects {
 
 	public const string Happiness = "HappinessNotes";
 	public const string Disappointed = "DisappointedMark";
+
+	public const string FireLanding = "FlareParticle";
 }
 
 public static class ConstScene {

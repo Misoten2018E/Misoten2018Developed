@@ -239,7 +239,7 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 		}
 	}
 
-	private const float EventTime = 1f;
+	private const float EventTime = 1.5f;
 	private float ElapsedTime;
 
 	/// <summary>

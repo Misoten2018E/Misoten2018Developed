@@ -15,6 +15,8 @@ public class BossFire : PauseSupport {
 
 	[SerializeField] private float Height = 14f;
 
+	[SerializeField] private float LandingWait = 0.3f;
+
 	//========================================================================================
 	//                                     public
 	//========================================================================================
@@ -66,6 +68,14 @@ public class BossFire : PauseSupport {
 	/// </summary>
 	void PositionMoveEnd() {
 
-		Destroy(gameObject);
+		var par = ResourceManager.Instance.Get<ParticleSupport>(ConstDirectry.DirParticleEdo, ConstEffects.FireLanding);
+		var p = Instantiate(par);
+		p.transform.position = transform.position;
+
+		StartCoroutine(GameObjectExtensions.DelayMethod(LandingWait, () => {
+
+			Destroy(gameObject);
+		})
+		);
 	}
 }

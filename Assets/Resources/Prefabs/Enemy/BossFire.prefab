@@ -414,6 +414,7 @@ MonoBehaviour:
     m_RotationOrder: 0
   MaxLandingTime: 3
   Height: 14
+  LandingWait: 0.5
 --- !u!114 &114933513809764464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3813,7 +3814,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
   randomSeed: -91480716

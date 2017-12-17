@@ -136,6 +136,7 @@ public class MediumEnemy : AimingPlayerEnemy {
 		if (ieAttackMode != null) {
 			StopCoroutine(ieAttackMode);
 		}
+
 		ieAttackMode = AttackStart(0.5f + attackIntervalTime);
 		StartCoroutine(ieAttackMode);
 

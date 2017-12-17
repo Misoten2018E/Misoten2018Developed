@@ -73,6 +73,8 @@ public class SceneEventManager : MonoBehaviour {
 			pauses[i].OnPause();
 		}
 
+		SetReslutShareData();
+
 		var gameMng = GameSceneManager.Instance;
 
 		var fade = GameObject.FindObjectOfType<SceneFade>();
@@ -84,6 +86,10 @@ public class SceneEventManager : MonoBehaviour {
 		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_BOSS);
 
 		gameMng.LoadScene(GameSceneManager.SceneType.Result,()=> {
+
+			// メインシーンの破棄
+			gameMng.UnloadScene(GameSceneManager.SceneType.Main);
+
 			gameMng.SetActiveScene(GameSceneManager.SceneType.Result);
 			fade.gameObject.SetActive(false);
 		});
@@ -143,6 +149,27 @@ public class SceneEventManager : MonoBehaviour {
 
 		print("ゲーム開始");
 		GameStart();
+	}
+
+	/// <summary>
+	/// リザルトへ受け渡すデータ群
+	/// </summary>
+	private void SetReslutShareData() {
+
+		var data = new SceneToSceneDataSharing.MainToResult();
+
+		data.CityLevel = City.Instance.CityLevel;
+
+		var players = PlayerManager.instance.PlayersObject;
+
+		data.Player1_LastSta = players[0].GetComponent<Player>().GetCharacterSta();
+		data.Player2_LastSta = players[1].GetComponent<Player>().GetCharacterSta();
+		data.Player3_LastSta = players[2].GetComponent<Player>().GetCharacterSta();
+		data.Player4_LastSta = players[3].GetComponent<Player>().GetCharacterSta();
+
+		data.textureLists = new List<Texture2D>(CheckProducePhotoCamera.Instance.PhotoList);
+
+		SceneToSceneDataSharing.Instance.mainToResultData = data;
 	}
 
 
