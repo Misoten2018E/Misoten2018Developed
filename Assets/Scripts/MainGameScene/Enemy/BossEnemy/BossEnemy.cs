@@ -38,6 +38,11 @@ public class BossEnemy : PlayerAttackEnemy {
 		EnemyManager.Instance.SetEnemy(this);
 
 		IsEnabled = true;
+
+		BossControll.SetState(BossAnimationController.EnemyState.Howling);
+		SoundManager.Instance.PlaySE(SoundManager.SEType.Boss_Howling, FacePoint.position);
+
+		CameraManager.Instance.EventCamera.EventCameraStart(ProduceEventCamera.CameraEvent.BossPop, FacePoint, new Vector3(0, 3f, 0));
 	}
 
 	public enum BossAct {
@@ -193,12 +198,17 @@ public class BossEnemy : PlayerAttackEnemy {
 		ProduceCort = IEUpdateTaleAttack();
 		StartCoroutine(ProduceCort);
 
+		SoundManager.Instance.PlaySE(SoundManager.SEType.Boss_Attack1, FacePoint.position);
+
 		// 右か左かチェック
 		if (IsLeftCheckTalePushOff()) {
 			BossControll.SetState(BossAnimationController.EnemyState.LeftTale);
+			BossAtkMng.SetAttackState(BossAttackObject.BodyType.RightHand, true);
+			BossAtkMng.SetAttackState(BossAttackObject.BodyType.RightLeg, true);
 		}
 		else {
 			BossControll.SetState(BossAnimationController.EnemyState.RightTale);
+			BossAtkMng.SetAttackState(BossAttackObject.BodyType.Tale, true);
 		}
 	}
 
@@ -290,6 +300,7 @@ public class BossEnemy : PlayerAttackEnemy {
 		const float MaxTime = 3f;
 		yield return new WaitForSeconds(MaxTime);
 
+		BossAtkMng.AttackStateOff();
 		BossControll.SetState(BossAnimationController.EnemyState.Wait);
 	}
 
@@ -377,6 +388,36 @@ public class BossEnemy : PlayerAttackEnemy {
 		float dotFR = Vector3.Dot(dir, transform.right);
 
 		return (dotFR < 0f);
+	}
+
+
+	
+
+
+	//========================================================================================
+	//                                    cache
+	//========================================================================================
+
+
+	BossAttackObjectManager _BossAtkMng;
+	public BossAttackObjectManager BossAtkMng {
+		get {
+			if (_BossAtkMng == null) {
+				_BossAtkMng = GetComponent<BossAttackObjectManager>();
+			}
+			return _BossAtkMng;
+		}
+	}
+
+	
+	BossHittedObjectManager _BossHitMng;
+	public BossHittedObjectManager BossHitMng {
+		get {
+			if (_BossHitMng == null) {
+				_BossHitMng = GetComponent<BossHittedObjectManager>();
+			}
+			return _BossHitMng;
+		}
 	}
 }
 

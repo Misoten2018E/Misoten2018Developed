@@ -19,18 +19,29 @@ public class BossAttackObject : MonoBehaviour {
 	public enum BodyType {
 		LeftLeg,
 		RightLeg,
+		RightHand,
 		Body,
 		Tale
+	}
+
+	public bool TypeCheck(BodyType type) {
+		return (bodyType == type);
+	}
+
+	public void Activate() {
+
+		gameObject.SetActive(true);
+	}
+
+
+	public void Disable() {
+
+		gameObject.SetActive(false);
 	}
 
 	//========================================================================================
 	//                                    override
 	//========================================================================================
-
-	// Use this for initialization
-	void Start() {
-
-	}
 
 
 	//========================================================================================

@@ -23,6 +23,8 @@ public class BossAnimationController : MonoBehaviour {
 		Fire,
 		EnemyPop,
 		Howling,
+		Move,
+		Landed,
 	}
 
 	Animator _Anim;

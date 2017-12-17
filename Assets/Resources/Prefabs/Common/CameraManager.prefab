@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4415383295994666}
   - component: {fileID: 95559120295966000}
+  - component: {fileID: 114602948578037738}
   m_Layer: 0
   m_Name: TargetParent
   m_TagString: Untagged
@@ -365,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8352e9b41f96846990da012fdc1c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventAnimator: {fileID: 95559120295966000}
+  EventAnimator: {fileID: 114602948578037738}
 --- !u!114 &114510379034073910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,6 +435,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &114602948578037738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1057834988961428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e910e4f6f2fa0446b5c9102c023b333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114916824135859486
 MonoBehaviour:
   m_ObjectHideFlags: 1
