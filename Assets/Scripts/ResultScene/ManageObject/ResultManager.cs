@@ -23,6 +23,9 @@ public class ResultManager : MonoBehaviour {
 
 	public void NextSceneStart() {
 
+        //スコアResetしたいby前田
+        Score.instance.ScoreReset();
+
 		var fade = GameObject.FindObjectOfType<SceneFade>();
 		fade.FadeOut(() => { GameSceneManager.Instance.PermitLoad = true; });
 

@@ -39,9 +39,10 @@ public class Score : SceneStartEvent{
 
 
 	int score;
+    int[] LastCharacter;
+    
 
-
-	int debugId = -1;
+    int debugId = -1;
 	public void AddScore(int ten) {
 		score += ten;
 		debugId = DebugLog.ChaseLog("現在スコア : " + score, debugId);
@@ -67,9 +68,24 @@ public class Score : SceneStartEvent{
 		}
 	}
 
-	public int GetScore()
+    public void SetCharacter(int index,int type)
+    {
+        LastCharacter[index] = type;
+    }
+
+    public int GetCharacter(int index)
+    {
+        return LastCharacter[index];
+    }
+
+    public int GetScore()
     {
         return score;
+    }
+
+    public void ScoreReset()
+    {
+        score = 0;
     }
 
     static Score _instance;
@@ -89,5 +105,13 @@ public class Score : SceneStartEvent{
             instance = this;
         }
 
+        LastCharacter = new int[4];
+
+        for (int i = 0;i < 4 ;i++)
+        {
+            LastCharacter[i] = 0;
+        }
+
+        score = 0;
     }
 }
