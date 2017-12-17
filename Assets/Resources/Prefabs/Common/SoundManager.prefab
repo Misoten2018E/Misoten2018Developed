@@ -243,58 +243,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageBGM:
+  - {fileID: 8300000, guid: 80337ac890e6cbe4ba2b20587995442e, type: 3}
   - {fileID: 8300000, guid: 26d067e4c74ac8b46a07983d7be18eac, type: 3}
   - {fileID: 8300000, guid: 26d067e4c74ac8b46a07983d7be18eac, type: 3}
-  - {fileID: 8300000, guid: 26d067e4c74ac8b46a07983d7be18eac, type: 3}
-  - {fileID: 8300000, guid: 26d067e4c74ac8b46a07983d7be18eac, type: 3}
-  - {fileID: 8300000, guid: 26d067e4c74ac8b46a07983d7be18eac, type: 3}
+  - {fileID: 8300000, guid: 238f859f27db7e248bcbedb2e768809d, type: 3}
+  - {fileID: 8300000, guid: 35332dcae459c964abdf47f392085a5c, type: 3}
   SoundEffect:
-    player:
-      Attack_Light1: {fileID: 0}
-      Attack_Light2: {fileID: 0}
-      Attack_Light3: {fileID: 0}
-      Attack_Strong: {fileID: 0}
-      Special_Jump: {fileID: 0}
-      Special_Landed: {fileID: 0}
-      HitAttack_Panch: {fileID: 0}
-      HitAttack_Kick: {fileID: 0}
+    Hero:
+      Attack_Light1: {fileID: 8300000, guid: 200c9e9070d99ea4093935a55d4ce466, type: 3}
+      Attack_Light2: {fileID: 8300000, guid: 200c9e9070d99ea4093935a55d4ce466, type: 3}
+      Attack_Light3: {fileID: 8300000, guid: 200c9e9070d99ea4093935a55d4ce466, type: 3}
+      Attack_Strong_Jump: {fileID: 8300000, guid: ba3cb8169d6d3db4b9ec63571a60c9ff,
+        type: 3}
+      Attack_Strong_Kick: {fileID: 8300000, guid: a79f02a52a3986a45bf165c8c9f5f466,
+        type: 3}
+      Attack_Strong_Explosion: {fileID: 8300000, guid: bfdcf150a95b0a9448b44f9b914e764d,
+        type: 3}
+      Special_Jump: {fileID: 8300000, guid: ba3cb8169d6d3db4b9ec63571a60c9ff, type: 3}
+      Special_Landed: {fileID: 8300000, guid: 6dff6e2ba3b6cbc4495986a8a6519a0d, type: 3}
+      HitAttack_Panch: {fileID: 8300000, guid: ac6da2dec05ffcb41a0cba3681194c29, type: 3}
+      HitAttack_Kick: {fileID: 8300000, guid: b1b739c2ca1fe824487e85e9412e9508, type: 3}
     evil:
-      Attack_Light1: {fileID: 0}
-      Attack_Light2: {fileID: 0}
-      Attack_Light3: {fileID: 0}
-      Attack_Strong: {fileID: 0}
-      Special_Catch: {fileID: 0}
-      Special_Pull: {fileID: 0}
-      HitAttack_Light: {fileID: 0}
+      Attack_Light1: {fileID: 8300000, guid: fced5f621bae69340a79628e93534587, type: 3}
+      Attack_Light2: {fileID: 8300000, guid: fced5f621bae69340a79628e93534587, type: 3}
+      Attack_Light3: {fileID: 8300000, guid: fced5f621bae69340a79628e93534587, type: 3}
+      Attack_Strong: {fileID: 8300000, guid: e40e2a5eeb294b64a83902d4d2fe6911, type: 3}
+      Special_Catch: {fileID: 8300000, guid: 2093cad35bd05754bbf55730b2e9d037, type: 3}
+      Special_Pull: {fileID: 8300000, guid: e40e2a5eeb294b64a83902d4d2fe6911, type: 3}
+      HitAttack_Light: {fileID: 8300000, guid: 3faa54fe2f4d6f748b2c95c7e7622e30, type: 3}
       HitAttack_Strong: {fileID: 0}
     effecter:
-      Attack_Light1: {fileID: 0}
-      Attack_Light2: {fileID: 0}
-      Attack_Light3: {fileID: 0}
-      Attack_Strong_Set: {fileID: 0}
-      Attack_Strong_Explosion: {fileID: 0}
-      Special_Megaphone: {fileID: 0}
+      Attack_Light1: {fileID: 8300000, guid: feb65107a138f724dbcbcedd280e342a, type: 3}
+      Attack_Light2: {fileID: 8300000, guid: 18f4b60939a3edc4682fabd5d3997480, type: 3}
+      Attack_Light3: {fileID: 8300000, guid: f1962327507cba74295f8447f65f6491, type: 3}
+      Attack_Strong_Set: {fileID: 8300000, guid: a3f892e8d642e504189541fee969df01,
+        type: 3}
+      Attack_Strong_Explosion: {fileID: 8300000, guid: f3ede9c23f005d1469be9532f4499bf9,
+        type: 3}
+      Special_Megaphone: {fileID: 8300000, guid: 16bb13129283b32448b520ce4ce8f978,
+        type: 3}
       Special_PowerUp: {fileID: 0}
       HitAttack_Light: {fileID: 0}
       HitAttack_Strong: {fileID: 0}
     enemy:
       Mob_Attack: {fileID: 0}
-      Mob_HitAttack: {fileID: 0}
-      Boss_Attack1: {fileID: 0}
-      Boss_Attack2: {fileID: 0}
+      Mob_HitAttack: {fileID: 8300000, guid: 98e82ce363f7e8d4a9de377403d09dac, type: 3}
+      Boss_Attack1: {fileID: 8300000, guid: bef75447bf58b704aadd10be60abafd7, type: 3}
+      Boss_Attack2: {fileID: 8300000, guid: 9c8df0f0ccfc4ff45a44d5c89249e3c2, type: 3}
       Boss_Attack3: {fileID: 0}
       Boss_HitAttack: {fileID: 0}
       Boss_JumpMove: {fileID: 0}
-      Boss_Landed: {fileID: 0}
+      Boss_Landed: {fileID: 8300000, guid: 8d4cfd70d752e2948b6c175e598e81cd, type: 3}
     common:
-      Run: {fileID: 0}
+      Run: {fileID: 8300000, guid: c226893b7139a7c49a6a07946291f192, type: 3}
       CityBuild: {fileID: 0}
-      Avoidance: {fileID: 0}
+      Avoidance: {fileID: 8300000, guid: 70d817c2e0411bd4288ca25e0410ea52, type: 3}
     jingle:
-      TitlePlayerOK: {fileID: 0}
+      TitlePlayerOK: {fileID: 8300000, guid: 93c546753dda30f4d8761c2c95ad9be0, type: 3}
       GameStart: {fileID: 8300000, guid: 34d8fce04abfa7946a95160a1234e6b6, type: 3}
-      StandardWaveStart: {fileID: 0}
+      StandardWaveStart: {fileID: 8300000, guid: 25f041b7423231340b64a7568d9ac312,
+        type: 3}
       BossStart: {fileID: 8300000, guid: 76e4f4d5921bfe740ba26cbcfb0f4685, type: 3}
-      WindowPop: {fileID: 0}
-      CityLevelUp: {fileID: 0}
+      WindowPop: {fileID: 8300000, guid: 794d3cc387541f048b6f87608a375be4, type: 3}
+      CityLevelUp: {fileID: 8300000, guid: 34ec509f3600ff3419abca8bf3b7d636, type: 3}
   SamplePrefab: {fileID: 82938390538790510}

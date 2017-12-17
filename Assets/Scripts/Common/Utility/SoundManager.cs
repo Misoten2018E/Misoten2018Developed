@@ -53,7 +53,9 @@ namespace EDO {
 			Hero_Light1,
 			Hero_Light2,
 			Hero_Light3,
-			Hero_Strong,
+			Hero_Strong_Jump,
+			Hero_Strong_Kick,
+			Hero_Strong_Explosion,
 			Hero_SP_Jump,
 			Hero_SP_Landed,
 			Hero_Hit_Panch,
@@ -367,8 +369,10 @@ namespace EDO {
 			public AudioClip Attack_Light1;
 			public AudioClip Attack_Light2;
 			public AudioClip Attack_Light3;
-			public AudioClip Attack_Strong;
-			
+			public AudioClip Attack_Strong_Jump;
+			public AudioClip Attack_Strong_Kick;
+			public AudioClip Attack_Strong_Explosion;
+
 			public AudioClip Special_Jump;
 			public AudioClip Special_Landed;
 			public AudioClip HitAttack_Panch;
@@ -385,7 +389,9 @@ namespace EDO {
 				list.Add(Attack_Light1);
 				list.Add(Attack_Light2);
 				list.Add(Attack_Light3);
-				list.Add(Attack_Strong);
+				list.Add(Attack_Strong_Jump);
+				list.Add(Attack_Strong_Kick);
+				list.Add(Attack_Strong_Explosion);
 				list.Add(Special_Jump);
 				list.Add(Special_Landed);
 				list.Add(HitAttack_Panch);
