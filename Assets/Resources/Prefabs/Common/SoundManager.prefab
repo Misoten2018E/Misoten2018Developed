@@ -244,8 +244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StageBGM:
   - {fileID: 8300000, guid: 80337ac890e6cbe4ba2b20587995442e, type: 3}
-  - {fileID: 8300000, guid: 26d067e4c74ac8b46a07983d7be18eac, type: 3}
-  - {fileID: 8300000, guid: 26d067e4c74ac8b46a07983d7be18eac, type: 3}
+  - {fileID: 8300000, guid: ee288a9eb6b756840b24065d19167a96, type: 3}
+  - {fileID: 8300000, guid: ee288a9eb6b756840b24065d19167a96, type: 3}
   - {fileID: 8300000, guid: 238f859f27db7e248bcbedb2e768809d, type: 3}
   - {fileID: 8300000, guid: 35332dcae459c964abdf47f392085a5c, type: 3}
   SoundEffect:
@@ -294,6 +294,7 @@ MonoBehaviour:
       Boss_HitAttack: {fileID: 0}
       Boss_JumpMove: {fileID: 0}
       Boss_Landed: {fileID: 8300000, guid: 8d4cfd70d752e2948b6c175e598e81cd, type: 3}
+      Boss_Howling: {fileID: 0}
     common:
       Run: {fileID: 8300000, guid: c226893b7139a7c49a6a07946291f192, type: 3}
       CityBuild: {fileID: 0}
