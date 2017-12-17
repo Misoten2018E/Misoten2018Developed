@@ -64,9 +64,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.06599021
+  m_TransitionDuration: 0.015919387
   m_TransitionOffset: 0
-  m_ExitTime: 0.56582874
+  m_ExitTime: 0.98841375
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -112,9 +112,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.084540606
-  m_TransitionOffset: 0.009311407
-  m_ExitTime: 0.950322
+  m_TransitionDuration: 0.03827679
+  m_TransitionOffset: 0
+  m_ExitTime: 0.97384596
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -232,9 +232,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.09298968
+  m_TransitionDuration: 0.23756403
   m_TransitionOffset: 0
-  m_ExitTime: 0.8816982
+  m_ExitTime: 0.7592353
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -271,7 +271,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Attack
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101308399429072128}

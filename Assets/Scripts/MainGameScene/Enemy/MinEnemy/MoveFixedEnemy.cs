@@ -327,7 +327,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	protected virtual void AnimationMove() {
 
 		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.Move);
-		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
+	//	myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
 		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
 	}
 
@@ -339,7 +339,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	protected virtual void AnimationAttack() {
 
 		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.Attack);
-		myTrail.StartTrail(TrailSupport.BodyType.LeftArm);
+	//	myTrail.StartTrail(TrailSupport.BodyType.LeftArm);
 		myTrail.StartTrail(TrailSupport.BodyType.RightArm);
 	}
 
@@ -349,7 +349,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	protected virtual void AnimationDamaged() {
 
 		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.Damage);
-		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
+	//	myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
 		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
 	}
 
@@ -358,7 +358,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// </summary>
 	protected virtual void AnimationRunAway() {
 		ChildModelAnim.Animation(EnemyMiniAnimation.AnimationType.RunAway);
-		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
+	//	myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
 		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
 	}
 
@@ -448,7 +448,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		StartPlayerAttackMode(player.transform);
 		attackIntervalTime = NextAttackInterval;
 
-		myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
+	//	myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
 		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
 
 		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
