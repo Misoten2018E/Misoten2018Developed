@@ -21,7 +21,8 @@ public class BossAnimationController : MonoBehaviour {
 		LeftTale,
 		RightTale,
 		Fire,
-		EnemyPop
+		EnemyPop,
+		Howling,
 	}
 
 	Animator _Anim;
