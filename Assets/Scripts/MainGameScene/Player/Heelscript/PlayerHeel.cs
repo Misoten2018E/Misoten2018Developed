@@ -289,12 +289,14 @@ public class PlayerHeel : PlayerBase{
     private void SpecialActionEnd()
     {
         RotationCharacter();
+        if (linerenderer.enabled == true)
+        {
+            Vector3[] poss = new Vector3[2];
+            poss[0] = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            poss[1] = new Vector3(Specialtarget.position.x, Specialtarget.position.y, Specialtarget.position.z);
+            linerenderer.SetPositions(poss);
+        }
 
-        Vector3[] poss = new Vector3[2];
-        poss[0] = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        poss[1] = new Vector3(Specialtarget.position.x, Specialtarget.position.y, Specialtarget.position.z);
-
-        linerenderer.SetPositions(poss);
 
         if (CheckAnimationEND("Special_end"))
         {
