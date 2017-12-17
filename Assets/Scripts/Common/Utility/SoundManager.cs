@@ -90,6 +90,7 @@ public class SoundManager : MonoBehaviour {
 		Boss_HitAttack,
 		Boss_JumpMove,
 		Boss_Landed,
+		Boss_Howling,
 
 		SEMAX
 	}
@@ -135,40 +136,22 @@ public class SoundManager : MonoBehaviour {
 	void Init() {
 
 		// ジングル追加
-		var list = SoundEffect.jingle.CreateList();
-		for (int i = 0; i < list.Count; i++) {
-			Clip_se.Add(list[i]);
-		}
+		Clip_se.AddRange(SoundEffect.jingle.CreateList());
 
 		// 汎用系追加
-		list = SoundEffect.common.CreateList();
-		for (int i = 0; i < list.Count; i++) {
-			Clip_se.Add(list[i]);
-		}
+		Clip_se.AddRange(SoundEffect.common.CreateList());
 
 		// ヒーロー系追加
-		list = SoundEffect.Hero.CreateList();
-		for (int i = 0; i < list.Count; i++) {
-			Clip_se.Add(list[i]);
-		}
+		Clip_se.AddRange(SoundEffect.Hero.CreateList());
 
 		// 悪役系追加
-		list = SoundEffect.evil.CreateList();
-		for (int i = 0; i < list.Count; i++) {
-			Clip_se.Add(list[i]);
-		}
+		Clip_se.AddRange(SoundEffect.evil.CreateList());
 
 		// 演出役系追加
-		list = SoundEffect.effecter.CreateList();
-		for (int i = 0; i < list.Count; i++) {
-			Clip_se.Add(list[i]);
-		}
+		Clip_se.AddRange(SoundEffect.effecter.CreateList());
 
 		// 敵系追加
-		list = SoundEffect.enemy.CreateList();
-		for (int i = 0; i < list.Count; i++) {
-			Clip_se.Add(list[i]);
-		}
+		Clip_se.AddRange(SoundEffect.enemy.CreateList());
 
 		for (int i = 0; i < AUDIO_MAX; i++) {
 
@@ -478,6 +461,7 @@ public struct SE {
 		public AudioClip Boss_HitAttack;
 		public AudioClip Boss_JumpMove;
 		public AudioClip Boss_Landed;
+		public AudioClip Boss_Howling;
 
 		/// <summary>
 		/// リスト作成
@@ -496,6 +480,7 @@ public struct SE {
 			list.Add(Boss_HitAttack);
 			list.Add(Boss_JumpMove);
 			list.Add(Boss_Landed);
+			list.Add(Boss_Howling);
 
 			return list;
 		}
