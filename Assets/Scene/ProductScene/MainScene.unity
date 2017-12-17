@@ -410,6 +410,24 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1020298275}
   m_Script: {fileID: 11500000, guid: 62f2987f40dc38f45976a0fec3387c62, type: 3}
+--- !u!114 &281758533 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114371398929700622, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
+    type: 2}
+  m_PrefabInternal: {fileID: 1020298275}
+  m_Script: {fileID: 11500000, guid: b57d0a3cab7bafb4282da94349c41866, type: 3}
+--- !u!114 &371597373 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114589361360604270, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
+    type: 2}
+  m_PrefabInternal: {fileID: 1020298275}
+  m_Script: {fileID: 11500000, guid: b57d0a3cab7bafb4282da94349c41866, type: 3}
+--- !u!114 &499947617 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114567876318818576, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
+    type: 2}
+  m_PrefabInternal: {fileID: 1020298275}
+  m_Script: {fileID: 11500000, guid: b57d0a3cab7bafb4282da94349c41866, type: 3}
 --- !u!114 &504271329 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114313435095668046, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
@@ -1429,26 +1447,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114805404576945544, guid: 11f331d35a704214aa91eb6de4f23f43,
+    - target: {fileID: 114098696570412668, guid: 11f331d35a704214aa91eb6de4f23f43,
         type: 2}
       propertyPath: UIPlayer
       value: 
-      objectReference: {fileID: 1992622998}
+      objectReference: {fileID: 281758533}
+    - target: {fileID: 114100857490150344, guid: 11f331d35a704214aa91eb6de4f23f43,
+        type: 2}
+      propertyPath: UIPlayer
+      value: 
+      objectReference: {fileID: 371597373}
     - target: {fileID: 114150706420293720, guid: 11f331d35a704214aa91eb6de4f23f43,
         type: 2}
       propertyPath: UIPlayer
       value: 
       objectReference: {fileID: 1992622998}
-    - target: {fileID: 114100857490150344, guid: 11f331d35a704214aa91eb6de4f23f43,
+    - target: {fileID: 114805404576945544, guid: 11f331d35a704214aa91eb6de4f23f43,
         type: 2}
       propertyPath: UIPlayer
       value: 
-      objectReference: {fileID: 1992622998}
-    - target: {fileID: 114098696570412668, guid: 11f331d35a704214aa91eb6de4f23f43,
-        type: 2}
-      propertyPath: UIPlayer
-      value: 
-      objectReference: {fileID: 1992622998}
+      objectReference: {fileID: 499947617}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11f331d35a704214aa91eb6de4f23f43, type: 2}
   m_IsPrefabParent: 0
