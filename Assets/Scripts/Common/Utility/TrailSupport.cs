@@ -47,7 +47,9 @@ public class TrailSupport : MonoBehaviour {
 		LeftArm,
 		RightArm,
 		LeftLeg,
-		RightLeg
+		RightLeg,
+		Body,
+
 	}
 
 

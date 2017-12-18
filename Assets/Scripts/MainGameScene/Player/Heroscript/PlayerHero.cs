@@ -25,6 +25,9 @@ public class PlayerHero : PlayerBase{
     HitAnimationBase HitAnime;
     TrailBodyManager TBM;
 
+	[SerializeField] private AnimationCurve JumpSpeedCurve;
+	[SerializeField] private AnimationCurve JumpYCurve;
+
     const int Player_Hero_MoveSpeed = 5;
     const int Player_Hero_RotationSpeed = 750;
     const int Player_Hero_ActionRotationSpeed = 500;
@@ -99,10 +102,10 @@ public class PlayerHero : PlayerBase{
                 StrongActionEnd();
                 break;
             case PLAYER_HERO_STA.SPECIAL_START:
-                SpecialActionStart();
+				SpecialActionStart();
                 break;
             case PLAYER_HERO_STA.SPECIAL_END:
-                SpecialActionEnd();
+        //        SpecialActionEnd();
                 break;
             case PLAYER_HERO_STA.DAMAGE:
                 DamageAction();
@@ -286,16 +289,22 @@ public class PlayerHero : PlayerBase{
 
     private void SpecialActionStart()
     {
-     
-        if (CheckAnimationEND("Special_start"))
-        {
+
+		//if (CheckAnimationEND("Special_start"))
+		if (CheckAnimationENDforRate("Special_start" ,0.7f)) {
             player_Hero_sta = PLAYER_HERO_STA.SPECIAL_END;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
-            GameObject obj = PlayerManager.instance.GetLowHPPlayerObj(no);
-            Vector3 warppos = new Vector3(obj.transform.position.x + WarpPos_X, 0.0f, obj.transform.position.z);
-            transform.position = warppos;
-        }
+
+			// 12/18　江戸コメントアウト
+			// 一瞬での移動を止めるため
+			//   GameObject obj = PlayerManager.instance.GetLowHPPlayerObj(no);
+			//   Vector3 warppos = new Vector3(obj.transform.position.x + WarpPos_X, 0.0f, obj.transform.position.z);
+			//   transform.position = warppos;
+
+			GameObject obj = PlayerManager.instance.GetLowHPPlayerObj(no);
+			StartCoroutine(IEMoveSpecialAction(obj.transform.position));
+		}
     }
 
     private void SpecialActionEnd()
@@ -340,4 +349,49 @@ public class PlayerHero : PlayerBase{
 
         return res;
     }
+
+	/// <summary>
+	/// 目標位置への移動
+	/// 12/18 江戸 追加
+	/// </summary>
+	/// <param name="target"></param>
+	/// <returns></returns>
+	private IEnumerator IEMoveSpecialAction(Vector3 target) {
+
+		Vector3Complession Vec3Comp = new Vector3Complession(transform.position, target);
+		TBM.StartTrail(TrailSupport.BodyType.Body);
+
+		const float MaxTime = 0.6f;
+		float time = 0f;
+
+		const float YPlus = 4f;
+
+		while (true) {
+
+			time += Time.deltaTime;
+			if (time >= MaxTime) {
+				break;
+			}
+
+			float rate = JumpSpeedCurve.Evaluate(time / MaxTime);
+
+			Vector3 pos = Vec3Comp.CalcPosition(rate);
+			pos.y += JumpYCurve.Evaluate(rate) * YPlus;
+			transform.position = pos;
+			
+			yield return null;
+		}
+
+		transform.position = Vec3Comp.CalcPosition(1f);
+
+		Vector3 bodypos = Model.transform.position;
+		bodypos.y = 0f;
+		transform.position = bodypos;
+
+		TBM.EndTrail(TrailSupport.BodyType.Body);
+
+		player_Hero_sta = PLAYER_HERO_STA.NORMAL;
+		PlayerSta = (int)player_Hero_sta;
+	//	ModelTransformReset();
+	}
 }
