@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23341690440573740}
   - component: {fileID: 114464901097481296}
   m_Layer: 0
-  m_Name: Point_SE
+  m_Name: Point_SE_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 23714593259221626}
   - component: {fileID: 114955836605955030}
   m_Layer: 0
-  m_Name: Point_SSW
+  m_Name: Point_SSW_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 23335482132308480}
   - component: {fileID: 114586404192283736}
   m_Layer: 0
-  m_Name: Point_NNE
+  m_Name: Point_NNE_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 23338191066691650}
   - component: {fileID: 114820631217939672}
   m_Layer: 0
-  m_Name: Point_WNW
+  m_Name: Point_WNW_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 23594365622952852}
   - component: {fileID: 114513254758567226}
   m_Layer: 0
-  m_Name: Point_NNW
+  m_Name: Point_NNW_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -980,7 +980,7 @@ GameObject:
   - component: {fileID: 23232480506825986}
   - component: {fileID: 114834919690507786}
   m_Layer: 0
-  m_Name: Point_SW
+  m_Name: Point_SW_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,7 +1018,7 @@ GameObject:
   - component: {fileID: 23390998070762708}
   - component: {fileID: 114507051739715356}
   m_Layer: 0
-  m_Name: Point_S
+  m_Name: Point_S_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1162,7 +1162,7 @@ GameObject:
   - component: {fileID: 23770749896711192}
   - component: {fileID: 114235668536625874}
   m_Layer: 0
-  m_Name: Point_WSW
+  m_Name: Point_WSW_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1181,7 +1181,7 @@ GameObject:
   - component: {fileID: 23105802379941026}
   - component: {fileID: 114989926491172136}
   m_Layer: 0
-  m_Name: Point_W
+  m_Name: Point_W_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1287,7 +1287,7 @@ GameObject:
   - component: {fileID: 23427194690941422}
   - component: {fileID: 114186677553054494}
   m_Layer: 0
-  m_Name: Point_N
+  m_Name: Point_N_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1354,7 +1354,7 @@ GameObject:
   - component: {fileID: 23057971469201348}
   - component: {fileID: 114306317873839740}
   m_Layer: 0
-  m_Name: Point_E
+  m_Name: Point_E_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1474,7 +1474,7 @@ GameObject:
   - component: {fileID: 23260765063901090}
   - component: {fileID: 114144335350331400}
   m_Layer: 0
-  m_Name: Point_ESE
+  m_Name: Point_ESE_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1628,7 +1628,7 @@ GameObject:
   - component: {fileID: 23789107844431018}
   - component: {fileID: 114953378954495982}
   m_Layer: 0
-  m_Name: Point_NE
+  m_Name: Point_NE_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1666,7 +1666,7 @@ GameObject:
   - component: {fileID: 23478955045993006}
   - component: {fileID: 114449477506523332}
   m_Layer: 0
-  m_Name: Point_ENE
+  m_Name: Point_ENE_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1720,7 +1720,7 @@ GameObject:
   - component: {fileID: 23207860276307938}
   - component: {fileID: 114701401385367884}
   m_Layer: 0
-  m_Name: Point_NW
+  m_Name: Point_NW_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1802,7 +1802,7 @@ GameObject:
   - component: {fileID: 23017711026071152}
   - component: {fileID: 114551953123203984}
   m_Layer: 0
-  m_Name: Point_SSE
+  m_Name: Point_SSE_2
   m_TagString: EnemyCheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6480,8 +6480,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovePointList:
   - {fileID: 114074064129424644}
-  - {fileID: 114452113327873242}
-  - {fileID: 114428615659440826}
+  - {fileID: 114002894023307486}
+  - {fileID: 114500875704858690}
 --- !u!114 &114449477506523332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7206,7 +7206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OrderId: 2
-  GraceTime: 100
+  GraceTime: 200
 --- !u!114 &114761376130006814
 MonoBehaviour:
   m_ObjectHideFlags: 1

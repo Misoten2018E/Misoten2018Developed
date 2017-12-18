@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33016491763356112}
   - component: {fileID: 135742515826667042}
   - component: {fileID: 23104824065584634}
-  - component: {fileID: 114432365546986456}
+  - component: {fileID: 114231964125901970}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: PlayerAttack
@@ -133,6 +133,26 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114231964125901970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1888586306680348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5c68ab416a9a54b89b0ad75bbe5e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackId: 0
+  Damage: 20
+  _MoveCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _FreezeTime: 4
 --- !u!114 &114290221865181410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,43 +166,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ManageList:
   - {fileID: 4239078961439504}
---- !u!114 &114432365546986456
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1888586306680348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackId: 0
-  Damage: 100
-  _MoveCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.29827702
-      value: 0.8388938
-      inSlope: 0.7362975
-      outSlope: 0.7362975
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!114 &114493743061472602
 MonoBehaviour:
   m_ObjectHideFlags: 1

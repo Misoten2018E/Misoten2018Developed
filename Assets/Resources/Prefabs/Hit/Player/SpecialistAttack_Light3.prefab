@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 33842867279778792}
   - component: {fileID: 135050298319986374}
   - component: {fileID: 23732839842903316}
-  - component: {fileID: 114975403966785086}
+  - component: {fileID: 114491957875124586}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: PlayerAttack
@@ -189,7 +189,7 @@ MonoBehaviour:
   _ManageList:
   - {fileID: 4905126460556470}
   - {fileID: 4960919688691708}
---- !u!114 &114975403966785086
+--- !u!114 &114491957875124586
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -197,35 +197,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1546795430617998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a5c68ab416a9a54b89b0ad75bbe5e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AttackId: 0
-  Damage: 100
+  Damage: 20
   _MoveCurve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.29827702
-      value: 0.8388938
-      inSlope: 0.7362975
-      outSlope: 0.7362975
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
+  _FreezeTime: 1
 --- !u!135 &135050298319986374
 SphereCollider:
   m_ObjectHideFlags: 1
