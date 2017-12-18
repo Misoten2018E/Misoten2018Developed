@@ -113,7 +113,7 @@ public class PlayerBase : SceneStartEvent{
 
         float S = nowlength / maxlength;
         
-        if (S > 0.6f)
+        if (S > 0.4f)
         {
             S = 1;
         }
