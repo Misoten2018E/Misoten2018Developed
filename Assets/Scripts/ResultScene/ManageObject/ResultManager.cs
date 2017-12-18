@@ -68,11 +68,15 @@ public class ResultManager : MonoBehaviour {
 
 	private void EndResultScene() {
 
-		GameSceneManager.Instance.UnloadScene(GameSceneManager.SceneType.Main, () =>
-		{
-			print("リザルトシーンの削除");
-			GameSceneManager.Instance.UnloadScene(GameSceneManager.SceneType.Result);
-		});
+		print("リザルトシーンの削除");
+		GameSceneManager.Instance.UnloadScene(GameSceneManager.SceneType.Result);
+
+		// 12/18 江戸 メインから切り離しているので修正
+		//GameSceneManager.Instance.UnloadScene(GameSceneManager.SceneType.Main, () =>
+		//{
+		//	print("リザルトシーンの削除");
+		//	GameSceneManager.Instance.UnloadScene(GameSceneManager.SceneType.Result);
+		//});
 
 		
 	}
