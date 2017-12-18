@@ -10,8 +10,7 @@ public class ResultCanvas : MonoBehaviour {
 		var c = CameraManager.Instance.FocusCamera;
 		var can = GetComponent<Canvas>();
 		can.worldCamera = c.MainCamera;
-        
-        print("rizarutosukoa"+ Score.instance.GetScore());
+       
 	}
 	
 	// Update is called once per frame

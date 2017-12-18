@@ -267,9 +267,9 @@ public class Player : SceneStartEvent{
                 CharacterSta = ConstPlayerSta.SpecialistCharacter;
                 break;
         }
-
-		// 11/20 UIを管理するため追加
-		UIPlayer.ChangeIcons(Changechar);
+        Score.instance.SetCharacter(no, CharacterSta);
+        // 11/20 UIを管理するため追加
+        UIPlayer.ChangeIcons(Changechar);
 
 	}
 }
