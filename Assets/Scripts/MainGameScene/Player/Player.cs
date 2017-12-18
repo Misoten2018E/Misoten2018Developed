@@ -14,6 +14,7 @@ public class Player : SceneStartEvent{
     }
     const float CORRECTION = 1.5f;
     const int MOVERITU = 2;
+    const float FORCIBLYSPEED = 0.3f;
 
     MultiInput m_input;
     public int no;
@@ -33,9 +34,10 @@ public class Player : SceneStartEvent{
     Vector3 ChangeCenterPos;
     int beforeCharacter;
     PLAYER_STA playersta;
+    float ForciblySpeed;
 
-	// 11/20 UIを管理するため追加
-	[SerializeField] private UIPlayerInput UIPlayer;
+    // 11/20 UIを管理するため追加
+    [SerializeField] private UIPlayerInput UIPlayer;
 
     // Use this for initialization
     void Start () {
@@ -128,7 +130,7 @@ public class Player : SceneStartEvent{
                 }
                 break;
             case PLAYER_STA.FORCIBLY:
-                playerbase.ForciblyMove(ChangeCenterPos);
+                playerbase.ForciblyMove(ChangeCenterPos,ForciblySpeed);
 
                 r = (Mathf.Abs(transform.position.x - ChangeCenterPos.x) * Mathf.Abs(transform.position.x - ChangeCenterPos.x)) +
                    (Mathf.Abs(transform.position.z - ChangeCenterPos.z) * Mathf.Abs(transform.position.z - ChangeCenterPos.z));
@@ -172,6 +174,7 @@ public class Player : SceneStartEvent{
         CharacterSta = ConstPlayerSta.NormalCharacter;
         playersta = PLAYER_STA.NORMAL;
         Score.instance.SetCharacter(no, CharacterSta);
+        ForciblySpeed = 0;
 
         isInitialized = true;
     }
@@ -188,6 +191,11 @@ public class Player : SceneStartEvent{
         playersta = PLAYER_STA.FORCIBLY;
         ChangeCenterPos = target;
         playerbase.PlayerDamageMotion();
+        float length = (Mathf.Abs(transform.position.x - target.x) * Mathf.Abs(transform.position.x - target.x)) +
+                        (Mathf.Abs(transform.position.z - target.z) * Mathf.Abs(transform.position.z - target.z));
+        length = Mathf.Sqrt(length);
+        ForciblySpeed = length / FORCIBLYSPEED;
+        print("ForciblySpeed"+ ForciblySpeed);
     }
 
     public void AttackUP(float atk)

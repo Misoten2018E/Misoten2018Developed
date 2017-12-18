@@ -50,13 +50,13 @@ public class PlayerBase : SceneStartEvent{
 		//使わない方向で
 	}
 
-    public void ForciblyMove(Vector3 moveposition)
+    public void ForciblyMove(Vector3 moveposition,float speed)
     {
         Vector3 myposition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         velocity = moveposition - myposition;
         velocity.y = 0.0f;
         velocity.Normalize();
-        velocity *= ChangeMoveSpeed;
+        velocity *= speed;
 
         MoveCharacter();
 
