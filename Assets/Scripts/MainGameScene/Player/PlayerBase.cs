@@ -259,7 +259,22 @@ public class PlayerBase : SceneStartEvent{
         }
     }
 
-    protected bool CheckAnimationSTART(string str)
+	protected bool CheckAnimationENDforRate(string str ,float EndRate) {
+
+		AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+		if (info.IsName(str) && info.normalizedTime > EndRate) {
+			Vector3 bodypos = Model.transform.position;
+			bodypos.y = InitY;
+			transform.position = bodypos;
+
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	protected bool CheckAnimationSTART(string str)
     {
         AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
         if (info.IsName(str) && info.normalizedTime < 0.1f)

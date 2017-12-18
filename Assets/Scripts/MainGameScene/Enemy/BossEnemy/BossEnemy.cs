@@ -297,7 +297,7 @@ public class BossEnemy : PlayerAttackEnemy {
 	/// </summary>
 	IEnumerator IEUpdateTaleAttack() {
 
-		const float MaxTime = 3f;
+		const float MaxTime = 4f;
 		yield return new WaitForSeconds(MaxTime);
 
 		BossAtkMng.AttackStateOff();
