@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackId: 0
-  Damage: 100
+  Damage: 40
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
