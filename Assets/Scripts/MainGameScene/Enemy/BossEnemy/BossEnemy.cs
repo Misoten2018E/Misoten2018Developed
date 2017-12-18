@@ -42,7 +42,7 @@ public class BossEnemy : PlayerAttackEnemy {
 		BossControll.SetState(BossAnimationController.EnemyState.Howling);
 		SoundManager.Instance.PlaySE(SoundManager.SEType.Boss_Howling, FacePoint.position);
 
-		CameraManager.Instance.EventCamera.EventCameraStart(ProduceEventCamera.CameraEvent.BossPop, FacePoint, new Vector3(0, 3f, 0));
+		CameraManager.Instance.EventCamera.EventCameraStart(ProduceEventCamera.CameraEvent.BossPop, FacePoint, new Vector3(0, 4f, 0));
 	}
 
 	public enum BossAct {
