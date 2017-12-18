@@ -293,7 +293,7 @@ public class PlayerHero : PlayerBase{
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
             GameObject obj = PlayerManager.instance.GetLowHPPlayerObj(no);
-            Vector3 warppos = new Vector3(obj.transform.position.x + WarpPos_X, 0.0f, obj.transform.position.z);
+            Vector3 warppos = new Vector3(obj.transform.position.x + WarpPos_X, InitY, obj.transform.position.z);
             transform.position = warppos;
         }
     }
