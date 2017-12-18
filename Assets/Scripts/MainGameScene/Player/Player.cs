@@ -68,7 +68,7 @@ public class Player : SceneStartEvent{
                 break;
             case PLAYER_STA.CITYIN:
                 playerbase.SetCharConNoHit(true);
-                playerbase.PlayerCityIn(ChangeCenterPos);
+                playerbase.PlayerCityIn(ChangeCenterPos, ChangeStartPos);
 
                 r = (Mathf.Abs(transform.position.x - ChangeCenterPos.x) * Mathf.Abs(transform.position.x - ChangeCenterPos.x)) + 
                     (Mathf.Abs(transform.position.z - ChangeCenterPos.z) * Mathf.Abs(transform.position.z - ChangeCenterPos.z));
@@ -111,7 +111,7 @@ public class Player : SceneStartEvent{
                 }
                 break;
             case PLAYER_STA.CITYOUT:
-                playerbase.PlayerCityOut(ChangeStartPos);
+                playerbase.PlayerCityOut(ChangeStartPos, ChangeCenterPos);
 
                 r = (Mathf.Abs(transform.position.x - ChangeStartPos.x) * Mathf.Abs(transform.position.x - ChangeStartPos.x)) +
                     (Mathf.Abs(transform.position.z - ChangeStartPos.z) * Mathf.Abs(transform.position.z - ChangeStartPos.z));

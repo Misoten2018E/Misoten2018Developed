@@ -63,7 +63,7 @@ public class PlayerBase : SceneStartEvent{
         SetAnimatorData();
     }
 
-    public void PlayerCityIn(Vector3 moveposition)
+    public void PlayerCityIn(Vector3 moveposition,Vector3 startpos)
     {
         Vector3 myposition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         velocity = moveposition - myposition;
@@ -73,23 +73,27 @@ public class PlayerBase : SceneStartEvent{
         
         MoveCharacter();
 
-        Vector3 S = Model.localScale;
-        S.x -= ChangeScale;
-        S.y -= ChangeScale;
-        S.z -= ChangeScale;
-        if (S.x < 0.1f)
+        float maxlength = (Mathf.Abs(moveposition.x - startpos.x) * Mathf.Abs(moveposition.x - startpos.x)) +
+                            (Mathf.Abs(moveposition.y - startpos.y) * Mathf.Abs(moveposition.y - startpos.y)) +
+                            (Mathf.Abs(moveposition.z - startpos.z) * Mathf.Abs(moveposition.z - startpos.z));
+
+        float nowlength = (Mathf.Abs(transform.position.x - startpos.x) * Mathf.Abs(transform.position.x - startpos.x)) +
+                            (Mathf.Abs(transform.position.y - startpos.y) * Mathf.Abs(transform.position.y - startpos.y)) +
+                            (Mathf.Abs(transform.position.z - startpos.z) * Mathf.Abs(transform.position.z - startpos.z));
+
+        float S = 1 - nowlength / maxlength;
+        
+        if (S < 0.1f)
         {
-            S.x = 0.1f;
-            S.y = 0.1f;
-            S.z = 0.1f;
+            S = 1;
         }
-        Model.localScale = S;
+        Model.localScale = new Vector3(S, S, S);
 
         PlayerSta = 0;
         SetAnimatorData();
     }
 
-    public void PlayerCityOut(Vector3 moveposition)
+    public void PlayerCityOut(Vector3 moveposition, Vector3 startpos)
     {
         Vector3 myposition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         velocity = moveposition - myposition;
@@ -99,17 +103,21 @@ public class PlayerBase : SceneStartEvent{
         
         MoveCharacter();
 
-        Vector3 S = Model.localScale;
-        S.x += ChangeScale;
-        S.y += ChangeScale;
-        S.z += ChangeScale;
-        if (S.x > 1)
+        float maxlength = (Mathf.Abs(moveposition.x - startpos.x) * Mathf.Abs(moveposition.x - startpos.x)) +
+                            (Mathf.Abs(moveposition.y - startpos.y) * Mathf.Abs(moveposition.y - startpos.y)) +
+                            (Mathf.Abs(moveposition.z - startpos.z) * Mathf.Abs(moveposition.z - startpos.z));
+
+        float nowlength = (Mathf.Abs(transform.position.x - startpos.x) * Mathf.Abs(transform.position.x - startpos.x)) +
+                            (Mathf.Abs(transform.position.y - startpos.y) * Mathf.Abs(transform.position.y - startpos.y)) +
+                            (Mathf.Abs(transform.position.z - startpos.z) * Mathf.Abs(transform.position.z - startpos.z));
+
+        float S = nowlength / maxlength;
+        
+        if (S > 0.6f)
         {
-            S.x = 1;
-            S.y = 1;
-            S.z = 1;
+            S = 1;
         }
-        Model.localScale = S;
+        Model.localScale = new Vector3(S,S,S);
 
         PlayerSta = 0;
         SetAnimatorData();
