@@ -102,8 +102,9 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 				// 攻撃元の座標を受け取る
 				HittedPlayerAttack(hito.ParentHit.myPlayer.GetPlayerObj());
 
-				SwtichHitted(hito);
 				hito.DamageHp(MyHp);
+				SwtichHitted(hito);
+				
 				CameraChance(hito);
 				return;
 			}

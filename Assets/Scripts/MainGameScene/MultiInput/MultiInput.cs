@@ -6,32 +6,27 @@ public class MultiInput : SceneStartEvent{
     public int PlayerNo;
     private int WorkPlayerNo;
 
+	const string ControllerName = "Wireless Controller";
+
     // Use this for initialization
     void Start () {
-        if (PlayerNo < 0 || PlayerNo > 3)
-        {
-            WorkPlayerNo = 0;
-        }
-        else
-        {
-            WorkPlayerNo = PlayerNo;
-        }
 
-        //var controllerNames = Input.GetJoystickNames();
+		// コントローラのセット
+		if (ControllerSet()) {
+			return;
+		}
 
-        //Debug.Log(controllerNames.Length);
+		// コントローラが取得できなかったときはここからの設定が適用される
 
-        //for (int i = 0;i <controllerNames.Length;i++)
-        //{
-        //    Debug.Log(controllerNames[i]);
-        //}
+		if (PlayerNo < 0 || PlayerNo > 3) {
+			WorkPlayerNo = 0;
+		}
+		else {
+			WorkPlayerNo = PlayerNo;
+		}
 
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
+	
 
     //======================================================================
     public float GetXaxis()
@@ -268,4 +263,29 @@ public class MultiInput : SceneStartEvent{
         return false;
     }
     //======================================================================
+
+	/// <summary>
+	/// コントローラのセット
+	/// 出来たならtrue
+	/// </summary>
+	/// <returns></returns>
+	private bool ControllerSet() {
+
+		var controllerNames = Input.GetJoystickNames();
+
+		int count = -1;
+		for (int i = 0; i < controllerNames.Length; i++) {
+
+			if (controllerNames[i] == ControllerName) {
+				count++;
+
+				if (count == PlayerNo) {
+					WorkPlayerNo = i;
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
 }
