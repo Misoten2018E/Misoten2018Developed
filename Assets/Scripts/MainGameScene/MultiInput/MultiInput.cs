@@ -6,10 +6,11 @@ public class MultiInput : SceneStartEvent{
     public int PlayerNo;
     private int WorkPlayerNo;
 
-	const string ControllerName = "Wireless Controller";
+	//const string ControllerName = "Wireless Controller";
+	const string ControllerName = "Controller (XBOX 360 For Windows)";
 
-    // Use this for initialization
-    void Start () {
+	// Use this for initialization
+	void Start () {
 
 		// コントローラのセット
 		if (ControllerSet()) {
