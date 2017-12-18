@@ -186,6 +186,11 @@ public class Player : SceneStartEvent{
         return playerbase.GetHP();
     }
 
+    public int GetPlayerSta()
+    {
+        return (int)playersta;
+    }
+
     public void PlayerForcibly(Vector3 target)
     {
         playersta = PLAYER_STA.FORCIBLY;
@@ -235,6 +240,21 @@ public class Player : SceneStartEvent{
                 beforeCharacter = CharacterSta;
                 GetComponent<CapsuleCollider>().enabled = false;
             }
+        }
+
+        if (other.tag == ConstTags.City && playersta == PLAYER_STA.FORCIBLY)
+        {
+            float citylength = (Mathf.Abs(ChangeCenterPos.x - other.gameObject.transform.position.x) * Mathf.Abs(ChangeCenterPos.x - other.gameObject.transform.position.x)) +
+                         (Mathf.Abs(ChangeCenterPos.z - other.gameObject.transform.position.z) * Mathf.Abs(ChangeCenterPos.z - other.gameObject.transform.position.z));
+
+            float length = (Mathf.Abs(transform.position.x - ChangeCenterPos.x) * Mathf.Abs(transform.position.x - ChangeCenterPos.x)) +
+                         (Mathf.Abs(transform.position.z - ChangeCenterPos.z) * Mathf.Abs(transform.position.z - ChangeCenterPos.z));
+
+            if (citylength < length)
+            {
+                playersta = PLAYER_STA.NORMAL;
+            }
+
         }
     }
 
