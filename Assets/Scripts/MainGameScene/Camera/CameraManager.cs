@@ -25,6 +25,7 @@ public class CameraManager : MonoBehaviour {
 	void Awake () {
 
 		myInstance = this;
+
 	}
 	
 	// Update is called once per frame

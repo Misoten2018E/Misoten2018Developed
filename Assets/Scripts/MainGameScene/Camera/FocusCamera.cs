@@ -52,7 +52,12 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 	Camera _MainCamera;
 	public Camera MainCamera {
 		private set { _MainCamera = value; }
-		get { return _MainCamera; }
+		get {
+			if (_MainCamera == null) {
+				_MainCamera = GetComponent<Camera>();
+			}
+			return _MainCamera;
+		}
 	}
 
 	/// <summary>
