@@ -4634,48 +4634,68 @@ MonoBehaviour:
   isPausePermit: 1
   no: 0
   nodamagetime: 1
-  JumpSpeedCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 2.5377815
-      outSlope: 2.5377815
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  JumpYCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 3.658972
-      outSlope: 3.658972
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.4959646
-      value: 1.0026262
-      inSlope: 0.09868912
-      outSlope: 0.09868912
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.99756503
-      value: 0.009745002
-      inSlope: -3.3734229
-      outSlope: -3.3734229
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
+  Curves:
+    JumpSpeedCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    JumpYCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 2.741971
+        outSlope: 2.741971
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.50052387
+        value: 1.0057793
+        inSlope: -0.046717003
+        outSlope: -0.046717003
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.0022488
+        value: -0.0017471313
+        inSlope: -2.2557456
+        outSlope: -2.2557456
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    StrongMoveForward:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: -0.002418518
+        value: 1.0000076
+        inSlope: -0.047295816
+        outSlope: -0.047295816
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.002579
+        value: 0.004227422
+        inSlope: -2.9795704
+        outSlope: -2.9795704
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    MoveLength: 0.5
 --- !u!114 &114473111881998170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4865,7 +4885,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 8
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3

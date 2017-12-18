@@ -25,8 +25,17 @@ public class PlayerHero : PlayerBase{
     HitAnimationBase HitAnime;
     TrailBodyManager TBM;
 
-	[SerializeField] private AnimationCurve JumpSpeedCurve;
-	[SerializeField] private AnimationCurve JumpYCurve;
+	[System.Serializable]
+	public class CurveData {
+
+		public AnimationCurve JumpSpeedCurve;
+		public AnimationCurve JumpYCurve;
+
+		public AnimationCurve StrongMoveForward;
+		public float MoveLength;
+	}
+
+	[SerializeField] CurveData Curves;
 
     const int Player_Hero_MoveSpeed = 5;
     const int Player_Hero_RotationSpeed = 750;
@@ -34,17 +43,18 @@ public class PlayerHero : PlayerBase{
     const int Player_Hero_ATTACK = 1;
     const float WarpPos_X = 0.5f;
 
+	// 12/18 江戸　使わないならコメントアウト
     //Use this for initialization
-    void Start()
-    {
-        //使わない方向で
-    }
+    //void Start()
+    //{
+    //    //使わない方向で
+    //}
 
-    // Update is called once per frame
-    void Update()
-    {
-        //使わない方向で
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    //使わない方向で
+    //}
 
     override
     public void Playerinit(GameObject playerobj)
@@ -272,7 +282,11 @@ public class PlayerHero : PlayerBase{
             player_Hero_sta = PLAYER_HERO_STA.STRONGATTACK_END;
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationStrongattack(Attack);
-            ModelTransformReset();
+
+			// 12/18 江戸追記
+			ieActionCort = IEMoveStrongAction();
+			StartCoroutine(ieActionCort);
+			ModelTransformReset();
         }
     }
 
@@ -303,7 +317,8 @@ public class PlayerHero : PlayerBase{
 			//   transform.position = warppos;
 
 			GameObject obj = PlayerManager.instance.GetLowHPPlayerObj(no);
-			StartCoroutine(IEMoveSpecialAction(obj.transform.position));
+			ieActionCort = IEMoveSpecialAction(obj.transform.position);
+			StartCoroutine(ieActionCort);
 		}
     }
 
@@ -324,6 +339,7 @@ public class PlayerHero : PlayerBase{
         {
             player_Hero_sta = PLAYER_HERO_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
+			ienumeratorReset();	//12/18 江戸追記
             ModelTransformReset();
         }
     }
@@ -350,6 +366,14 @@ public class PlayerHero : PlayerBase{
         return res;
     }
 
+
+
+	//========================================================================================
+	//                                    江戸追加
+	//========================================================================================
+
+	IEnumerator ieActionCort;
+
 	/// <summary>
 	/// 目標位置への移動
 	/// 12/18 江戸 追加
@@ -373,10 +397,10 @@ public class PlayerHero : PlayerBase{
 				break;
 			}
 
-			float rate = JumpSpeedCurve.Evaluate(time / MaxTime);
+			float rate = Curves.JumpSpeedCurve.Evaluate(time / MaxTime);
 
 			Vector3 pos = Vec3Comp.CalcPosition(rate);
-			pos.y += JumpYCurve.Evaluate(rate) * YPlus;
+			pos.y += Curves.JumpYCurve.Evaluate(rate) * YPlus;
 			transform.position = pos;
 			
 			yield return null;
@@ -384,14 +408,58 @@ public class PlayerHero : PlayerBase{
 
 		transform.position = Vec3Comp.CalcPosition(1f);
 
-		Vector3 bodypos = Model.transform.position;
-		bodypos.y = 0f;
-		transform.position = bodypos;
-
 		TBM.EndTrail(TrailSupport.BodyType.Body);
 
 		player_Hero_sta = PLAYER_HERO_STA.NORMAL;
 		PlayerSta = (int)player_Hero_sta;
-	//	ModelTransformReset();
+
+		ieActionCort = null;
+		ModelTransformReset();
+	}
+
+	/// <summary>
+	/// 強攻撃移動
+	/// 12/18 江戸 追加
+	/// </summary>
+	/// <returns></returns>
+	private IEnumerator IEMoveStrongAction() {
+
+		TBM.StartTrail(TrailSupport.BodyType.RightLeg);
+
+		const float MaxTime = 0.5f;
+		float time = 0f;
+
+
+		while (true) {
+
+			time += Time.deltaTime;
+			if (time >= MaxTime) {
+				break;
+			}
+
+			Vector3 move = transform.forward * Curves.StrongMoveForward.Evaluate(time / MaxTime) * Curves.MoveLength;
+			CharCon.Move(move);
+
+			yield return null;
+		}
+
+		ieActionCort = null;
+		TBM.EndTrail(TrailSupport.BodyType.RightLeg);
+	}
+
+	/// <summary>
+	/// 途中で攻撃などで中断された場合
+	/// </summary>
+	private void ienumeratorReset() {
+
+		if (ieActionCort != null) {
+			StopCoroutine(ieActionCort);
+			ieActionCort = null;
+
+			TBM.EndTrail();
+
+			transform.position += Model.localPosition;
+			ModelTransformReset();
+		}
 	}
 }
