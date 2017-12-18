@@ -164,13 +164,14 @@ public class Player : SceneStartEvent{
         //input = GetComponent<MultiInput>();
         //CharCon = this.GetComponent<CharacterController>();
 
-        workpos.Set(transform.position.x, transform.position.y, transform.position.z);
+        workpos.Set(transform.position.x, 1.0f, transform.position.z);
         NowCharacter = Instantiate(NormalCharacter, workpos, Quaternion.identity) as GameObject;
         
         playerbase = NowCharacter.GetComponent<PlayerBase>();
         playerbase.Playerinit(gameObject);
         CharacterSta = ConstPlayerSta.NormalCharacter;
         playersta = PLAYER_STA.NORMAL;
+        Score.instance.SetCharacter(no, CharacterSta);
 
         isInitialized = true;
     }
