@@ -303,6 +303,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		hitObj.Freeze(Damaged);
 		Damaged.HittedStoppedAction(hitObj.FreezeTime, ChildModelTrans, impact);
 
+		ChildModelAnim.AnimationStop();
+
 		if (ieFreezeCort != null) {
 			StopCoroutine(ieFreezeCort);
 		}

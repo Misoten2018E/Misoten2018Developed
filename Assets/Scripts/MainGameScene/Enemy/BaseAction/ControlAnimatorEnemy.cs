@@ -28,7 +28,7 @@ public abstract class ControlAnimatorEnemy : MonoBehaviour {
 	/// </summary>
 	public void AnimationRestart() {
 
-		Anim.speed = 0f;
+		Anim.speed = 1f;
 	}
 
 	/// <summary>
