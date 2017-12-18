@@ -16,6 +16,8 @@ public class BossEnemy : PlayerAttackEnemy {
 
 	[SerializeField] private Transform FacePoint;
 
+	private float CheckLength = 3f;
+
 	//========================================================================================
 	//                                     public
 	//========================================================================================
@@ -149,7 +151,7 @@ public class BossEnemy : PlayerAttackEnemy {
 				break;
 
 			case BossAct.SoOA:
-				StartSelectionOfOptimalAction();
+				StartSelectionOfOptimalAction(NowAction.GeneralNum);
 				break;
 
 			case BossAct.PopedNoob:
@@ -229,14 +231,26 @@ public class BossEnemy : PlayerAttackEnemy {
 	/// </summary>
 	void StartPopedEnemy(int num) {
 
+		if (ProduceCort != null) {
+			StopCoroutine(ProduceCort);
+		}
+		ProduceCort = IEUpdateBossPopEnemy();
+		StartCoroutine(ProduceCort);
 	}
 
 	/// <summary>
 	/// 最適な行動の選択
 	/// 火球orしっぽ攻撃
 	/// </summary>
-	void StartSelectionOfOptimalAction() {
+	void StartSelectionOfOptimalAction(int num) {
 
+		if (CheckPlayerLength(CheckLength)) {
+
+			StartTalePushOff();
+			return;
+		}
+
+		StartFireBreath(num);
 	}
 
 
@@ -337,6 +351,33 @@ public class BossEnemy : PlayerAttackEnemy {
 		BossControll.SetState(BossAnimationController.EnemyState.Wait);
 	}
 
+
+	/// <summary>
+	/// 雑魚の吐き出し攻撃
+	/// </summary>
+	IEnumerator IEUpdateBossPopEnemy() {
+
+		const float MaxTime = 0.7f;
+		var popEnemy = ResourceManager.Instance.Get<BossFire>(ConstDirectry.DirPrefabsEnemy, ConstActionHitData.ActionBossFire);
+
+		var popPos = positionMng.BossPopEnemyPosition();
+
+		for (int i = 0; i < popPos.PositionList.Count; i++) {
+
+			BossControll.SetState(BossAnimationController.EnemyState.Fire);
+			yield return new WaitForSeconds(MaxTime);
+
+			var f = Instantiate(popEnemy);
+			f.StartFire(FacePoint.position, popPos.PositionList[i].transform.position);
+
+			SoundManager.Instance.PlaySE(SoundManager.SEType.Boss_Attack3, FacePoint.position);
+
+			yield return new WaitForSeconds(MaxTime / 2);
+		}
+
+		BossControll.SetState(BossAnimationController.EnemyState.Wait);
+	}
+
 	/// <summary>
 	/// 
 	/// </summary>
@@ -391,7 +432,20 @@ public class BossEnemy : PlayerAttackEnemy {
 	}
 
 
-	
+	bool CheckPlayerLength(float length) {
+
+		var pls = PlayerManager.instance.PlayersObject;
+		float mag = length * length;
+
+		for (int i = 0; i < pls.Count; i++) {
+
+			if ((transform.position - pls[i].transform.position).sqrMagnitude < mag) {
+				return true;
+			}
+		}
+
+		return false;
+	}
 
 
 	//========================================================================================
@@ -419,6 +473,18 @@ public class BossEnemy : PlayerAttackEnemy {
 			return _BossHitMng;
 		}
 	}
+
+
+	BossPopPositionManager _positionMng;
+	public BossPopPositionManager positionMng {
+		get {
+			if (_positionMng == null) {
+				_positionMng = FindObjectOfType<BossPopPositionManager>();
+			}
+			return _positionMng;
+		}
+	}
+      
 }
 
 

@@ -449,6 +449,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4014809114637392, guid: cf158f1097dc4484d92387b422f011b6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -484,7 +489,7 @@ Prefab:
     - target: {fileID: 114864957748528512, guid: cf158f1097dc4484d92387b422f011b6,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4704916085744970, guid: cf158f1097dc4484d92387b422f011b6, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -741,6 +746,146 @@ Prefab:
     - target: {fileID: 1633552418903710, guid: cf158f1097dc4484d92387b422f011b6, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[0].time
+      value: 0.0027313232
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[0].value
+      value: 0.0030441284
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[1].time
+      value: 0.100304544
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[1].value
+      value: 0.9923396
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[1].inSlope
+      value: 0.007871872
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[1].outSlope
+      value: 0.007871872
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[2].time
+      value: 0.29998168
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[2].value
+      value: -0.9976366
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[2].inSlope
+      value: 0.0041603134
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[2].outSlope
+      value: 0.0041603134
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[3].time
+      value: 0.49961483
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[3].value
+      value: 1.0149646
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[3].inSlope
+      value: -0.0043633105
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[3].outSlope
+      value: -0.0043633105
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[4].time
+      value: 0.69970644
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[4].value
+      value: -0.9869143
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[4].inSlope
+      value: -0.0007297284
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[4].outSlope
+      value: -0.0007297284
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[5].time
+      value: 0.8993938
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[5].value
+      value: 0.99317414
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[5].inSlope
+      value: 0.05029266
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[5].outSlope
+      value: 0.05029266
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[6].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[6].value
+      value: 0.00060164277
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[6].inSlope
+      value: -0.0045972364
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_Curve.Array.data[6].outSlope
+      value: -0.0045972364
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: ImpactTremble.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593754766952182, guid: cf158f1097dc4484d92387b422f011b6,
+        type: 2}
+      propertyPath: TremblePower
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf158f1097dc4484d92387b422f011b6, type: 2}
@@ -1372,7 +1517,27 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114845899626939386, guid: 205fcb7bf5ec58643aaaa8c951907bde,
+    - target: {fileID: 114469336293468230, guid: 205fcb7bf5ec58643aaaa8c951907bde,
+        type: 2}
+      propertyPath: NoticeWindow
+      value: 
+      objectReference: {fileID: 254908606}
+    - target: {fileID: 114801059174563266, guid: 205fcb7bf5ec58643aaaa8c951907bde,
+        type: 2}
+      propertyPath: NoticeWindow
+      value: 
+      objectReference: {fileID: 504271329}
+    - target: {fileID: 114300373170224382, guid: 205fcb7bf5ec58643aaaa8c951907bde,
+        type: 2}
+      propertyPath: NoticeWindow
+      value: 
+      objectReference: {fileID: 504271329}
+    - target: {fileID: 114243760133157650, guid: 205fcb7bf5ec58643aaaa8c951907bde,
+        type: 2}
+      propertyPath: NoticeWindow
+      value: 
+      objectReference: {fileID: 161299512}
+    - target: {fileID: 114955445456879338, guid: 205fcb7bf5ec58643aaaa8c951907bde,
         type: 2}
       propertyPath: NoticeWindow
       value: 
@@ -1382,31 +1547,11 @@ Prefab:
       propertyPath: NoticeWindow
       value: 
       objectReference: {fileID: 1625416068}
-    - target: {fileID: 114955445456879338, guid: 205fcb7bf5ec58643aaaa8c951907bde,
+    - target: {fileID: 114845899626939386, guid: 205fcb7bf5ec58643aaaa8c951907bde,
         type: 2}
       propertyPath: NoticeWindow
       value: 
       objectReference: {fileID: 1625416068}
-    - target: {fileID: 114243760133157650, guid: 205fcb7bf5ec58643aaaa8c951907bde,
-        type: 2}
-      propertyPath: NoticeWindow
-      value: 
-      objectReference: {fileID: 161299512}
-    - target: {fileID: 114300373170224382, guid: 205fcb7bf5ec58643aaaa8c951907bde,
-        type: 2}
-      propertyPath: NoticeWindow
-      value: 
-      objectReference: {fileID: 504271329}
-    - target: {fileID: 114801059174563266, guid: 205fcb7bf5ec58643aaaa8c951907bde,
-        type: 2}
-      propertyPath: NoticeWindow
-      value: 
-      objectReference: {fileID: 504271329}
-    - target: {fileID: 114469336293468230, guid: 205fcb7bf5ec58643aaaa8c951907bde,
-        type: 2}
-      propertyPath: NoticeWindow
-      value: 
-      objectReference: {fileID: 254908606}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 205fcb7bf5ec58643aaaa8c951907bde, type: 2}
   m_IsPrefabParent: 0
