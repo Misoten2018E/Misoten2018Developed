@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class HitSoundEffectSupport : MonoBehaviour {
+public class SoundEffectSupport : MonoBehaviour {
 
 	[SerializeField] protected SoundManager.SEType HitSE;
 

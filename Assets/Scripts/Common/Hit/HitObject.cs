@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 [DisallowMultipleComponent]
 [System.Serializable]
-public abstract class HitObject : HitSoundEffectSupport,DebuggableObject {
+public abstract class HitObject : SoundEffectSupport,DebuggableObject {
 
 
 	//========================================================================================
