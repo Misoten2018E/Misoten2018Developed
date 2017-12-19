@@ -59,4 +59,15 @@ public abstract class MoveTargetEnemy : WaitEnemy {
 		v.y = 0f;
 		transform.position = v;
 	}
+
+
+	//========================================================================================
+	//                                    protected
+	//========================================================================================
+
+	private float _rotate;
+	protected float RotateSpeed {
+		set { _rotate = value; }
+		get { return _rotate; }
+	}
 }
