@@ -4422,18 +4422,39 @@ MonoBehaviour:
   - ActType: 1
     StartTime: 5
     GeneralNum: 2
-  - ActType: 4
+  - ActType: 2
     StartTime: 10
     GeneralNum: 0
-  - ActType: 0
-    StartTime: 15
-    GeneralNum: 0
   - ActType: 1
+    StartTime: 15
+    GeneralNum: 2
+  - ActType: 2
     StartTime: 20
-    GeneralNum: 3
+    GeneralNum: 0
   - ActType: 4
     StartTime: 25
     GeneralNum: 0
+  - ActType: 3
+    StartTime: 30
+    GeneralNum: 8
+  - ActType: 2
+    StartTime: 35
+    GeneralNum: 0
+  - ActType: 3
+    StartTime: 40
+    GeneralNum: 8
+  - ActType: 2
+    StartTime: 45
+    GeneralNum: 0
+  - ActType: 4
+    StartTime: 50
+    GeneralNum: 0
+  - ActType: 1
+    StartTime: 55
+    GeneralNum: 4
+  - ActType: 3
+    StartTime: 60
+    GeneralNum: 16
   JumpCurve:
     serializedVersion: 2
     m_Curve:
