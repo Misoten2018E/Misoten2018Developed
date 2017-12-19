@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSE: 35
   AttackId: 0
   Damage: 150
   _MoveCurve:
@@ -342,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSE: 35
   AttackId: 1
   Damage: 60
   _MoveCurve:
@@ -379,6 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSE: 35
   AttackId: 2
   Damage: 40
   _MoveCurve:
@@ -418,6 +421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ManageList:
   - {fileID: 4932768695853664}
+  - {fileID: 4480985949044476}
+  - {fileID: 4993571047472528}
 --- !u!135 &135035531734692818
 SphereCollider:
   m_ObjectHideFlags: 1
