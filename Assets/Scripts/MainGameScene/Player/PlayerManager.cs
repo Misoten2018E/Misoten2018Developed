@@ -67,6 +67,50 @@ public class PlayerManager : SceneStartEvent{
         return resobj;
     }
 
+    //　HPが一番低いプレイヤーのオブジェクトを返す
+    public GameObject GetHerotarget(int myno)
+    {
+        GameObject resobj = PlayersObject[myno];
+        Player[] P = new Player[Playercnt];
+        int minhp = 999;
+        int hp;
+        int flg = 0;
+
+        for (int i=0;i< Playercnt;i++)
+        {
+            P[i] = PlayersObject[i].GetComponent<Player>();
+            flg += P[i].GetPlayerSta();
+        }
+
+        if (flg == 0)
+        {
+            if ((P[0].GetPlayerHP() == P[1].GetPlayerHP())&&
+                (P[0].GetPlayerHP() == P[2].GetPlayerHP()) &&
+                (P[0].GetPlayerHP() == P[3].GetPlayerHP()))
+            {
+                Random random;
+                
+            }
+        }
+
+        for (int i = 0; i < Playercnt; i++)
+        {
+            //P = PlayersObject[i].gameObject.GetComponent<Player>();
+            //if (P.no != myno)
+            //{
+            //    hp = P.GetPlayerHP();
+            //    if (hp < minhp)
+            //    {
+            //        minhp = hp;
+            //        resobj = PlayersObject[i];
+            //    }
+            //}
+
+        }
+
+        return resobj;
+    }
+
     //自分に一番近いプレイヤーのオブジェクトを返す
     public GameObject GetNearPlayerObj(Vector3 myPos)
     {
