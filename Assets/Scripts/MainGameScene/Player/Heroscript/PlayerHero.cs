@@ -159,6 +159,8 @@ public class PlayerHero : PlayerBase{
             ModelTransformReset();
             TBM.StartTrail(TrailSupport.BodyType.RightArm);
             RotationSpeed = Player_Hero_ActionRotationSpeed;
+            SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Light1, transform.position);
+            
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -167,6 +169,7 @@ public class PlayerHero : PlayerBase{
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
             RotationSpeed = Player_Hero_ActionRotationSpeed;
+            SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Strong, transform.position);
         }
 
         if (input.GetButtonCircleTrigger())
@@ -175,6 +178,7 @@ public class PlayerHero : PlayerBase{
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationSpecial();
             ModelTransformReset();
+            SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_SP_Jump, transform.position);
         }
 
         MoveCharacter();
@@ -204,6 +208,7 @@ public class PlayerHero : PlayerBase{
                 HitAnime.HitAnimationWeakattack2(Attack);
                 TBM.EndTrail(TrailSupport.BodyType.RightArm);
                 TBM.StartTrail(TrailSupport.BodyType.LeftArm);
+                SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Light2, transform.position);
             }
             else
             {
@@ -235,6 +240,7 @@ public class PlayerHero : PlayerBase{
                 HitAnime.HitAnimationWeakattack3(Attack);
                 TBM.EndTrail(TrailSupport.BodyType.LeftArm);
                 TBM.StartTrail(TrailSupport.BodyType.RightLeg);
+                SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Light3, transform.position);
             }
             else
             {
@@ -306,6 +312,7 @@ public class PlayerHero : PlayerBase{
             player_Hero_sta = PLAYER_HERO_STA.NORMAL;
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
+            SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_SP_Landed, transform.position);
         }
     }
 

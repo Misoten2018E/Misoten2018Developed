@@ -153,6 +153,7 @@ public class PlayerSpecialist : PlayerBase{
             PlayerSta = (int)player_Special_sta;
             HitAnime.HitAnimationWeakattack1(Attack);
             ModelTransformReset();
+            SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Light1, transform.position);
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -168,6 +169,7 @@ public class PlayerSpecialist : PlayerBase{
                 player_Special_sta = PLAYER_SPECIALIST_STA.SET;
                 PlayerSta = (int)player_Special_sta;
                 ModelTransformReset();
+                SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Strong_Set, transform.position);
             }
             
         }
@@ -178,6 +180,7 @@ public class PlayerSpecialist : PlayerBase{
             PlayerSta = (int)player_Special_sta;
             HitAnime.HitAnimationSpecial();
             ModelTransformReset();
+            SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_SP_Megaphone, transform.position);
         }
 
         MoveCharacter();
@@ -206,6 +209,7 @@ public class PlayerSpecialist : PlayerBase{
                 PlayerSta = (int)player_Special_sta;
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack2(Attack);
+                SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Light2, transform.position);
             }
             else
             {
@@ -234,6 +238,7 @@ public class PlayerSpecialist : PlayerBase{
                 PlayerSta = (int)player_Special_sta;
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack3(Attack);
+                SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Light3, transform.position);
             }
             else
             {

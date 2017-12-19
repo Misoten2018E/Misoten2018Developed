@@ -40,6 +40,7 @@ public class Doping : SceneStartEvent{
         P.AttackUP(DOPINGUP);
         totaltime = 0;
         Charactersta = P.GetCharacterSta();
+        SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_SP_PowerUp, transform.position);
 
         initflg = true;
     }

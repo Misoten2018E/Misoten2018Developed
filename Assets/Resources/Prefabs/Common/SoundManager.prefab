@@ -249,34 +249,39 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 26d067e4c74ac8b46a07983d7be18eac, type: 3}
   - {fileID: 8300000, guid: 26d067e4c74ac8b46a07983d7be18eac, type: 3}
   SoundEffect:
-    player:
-      Attack_Light1: {fileID: 0}
-      Attack_Light2: {fileID: 0}
-      Attack_Light3: {fileID: 0}
-      Attack_Strong: {fileID: 0}
-      Special_Jump: {fileID: 0}
-      Special_Landed: {fileID: 0}
-      HitAttack_Panch: {fileID: 0}
-      HitAttack_Kick: {fileID: 0}
+    Hero:
+      Attack_Light1: {fileID: 8300000, guid: 41a340d2808eba14885606781f9e1560, type: 3}
+      Attack_Light2: {fileID: 8300000, guid: 41a340d2808eba14885606781f9e1560, type: 3}
+      Attack_Light3: {fileID: 8300000, guid: 41a340d2808eba14885606781f9e1560, type: 3}
+      Attack_Strong: {fileID: 8300000, guid: bfdcf150a95b0a9448b44f9b914e764d, type: 3}
+      Special_Jump: {fileID: 8300000, guid: 8d0936ec168a84c4d9fd31b468c5cfe9, type: 3}
+      Special_Landed: {fileID: 8300000, guid: ef38d3d7df69ece47b4bc370850252bd, type: 3}
+      HitAttack_Panch: {fileID: 8300000, guid: ac6da2dec05ffcb41a0cba3681194c29, type: 3}
+      HitAttack_Kick: {fileID: 8300000, guid: b1b739c2ca1fe824487e85e9412e9508, type: 3}
     evil:
-      Attack_Light1: {fileID: 0}
-      Attack_Light2: {fileID: 0}
-      Attack_Light3: {fileID: 0}
-      Attack_Strong: {fileID: 0}
-      Special_Catch: {fileID: 0}
-      Special_Pull: {fileID: 0}
-      HitAttack_Light: {fileID: 0}
-      HitAttack_Strong: {fileID: 0}
+      Attack_Light1: {fileID: 8300000, guid: 3faa54fe2f4d6f748b2c95c7e7622e30, type: 3}
+      Attack_Light2: {fileID: 8300000, guid: 3faa54fe2f4d6f748b2c95c7e7622e30, type: 3}
+      Attack_Light3: {fileID: 8300000, guid: 3faa54fe2f4d6f748b2c95c7e7622e30, type: 3}
+      Attack_Strong: {fileID: 8300000, guid: e40e2a5eeb294b64a83902d4d2fe6911, type: 3}
+      Special_Catch: {fileID: 8300000, guid: 2093cad35bd05754bbf55730b2e9d037, type: 3}
+      Special_Pull: {fileID: 8300000, guid: 37136b238157f4b499c2f608fcbcfc02, type: 3}
+      HitAttack_Light: {fileID: 8300000, guid: 3faa54fe2f4d6f748b2c95c7e7622e30, type: 3}
+      HitAttack_Strong: {fileID: 8300000, guid: fced5f621bae69340a79628e93534587,
+        type: 3}
     effecter:
-      Attack_Light1: {fileID: 0}
-      Attack_Light2: {fileID: 0}
-      Attack_Light3: {fileID: 0}
-      Attack_Strong_Set: {fileID: 0}
-      Attack_Strong_Explosion: {fileID: 0}
-      Special_Megaphone: {fileID: 0}
-      Special_PowerUp: {fileID: 0}
-      HitAttack_Light: {fileID: 0}
-      HitAttack_Strong: {fileID: 0}
+      Attack_Light1: {fileID: 8300000, guid: feb65107a138f724dbcbcedd280e342a, type: 3}
+      Attack_Light2: {fileID: 8300000, guid: 18f4b60939a3edc4682fabd5d3997480, type: 3}
+      Attack_Light3: {fileID: 8300000, guid: f1962327507cba74295f8447f65f6491, type: 3}
+      Attack_Strong_Set: {fileID: 8300000, guid: a3f892e8d642e504189541fee969df01,
+        type: 3}
+      Attack_Strong_Explosion: {fileID: 8300000, guid: f3ede9c23f005d1469be9532f4499bf9,
+        type: 3}
+      Special_Megaphone: {fileID: 8300000, guid: 16bb13129283b32448b520ce4ce8f978,
+        type: 3}
+      Special_PowerUp: {fileID: 8300000, guid: 16bb13129283b32448b520ce4ce8f978, type: 3}
+      HitAttack_Light: {fileID: 8300000, guid: feb65107a138f724dbcbcedd280e342a, type: 3}
+      HitAttack_Strong: {fileID: 8300000, guid: f3ede9c23f005d1469be9532f4499bf9,
+        type: 3}
     enemy:
       Mob_Attack: {fileID: 0}
       Mob_HitAttack: {fileID: 0}
