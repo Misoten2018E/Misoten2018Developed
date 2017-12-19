@@ -16,12 +16,13 @@ public class HitObjectFreeze : HitObject {
 	//========================================================================================
 
 	// Use this for initialization
-	void Start () {
+	void Awake() {
 		hitType = HitType.Freeze;
 	}
 
 	public void Freeze(DamagedAction action) {
 		action.Freeze(FreezeTime);
+		PlaySE();
 	}
 
 	//========================================================================================

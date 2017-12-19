@@ -16,13 +16,13 @@ public class HitObjectBlowOff : HitObject {
 
 
 	// Use this for initialization
-	void Start () {
+	void Awake() {
 		hitType = HitType.BlowOff;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void BlowOff(DamagedAction action, Vector3 impact) {
+		action.KnockBack(impact, Moved, MoveCurve);
+		PlaySE();
 	}
 
 	//========================================================================================

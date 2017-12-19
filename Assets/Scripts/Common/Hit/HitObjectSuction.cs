@@ -16,17 +16,13 @@ public class HitObjectSuction : HitObject {
 	//========================================================================================
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		hitType = HitType.Suction;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	public void Sucion(DamagedAction action) {
 		action.Suction(transform.position, Moved, MoveCurve);
+		PlaySE();
 	}
 
 	//========================================================================================
