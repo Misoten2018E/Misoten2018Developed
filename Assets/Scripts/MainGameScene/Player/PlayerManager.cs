@@ -82,29 +82,37 @@ public class PlayerManager : SceneStartEvent{
             flg += P[i].GetPlayerSta();
         }
 
-        if (flg == 0)
+        
+        if ((P[0].GetPlayerHP() == P[1].GetPlayerHP())&&
+            (P[0].GetPlayerHP() == P[2].GetPlayerHP()) &&
+            (P[0].GetPlayerHP() == P[3].GetPlayerHP()) && (flg == 0))
         {
-            if ((P[0].GetPlayerHP() == P[1].GetPlayerHP())&&
-                (P[0].GetPlayerHP() == P[2].GetPlayerHP()) &&
-                (P[0].GetPlayerHP() == P[3].GetPlayerHP()))
+            int targetindex = Random.Range(0, Playercnt);
+            if (targetindex == myno)
             {
-                Random random;
-                
+                targetindex += 1;
+                if (targetindex >= Playercnt)
+                {
+                    targetindex = 0;
+                }
             }
-        }
+            resobj = PlayersObject[targetindex];
 
+            return resobj;
+        }
+        
         for (int i = 0; i < Playercnt; i++)
         {
-            //P = PlayersObject[i].gameObject.GetComponent<Player>();
-            //if (P.no != myno)
-            //{
-            //    hp = P.GetPlayerHP();
-            //    if (hp < minhp)
-            //    {
-            //        minhp = hp;
-            //        resobj = PlayersObject[i];
-            //    }
-            //}
+            if (P[i].no != myno)
+            {
+                hp = P[i].GetPlayerHP();
+                flg = P[i].GetPlayerSta();
+                if (hp < minhp && flg == 0)
+                {
+                    minhp = hp;
+                    resobj = PlayersObject[i];
+                }
+            }
 
         }
 
