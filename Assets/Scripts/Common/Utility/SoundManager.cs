@@ -120,7 +120,7 @@ public class SoundManager : MonoBehaviour {
 	/// <summary>
 	/// 初期処理
 	/// </summary>
-	void Start() {
+	void Awake() {
 
 		Create(this);
 		audioSource = GetComponent<AudioSource>();
