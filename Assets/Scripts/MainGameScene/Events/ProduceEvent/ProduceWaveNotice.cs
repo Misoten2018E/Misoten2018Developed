@@ -25,6 +25,8 @@ public class ProduceWaveNotice : ProduceEventBase {
 		NoticeWindow.gameObject.SetActive(true);
 		NoticeWindow.AnimationEndCallback = AnimationEnd;
 		NoticeWindow.AnimationStart();
+
+		PlaySE();
 	}
 
 

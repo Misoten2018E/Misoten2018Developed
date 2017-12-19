@@ -47,6 +47,8 @@ public class ProduceNoticeTutorial : ProduceEventBase {
 		//}
 
 		StartCoroutine(GameObjectExtensions.DelayMethod(DisplayTime, EndProduce));
+
+		PlaySE();
 	}
 
 

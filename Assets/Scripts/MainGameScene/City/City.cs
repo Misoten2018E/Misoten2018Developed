@@ -15,41 +15,38 @@ public class City : SceneStartEvent{
 	private void Awake() {
 
 		myInstance = this;
-
+		CityLevel = -1;
 	}
 
-	// Use this for initialization
-	void Start() {
-
-	}
-
-	int debugId = -1;
+	int debugId = 0;
 
 	// Update is called once per frame
 	void Update() {
+
         if (!isInitialized) return;
 
 		score = Score.instance.GetScore();
 		debugId = DebugLog.ChaseLog("city" + score, debugId);
-		
-        for (int i = 0;i < ScoreList.Count ;i++)
-        {
-            if (ScoreList[i] <= score)
-            {
-                CityStaArray[i] = 1;
-				CityLevel = i;
 
+		for (int i = CityLevel; i < ScoreList.Count; i++) {
+
+			if (ScoreList[i] <= score) {
+
+				CityStaArray[i] = 1;
+				CityLevel = i + 1;
+				AnimatorArray[i].SetInteger("CitySta", CityStaArray[i]);
+
+				SoundManager.Instance.PlaySE(SoundManager.SEType.CityLevelUp,transform.position);
 			}
-            else
-            {
-                break;
-            }
-        }
+			else {
+				break;
+			}
+		}
 
-        for (int i = 0;i < CityModelCnt;i++)
-        {
-            AnimatorArray[i].SetInteger("CitySta", CityStaArray[i]);
-        }
+        //for (int i = 0;i < CityModelCnt;i++)
+        //{
+        //    AnimatorArray[i].SetInteger("CitySta", CityStaArray[i]);
+        //}
     }
 
     public override void SceneMyInit()

@@ -454,6 +454,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	//	myTrail.EndTrail(TrailSupport.BodyType.LeftArm);
 		myTrail.EndTrail(TrailSupport.BodyType.RightArm);
 
+		EnableMove();
+
 		ieAttackModeLimit = GameObjectExtensions.DelayMethod(AggressiveTime, StopAttackMode);
 		StartCoroutine(ieAttackModeLimit);
 	}
@@ -468,6 +470,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		yield return new WaitForSeconds(wait);
 
 		AnimationAttack();
+
+		SoundManager.Instance.PlaySE(SoundManager.SEType.Mob_Attack, transform.position);
 	//	print("攻撃" + gameObject.name);
 
 		MyAttackObj.SetEndCallback(AttackEnd);

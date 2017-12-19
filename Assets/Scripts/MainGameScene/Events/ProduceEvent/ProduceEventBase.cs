@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public abstract class ProduceEventBase : MonoBehaviour {
+public abstract class ProduceEventBase : SoundEffectSupport {
 
 
 	//========================================================================================

@@ -67,16 +67,19 @@ public class MediumEnemy : AimingPlayerEnemy {
 			case 0:
 				ChildModelMedium.Animation(EnemyMediumAnimation.AnimationType.Attack1);
 				myTrail.StartTrail(TrailSupport.BodyType.RightArm);
+				SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Light1, transform.position);
 				break;
 
 			case 1:
 				ChildModelMedium.Animation(EnemyMediumAnimation.AnimationType.Attack2);
 				myTrail.StartTrail(TrailSupport.BodyType.LeftArm);
+				SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Light2, transform.position);
 				break;
 
 			case 2:
 				ChildModelMedium.Animation(EnemyMediumAnimation.AnimationType.Attack3);
 				myTrail.StartTrail(TrailSupport.BodyType.RightLeg);
+				SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Light3, transform.position);
 				break;
 
 			default:
