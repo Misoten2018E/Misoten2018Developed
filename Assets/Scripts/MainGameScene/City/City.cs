@@ -15,10 +15,10 @@ public class City : SceneStartEvent{
 	private void Awake() {
 
 		myInstance = this;
-		CityLevel = -1;
+		CityLevel = 0;
 	}
 
-	int debugId = 0;
+	int debugId = -1;
 
 	// Update is called once per frame
 	void Update() {
