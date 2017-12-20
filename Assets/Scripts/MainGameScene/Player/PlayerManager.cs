@@ -29,7 +29,7 @@ public class PlayerManager : SceneStartEvent{
     int Playercnt;
 
     readonly float HEEL_COS = Mathf.Cos(Mathf.PI/6);
-    const float DOPINGAREA = 2;
+    const float DOPINGAREA = 10;
 
     // Use this for initialization
     void Start () {
@@ -155,7 +155,8 @@ public class PlayerManager : SceneStartEvent{
         for (int i = 0;i < Playercnt;i++)
         {
             Player P = PlayersObject[i].GetComponent<Player>();
-            if (P.no == myno)
+            int psta = P.GetPlayerSta();
+            if (P.no == myno || psta != 0)
             {
                 continue;
             }
@@ -191,7 +192,8 @@ public class PlayerManager : SceneStartEvent{
         for (int i = 0;i < Playercnt ;i++)
         {
             Player P = PlayersObject[i].GetComponent<Player>();
-            if (P.no == myno)
+            int psta = P.GetPlayerSta();
+            if (P.no == myno || psta != 0)
             {
                 continue;
             }
