@@ -129,8 +129,10 @@ public class CheckProducePhotoCamera : MonoBehaviour,IFGameEndEvent {
 
 		var PlForward = (player.position - pos).normalized + player.right;
 		PlForward.Normalize();
-		pos = pos - PlForward * 5f;
+		pos = pos - PlForward * 4.5f;
 
+		// 最低高さ保証
+		pos.y = pos.y < 2f ? 2f : pos.y;	
 
 		DebugLog.log("カメラ想定位置" + pos);
 		DebugLog.log("カメラの見ている位置 : " + lookat);
