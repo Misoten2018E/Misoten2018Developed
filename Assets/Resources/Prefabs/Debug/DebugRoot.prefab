@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7c6987ee80ada4489566dec159d4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeSpeed: 1.2
+  TimeSpeed: 1
   slider: {fileID: 114480993090810934}
   text: {fileID: 114901022740193138}
 --- !u!114 &114387531430697012
