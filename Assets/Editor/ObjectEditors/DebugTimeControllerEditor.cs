@@ -23,13 +23,12 @@ public class DebugTimeControllerEditor : Editor {
 
 		if (GUILayout.Button("現在の速度に設定")) {
 
-			Time.timeScale = myObj.TimeSpeed;
-
+			myObj.TimeSpeedChange(myObj.TimeSpeed);
 		}
 
 		if (GUILayout.Button("通常速度にリセット")) {
 
-			Time.timeScale = 1f;
+			myObj.TimeSpeedReset();
 
 		}
 	}
