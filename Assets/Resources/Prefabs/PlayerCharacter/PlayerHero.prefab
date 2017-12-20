@@ -4696,6 +4696,24 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 0
     MoveLength: 0.5
+    AttackMoveCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0.0021897529
+        value: 0.49928546
+        inSlope: -1.1173502
+        outSlope: -1.1173502
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.99890137
+        value: 0.0035095215
+        inSlope: -0.04911606
+        outSlope: -0.04911606
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
 --- !u!114 &114473111881998170
 MonoBehaviour:
   m_ObjectHideFlags: 1

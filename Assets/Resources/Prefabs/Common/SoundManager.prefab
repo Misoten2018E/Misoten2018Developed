@@ -278,7 +278,7 @@ MonoBehaviour:
       Attack_Light3: {fileID: 8300000, guid: ae8e9acd2c9c1bf4eb7f90618d8a4fd6, type: 3}
       Attack_Strong_Set: {fileID: 8300000, guid: e4441bbb1f79ac14ba0c425a658b3217,
         type: 3}
-      Attack_Strong_Explosion: {fileID: 8300000, guid: f3ede9c23f005d1469be9532f4499bf9,
+      Attack_Strong_Explosion: {fileID: 8300000, guid: 02e2803e72a0bab41bb12232d69c279e,
         type: 3}
       Special_Megaphone: {fileID: 8300000, guid: 035af001ad944b8489c6bf350f762be8,
         type: 3}

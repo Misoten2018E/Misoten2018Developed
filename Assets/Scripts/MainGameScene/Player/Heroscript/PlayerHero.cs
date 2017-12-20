@@ -33,6 +33,8 @@ public class PlayerHero : PlayerBase{
 
 		public AnimationCurve StrongMoveForward;
 		public float MoveLength;
+
+		public AnimationCurve AttackMoveCurve;
 	}
 
 	[SerializeField] CurveData Curves;
@@ -173,7 +175,10 @@ public class PlayerHero : PlayerBase{
             TBM.StartTrail(TrailSupport.BodyType.RightArm);
             RotationSpeed = Player_Hero_ActionRotationSpeed;
             SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Light1, transform.position);
-            
+
+			// 12/20　江戸　移動の追加
+			ieActionCort = IEAttackMove(Curves.AttackMoveCurve, 0.5f);
+			StartCoroutine(ieActionCort);
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -220,9 +225,13 @@ public class PlayerHero : PlayerBase{
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack2(Attack);
                 TBM.EndTrail(TrailSupport.BodyType.RightArm);
-                TBM.StartTrail(TrailSupport.BodyType.LeftArm);
+                TBM.StartTrail(TrailSupport.BodyType.RightArm); // 12/20 江戸　攻撃の腕が変わっているので変更
                 SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Light2, transform.position);
-            }
+
+				// 12/20　江戸　移動の追加
+				ieActionCort = IEAttackMove(Curves.AttackMoveCurve, 0.5f);
+				StartCoroutine(ieActionCort);
+			}
             else
             {
                 player_Hero_sta = PLAYER_HERO_STA.NORMAL;
@@ -251,10 +260,14 @@ public class PlayerHero : PlayerBase{
                 PlayerSta = (int)player_Hero_sta;
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack3(Attack);
-                TBM.EndTrail(TrailSupport.BodyType.LeftArm);
-                TBM.StartTrail(TrailSupport.BodyType.RightLeg);
+                TBM.EndTrail(TrailSupport.BodyType.RightArm); // 12/20 江戸　攻撃の腕が変わっているので変更
+				TBM.StartTrail(TrailSupport.BodyType.RightLeg);
                 SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Light3, transform.position);
-            }
+
+				// 12/20　江戸　移動の追加
+				ieActionCort = IEAttackMove(Curves.AttackMoveCurve, 0.5f);
+				StartCoroutine(ieActionCort);
+			}
             else
             {
                 player_Hero_sta = PLAYER_HERO_STA.NORMAL;
@@ -454,6 +467,32 @@ public class PlayerHero : PlayerBase{
 		ieActionCort = null;
 		SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Strong_Explosion, transform.position);
 		TBM.EndTrail(TrailSupport.BodyType.RightLeg);
+	}
+
+	/// <summary>
+	/// 通常攻撃時移動
+	/// 12/20 江戸追加
+	/// </summary>
+	/// <param name="MaxTime"></param>
+	/// <returns></returns>
+	private IEnumerator IEAttackMove(AnimationCurve curve, float MaxTime) {
+
+		float time = 0f;
+		const float Length = 0.1f;
+
+		while (true) {
+
+			time += Time.deltaTime;
+			if (time >= MaxTime) {
+				break;
+			}
+
+			Vector3 move = transform.forward * curve.Evaluate(time / MaxTime) * Length;
+			CharCon.Move(move);
+
+			yield return null;
+		}
+		ieActionCort = null;
 	}
 
 	/// <summary>
