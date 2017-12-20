@@ -146,14 +146,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 34
   AttackId: 0
-  Damage: 20
+  Damage: 10
   _MoveCurve:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _FreezeTime: 4
+  _FreezeTime: 2
 --- !u!114 &114290221865181410
 MonoBehaviour:
   m_ObjectHideFlags: 1
