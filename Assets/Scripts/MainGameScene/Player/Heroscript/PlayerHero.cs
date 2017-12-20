@@ -182,7 +182,7 @@ public class PlayerHero : PlayerBase{
             PlayerSta = (int)player_Hero_sta;
             ModelTransformReset();
             RotationSpeed = Player_Hero_ActionRotationSpeed;
-            SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Strong, transform.position);
+            SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Strong_Jump, transform.position);
         }
 
         if (input.GetButtonCircleTrigger())
@@ -322,7 +322,7 @@ public class PlayerHero : PlayerBase{
 			//   Vector3 warppos = new Vector3(obj.transform.position.x + WarpPos_X, 0.0f, obj.transform.position.z);
 			//   transform.position = warppos;
 
-			GameObject obj = PlayerManager.instance.GetLowHPPlayerObj(no);
+			GameObject obj = PlayerManager.instance.GetHerotarget(no);
 			ieActionCort = IEMoveSpecialAction(obj.transform.position);
 			StartCoroutine(ieActionCort);
 		}
@@ -432,6 +432,7 @@ public class PlayerHero : PlayerBase{
 	private IEnumerator IEMoveStrongAction() {
 
 		TBM.StartTrail(TrailSupport.BodyType.RightLeg);
+		SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Strong_Kick, transform.position);
 
 		const float MaxTime = 0.5f;
 		float time = 0f;
@@ -451,6 +452,7 @@ public class PlayerHero : PlayerBase{
 		}
 
 		ieActionCort = null;
+		SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Strong_Explosion, transform.position);
 		TBM.EndTrail(TrailSupport.BodyType.RightLeg);
 	}
 

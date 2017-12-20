@@ -22,6 +22,7 @@ public class ProduceGameEnd : ProduceEventBase {
 	public override void ProduceStart() {
 
 		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_BOSS);
+		PlaySE();
 		SceneEventManager.Instance.GameEnd();
 	}
 
