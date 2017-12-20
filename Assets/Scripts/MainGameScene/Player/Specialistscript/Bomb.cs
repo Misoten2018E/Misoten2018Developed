@@ -57,6 +57,7 @@ public class Bomb : PlayerBase{
     {
         bombhit.HitAnimationStrongattack(atk);
         bombsta = BOMB_STA.SWITHON;
+        SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Strong_Exp, transform.position);
     }
 
 }

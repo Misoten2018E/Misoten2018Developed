@@ -29,7 +29,7 @@ public class PlayerManager : SceneStartEvent{
     int Playercnt;
 
     readonly float HEEL_COS = Mathf.Cos(Mathf.PI/6);
-    const float DOPINGAREA = 2;
+    const float DOPINGAREA = 10;
 
     // Use this for initialization
     void Start () {
@@ -62,6 +62,58 @@ public class PlayerManager : SceneStartEvent{
                 }
             }
             
+        }
+
+        return resobj;
+    }
+
+    //　HPが一番低いプレイヤーのオブジェクトを返す
+    public GameObject GetHerotarget(int myno)
+    {
+        GameObject resobj = PlayersObject[myno];
+        Player[] P = new Player[Playercnt];
+        int minhp = 999;
+        int hp;
+        int flg = 0;
+
+        for (int i=0;i< Playercnt;i++)
+        {
+            P[i] = PlayersObject[i].GetComponent<Player>();
+            flg += P[i].GetPlayerSta();
+        }
+
+        
+        if ((P[0].GetPlayerHP() == P[1].GetPlayerHP())&&
+            (P[0].GetPlayerHP() == P[2].GetPlayerHP()) &&
+            (P[0].GetPlayerHP() == P[3].GetPlayerHP()) && (flg == 0))
+        {
+            int targetindex = Random.Range(0, Playercnt);
+            if (targetindex == myno)
+            {
+                targetindex += 1;
+                if (targetindex >= Playercnt)
+                {
+                    targetindex = 0;
+                }
+            }
+            resobj = PlayersObject[targetindex];
+
+            return resobj;
+        }
+        
+        for (int i = 0; i < Playercnt; i++)
+        {
+            if (P[i].no != myno)
+            {
+                hp = P[i].GetPlayerHP();
+                flg = P[i].GetPlayerSta();
+                if (hp < minhp && flg == 0)
+                {
+                    minhp = hp;
+                    resobj = PlayersObject[i];
+                }
+            }
+
         }
 
         return resobj;
@@ -103,7 +155,8 @@ public class PlayerManager : SceneStartEvent{
         for (int i = 0;i < Playercnt;i++)
         {
             Player P = PlayersObject[i].GetComponent<Player>();
-            if (P.no == myno)
+            int psta = P.GetPlayerSta();
+            if (P.no == myno || psta != 0)
             {
                 continue;
             }
@@ -139,7 +192,8 @@ public class PlayerManager : SceneStartEvent{
         for (int i = 0;i < Playercnt ;i++)
         {
             Player P = PlayersObject[i].GetComponent<Player>();
-            if (P.no == myno)
+            int psta = P.GetPlayerSta();
+            if (P.no == myno || psta != 0)
             {
                 continue;
             }

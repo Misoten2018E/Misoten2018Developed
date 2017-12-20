@@ -153,6 +153,7 @@ public class PlayerHeel : PlayerBase{
             PlayerSta = (int)player_Heel_sta;
             HitAnime.HitAnimationWeakattack1(Attack);
             ModelTransformReset();
+            SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_Light1,transform.position);
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -161,6 +162,7 @@ public class PlayerHeel : PlayerBase{
             PlayerSta = (int)player_Heel_sta;
             HitAnime.HitAnimationStrongattack(Attack);
             ModelTransformReset();
+            SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_Strong, transform.position);
         }
 
         if (input.GetButtonCircleTrigger())
@@ -169,6 +171,7 @@ public class PlayerHeel : PlayerBase{
             PlayerSta = (int)player_Heel_sta;
             HitAnime.HitAnimationSpecial();
             ModelTransformReset();
+            SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_SP_Catch, transform.position);
         }
 
         MoveCharacter();
@@ -197,6 +200,7 @@ public class PlayerHeel : PlayerBase{
                 PlayerSta = (int)player_Heel_sta;
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack2(Attack);
+                SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_Light2, transform.position);
             }
             else
             {
@@ -225,6 +229,7 @@ public class PlayerHeel : PlayerBase{
                 PlayerSta = (int)player_Heel_sta;
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack3(Attack);
+                SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_Light3, transform.position);
             }
             else
             {
@@ -272,7 +277,8 @@ public class PlayerHeel : PlayerBase{
             Vector3 front = transform.forward;
             front.Normalize();
             GameObject hitobj = PlayerManager.instance.GetHeelSpecialObj(front,transform.position,no);
-            
+            SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_SP_Pull, transform.position);
+
             if (hitobj)
             {   
                 
