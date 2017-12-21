@@ -223,6 +223,12 @@ public class Player : SceneStartEvent{
             HitObjectImpact damage = other.GetComponent<HitObjectImpact>();
             playerbase.PlayerDamage(damage);
         }
+
+		if (other.CompareTag(ConstTags.City)) {
+
+			// 12/20 江戸追加
+			UINoticeManager.Instance.StartIcon(UINoticeManager.UIType.CityIn);
+		}
     }
 
     private void OnTriggerStay(Collider other)
@@ -242,9 +248,6 @@ public class Player : SceneStartEvent{
                 ChangeStartPos += v * MOVERITU;
                 beforeCharacter = CharacterSta;
                 GetComponent<CapsuleCollider>().enabled = false;
-
-				// 12/20 江戸追加
-				UINoticeManager.Instance.StartIcon(UINoticeManager.UIType.CityIn);
             }
         }
 

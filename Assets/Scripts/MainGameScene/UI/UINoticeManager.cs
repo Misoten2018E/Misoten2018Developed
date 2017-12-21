@@ -14,6 +14,8 @@ public class UINoticeManager : MonoBehaviour {
 
 	[SerializeField] private JobChangeIconController JobController;
 
+	[SerializeField] private Mask StealthMask;
+
 	//========================================================================================
 	//                                     public
 	//========================================================================================
@@ -75,11 +77,7 @@ public class UINoticeManager : MonoBehaviour {
 	/// <param name="active"></param>
 	public void ActiveChangeIcons(bool active) {
 
-		SpecialActive = active;
-
-		CityInCross.gameObject.SetActive(active);
-		JobController.gameObject.SetActive(active);
-
+		StealthMask.enabled = !active;
 	}
 
 	//========================================================================================
@@ -90,11 +88,13 @@ public class UINoticeManager : MonoBehaviour {
 	void Awake() {
 
 		myInstance = this;
+
+		ActiveChangeIcons(true);
 	}
 
 	private void Update() {
 
-		if (CityInNum <= 0) {
+		if (CityInChangeJobNum <= 0) {
 			JobController.AnimationEnd();
 		}
 	}
@@ -104,14 +104,19 @@ public class UINoticeManager : MonoBehaviour {
 	//========================================================================================
 
 	private int CityInNum;
-	private bool SpecialActive;	// これがfalseの時表示を呼ばれても表示しない
+	private int CityInChangeJobNum;
 
 	void CityInIconChange(bool active) {
 
-		if (!SpecialActive) {
-			return;
+		CityInNum += active ? 1 : -1;
+
+		if (CityInNum > 0) {
+			CityInCross.gameObject.SetActive(true);
 		}
-		CityInCross.gameObject.SetActive(active);
+		else {
+			CityInCross.gameObject.SetActive(false);
+		}
+		
 	}
 
 	/// <summary>
@@ -119,10 +124,10 @@ public class UINoticeManager : MonoBehaviour {
 	/// </summary>
 	void AppearJobIcon() {
 
-		if (CityInNum > 0) {
+		if (CityInChangeJobNum > 0) {
 
 			// 入った人数を増やす
-			CityInNum++;
+			CityInChangeJobNum++;
 			return;
 		}
 
@@ -135,9 +140,9 @@ public class UINoticeManager : MonoBehaviour {
 	/// </summary>
 	void DisappearJobIcon() {
 
-		CityInNum--;
+		CityInChangeJobNum--;
 
-		if (CityInNum <= 0) {
+		if (CityInChangeJobNum <= 0) {
 			JobController.AnimationEnd();
 		}
 	}
