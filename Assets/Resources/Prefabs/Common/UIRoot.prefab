@@ -1497,6 +1497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CityInCross: {fileID: 114240603445943640}
   JobController: {fileID: 114051085986873994}
+  StealthMask: {fileID: 114805296411555124}
 --- !u!114 &114508272457063522
 MonoBehaviour:
   m_ObjectHideFlags: 1
