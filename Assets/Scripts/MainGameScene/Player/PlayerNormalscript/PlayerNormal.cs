@@ -108,6 +108,7 @@ public class PlayerNormal : PlayerBase{
             player_Normal_sta = PLAYER_NORMAL_STA.SWAY;
             PlayerSta = (int)player_Normal_sta;
             ModelTransformReset();
+            CharCon.center = new Vector3(0, 1 + no, 0);
             SwayCurveOldtime = 0;
         }
 
