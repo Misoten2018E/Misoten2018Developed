@@ -1491,22 +1491,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!1 &1756921305130582
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4225812754995866}
-  - component: {fileID: 114191998984182120}
-  m_Layer: 0
-  m_Name: ScoreObj
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1770724494936890
 GameObject:
   m_ObjectHideFlags: 1
@@ -2473,19 +2457,6 @@ Transform:
   m_Father: {fileID: 4711643517767448}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4225812754995866
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1756921305130582}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6330836, y: 4.491278, z: -6.992472}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4401287937221368}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4226218912076524
 Transform:
   m_ObjectHideFlags: 1
@@ -2797,7 +2768,6 @@ Transform:
   - {fileID: 4049752481034314}
   - {fileID: 4353617992970154}
   - {fileID: 4171396881741438}
-  - {fileID: 4225812754995866}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6175,7 +6145,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114023921942082236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6195,7 +6173,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114032682960317338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6308,7 +6294,55 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4081661540819230}
     Route2: {fileID: 4762751731221686}
-  PopInterval: 3
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  PopInterval: 1
 --- !u!114 &114095420000980090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6412,22 +6446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba48b07740b89e45bdaeb4e3496af2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114191998984182120
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1756921305130582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9a697e97f8ec1342bafce54c5df9fd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPausePermit: 1
-  EnemyFixedScore: 1
-  EnemyAttackScore: 1
-  EnemyMediumScore: 10
-  EnemyBossPopScore: 5
 --- !u!114 &114203134699525682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6447,7 +6465,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114235668536625874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6548,7 +6574,19 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114289558946394988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6611,7 +6649,40 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4767329886274522}
     Route2: {fileID: 4125431789057494}
-  PopInterval: 2
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4767329886274522}
+    Route2: {fileID: 4125431789057494}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4767329886274522}
+    Route2: {fileID: 4125431789057494}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4767329886274522}
+    Route2: {fileID: 4125431789057494}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4767329886274522}
+    Route2: {fileID: 4125431789057494}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4767329886274522}
+    Route2: {fileID: 4125431789057494}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4767329886274522}
+    Route2: {fileID: 4125431789057494}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4767329886274522}
+    Route2: {fileID: 4125431789057494}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4767329886274522}
+    Route2: {fileID: 4125431789057494}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4767329886274522}
+    Route2: {fileID: 4125431789057494}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4767329886274522}
+    Route2: {fileID: 4125431789057494}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4767329886274522}
+    Route2: {fileID: 4125431789057494}
+  PopInterval: 0
 --- !u!114 &114315964375501876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6714,7 +6785,55 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4369351837241240}
     Route2: {fileID: 4911645454922176}
-  PopInterval: 2
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  PopInterval: 1
 --- !u!114 &114409347278391646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6736,7 +6855,19 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114413499858820468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6814,7 +6945,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114438910046405522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6827,9 +6966,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovePointList:
-  - {fileID: 114074064129424644}
-  - {fileID: 114002894023307486}
-  - {fileID: 114500875704858690}
+  - {fileID: 114507051739715356}
+  - {fileID: 114834919690507786}
+  - {fileID: 114464901097481296}
 --- !u!114 &114449477506523332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6879,7 +7018,7 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4090062613396516}
     Route2: {fileID: 4495731975842024}
-  PopInterval: 2
+  PopInterval: 0
 --- !u!114 &114464901097481296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6930,7 +7069,55 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4709101266162998}
     Route2: {fileID: 4351106031949048}
-  PopInterval: 2
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  PopInterval: 1
 --- !u!114 &114469336293468230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6992,7 +7179,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114486263694562110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7089,7 +7284,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114533085725509996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7139,7 +7342,31 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4972023714163576}
     Route2: {fileID: 4634862831287414}
-  PopInterval: 2
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  PopInterval: 0
 --- !u!114 &114543330473996772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7159,7 +7386,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114545027469436076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7199,7 +7434,55 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4081661540819230}
     Route2: {fileID: 4762751731221686}
-  PopInterval: 2
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  PopInterval: 1
 --- !u!114 &114551953123203984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7250,7 +7533,55 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4081661540819230}
     Route2: {fileID: 4762751731221686}
-  PopInterval: 3
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4081661540819230}
+    Route2: {fileID: 4762751731221686}
+  PopInterval: 1
 --- !u!114 &114575913331795966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7278,7 +7609,7 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4090062613396516}
     Route2: {fileID: 4495731975842024}
-  PopInterval: 2
+  PopInterval: 0
 --- !u!114 &114580555835071384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7306,7 +7637,31 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4972023714163576}
     Route2: {fileID: 4634862831287414}
-  PopInterval: 2
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  PopInterval: 0
 --- !u!114 &114586404192283736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7348,7 +7703,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114601499370532672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7370,7 +7733,19 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114618502728122066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7415,7 +7790,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114626004545511284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7446,7 +7829,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114634729557841556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7508,7 +7899,55 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4972023714163576}
     Route2: {fileID: 4634862831287414}
-  PopInterval: 2
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  PopInterval: 1
 --- !u!114 &114673235746421776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7616,7 +8055,55 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4090062613396516}
     Route2: {fileID: 4495731975842024}
-  PopInterval: 3
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4090062613396516}
+    Route2: {fileID: 4495731975842024}
+  PopInterval: 1
 --- !u!114 &114736896755225342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7667,7 +8154,55 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4709101266162998}
     Route2: {fileID: 4351106031949048}
-  PopInterval: 3
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4709101266162998}
+    Route2: {fileID: 4351106031949048}
+  PopInterval: 1
 --- !u!114 &114751582057980834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7700,7 +8235,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114779996973279314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7722,7 +8265,19 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114799313145167384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7852,7 +8407,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114845375209370396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7931,7 +8494,55 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4972023714163576}
     Route2: {fileID: 4634862831287414}
-  PopInterval: 2
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4972023714163576}
+    Route2: {fileID: 4634862831287414}
+  PopInterval: 1
 --- !u!114 &114872248457756080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8009,7 +8620,15 @@ MonoBehaviour:
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
   - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
-  PopInterval: 2
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  - Enemy: {fileID: 114905156052658798, guid: ab7e8d4cead98cc4c8c8257ca1af70bb, type: 2}
+  PopInterval: 1
 --- !u!114 &114910674546585280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8037,7 +8656,7 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4528355011911526}
     Route2: {fileID: 4261954378045208}
-  PopInterval: 3
+  PopInterval: 0
 --- !u!114 &114924256258296732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8125,7 +8744,31 @@ MonoBehaviour:
   - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
     Route1: {fileID: 4369351837241240}
     Route2: {fileID: 4911645454922176}
-  PopInterval: 2
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  - Enemy: {fileID: 114650208432502698, guid: bbda6ab96cc485449a3b214a0ab6b025, type: 2}
+    Route1: {fileID: 4369351837241240}
+    Route2: {fileID: 4911645454922176}
+  PopInterval: 0
 --- !u!135 &135091101907078550
 SphereCollider:
   m_ObjectHideFlags: 1

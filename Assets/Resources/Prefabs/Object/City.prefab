@@ -648,6 +648,7 @@ GameObject:
   - component: {fileID: 135213300184588276}
   - component: {fileID: 114456382494398812}
   - component: {fileID: 54987779161162538}
+  - component: {fileID: 114189028893948988}
   m_Layer: 10
   m_Name: City
   m_TagString: CityArea
@@ -6601,7 +6602,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 11.131547, y: 5.4200006, z: 8.203569}
+  m_Size: {x: 11.131547, y: 10.18, z: 8.203569}
   m_Center: {x: 0.36818165, y: 2.62, z: 0.70405537}
 --- !u!65 &65211347789587376
 BoxCollider:
@@ -6796,6 +6797,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114189028893948988
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1553534891035720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a697e97f8ec1342bafce54c5df9fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPausePermit: 1
+  EnemyFixedScore: 1
+  EnemyAttackScore: 1
+  EnemyMediumScore: 10
+  EnemyBossPopScore: 5
 --- !u!114 &114456382494398812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6808,7 +6825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPausePermit: 1
-  ScoreList: 140000003200000064000000
+  ScoreList: 140000008813000010270000
   CityModelCnt: 3
 --- !u!135 &135213300184588276
 SphereCollider:
