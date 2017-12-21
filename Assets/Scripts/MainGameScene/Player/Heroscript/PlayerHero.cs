@@ -171,6 +171,7 @@ public class PlayerHero : PlayerBase{
             player_Hero_sta = PLAYER_HERO_STA.WEAKATTACK1;
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationWeakattack1(Attack);
+            ComboFlg = false;
             ModelTransformReset();
             TBM.StartTrail(TrailSupport.BodyType.RightArm);
             RotationSpeed = Player_Hero_ActionRotationSpeed;

@@ -152,6 +152,7 @@ public class PlayerSpecialist : PlayerBase{
             player_Special_sta = PLAYER_SPECIALIST_STA.WEAKATTACK1;
             PlayerSta = (int)player_Special_sta;
             HitAnime.HitAnimationWeakattack1(Attack);
+            ComboFlg = false;
             ModelTransformReset();
             SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Light1, transform.position);
         }
