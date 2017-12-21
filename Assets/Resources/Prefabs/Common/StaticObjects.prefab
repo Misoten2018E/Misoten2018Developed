@@ -7406,7 +7406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886e88296ed341449ac3615446ab5ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitSE: 2
+  HitSE: 45
   eventType: 0
   NoticeWindow: {fileID: 0}
 --- !u!114 &114858998653709842
