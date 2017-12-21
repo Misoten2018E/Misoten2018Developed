@@ -22,6 +22,8 @@ public class BossHittedObjectManager : MonoBehaviour {
 		// (衝撃の方向)
 		var impact = (transform.position - obj.transform.position).normalized;
 		Damaged.HittedTremble(ChildModelTrans, impact);
+
+		ScorePlus(obj.Damage / 10);
 	}
 
 	//========================================================================================
@@ -69,6 +71,13 @@ public class BossHittedObjectManager : MonoBehaviour {
 		}
 
 		CheckProducePhotoCamera.Instance.PhotoChance(hito.transform, transform, type, 0/*ph.myPlayer.GetPlayerObj()*/);
+	}
+
+
+	private void ScorePlus(int score) {
+
+		Score.instance.AddScore(score);
+
 	}
 
 	protected Transform ChildModelTrans {

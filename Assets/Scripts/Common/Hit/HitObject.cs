@@ -15,7 +15,7 @@ public abstract class HitObject : SoundEffectSupport,DebuggableObject {
 
 	[SerializeField] private int AttackId = 0;
 
-	[SerializeField] private int Damage = 100;
+	[SerializeField] private int _Damage = 100;
 
 	[SerializeField] AnimationCurve _MoveCurve;
 
@@ -83,6 +83,11 @@ public abstract class HitObject : SoundEffectSupport,DebuggableObject {
 			}
 			return _collider;
 		}
+	}
+
+	public int Damage {
+		private set { _Damage = value; }
+		get { return _Damage; }
 	}
 
 	public int Id {

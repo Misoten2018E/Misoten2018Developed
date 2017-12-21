@@ -507,7 +507,7 @@ public class PlayerHero : PlayerBase{
 
 			TBM.EndTrail();
 
-			transform.position += Model.localPosition;
+			CharCon.Move(Model.localPosition);
 			ModelTransformReset();
 		}
 	}
