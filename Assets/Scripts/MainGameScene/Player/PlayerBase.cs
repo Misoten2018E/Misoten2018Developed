@@ -60,6 +60,8 @@ public class PlayerBase : SceneStartEvent{
 
         MoveCharacter();
 
+        CharCon.center = new Vector3(0,1 + no ,0);
+
         SetAnimatorData();
     }
 
