@@ -26,10 +26,11 @@ public class PlayerHeel : PlayerBase{
     HitAnimationBase HitAnime;
     Transform Specialtarget;
     LineRenderer linerenderer;
+    bool BarrettFlg;
 
-    const int Player_Heel_MoveSpeed = 5;
+    const float Player_Heel_MoveSpeed = 5 * 1.2f;
     const int Player_Heel_RotationSpeed = 750;
-    const int Player_Heel_ActionRotationSpeed = 500;
+    const int Player_Heel_ActionRotationSpeed = 250;
     const int Player_Heel_ATTACK = 1;
 
     //Use this for initialization
@@ -69,6 +70,7 @@ public class PlayerHeel : PlayerBase{
         nodamageflg = false;
         CharCon.center = new Vector3(0, 10 + no * 3, 0);
         linerenderer.enabled = false;
+        BarrettFlg = false;
 
         HitAnime.Initialize(this);
     }
@@ -148,12 +150,16 @@ public class PlayerHeel : PlayerBase{
     private void Normal()
     {
         CharCon.center = new Vector3(0, 0, 0);
+        RotationSpeed = Player_Heel_RotationSpeed;
 
         if (input.GetButtonSquareTrigger())
         {
             player_Heel_sta = PLAYER_HEEL_STA.WEAKATTACK1;
             PlayerSta = (int)player_Heel_sta;
             HitAnime.HitAnimationWeakattack1(Attack);
+            ComboFlg = false;
+            BarrettFlg = false;
+            RotationSpeed = Player_Heel_ActionRotationSpeed;
             ModelTransformReset();
             SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_Light1,transform.position);
         }
@@ -194,6 +200,13 @@ public class PlayerHeel : PlayerBase{
             ComboFlg = true;
         }
 
+        float normaltime = GetAninormalizedTime("conb1");
+        if (normaltime > 0.4f && BarrettFlg == false)
+        {
+            MakeBarrett(transform.position, transform.forward);
+            BarrettFlg = true;
+        }
+
         if (CheckAnimationEND("conb1"))
         {
             if (ComboFlg)
@@ -201,6 +214,7 @@ public class PlayerHeel : PlayerBase{
                 player_Heel_sta = PLAYER_HEEL_STA.WEAKATTACK2;
                 PlayerSta = (int)player_Heel_sta;
                 ComboFlg = false;
+                BarrettFlg = false;
                 HitAnime.HitAnimationWeakattack2(Attack);
                 SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_Light2, transform.position);
             }
@@ -210,7 +224,6 @@ public class PlayerHeel : PlayerBase{
                 PlayerSta = (int)player_Heel_sta;
             }
 
-            MakeBarrett(transform.position, transform.forward);
             ModelTransformReset();
            
         }
@@ -225,6 +238,14 @@ public class PlayerHeel : PlayerBase{
             ComboFlg = true;
         }
 
+        float normaltime = GetAninormalizedTime("conb2");
+        if (normaltime > 0.5f && BarrettFlg == false)
+        {
+            MakeBarrett(transform.position, transform.forward);
+            BarrettFlg = true;
+        }
+
+
         if (CheckAnimationEND("conb2"))
         {
             if (ComboFlg)
@@ -232,6 +253,7 @@ public class PlayerHeel : PlayerBase{
                 player_Heel_sta = PLAYER_HEEL_STA.WEAKATTACK3;
                 PlayerSta = (int)player_Heel_sta;
                 ComboFlg = false;
+                BarrettFlg = false;
                 HitAnime.HitAnimationWeakattack3(Attack);
                 SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_Light3, transform.position);
             }
@@ -241,7 +263,6 @@ public class PlayerHeel : PlayerBase{
                 PlayerSta = (int)player_Heel_sta;
             }
 
-            MakeBarrett(transform.position, transform.forward);
             ModelTransformReset();
             
         }
@@ -251,13 +272,19 @@ public class PlayerHeel : PlayerBase{
     {
         RotationCharacter();
 
+        float normaltime = GetAninormalizedTime("conb3");
+        if (normaltime > 0.5f && BarrettFlg == false)
+        {
+            MakeBarrett(transform.position, transform.forward + transform.right * 0.5f);
+            MakeBarrett(transform.position, transform.forward + transform.right * -0.5f);
+            BarrettFlg = true;
+        }
+
         if (CheckAnimationEND("conb3"))
         {
             player_Heel_sta = PLAYER_HEEL_STA.NORMAL;
             PlayerSta = (int)player_Heel_sta;
             
-            MakeBarrett(transform.position, transform.forward + transform.right * 0.5f);
-            MakeBarrett(transform.position, transform.forward + transform.right * -0.5f);
             ModelTransformReset();
         }
     }

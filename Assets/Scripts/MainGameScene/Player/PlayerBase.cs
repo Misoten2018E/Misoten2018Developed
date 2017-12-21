@@ -123,15 +123,17 @@ public class PlayerBase : SceneStartEvent{
         SetAnimatorData();
     }
 
-    public void AttackUP(float attack)
+    public void AttackUP(float attack,float speed)
     {
         Attack *= attack;
+        MoveSpeed *= speed;
         print("stk"+ Attack);
     }
 
-    public void AttackDOWN(float attack)
+    public void AttackDOWN(float attack,float speed)
     {
         Attack /= attack;
+        MoveSpeed /= speed;
         print("stk" + Attack);
     }
 

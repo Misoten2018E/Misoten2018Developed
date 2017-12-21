@@ -39,9 +39,9 @@ public class PlayerHero : PlayerBase{
 
 	[SerializeField] CurveData Curves;
 
-    const int Player_Hero_MoveSpeed = 5;
+    const float Player_Hero_MoveSpeed = 5 * 1.2f;
     const int Player_Hero_RotationSpeed = 750;
-    const int Player_Hero_ActionRotationSpeed = 500;
+    const int Player_Hero_ActionRotationSpeed = 250;
     const int Player_Hero_ATTACK = 1;
     const float WarpPos_X = 0.5f;
 
@@ -171,6 +171,7 @@ public class PlayerHero : PlayerBase{
             player_Hero_sta = PLAYER_HERO_STA.WEAKATTACK1;
             PlayerSta = (int)player_Hero_sta;
             HitAnime.HitAnimationWeakattack1(Attack);
+            ComboFlg = false;
             ModelTransformReset();
             TBM.StartTrail(TrailSupport.BodyType.RightArm);
             RotationSpeed = Player_Hero_ActionRotationSpeed;
