@@ -4001,6 +4001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSE: 0
   AttackId: 0
   Damage: 100
   _MoveCurve:
@@ -4044,6 +4045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSE: 0
   AttackId: 0
   Damage: 100
   _MoveCurve:
@@ -4087,6 +4089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSE: 0
   AttackId: 0
   Damage: 100
   _MoveCurve:
@@ -4177,6 +4180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSE: 0
   AttackId: 0
   Damage: 100
   _MoveCurve:
@@ -4220,6 +4224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSE: 0
   AttackId: 0
   Damage: 100
   _MoveCurve:
@@ -4328,6 +4333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSE: 0
   AttackId: 0
   Damage: 100
   _MoveCurve:
@@ -4359,6 +4365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSE: 0
   AttackId: 0
   Damage: 100
   _MoveCurve:
@@ -4419,42 +4426,60 @@ MonoBehaviour:
   AttackRange: 2
   AttackAngle: 60
   BossActData:
-  - ActType: 1
-    StartTime: 5
-    GeneralNum: 2
   - ActType: 2
+    StartTime: 5
+    GeneralNum: 4
+  - ActType: 0
     StartTime: 10
     GeneralNum: 0
-  - ActType: 1
-    StartTime: 15
-    GeneralNum: 2
   - ActType: 2
+    StartTime: 15
+    GeneralNum: 4
+  - ActType: 0
     StartTime: 20
     GeneralNum: 0
-  - ActType: 4
-    StartTime: 25
-    GeneralNum: 0
-  - ActType: 3
-    StartTime: 30
-    GeneralNum: 8
-  - ActType: 2
-    StartTime: 35
-    GeneralNum: 0
-  - ActType: 3
-    StartTime: 40
-    GeneralNum: 8
-  - ActType: 2
-    StartTime: 45
-    GeneralNum: 0
-  - ActType: 4
-    StartTime: 50
-    GeneralNum: 0
   - ActType: 1
-    StartTime: 55
+    StartTime: 25
+    GeneralNum: 4
+  - ActType: 4
+    StartTime: 30
+    GeneralNum: 0
+  - ActType: 3
+    StartTime: 35
+    GeneralNum: 8
+  - ActType: 2
+    StartTime: 40
     GeneralNum: 4
   - ActType: 3
-    StartTime: 60
+    StartTime: 45
+    GeneralNum: 8
+  - ActType: 2
+    StartTime: 50
+    GeneralNum: 4
+  - ActType: 3
+    StartTime: 55
     GeneralNum: 16
+  - ActType: 4
+    StartTime: 60
+    GeneralNum: 0
+  - ActType: 1
+    StartTime: 65
+    GeneralNum: 4
+  - ActType: 3
+    StartTime: 70
+    GeneralNum: 16
+  - ActType: 0
+    StartTime: 75
+    GeneralNum: 0
+  - ActType: 2
+    StartTime: 80
+    GeneralNum: 4
+  - ActType: 2
+    StartTime: 85
+    GeneralNum: 4
+  - ActType: 5
+    StartTime: 90
+    GeneralNum: 0
   JumpCurve:
     serializedVersion: 2
     m_Curve:
@@ -4503,6 +4528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSE: 0
   AttackId: 0
   Damage: 100
   _MoveCurve:
@@ -4546,6 +4572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSE: 0
   AttackId: 0
   Damage: 100
   _MoveCurve:
