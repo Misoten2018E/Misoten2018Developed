@@ -18,6 +18,8 @@ public class PlayerHeel : PlayerBase{
         PLAYER_STA_MAX
     }
 
+    public GameObject BarrettObj;
+
     MultiInput input;
     PLAYER_HEEL_STA player_Heel_sta;
     bool ComboFlg;
@@ -208,7 +210,9 @@ public class PlayerHeel : PlayerBase{
                 PlayerSta = (int)player_Heel_sta;
             }
 
+            MakeBarrett(transform.position, transform.forward);
             ModelTransformReset();
+           
         }
     }
 
@@ -237,7 +241,9 @@ public class PlayerHeel : PlayerBase{
                 PlayerSta = (int)player_Heel_sta;
             }
 
+            MakeBarrett(transform.position, transform.forward);
             ModelTransformReset();
+            
         }
     }
 
@@ -249,6 +255,9 @@ public class PlayerHeel : PlayerBase{
         {
             player_Heel_sta = PLAYER_HEEL_STA.NORMAL;
             PlayerSta = (int)player_Heel_sta;
+            
+            MakeBarrett(transform.position, transform.forward + transform.right * 0.5f);
+            MakeBarrett(transform.position, transform.forward + transform.right * -0.5f);
             ModelTransformReset();
         }
     }
@@ -343,5 +352,17 @@ public class PlayerHeel : PlayerBase{
         }
 
         return res;
+    }
+
+    void MakeBarrett(Vector3 pos,Vector3 frontv)
+    {
+        Vector3 B_pos;
+        B_pos = pos + frontv * 2;
+        Quaternion qua = Quaternion.LookRotation(frontv);
+        HeelBarrett HB;
+
+        GameObject obj = Instantiate(BarrettObj, B_pos, qua)as GameObject;
+        HB = obj.GetComponent<HeelBarrett>();
+        HB.SetPlayerObj(myPlayer);
     }
 }

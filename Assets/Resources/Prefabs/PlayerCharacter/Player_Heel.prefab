@@ -4103,6 +4103,7 @@ MonoBehaviour:
   isPausePermit: 1
   no: 0
   nodamagetime: 1
+  BarrettObj: {fileID: 1728466035170416, guid: ad905768219b10349b90b9dfeb962daa, type: 2}
 --- !u!120 &120042905060018364
 LineRenderer:
   m_ObjectHideFlags: 1
