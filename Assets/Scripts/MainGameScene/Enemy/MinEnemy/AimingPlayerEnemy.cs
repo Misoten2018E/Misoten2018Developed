@@ -19,7 +19,7 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 	protected override void Update () {
 
 		if (IsEscape) {
-			MoveAdvanceToTarget(NowTarget, MoveSpeed);
+			MoveAdvanceToTarget(NowTarget, MoveSpeed, RotateSpeed);
 			HitLog.CheckEnd();
 			return;
 		}
@@ -36,7 +36,7 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 
 		// 攻撃を喰らっていなくて、かつ移動出来る状態なら
 		if (!Damaged.isHitted && (!IsStop)) {
-			MoveAdvanceToTarget(NowTarget, MoveSpeed);
+			MoveAdvanceToTarget(NowTarget, MoveSpeed, RotateSpeed);
 		}
 
 		if (IsAttackMode && (!IsAttacking)) {			
@@ -51,6 +51,9 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		transform.position = InitData.BasePosition.position;
 		MyType = EnemyType.PlayerAttack;
 		EnemyManager.Instance.SetEnemy(this);
+
+		RotateSpeed = 1.8f;
+
 	}
 
 	protected override void EscapeToCity() {

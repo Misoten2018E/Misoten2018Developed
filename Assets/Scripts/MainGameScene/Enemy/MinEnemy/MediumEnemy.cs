@@ -48,6 +48,9 @@ public class MediumEnemy : AimingPlayerEnemy {
 		IsGroupLeader = false;
 		ElapsedCheckTime = GroupCheckTime;
 		GroupCommand.GroupInitialize();
+
+		RotateSpeed = 1.8f;
+
 	}
 
 	/// <summary>

@@ -137,7 +137,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		MyType = EnemyType.MoveFixed;
 		EnemyManager.Instance.SetEnemy(this);
 
-		RotateSpeed = 0.03f;
+		RotateSpeed = 1.8f;
 
 		base.InitEnemy(InitData);
 	}
@@ -256,9 +256,9 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 		NowTarget = RunAwayRelayPointManager.Instance.GetNearPoint(transform.position);
 
-		RotateToTarget(NowTarget, 90f);
+		RotateToTarget(NowTarget, 180f);
 		MoveSpeed = MoveSpeed * 7;
-		RotateSpeed = 0.5f;
+		RotateSpeed = 30f;
 		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
 
 		CreateParticle(ConstEffects.Disappointed);
@@ -276,9 +276,9 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 		NowTarget = City.Instance.transform;
 
-		RotateToTarget(NowTarget, 90f);
+		RotateToTarget(NowTarget, 180f);
 		MoveSpeed = MoveSpeed * 7;
-		RotateSpeed = 0.5f;
+		RotateSpeed = 30f;
 		StartCoroutine(GameObjectExtensions.LoopMethod(1f, LoopScaleMin));
 		GetComponent<CapsuleCollider>().isTrigger = true;
 

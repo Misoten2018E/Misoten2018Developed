@@ -22,14 +22,14 @@ public abstract class MoveTargetEnemy : WaitEnemy {
 	/// </summary>
 	/// <param name="target"></param>
 	/// <param name="speed"></param>
-	protected void MoveAdvanceToTarget(Transform target, float speed, float angle = 0.03f) {
+	protected void MoveAdvanceToTarget(Transform target, float speed, float angle = 1.8f) {
 
 		if (target == null) {
 			DebugLog.log(gameObject.name + ": target error");
 			return;
 		}
 
-		RotateToTarget(target, angle);
+		RotateToTarget(target, angle * Time.deltaTime);
 		MoveForward(speed);
 	}
 
