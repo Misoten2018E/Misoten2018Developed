@@ -92,7 +92,8 @@ public class SoundManager : MonoBehaviour {
 		Boss_Landed,
 		Boss_Howling,
 
-		SEMAX
+		SEMAX,
+		SE_None = SEMAX,
 	}
 
 	const string ROOTNAME = "Sound/";
