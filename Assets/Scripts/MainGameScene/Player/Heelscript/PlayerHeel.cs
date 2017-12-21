@@ -126,6 +126,7 @@ public class PlayerHeel : PlayerBase{
         PlayerSta = (int)player_Heel_sta;
         damage.DamageHp(HP);
         animator.SetTrigger("Damage");
+        linerenderer.enabled = false;
         nodamageflg = true;
         ModelTransformReset();
     }
@@ -135,6 +136,7 @@ public class PlayerHeel : PlayerBase{
         player_Heel_sta = PLAYER_HEEL_STA.DAMAGE;
         PlayerSta = (int)player_Heel_sta;
         animator.SetTrigger("Damage");
+        linerenderer.enabled = false;
         ModelTransformReset();
     }
 
@@ -144,6 +146,7 @@ public class PlayerHeel : PlayerBase{
         player_Heel_sta = PLAYER_HEEL_STA.PAUSE;
         PlayerSta = (int)player_Heel_sta;
         animator.SetTrigger("Pause");
+        linerenderer.enabled = false;
         ModelTransformReset();
     }
 
@@ -151,6 +154,7 @@ public class PlayerHeel : PlayerBase{
     {
         CharCon.center = new Vector3(0, 0, 0);
         RotationSpeed = Player_Heel_RotationSpeed;
+        linerenderer.enabled = false;
 
         if (input.GetButtonSquareTrigger())
         {

@@ -52,17 +52,6 @@ public class HeelBarrett : PlayerBase {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == ConstTags.EnemyAttack || other.tag == ConstTags.PlayerAttack)
-        {
-            return;    
-        }
-        
-        B_sta = BARRETT_STA.DETH;
-        
-    }
-
     public void SetPlayerObj(GameObject myplayer)
     {
         HitSeriesofAction Hit;
