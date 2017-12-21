@@ -28,9 +28,9 @@ public class PlayerHeel : PlayerBase{
     LineRenderer linerenderer;
     bool BarrettFlg;
 
-    const int Player_Heel_MoveSpeed = 5;
+    const float Player_Heel_MoveSpeed = 5 * 1.2f;
     const int Player_Heel_RotationSpeed = 750;
-    const int Player_Heel_ActionRotationSpeed = 500;
+    const int Player_Heel_ActionRotationSpeed = 250;
     const int Player_Heel_ATTACK = 1;
 
     //Use this for initialization
@@ -150,6 +150,7 @@ public class PlayerHeel : PlayerBase{
     private void Normal()
     {
         CharCon.center = new Vector3(0, 0, 0);
+        RotationSpeed = Player_Heel_RotationSpeed;
 
         if (input.GetButtonSquareTrigger())
         {
@@ -158,6 +159,7 @@ public class PlayerHeel : PlayerBase{
             HitAnime.HitAnimationWeakattack1(Attack);
             ComboFlg = false;
             BarrettFlg = false;
+            RotationSpeed = Player_Heel_ActionRotationSpeed;
             ModelTransformReset();
             SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_Light1,transform.position);
         }

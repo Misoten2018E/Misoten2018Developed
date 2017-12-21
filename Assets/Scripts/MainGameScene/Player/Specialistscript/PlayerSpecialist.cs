@@ -27,9 +27,9 @@ public class PlayerSpecialist : PlayerBase{
     bool bomsetflg;
     Bomb bomb;
 
-    const int Player_Special_MoveSpeed = 5;
+    const float Player_Special_MoveSpeed = 5;
     const int Player_Special_RotationSpeed = 750;
-    const int Player_Special_ActionRotationSpeed = 500;
+    const int Player_Special_ActionRotationSpeed = 250;
     const int Player_Special_ATTACK = 1;
 
     //Use this for initialization
@@ -146,12 +146,14 @@ public class PlayerSpecialist : PlayerBase{
     private void Normal()
     {
         CharCon.center = new Vector3(0, 0, 0);
+        RotationSpeed = Player_Special_RotationSpeed;
 
         if (input.GetButtonSquareTrigger())
         {
             player_Special_sta = PLAYER_SPECIALIST_STA.WEAKATTACK1;
             PlayerSta = (int)player_Special_sta;
             HitAnime.HitAnimationWeakattack1(Attack);
+            RotationSpeed = Player_Special_ActionRotationSpeed;
             ComboFlg = false;
             ModelTransformReset();
             SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Light1, transform.position);
@@ -181,7 +183,7 @@ public class PlayerSpecialist : PlayerBase{
             PlayerSta = (int)player_Special_sta;
             HitAnime.HitAnimationSpecial();
             ModelTransformReset();
-            SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_SP_Megaphone, transform.position);
+            SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_SP_Megaphone, transform.position,0.5f);
         }
 
         MoveCharacter();

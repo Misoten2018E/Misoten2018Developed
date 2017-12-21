@@ -265,8 +265,8 @@ MonoBehaviour:
   isPausePermit: 1
   no: 0
   nodamagetime: 0
-  LiveMaxtime: 1
-  BarrettSpeed: 5
+  LiveMaxtime: 0.7
+  BarrettSpeed: 10
 --- !u!114 &114194590867111700
 MonoBehaviour:
   m_ObjectHideFlags: 1

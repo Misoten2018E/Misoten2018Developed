@@ -17,7 +17,7 @@ public class PlayerNormal : PlayerBase{
     public AnimationCurve SwayCurve;//回避時の高さ
     float SwayCurveOldtime;
 
-    const int Player_Normal_MoveSpeed = 5;
+    const float Player_Normal_MoveSpeed = 5;
     const int Player_Normal_RotationSpeed = 750;
     
     //Use this for initialization
