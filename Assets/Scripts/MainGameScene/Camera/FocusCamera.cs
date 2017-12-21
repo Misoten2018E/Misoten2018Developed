@@ -305,7 +305,7 @@ public class FocusCamera : PauseSupport ,IFGameEndEvent ,IFGameEndProduceCheck{
 
 		// カーブによる特殊補正を追加
 		len += CameraLimitArea.Evaluate(len / MaxOrthoSize) * MaxOrthoSize;
-		return len;
+		return len >= MaxOrthoSize ? MaxOrthoSize : len;
 	}
 
 	/// <summary>
