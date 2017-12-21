@@ -35,6 +35,7 @@ public class Player : SceneStartEvent{
     int beforeCharacter;
     PLAYER_STA playersta;
     float ForciblySpeed;
+    bool Dopingflg;
 
     // 11/20 UIを管理するため追加
     [SerializeField] private UIPlayerInput UIPlayer;
@@ -178,6 +179,7 @@ public class Player : SceneStartEvent{
         playersta = PLAYER_STA.NORMAL;
         Score.instance.SetCharacter(no, CharacterSta);
         ForciblySpeed = 0;
+        Dopingflg = false;
 
         isInitialized = true;
     }
@@ -194,6 +196,11 @@ public class Player : SceneStartEvent{
         return (int)playersta;
     }
 
+    public bool GetDopingflg()
+    {
+        return Dopingflg;
+    }
+
     public void PlayerForcibly(Vector3 target)
     {
         playersta = PLAYER_STA.FORCIBLY;
@@ -206,14 +213,16 @@ public class Player : SceneStartEvent{
         print("ForciblySpeed"+ ForciblySpeed);
     }
 
-    public void AttackUP(float atk)
+    public void AttackUP(float atk,float spe)
     {
-        playerbase.AttackUP(atk);
+        playerbase.AttackUP(atk,spe);
+        Dopingflg = true;
     }
 
-    public void AttackDOWN(float atk)
+    public void AttackDOWN(float atk, float spe)
     {
-        playerbase.AttackDOWN(atk);
+        playerbase.AttackDOWN(atk,spe);
+        Dopingflg = false;
     }
 
     private void OnTriggerEnter(Collider other)

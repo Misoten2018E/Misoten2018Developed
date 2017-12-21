@@ -193,7 +193,7 @@ public class PlayerManager : SceneStartEvent{
         {
             Player P = PlayersObject[i].GetComponent<Player>();
             int psta = P.GetPlayerSta();
-            if (P.no == myno || psta != 0)
+            if (P.no == myno || psta != 0 || P.GetDopingflg() == true)
             {
                 continue;
             }

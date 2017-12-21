@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Doping : SceneStartEvent{
 
-    const float DOPINGUP = 1.5f;
+    public float DopingATK;
+    public float DopingSPE;
     float totaltime;
-    const float maxtime = 10;
+    public float maxtime;
     bool initflg = false;
     int Charactersta;
     Player P;
@@ -29,7 +30,7 @@ public class Doping : SceneStartEvent{
         totaltime += Time.deltaTime;
         if (totaltime > maxtime)
         {
-            P.AttackDOWN(DOPINGUP);
+            P.AttackDOWN(DopingATK, DopingSPE);
             Destroy(gameObject);
         }
     }
@@ -37,7 +38,7 @@ public class Doping : SceneStartEvent{
     public void DopingInit()
     {
         P = transform.parent.GetComponent<Player>();
-        P.AttackUP(DOPINGUP);
+        P.AttackUP(DopingATK, DopingSPE);
         totaltime = 0;
         Charactersta = P.GetCharacterSta();
         SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_SP_PowerUp, transform.position);
