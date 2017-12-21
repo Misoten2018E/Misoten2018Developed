@@ -160,7 +160,7 @@ public class GameSceneManager : MonoBehaviour {
 		LoadSceneList[(int)type] = loader.LoadingScene;
 
 		if(StartScene == type){
-			SceneManager.SetActiveScene(LoadSceneList[(int)type]);
+			SceneManager.SetActiveScene(loader.LoadingScene);
 		}
 
 		yield return null;

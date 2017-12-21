@@ -258,12 +258,12 @@ Prefab:
     - target: {fileID: 224044501502650798, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 236.5
+      value: 960
       objectReference: {fileID: 0}
     - target: {fileID: 224044501502650798, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 133
+      value: 540
       objectReference: {fileID: 0}
     - target: {fileID: 224044501502650798, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
@@ -404,12 +404,12 @@ Prefab:
     - target: {fileID: 224027813747201886, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -142.5
       objectReference: {fileID: 0}
     - target: {fileID: 224025792748304112, guid: 6e5fcf3765ef480469a2a042a61dba7a,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -135
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e5fcf3765ef480469a2a042a61dba7a, type: 2}
@@ -465,12 +465,12 @@ Prefab:
     - target: {fileID: 224408566316153586, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 236.5
+      value: 960
       objectReference: {fileID: 0}
     - target: {fileID: 224408566316153586, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 133
+      value: 540
       objectReference: {fileID: 0}
     - target: {fileID: 224408566316153586, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
         type: 2}
@@ -552,17 +552,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114902242837657654, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
-        type: 2}
-      propertyPath: CityTransform
-      value: 
-      objectReference: {fileID: 1366303391}
-    - target: {fileID: 224781653050352806, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1442.872
-      objectReference: {fileID: 0}
-    - target: {fileID: 224669303894446374, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
+    - target: {fileID: 224419347140529880, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
         type: 2}
       propertyPath: m_LocalPosition.y
       value: -1442.872
@@ -572,16 +562,21 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -1442.872
       objectReference: {fileID: 0}
-    - target: {fileID: 224419347140529880, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
+    - target: {fileID: 224669303894446374, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
         type: 2}
       propertyPath: m_LocalPosition.y
       value: -1442.872
       objectReference: {fileID: 0}
-    - target: {fileID: 114448355362812202, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
+    - target: {fileID: 224781653050352806, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
         type: 2}
-      propertyPath: StealthMask
+      propertyPath: m_LocalPosition.y
+      value: -1442.872
+      objectReference: {fileID: 0}
+    - target: {fileID: 114902242837657654, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
+        type: 2}
+      propertyPath: CityTransform
       value: 
-      objectReference: {fileID: 969739224}
+      objectReference: {fileID: 1366303391}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84, type: 2}
   m_IsPrefabParent: 0
@@ -657,12 +652,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba460535427316c468ed8658c9070e6e, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &969739224 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114805296411555124, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
-    type: 2}
-  m_PrefabInternal: {fileID: 775763567}
-  m_Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &1245391663 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4201424680691866, guid: 11f331d35a704214aa91eb6de4f23f43,
