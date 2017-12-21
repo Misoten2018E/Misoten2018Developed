@@ -42,7 +42,7 @@ public class BossEnemy : PlayerAttackEnemy {
 		IsEnabled = true;
 
 		BossControll.SetState(BossAnimationController.EnemyState.Howling);
-		SoundManager.Instance.PlaySE(SoundManager.SEType.Boss_Howling, FacePoint.position);
+		SoundManager.Instance.PlaySE(SoundManager.SEType.Boss_Howling, FacePoint.position, 1.5f);
 
 		CameraManager.Instance.EventCamera.EventCameraStart(ProduceEventCamera.CameraEvent.BossPop, FacePoint, new Vector3(0, 4f, 0));
 	}
@@ -54,7 +54,7 @@ public class BossEnemy : PlayerAttackEnemy {
 		SoOA,   // 最適な行動の選択　(Selection of optimal action)
 		PopedNoob,
 		JumpMove,
-
+		End,
 	}
 
 	bool _IsEnabled;
@@ -164,6 +164,11 @@ public class BossEnemy : PlayerAttackEnemy {
 				StartMoveNext(NextTarget.transform);
 				break;
 
+			case BossAct.End:
+				SceneEventManager.Instance.GameEnd();
+				SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_BOSS);
+				break;
+
 			default:
 				break;
 		}
@@ -207,10 +212,12 @@ public class BossEnemy : PlayerAttackEnemy {
 			BossControll.SetState(BossAnimationController.EnemyState.LeftTale);
 			BossAtkMng.SetAttackState(BossAttackObject.BodyType.RightHand, true);
 			BossAtkMng.SetAttackState(BossAttackObject.BodyType.RightLeg, true);
+			SoundManager.Instance.PlaySE(SoundManager.SEType.Boss_Attack1, transform.position, 1f);
 		}
 		else {
 			BossControll.SetState(BossAnimationController.EnemyState.RightTale);
 			BossAtkMng.SetAttackState(BossAttackObject.BodyType.Tale, true);
+			SoundManager.Instance.PlaySE(SoundManager.SEType.Boss_Attack1, transform.position, 1f);
 		}
 	}
 

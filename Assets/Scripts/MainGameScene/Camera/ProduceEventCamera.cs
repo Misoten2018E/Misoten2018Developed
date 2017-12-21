@@ -32,6 +32,10 @@ public class ProduceEventCamera : MonoBehaviour {
 
 		SetBasePosition(target.position + OptionPos);
 
+		UINoticeManager.Instance.ActiveChangeIcons(false);
+
+		EndCallback += () => { UINoticeManager.Instance.ActiveChangeIcons(true); };
+
 		AnimationStart(type);
 	}
 

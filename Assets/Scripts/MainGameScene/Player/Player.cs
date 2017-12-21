@@ -77,6 +77,9 @@ public class Player : SceneStartEvent{
                 if (r < CORRECTION * CORRECTION)
                 {
                     playersta = PLAYER_STA.CHANGE;
+
+					//12/20 江戸追加
+					UINoticeManager.Instance.StartIcon(UINoticeManager.UIType.JobChange);
                 }
                 
                 break;
@@ -220,6 +223,12 @@ public class Player : SceneStartEvent{
             HitObjectImpact damage = other.GetComponent<HitObjectImpact>();
             playerbase.PlayerDamage(damage);
         }
+
+		if (other.CompareTag(ConstTags.City)) {
+
+			// 12/20 江戸追加
+			UINoticeManager.Instance.StartIcon(UINoticeManager.UIType.CityIn);
+		}
     }
 
     private void OnTriggerStay(Collider other)
@@ -258,7 +267,21 @@ public class Player : SceneStartEvent{
         }
     }
 
-    private void ChangeCharacter(int Changechar)
+	/// <summary>
+	/// 当たり判定消失時
+	/// 12/20 江戸追加
+	/// </summary>
+	/// <param name="other"></param>
+	private void OnTriggerExit(Collider other) {
+
+		if (other.tag == ConstTags.City) {
+
+			// 12/20 江戸追加
+			UINoticeManager.Instance.CloseIcon(UINoticeManager.UIType.CityIn);
+		}
+	}
+
+	private void ChangeCharacter(int Changechar)
     {
         Vector3 workpos = new Vector3();
         workpos.Set(transform.position.x, 0.0f, transform.position.z);
@@ -300,5 +323,7 @@ public class Player : SceneStartEvent{
         // 11/20 UIを管理するため追加
         UIPlayer.ChangeIcons(Changechar);
 
+		//12/20 江戸追加
+		UINoticeManager.Instance.CloseIcon(UINoticeManager.UIType.JobChange);
 	}
 }

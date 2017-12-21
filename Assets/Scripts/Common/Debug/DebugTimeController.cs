@@ -26,6 +26,21 @@ public class DebugTimeController : MonoBehaviour {
 	public void TimeSpeedChange() {
 
 		Time.timeScale = slider.value;
-		text.text = string.Format("{0:0.00} 倍速" ,slider.value);
+		TimeSpeed = slider.value;
+		text.text = string.Format("{0:0.00} 倍速" , TimeSpeed);
+	}
+
+	public void TimeSpeedChange(float speed) {
+
+		Time.timeScale = slider.value = speed;
+		TimeSpeed = speed;
+		text.text = string.Format("{0:0.00} 倍速", TimeSpeed);
+	}
+
+	public void TimeSpeedReset() {
+
+		Time.timeScale = slider.value = 1f;
+		TimeSpeed = 1f;
+		text.text = string.Format("{0:0.00} 倍速", TimeSpeed);
 	}
 }
