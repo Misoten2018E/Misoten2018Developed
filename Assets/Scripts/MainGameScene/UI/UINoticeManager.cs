@@ -116,23 +116,29 @@ public class UINoticeManager : MonoBehaviour {
 		else {
 			CityInCross.gameObject.SetActive(false);
 		}
-		
-	}
 
+		DebugId = DebugLog.ChaseLog("街範囲にいる人数 : " + CityInNum, DebugId);
+	}
+	int DebugId = -1;
+	int DebugId2 = -1;
 	/// <summary>
 	/// ジョブアイコン表示
 	/// </summary>
 	void AppearJobIcon() {
 
-		if (CityInChangeJobNum > 0) {
+		// 入った人数を増やす
+		CityInChangeJobNum++;
 
-			// 入った人数を増やす
-			CityInChangeJobNum++;
+		DebugId2 = DebugLog.ChaseLog("街中人数 : " + CityInChangeJobNum, DebugId2);
+
+		if (CityInChangeJobNum > 1) {
+
 			return;
 		}
 
 		JobController.gameObject.SetActive(true);
 		JobController.AnimationStart();
+
 	}
 
 	/// <summary>
@@ -145,5 +151,7 @@ public class UINoticeManager : MonoBehaviour {
 		if (CityInChangeJobNum <= 0) {
 			JobController.AnimationEnd();
 		}
+
+		DebugId2 = DebugLog.ChaseLog("街中人数 : " + CityInChangeJobNum, DebugId2);
 	}
 }

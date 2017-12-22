@@ -81,7 +81,8 @@ public class Player : SceneStartEvent{
 
 					//12/20 江戸追加
 					UINoticeManager.Instance.StartIcon(UINoticeManager.UIType.JobChange);
-                }
+					UINoticeManager.Instance.CloseIcon(UINoticeManager.UIType.CityIn);
+				}
                 
                 break;
             case PLAYER_STA.CHANGE:
@@ -94,7 +95,9 @@ public class Player : SceneStartEvent{
                         
                     }
                     playersta = PLAYER_STA.CITYOUT;
-                }
+					//12/22 江戸追加 ここでないと同じキャラへの変更時に処理が通らない
+					UINoticeManager.Instance.CloseIcon(UINoticeManager.UIType.JobChange);
+				}
 
                 if (m_input.GetButtonTriangleTrigger())
                 {
@@ -104,7 +107,9 @@ public class Player : SceneStartEvent{
                        
                     }
                     playersta = PLAYER_STA.CITYOUT;
-                }
+					//12/22 江戸追加 ここでないと同じキャラへの変更時に処理が通らない
+					UINoticeManager.Instance.CloseIcon(UINoticeManager.UIType.JobChange);
+				}
 
                 if (m_input.GetButtonSquareTrigger())
                 {
@@ -114,7 +119,9 @@ public class Player : SceneStartEvent{
                         
                     }
                     playersta = PLAYER_STA.CITYOUT;
-                }
+					//12/22 江戸追加 ここでないと同じキャラへの変更時に処理が通らない
+					UINoticeManager.Instance.CloseIcon(UINoticeManager.UIType.JobChange);
+				}
                 break;
             case PLAYER_STA.CITYOUT:
                 playerbase.PlayerCityOut(ChangeStartPos, ChangeCenterPos);
@@ -331,8 +338,5 @@ public class Player : SceneStartEvent{
         Score.instance.SetCharacter(no, CharacterSta);
         // 11/20 UIを管理するため追加
         UIPlayer.ChangeIcons(Changechar);
-
-		//12/20 江戸追加
-		UINoticeManager.Instance.CloseIcon(UINoticeManager.UIType.JobChange);
 	}
 }
