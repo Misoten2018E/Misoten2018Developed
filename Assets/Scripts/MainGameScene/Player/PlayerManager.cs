@@ -30,6 +30,7 @@ public class PlayerManager : SceneStartEvent{
 
     readonly float HEEL_COS = Mathf.Cos(Mathf.PI/6);
     const float DOPINGAREA = 10;
+    const float HEELNOARIA = 2;
 
     // Use this for initialization
     void Start () {
@@ -171,7 +172,7 @@ public class PlayerManager : SceneStartEvent{
                          (Mathf.Abs(PlayersObject[i].transform.position.y - myPos.y) * Mathf.Abs(PlayersObject[i].transform.position.y - myPos.y)) +
                          (Mathf.Abs(PlayersObject[i].transform.position.z - myPos.z) * Mathf.Abs(PlayersObject[i].transform.position.z - myPos.z));
                 
-                if (length < nearlength)
+                if (length < nearlength && length > HEELNOARIA * HEELNOARIA)
                 {
                     nearlength = length;
                     resobj = PlayersObject[i];
