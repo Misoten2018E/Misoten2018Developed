@@ -220,4 +220,15 @@ public class PlayerManager : SceneStartEvent{
     {
         return PlayersObject[no];
     }
+
+    public void AllPlayerNoDamage(float time)
+    {
+        Player P;
+        
+        for (int i = 0; i < Playercnt; i++)
+        {
+            P = PlayersObject[i].gameObject.GetComponent<Player>();
+            P.PlayerNoDamage(time);
+        }
+    }
 }

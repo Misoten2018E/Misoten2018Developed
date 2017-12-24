@@ -335,4 +335,9 @@ public class Player : SceneStartEvent{
 		//12/20 江戸追加
 		UINoticeManager.Instance.CloseIcon(UINoticeManager.UIType.JobChange);
 	}
+
+    public void PlayerNoDamage(float time)
+    {
+        playerbase.NoDamageON(time);
+    }
 }

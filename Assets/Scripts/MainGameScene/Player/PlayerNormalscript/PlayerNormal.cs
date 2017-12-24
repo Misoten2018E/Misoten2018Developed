@@ -52,6 +52,7 @@ public class PlayerNormal : PlayerBase{
         player_Normal_sta = PLAYER_NORMAL_STA.NORMAL;
         PlayerSta = (int)player_Normal_sta;
         nodamageflg = false;
+        cpynodammax = nodamagetime;
     }
 
     override

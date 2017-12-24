@@ -21,7 +21,7 @@ public class PlayerBase : SceneStartEvent{
     }
 
     public int no;
-    public int nodamagetime;
+    public float nodamagetime;
 
     protected GameObject myPlayer;
     protected float MoveSpeed;
@@ -39,6 +39,7 @@ public class PlayerBase : SceneStartEvent{
     protected float Attack;
     protected bool nodamageflg;
     float nodamtotal = 0;
+    protected float cpynodammax;
 
     // Use this for initialization
     void Start () {
@@ -316,9 +317,16 @@ public class PlayerBase : SceneStartEvent{
             if (nodamtotal >= nodamagetime)
             {
                 nodamtotal = 0;
+                nodamagetime = cpynodammax;
                 nodamageflg = false;
             }
         }
+    }
+
+    public void NoDamageON(float time)
+    {
+        nodamagetime = time;
+        nodamageflg = true;
     }
 
     protected float GetAninormalizedTime(string str)
