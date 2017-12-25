@@ -20,35 +20,23 @@ public class TimelineEventStandard : MonoBehaviour {
 	//                                    public
 	//========================================================================================
 
-	
 	/// <summary>
-	/// イベント開始
+	/// イベント開始時間
 	/// </summary>
-	public virtual void EventStart() {
-
-		var p = GetComponents<ProduceEventBase>();
-		produceEvents.AddRange(p);
-
-		ProduceEventBase.StartProduceLists(produceEvents, ProduceEventBase.EventType.Start);
-	}
-	
-	/// <summary>
-	/// イベント終了
-	/// </summary>
-	public virtual void EventEnd() {
-
-		ProduceEventBase.StartProduceLists(produceEvents, ProduceEventBase.EventType.End);
-	}
-
 	public float time {
 		get { return StartTime; }
 	}
 
-	public virtual bool IsEnd {
-		protected set { }
-		get { return true; }
-	}
 
+
+	//========================================================================================
+	//                                    protected
+	//========================================================================================
+
+	/// <summary>
+	/// フォーカス開始
+	/// </summary>
+	/// <param name="trs"></param>
 	protected void SetFocus(Transform trs) {
 
 		if (isFocusEvent) {
@@ -57,11 +45,64 @@ public class TimelineEventStandard : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// フォーカス時間更新
+	/// </summary>
+	/// <param name="trs"></param>
+	/// <returns></returns>
 	protected IEnumerator FucusTimeUpdate(Transform trs) {
 
 		print(gameObject.name + " : event開始");
 		yield return new WaitForSeconds(FucusTime);
 		CameraManager.Instance.FocusCamera.DeleteTarget(trs);
+	}
+
+	/// <summary>
+	/// 開始演出起動
+	/// </summary>
+	protected void AwakeProduceStart() {
+
+		var p = GetComponents<ProduceEventBase>();
+		produceEvents.AddRange(p);
+
+		ProduceEventBase.StartProduceLists(produceEvents, ProduceEventBase.EventType.Start);
+	}
+
+	/// <summary>
+	/// 終了演出起動
+	/// </summary>
+	protected void AwakeProduceEnd() {
+
+		ProduceEventBase.StartProduceLists(produceEvents, ProduceEventBase.EventType.End);
+	}
+
+	//========================================================================================
+	//                                    virtual
+	//========================================================================================
+
+
+	/// <summary>
+	/// イベント開始
+	/// </summary>
+	public virtual void EventStart() {
+
+		AwakeProduceStart();
+	}
+
+	/// <summary>
+	/// イベント終了
+	/// </summary>
+	public virtual void EventEnd() {
+
+		AwakeProduceEnd();
+	}
+
+	/// <summary>
+	/// 終了したかどうか
+	/// </summary>
+	public virtual bool IsEnd {
+		protected set { }
+		get { return true; }
 	}
 
 
