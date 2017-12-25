@@ -71,6 +71,7 @@ public class PlayerHeel : PlayerBase{
         CharCon.center = new Vector3(0, 10 + no * 3, 0);
         linerenderer.enabled = false;
         BarrettFlg = false;
+        cpynodammax = nodamagetime;
 
         HitAnime.Initialize(this);
     }

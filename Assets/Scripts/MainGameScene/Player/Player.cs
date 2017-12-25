@@ -339,4 +339,9 @@ public class Player : SceneStartEvent{
         // 11/20 UIを管理するため追加
         UIPlayer.ChangeIcons(Changechar);
 	}
+
+    public void PlayerNoDamage(float time)
+    {
+        playerbase.NoDamageON(time);
+    }
 }

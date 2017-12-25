@@ -82,6 +82,7 @@ public class PlayerHero : PlayerBase{
         Attack = Player_Hero_ATTACK;
         nodamageflg = false;
         CharCon.center = new Vector3(0, 10 + no * 3, 0);
+        cpynodammax = nodamagetime;
 
         HitAnime.Initialize(this);
     }
