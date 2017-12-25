@@ -4998,15 +4998,15 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 016263b9bbb64fe49bfdf1994b0ad494, type: 2}
-  - {fileID: 2100000, guid: 6ade8e10aaa4c9f4890163cf20af7cd0, type: 2}
-  - {fileID: 2100000, guid: 700a2d9c320abe748bcede8cc525d169, type: 2}
-  - {fileID: 2100000, guid: 70030500ef9fa3441926a2cafa03590f, type: 2}
-  - {fileID: 2100000, guid: fc86fee3fcb39e948b90d70b510f1dc2, type: 2}
-  - {fileID: 2100000, guid: aeb355483c3bcaf4fb94fc050523b421, type: 2}
-  - {fileID: 2100000, guid: 0579cb9b921eea54a8fe57cc9489a495, type: 2}
-  - {fileID: 2100000, guid: cb1c04ad93fde194f8abc159bc6f7506, type: 2}
-  - {fileID: 2100000, guid: 066fd4dff2872884ca23ff1f0ef2eaeb, type: 2}
+  - {fileID: 2100000, guid: ed5072545ae60c844994e266c40634ec, type: 2}
+  - {fileID: 2100000, guid: fbc7c949e46389643b76d9ab5319bd28, type: 2}
+  - {fileID: 2100000, guid: 97b24a0cea95b274392ff91570135ee6, type: 2}
+  - {fileID: 2100000, guid: ccea5c3dbd49f7d46ba8dbf3d279c5f9, type: 2}
+  - {fileID: 2100000, guid: 9150f7f4986301645b011b274eef5a40, type: 2}
+  - {fileID: 2100000, guid: f582fc9403eb99b4d9889d49b6df70c7, type: 2}
+  - {fileID: 2100000, guid: ce285dd6f0ac94a4680614f20dd35e3b, type: 2}
+  - {fileID: 2100000, guid: 7b29f371016164042a8ae3749aa41c38, type: 2}
+  - {fileID: 2100000, guid: 68e1f1578072d5b44b57bf8ca5f14fd6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
