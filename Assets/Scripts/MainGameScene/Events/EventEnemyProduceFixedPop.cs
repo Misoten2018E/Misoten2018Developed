@@ -33,10 +33,11 @@ public class EventEnemyProduceFixedPop : EventEnemyTimePop<EventEnemyProduceFixe
 		base.SetFocus(this.transform);
 
 		enemyEgg = CreateEgg();
-		StartCoroutine(GameObjectExtensions.DelayMethod(ProduceTime, ()=> {
+		StartCoroutine(GameObjectExtensions.DelayMethod(ProduceTime*1.5f, ()=> {
 			IsActive = true;
-			AwakeProduceStart();
 			}));
+
+		AwakeProduceStart();
 	}
 
 	public override void EventEnd() {
