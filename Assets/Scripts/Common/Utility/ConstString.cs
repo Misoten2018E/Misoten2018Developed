@@ -54,7 +54,7 @@ public static class ConstActionHitData {
 
 public static class ConstString {
 
-
+	public const string EnemyEgg = "EventEnemyEgg";
 }
 
 public static class ConstEffects {
@@ -63,6 +63,8 @@ public static class ConstEffects {
 	public const string Disappointed = "DisappointedMark";
 
 	public const string FireLanding = "FlareParticle";
+
+	public const string SublimitedFog = "SublimatedFog";
 }
 
 public static class ConstScene {

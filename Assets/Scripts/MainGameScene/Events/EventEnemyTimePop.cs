@@ -75,7 +75,7 @@ public class EventEnemyTimePop<T> : TimelineEventStandard {
 	// 起動中
 	bool _isActive;
 	public bool IsActive {
-		private set { _isActive = value; }
+		protected set { _isActive = value; }
 		get { return _isActive; }
 	}
 
