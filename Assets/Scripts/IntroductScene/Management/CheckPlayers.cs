@@ -63,8 +63,12 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
 			nowtime += Time.deltaTime;
 
 			if (nowtime > max_time) {
-				StartMainGameScene();
-			}
+                //StartMainGameScene();
+                IntroManager IntroM;
+                IntroM = GameObject.Find("UIRoot").transform.Find("IntroManage").gameObject.GetComponent<IntroManager>();
+                
+                IntroM.ManagerAniON();
+            }
 		}
 	}
 
