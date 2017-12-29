@@ -580,6 +580,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &775763568 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114101488189425598, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84,
+    type: 2}
+  m_PrefabInternal: {fileID: 775763567}
+  m_Script: {fileID: 11500000, guid: 62f2987f40dc38f45976a0fec3387c62, type: 3}
 --- !u!1001 &866624830
 Prefab:
   m_ObjectHideFlags: 0
@@ -1060,7 +1066,7 @@ Prefab:
         type: 2}
       propertyPath: NoticeWindow
       value: 
-      objectReference: {fileID: 504271329}
+      objectReference: {fileID: 161299512}
     - target: {fileID: 114300373170224382, guid: 205fcb7bf5ec58643aaaa8c951907bde,
         type: 2}
       propertyPath: NoticeWindow
@@ -1086,6 +1092,16 @@ Prefab:
       propertyPath: NoticeWindow
       value: 
       objectReference: {fileID: 1625416068}
+    - target: {fileID: 114280119976389134, guid: 205fcb7bf5ec58643aaaa8c951907bde,
+        type: 2}
+      propertyPath: NoticeWindow
+      value: 
+      objectReference: {fileID: 504271329}
+    - target: {fileID: 114306694556283404, guid: 205fcb7bf5ec58643aaaa8c951907bde,
+        type: 2}
+      propertyPath: NoticeWindow
+      value: 
+      objectReference: {fileID: 775763568}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 205fcb7bf5ec58643aaaa8c951907bde, type: 2}
   m_IsPrefabParent: 0
