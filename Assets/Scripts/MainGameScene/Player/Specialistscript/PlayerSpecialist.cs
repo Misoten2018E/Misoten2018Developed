@@ -128,7 +128,7 @@ public class PlayerSpecialist : PlayerBase{
         ModelTransformReset();
     }
 
-    public override void PlayerDamageMotion()
+    public override void PlayerDamageMotion(int flg)
     {
         player_Special_sta = PLAYER_SPECIALIST_STA.DAMAGE;
         PlayerSta = (int)player_Special_sta;

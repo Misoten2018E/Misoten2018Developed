@@ -132,7 +132,7 @@ public class PlayerHeel : PlayerBase{
         ModelTransformReset();
     }
 
-    public override void PlayerDamageMotion()
+    public override void PlayerDamageMotion(int flg)
     {
         player_Heel_sta = PLAYER_HEEL_STA.DAMAGE;
         PlayerSta = (int)player_Heel_sta;

@@ -146,7 +146,7 @@ public class PlayerHero : PlayerBase{
         TBM.EndTrail();
     }
 
-    public override void PlayerDamageMotion()
+    public override void PlayerDamageMotion(int flg)
     {
         player_Hero_sta = PLAYER_HERO_STA.DAMAGE;
         PlayerSta = (int)player_Hero_sta;

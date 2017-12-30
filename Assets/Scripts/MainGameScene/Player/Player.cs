@@ -159,6 +159,7 @@ public class Player : SceneStartEvent{
             if (CharacterSta != ConstPlayerSta.NormalCharacter)
             {
                 ChangeCharacter(ConstPlayerSta.NormalCharacter);
+                playerbase.PlayerDamageMotion(1);
             }
         }
     }
@@ -205,7 +206,7 @@ public class Player : SceneStartEvent{
     {
         playersta = PLAYER_STA.FORCIBLY;
         ChangeCenterPos = target;
-        playerbase.PlayerDamageMotion();
+        playerbase.PlayerDamageMotion(0);
         float length = (Mathf.Abs(transform.position.x - target.x) * Mathf.Abs(transform.position.x - target.x)) +
                         (Mathf.Abs(transform.position.z - target.z) * Mathf.Abs(transform.position.z - target.z));
         length = Mathf.Sqrt(length);

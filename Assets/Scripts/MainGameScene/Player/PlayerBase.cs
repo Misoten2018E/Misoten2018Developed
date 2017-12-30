@@ -160,7 +160,7 @@ public class PlayerBase : SceneStartEvent{
 
     }
 
-    public virtual void PlayerDamageMotion()
+    public virtual void PlayerDamageMotion(int flg)
     {
 
     }
