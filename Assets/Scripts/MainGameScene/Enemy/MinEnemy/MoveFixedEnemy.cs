@@ -214,6 +214,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		MyAttackObj = Instantiate(prefab);
 		MyAttackObj.Initialize(this.gameObject);
 
+		SoundManager.Instance.PlaySE(SoundManager.SEType.Mob_Attack, transform.position);
+
 		IsAttacking = true;
 		AnimationAttackPose();
 
@@ -435,9 +437,10 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// <param name="obj"></param>
 	protected void CreateHittedEffect(HitObject obj ,Vector3 playerPos) {
 
-		obj.HitEffect(transform.position , playerPos);
+		obj.HitEffect(transform.position + Option, playerPos);
 
 	}
+	readonly Vector3 Option = new Vector3(0, 1, 0);
 
 	/// <summary>
 	/// 死亡

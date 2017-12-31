@@ -141,6 +141,8 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		MyAttackObj = Instantiate(prefab);
 		MyAttackObj.Initialize(this.gameObject);
 
+		SoundManager.Instance.PlaySE(SoundManager.SEType.Mob_Attack, transform.position);
+
 		IsAttacking = true;
 		AnimationAttackPose();
 
@@ -163,7 +165,7 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 		yield return new WaitForSeconds(wait);
 
 		AnimationAttack();
-		print("攻撃" + gameObject.name);
+	//	print("攻撃" + gameObject.name);
 
 		MyAttackObj.SetEndCallback(AttackEnd);
 
