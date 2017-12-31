@@ -239,7 +239,11 @@ public class Player : SceneStartEvent{
         {
             HitObjectImpact damage = other.GetComponent<HitObjectImpact>();
             playerbase.PlayerDamage(damage);
-        }
+
+			// 12/31 江戸 エフェクト追加
+			CreateHittedEffect(damage, damage.ParentHit.transform.position);
+
+		}
 
 		if (other.CompareTag(ConstTags.City)) {
 
@@ -345,4 +349,16 @@ public class Player : SceneStartEvent{
     {
         playerbase.NoDamageON(time);
     }
+
+	/// <summary>
+	/// ダメージ時エフェクト作成
+	/// 12/31 江戸 エフェクト追加
+	/// </summary>
+	/// <param name="obj"></param>
+	protected void CreateHittedEffect(HitObject obj, Vector3 EnemyPos) {
+
+		Vector3 hitpos = transform.position + ((EnemyPos - transform.position).normalized * 0.3f);
+		obj.HitEffect(hitpos + Option, EnemyPos);
+	}
+	readonly Vector3 Option = new Vector3(0, 0.5f, 0);
 }
