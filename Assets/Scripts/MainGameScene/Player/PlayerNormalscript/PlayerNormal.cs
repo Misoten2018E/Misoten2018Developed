@@ -92,11 +92,20 @@ public class PlayerNormal : PlayerBase{
         ModelTransformReset();
     }
 
-    public override void PlayerDamageMotion()
+    public override void PlayerDamageMotion(int flg)
     {
         player_Normal_sta = PLAYER_NORMAL_STA.DAMAGE;
         PlayerSta = (int)player_Normal_sta;
-        animator.SetTrigger("Damage");
+        if (flg == 1)
+        {
+            animator.SetTrigger("LongDamage");
+            nodamageflg = true;
+        }
+        else
+        {
+            animator.SetTrigger("Damage");
+        }
+        
         ModelTransformReset();
     }
 
@@ -152,7 +161,7 @@ public class PlayerNormal : PlayerBase{
 
     private void DamageAction()
     {
-        if (CheckAnimationEND("Damage"))
+        if (CheckAnimationEND("Damage") || CheckAnimationEND("LongDamage"))
         {
             player_Normal_sta = PLAYER_NORMAL_STA.NORMAL;
             PlayerSta = (int)player_Normal_sta;
