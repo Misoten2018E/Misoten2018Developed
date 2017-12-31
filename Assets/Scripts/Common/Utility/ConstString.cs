@@ -65,6 +65,8 @@ public static class ConstEffects {
 	public const string FireLanding = "FlareParticle";
 
 	public const string SublimitedFog = "SublimatedFog";
+
+	public const string StandardHittedEffect = "StandardHittedEffect";
 }
 
 public static class ConstScene {

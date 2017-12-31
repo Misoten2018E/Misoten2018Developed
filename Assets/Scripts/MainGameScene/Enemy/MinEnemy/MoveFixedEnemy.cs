@@ -100,11 +100,22 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 			if (isHit) {
 
 				// 攻撃元の座標を受け取る
-				HittedPlayerAttack(hito.ParentHit.myPlayer.GetPlayerObj());
+				var player = hito.ParentHit.myPlayer.GetPlayerObj();
+
+				// 緊急措置
+				if (player == null) {
+					hito.DamageHp(MyHp);
+					SwtichHitted(hito);
+					CameraChance(hito);
+					return;
+				}
+
+				HittedPlayerAttack(player);
 
 				hito.DamageHp(MyHp);
 				SwtichHitted(hito);
-				
+				CreateHittedEffect(hito, player.transform.position);
+
 				CameraChance(hito);
 				return;
 			}
@@ -419,6 +430,16 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	}
 
 	/// <summary>
+	/// ダメージ時エフェクト作成
+	/// </summary>
+	/// <param name="obj"></param>
+	protected void CreateHittedEffect(HitObject obj ,Vector3 playerPos) {
+
+		obj.HitEffect(transform.position , playerPos);
+
+	}
+
+	/// <summary>
 	/// 死亡
 	/// </summary>
 	protected void DestroyMe() {
@@ -535,7 +556,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// カメラチャンスを知らせる
 	/// </summary>
 	/// <param name="hito"></param>
-	private void CameraChance(HitObject hito) {
+	protected void CameraChance(HitObject hito) {
 
 		var ph = hito.ParentHit;
 

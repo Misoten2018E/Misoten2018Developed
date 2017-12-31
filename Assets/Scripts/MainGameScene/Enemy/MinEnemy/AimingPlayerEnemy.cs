@@ -93,8 +93,22 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 			bool isHit = !HitLog.CheckLog(hito);
 			if (isHit) {
 
-				SwtichHitted(hito);
+				// 攻撃元の座標を受け取る
+				var player = hito.ParentHit.myPlayer.GetPlayerObj();
+
+				// 緊急措置
+				if (player == null) {
+					hito.DamageHp(MyHp);
+					SwtichHitted(hito);
+					CameraChance(hito);
+					return;
+				}
+
 				hito.DamageHp(MyHp);
+				SwtichHitted(hito);
+				CreateHittedEffect(hito, player.transform.position);
+
+				CameraChance(hito);
 				return;
 			}
 		}

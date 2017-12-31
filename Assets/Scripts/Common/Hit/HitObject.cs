@@ -19,6 +19,8 @@ public abstract class HitObject : SoundEffectSupport,DebuggableObject {
 
 	[SerializeField] AnimationCurve _MoveCurve;
 
+	[SerializeField] HittedEffect EffectPattern;
+
 	//========================================================================================
 	//                                    public
 	//========================================================================================
@@ -67,6 +69,11 @@ public abstract class HitObject : SoundEffectSupport,DebuggableObject {
 	/// <param name="plus"></param>
 	public virtual void DamageUpPlus(int plus) {
 		Damage += plus;
+	}
+
+	public virtual void HitEffect(Vector3 HittedPos ,Vector3 targetPos) {
+
+		EffectPattern.CreateParticle(HittedPos, targetPos);
 	}
 
 
