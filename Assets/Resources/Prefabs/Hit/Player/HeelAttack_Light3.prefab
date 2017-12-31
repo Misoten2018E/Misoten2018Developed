@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 25
   AttackId: 0
-  Damage: 40
+  _Damage: 100
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -197,6 +197,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  EffectPattern:
+    Type: 6
+    isFollowParentRotation: 0
 --- !u!135 &135802162260895936
 SphereCollider:
   m_ObjectHideFlags: 1
