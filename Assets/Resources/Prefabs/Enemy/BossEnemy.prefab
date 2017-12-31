@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4652580233297594}
   - component: {fileID: 33316010193235716}
+  - component: {fileID: 54548968967840678}
   - component: {fileID: 136013967777236566}
   - component: {fileID: 23445009303395350}
   - component: {fileID: 114241806581847210}
@@ -105,6 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4596532667322898}
   - component: {fileID: 33450981704015494}
+  - component: {fileID: 54768160571407246}
   - component: {fileID: 136201131937129958}
   - component: {fileID: 23106428779541846}
   - component: {fileID: 114787908542280734}
@@ -352,6 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4599901560737928}
   - component: {fileID: 33243215558301900}
+  - component: {fileID: 54356561847036462}
   - component: {fileID: 136571716339453642}
   - component: {fileID: 23311587054467532}
   - component: {fileID: 114489414525024442}
@@ -447,6 +450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4963049529072848}
   - component: {fileID: 33204497794486390}
+  - component: {fileID: 54164259749024260}
   - component: {fileID: 136255564303330496}
   - component: {fileID: 23909793520161508}
   - component: {fileID: 114897245010481280}
@@ -466,6 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4531675642835328}
   - component: {fileID: 33730844814295862}
+  - component: {fileID: 54161722959827816}
   - component: {fileID: 136239128733254088}
   - component: {fileID: 23864361242429542}
   - component: {fileID: 114087257852066558}
@@ -636,12 +641,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4063751451608550}
   - component: {fileID: 33073521829851124}
+  - component: {fileID: 54023953565127738}
   - component: {fileID: 136492234564892152}
   - component: {fileID: 23551673876633100}
   - component: {fileID: 114093345794076568}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HittedObject
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,6 +661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4411903699100248}
   - component: {fileID: 33379232599645246}
+  - component: {fileID: 54068648628755940}
   - component: {fileID: 136725378505812368}
   - component: {fileID: 23846512008984806}
   - component: {fileID: 114177741871260672}
@@ -871,6 +878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4046265262096422}
   - component: {fileID: 33955534645483124}
+  - component: {fileID: 54527077776372706}
   - component: {fileID: 136766478251433098}
   - component: {fileID: 23870902927563700}
   - component: {fileID: 114178214608598382}
@@ -950,12 +958,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4658093786807838}
   - component: {fileID: 33330236973494116}
+  - component: {fileID: 54503319633827464}
   - component: {fileID: 136534456613090476}
   - component: {fileID: 23567884101781218}
   - component: {fileID: 114391368465202590}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HittedObject
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1109,6 +1118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4796624926024936}
   - component: {fileID: 33576193453068350}
+  - component: {fileID: 54197615563660272}
   - component: {fileID: 136045642632629554}
   - component: {fileID: 23096099272304662}
   - component: {fileID: 114988803708143314}
@@ -1174,6 +1184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4734801598486712}
   - component: {fileID: 33197872841147562}
+  - component: {fileID: 54539505453877656}
   - component: {fileID: 136027159896876996}
   - component: {fileID: 23045321185582214}
   - component: {fileID: 114640707244310794}
@@ -1390,6 +1401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4113523385572190}
   - component: {fileID: 33076554968257934}
+  - component: {fileID: 54399695637497888}
   - component: {fileID: 136357310520828730}
   - component: {fileID: 23035153959066012}
   - component: {fileID: 114573282153788726}
@@ -1470,13 +1482,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4759335090951750}
   - component: {fileID: 33461907522764480}
+  - component: {fileID: 54109355636718670}
   - component: {fileID: 136945435093818356}
   - component: {fileID: 23886416794963070}
   - component: {fileID: 114655958542739588}
   - component: {fileID: 114918122789216976}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HittedObject
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1687,12 +1700,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4745124462318738}
   - component: {fileID: 33409545292985916}
+  - component: {fileID: 54529731818320994}
   - component: {fileID: 136995865668132980}
   - component: {fileID: 23179409095576066}
   - component: {fileID: 114860104763662488}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HittedObject
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2412,7 +2426,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1657316356109208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 12.7, z: 3.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4014809114637392}
@@ -3949,6 +3963,216 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1553977750713100}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54023953565127738
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375014902678790}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54068648628755940
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380724009260492}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54109355636718670
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1896286916783848}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54161722959827816
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1279005679774488}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54164259749024260
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1273215906625222}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54197615563660272
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670610898059812}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54356561847036462
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206967735618826}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54399695637497888
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832803247490360}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54503319633827464
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577139124090976}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54527077776372706
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1553977750713100}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54529731818320994
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989876836246534}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54539505453877656
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1727285450031962}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54548968967840678
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1027218816021272}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54768160571407246
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062714965549420}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &95518016453619410
 Animator:
   serializedVersion: 3
@@ -4003,7 +4227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 0
   AttackId: 0
-  Damage: 100
+  _Damage: 100
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -4022,6 +4246,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  EffectPattern:
+    Type: 0
+    isFollowParentRotation: 0
 --- !u!114 &114093345794076568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4047,7 +4274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 0
   AttackId: 0
-  Damage: 100
+  _Damage: 100
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -4066,6 +4293,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  EffectPattern:
+    Type: 0
+    isFollowParentRotation: 0
 --- !u!114 &114178214608598382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4091,7 +4321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 0
   AttackId: 0
-  Damage: 100
+  _Damage: 100
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -4110,6 +4340,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  EffectPattern:
+    Type: 0
+    isFollowParentRotation: 0
 --- !u!114 &114246094954761910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4182,7 +4415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 0
   AttackId: 0
-  Damage: 100
+  _Damage: 100
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -4201,6 +4434,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  EffectPattern:
+    Type: 0
+    isFollowParentRotation: 0
 --- !u!114 &114545998782655878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4226,7 +4462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 0
   AttackId: 0
-  Damage: 100
+  _Damage: 100
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -4245,6 +4481,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  EffectPattern:
+    Type: 0
+    isFollowParentRotation: 0
 --- !u!114 &114593754766952182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4335,7 +4574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 0
   AttackId: 0
-  Damage: 100
+  _Damage: 100
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -4354,6 +4593,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  EffectPattern:
+    Type: 0
+    isFollowParentRotation: 0
 --- !u!114 &114792793137647488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4367,7 +4609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 0
   AttackId: 0
-  Damage: 100
+  _Damage: 100
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -4386,6 +4628,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  EffectPattern:
+    Type: 0
+    isFollowParentRotation: 0
 --- !u!114 &114860104763662488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4530,7 +4775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 0
   AttackId: 0
-  Damage: 100
+  _Damage: 100
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -4549,6 +4794,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  EffectPattern:
+    Type: 0
+    isFollowParentRotation: 0
 --- !u!114 &114987067541147272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4574,7 +4822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 0
   AttackId: 0
-  Damage: 100
+  _Damage: 100
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -4593,6 +4841,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  EffectPattern:
+    Type: 0
+    isFollowParentRotation: 0
 --- !u!136 &136013967777236566
 CapsuleCollider:
   m_ObjectHideFlags: 1
