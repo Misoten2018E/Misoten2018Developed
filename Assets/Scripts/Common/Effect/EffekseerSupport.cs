@@ -9,9 +9,33 @@ public class EffekseerSupport : EffectBase {
 	//                                    inspector
 	//========================================================================================
 
+	[SerializeField] private bool IsEndDestroy = false;
+	
 	//========================================================================================
 	//                                     public
 	//========================================================================================
+
+	
+
+	private void Update() {
+
+		if (IsActive == false) {
+			Destroy(gameObject);
+		}
+	}
+
+	//========================================================================================
+	//                                 public - override
+	//========================================================================================
+
+	protected override void Awake() {
+
+		base.Awake();
+
+		if (IsEndDestroy) {
+			StartCoroutine(IEDestroyCheck());
+		}
+	}
 
 	public override void Play(float delayTime = 0) {
 		gameObject.SetActive(true);
@@ -41,14 +65,24 @@ public class EffekseerSupport : EffectBase {
 	}
 
 	//========================================================================================
-	//                                 public - override
-	//========================================================================================
-
-
-	//========================================================================================
 	//                                     private
 	//========================================================================================
 
+	IEnumerator IEDestroyCheck() {
+
+		yield return new WaitForSeconds(1f);
+
+		while (true) {
+
+			if (IsActive == false) {
+				Destroy(gameObject);
+				break;
+			}
+
+			yield return new WaitForSeconds(1f);
+		}
+
+	}
 
 	EffekseerEmitter _effekseer;
 	public EffekseerEmitter effekseer {

@@ -12,7 +12,7 @@ public abstract class EffectBase : PauseSupport {
 
 	[SerializeField] protected float LocalScale = 1f;
 
-	protected virtual void Start() {
+	protected virtual void Awake() {
 		ScaleChange(LocalScale);
 	}
 

@@ -15,7 +15,7 @@ public class HittedEffect {
 
 	[SerializeField] private EffectType Type;
 
-	[SerializeField] private bool isFollowParentRotation = true;
+	[SerializeField] private bool isFollowParentRotation = false;
 
 	//========================================================================================
 	//                                     public
@@ -56,7 +56,7 @@ public class HittedEffect {
 		else {
 
 			MyEffect = GameObject.Instantiate(par);
-			EffectSupport.FollowPosition(MyEffect, (AttackPos + HittedPos) / 2);
+			EffectSupport.FollowPosition(MyEffect, (HittedPos));
 		}
 
 		return MyEffect;
@@ -79,40 +79,40 @@ public class HittedEffect {
 	//========================================================================================
 
 	private readonly ReadOnlyCollection<string> DirectryNames = Array.AsReadOnly(new string[] {
-		ConstDirectry.DirParticleEdo,
-		ConstDirectry.DirParticleEdo,
-		ConstDirectry.DirParticleEdo,
-		ConstDirectry.DirParticleEdo,
+		ConstDirectry.DirParticle,
+		ConstDirectry.DirParticle,
+		ConstDirectry.DirParticle,
+		ConstDirectry.DirParticle,
+
+		ConstDirectry.DirParticle,
+		ConstDirectry.DirParticle,
+		ConstDirectry.DirParticle,
+		ConstDirectry.DirParticle,
 
 		ConstDirectry.DirParticleEdo,
 		ConstDirectry.DirParticleEdo,
 		ConstDirectry.DirParticleEdo,
 		ConstDirectry.DirParticleEdo,
 
-		ConstDirectry.DirParticleEdo,
-		ConstDirectry.DirParticleEdo,
-		ConstDirectry.DirParticleEdo,
-		ConstDirectry.DirParticleEdo,
-
-		ConstDirectry.DirParticleEdo,
+		ConstDirectry.DirParticle,
 	});
 
 	private readonly ReadOnlyCollection<string> EffectNames = Array.AsReadOnly(new string[] {
-		ConstEffects.StandardHittedEffect,
-		ConstEffects.StandardHittedEffect,
-		ConstEffects.StandardHittedEffect,
-		ConstEffects.StandardHittedEffect,
+		ConstEffects.HeroHit,
+		ConstEffects.HeroHit,
+		ConstEffects.HeroHit,
+		ConstEffects.HeroHit,
+
+		ConstEffects.ViranHit,
+		ConstEffects.ViranHit,
+		ConstEffects.ViranHit,
+		ConstEffects.ViranHit,
 
 		ConstEffects.StandardHittedEffect,
 		ConstEffects.StandardHittedEffect,
 		ConstEffects.StandardHittedEffect,
 		ConstEffects.StandardHittedEffect,
 
-		ConstEffects.StandardHittedEffect,
-		ConstEffects.StandardHittedEffect,
-		ConstEffects.StandardHittedEffect,
-		ConstEffects.StandardHittedEffect,
-
-		ConstEffects.StandardHittedEffect,
+		ConstEffects.Hitted,
 	});
 }
