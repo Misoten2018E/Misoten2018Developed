@@ -19,7 +19,7 @@ public class BossPopPositionManager : MonoBehaviour {
 	public BossPopPosition BossPopEnemyPosition() {
 
 		if (AccessNum >= PositionList.Count) {
-			print("設定異常");
+			print("設定異常 :" + AccessNum);
 			DebugLog.log("設定異常");
 			return PositionList[0];
 		}
