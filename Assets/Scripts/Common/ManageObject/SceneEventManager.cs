@@ -137,7 +137,10 @@ public class SceneEventManager : MonoBehaviour {
 			GameSceneManager.Instance.SetActiveScene(GameSceneManager.SceneType.Main);
 		}
 #else
-		GameSceneManager.Instance.SetActiveScene(GameSceneManager.SceneType.Main);
+		if (GameSceneManager.Instance != null) {
+			GameSceneManager.Instance.SetActiveScene(GameSceneManager.SceneType.Main);
+		}
+		//GameSceneManager.Instance.SetActiveScene(GameSceneManager.SceneType.Main);
 #endif
 
 

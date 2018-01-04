@@ -8903,11 +8903,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpactTremble:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.0027313232
+      value: 0.0030441284
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.100304544
+      value: 0.9923396
+      inSlope: 0.007871872
+      outSlope: 0.007871872
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.29998168
+      value: -0.9976366
+      inSlope: 0.0041603134
+      outSlope: 0.0041603134
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.49961483
+      value: 1.0149646
+      inSlope: -0.0043633105
+      outSlope: -0.0043633105
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.69970644
+      value: -0.9869143
+      inSlope: -0.0007297284
+      outSlope: -0.0007297284
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.8993938
+      value: 0.99317414
+      inSlope: 0.05029266
+      outSlope: 0.05029266
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.00060164277
+      inSlope: -0.0045972364
+      outSlope: -0.0045972364
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
-  TremblePower: 0.2
+    m_RotationOrder: 0
+  TremblePower: 0.3
 --- !u!114 &114612374450667900
 MonoBehaviour:
   m_ObjectHideFlags: 1
