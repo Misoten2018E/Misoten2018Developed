@@ -97,6 +97,8 @@ public class UINoticeManager : MonoBehaviour {
 		if (CityInChangeJobNum <= 0) {
 			JobController.AnimationEnd();
 		}
+
+		MaskScaleChange();
 	}
 
 	//========================================================================================
@@ -153,5 +155,15 @@ public class UINoticeManager : MonoBehaviour {
 		}
 
 		DebugId2 = DebugLog.ChaseLog("街中人数 : " + CityInChangeJobNum, DebugId2);
+	}
+
+	private void MaskScaleChange() {
+
+		float size = CameraManager.Instance.FocusCamera.CameraComp.orthographicSize;
+
+		float maxSize = 25f;
+
+		float rate = 1f - size / maxSize;
+		StealthMask.transform.localScale = new Vector3(rate, rate);
 	}
 }
