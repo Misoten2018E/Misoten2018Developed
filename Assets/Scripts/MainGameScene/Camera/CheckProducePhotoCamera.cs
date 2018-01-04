@@ -79,7 +79,11 @@ public class CheckProducePhotoCamera : MonoBehaviour,IFGameEndEvent {
 			PhotoShotList.Add(list);
 		}
 
+		EventManager<IFGameEndEvent>.Instance.SetObject(this);
+
 		gameObject.SetActive(false);
+
+
 	}
 
 	/// <summary>
