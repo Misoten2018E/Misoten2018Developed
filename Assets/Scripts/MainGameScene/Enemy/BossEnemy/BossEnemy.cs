@@ -44,7 +44,8 @@ public class BossEnemy : PlayerAttackEnemy {
 		BossControll.SetState(BossAnimationController.EnemyState.Howling);
 		SoundManager.Instance.PlaySE(SoundManager.SEType.Boss_Howling, FacePoint.position, 1.5f);
 
-		CameraManager.Instance.EventCamera.EventCameraStart(ProduceEventCamera.CameraEvent.BossPop, FacePoint, new Vector3(0, 4f, 0));
+		CameraManager.Instance.EventCamera.EventCameraStart(ProduceEventCamera.CameraEvent.BossPop, transform, new Vector3(0, 4f, 0));
+		
 	}
 
 	public enum BossAct {
@@ -365,7 +366,8 @@ public class BossEnemy : PlayerAttackEnemy {
 	IEnumerator IEUpdateBossPopEnemy() {
 
 		const float MaxTime = 0.7f;
-		var popEnemy = ResourceManager.Instance.Get<BossFire>(ConstDirectry.DirPrefabsEnemy, ConstActionHitData.ActionBossFire);
+		var popEnemy = ResourceManager.Instance.Get<BossPopEnemy>(ConstDirectry.DirPrefabsEnemy, ConstActionHitData.PopEnemy);
+		var popEgg = ResourceManager.Instance.Get<EventEnemyEgg>(ConstDirectry.DirPrefabsEnemy, ConstActionHitData.EnemyEgg);
 
 		var popPos = positionMng.BossPopEnemyPosition();
 
@@ -374,8 +376,15 @@ public class BossEnemy : PlayerAttackEnemy {
 			BossControll.SetState(BossAnimationController.EnemyState.Fire);
 			yield return new WaitForSeconds(MaxTime);
 
-			var f = Instantiate(popEnemy);
-			f.StartFire(FacePoint.position, popPos.PositionList[i].transform.position);
+			var egg = Instantiate(popEgg);
+			egg.EndCallback += () => {
+				
+				var e = Instantiate(popEnemy);
+				e.transform.position = egg.transform.position;
+				egg.EndEvent();
+			};
+
+			egg.EventStart(FacePoint.position, popPos.PositionList[i].transform.position, 1f);
 
 			SoundManager.Instance.PlaySE(SoundManager.SEType.Boss_Attack3, FacePoint.position);
 

@@ -41,6 +41,14 @@ public class EventEnemyEgg : MonoBehaviour {
 
 	}
 
+
+	System.Action _EndCallback;
+	public System.Action EndCallback {
+		set { _EndCallback = value; }
+		get { return _EndCallback; }
+	}
+      
+
 	//========================================================================================
 	//                                    override
 	//========================================================================================
@@ -103,6 +111,10 @@ public class EventEnemyEgg : MonoBehaviour {
 		transform.position = Vec3Comp.CalcPosition(1f);
 		transform.rotation = Quaternion.identity;
 
+		if (EndCallback != null) {
+			EndCallback();
+			EndCallback = null;
+		}
 	}
 
 	Vector3Complession Vec3Comp = new Vector3Complession();

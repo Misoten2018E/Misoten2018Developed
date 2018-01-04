@@ -26,8 +26,10 @@ public static class ConstActionHitData {
 	public const string ActionEnemyMin1 = "EnemyMini_Attack1";
 
 	public const string ActionBossFire = "BossFire";
+	public const string EnemyEgg = "EventEnemyEgg";
+	public const string PopEnemy = "BossPopEnemy";
 
-    public const string ActionHeroWeak1 = "HeroAttack_Light1";
+	public const string ActionHeroWeak1 = "HeroAttack_Light1";
     public const string ActionHeroWeak2 = "HeroAttack_Light2";
     public const string ActionHeroWeak3 = "HeroAttack_Light3";
     public const string ActionHeroStrong = "HeroAttack_Strong";
@@ -54,7 +56,7 @@ public static class ConstActionHitData {
 
 public static class ConstString {
 
-	public const string EnemyEgg = "EventEnemyEgg";
+//	public const string EnemyEgg = "EventEnemyEgg;
 }
 
 public static class ConstEffects {

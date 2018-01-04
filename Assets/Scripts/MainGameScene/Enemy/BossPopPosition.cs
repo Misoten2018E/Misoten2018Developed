@@ -7,10 +7,8 @@ public class BossPopPosition : MonoBehaviour {
 	[SerializeField] List<Transform> Positions;
 
 
-	List<Transform> _PositionList;
 	public List<Transform> PositionList {
-		private set { _PositionList = value; }
-		get { return _PositionList; }
+		get { return Positions; }
 	}
       
 }

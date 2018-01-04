@@ -72,7 +72,7 @@ public class EventEnemyProduceAimingPop : EventEnemyTimePop<EventEnemyProduceAim
 	/// </summary>
 	private EventEnemyEgg CreateEgg() {
 
-		var pre = ResourceManager.Instance.Get<EventEnemyEgg>(ConstDirectry.DirPrefabsEnemy, ConstString.EnemyEgg);
+		var pre = ResourceManager.Instance.Get<EventEnemyEgg>(ConstDirectry.DirPrefabsEnemy, ConstActionHitData.EnemyEgg);
 		var egg = Instantiate(pre);
 		egg.EventStart(new Vector3(0, 25f, -50f), transform.position, ProduceTime);
 		return egg;
