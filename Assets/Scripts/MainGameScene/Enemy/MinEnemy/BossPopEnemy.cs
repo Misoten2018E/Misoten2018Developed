@@ -14,13 +14,17 @@ public class BossPopEnemy : AimingPlayerEnemy {
 	public override void InitEnemy(UsedInitData InitData) {
 
 		MyType = EnemyType.BossPop;
+		transform.position = InitData.BasePosition.position;
 		EnemyManager.Instance.SetEnemy(this);
+
+		RotateSpeed = 1.8f;
 	}
 
 
 	IEnumerator PopedMotion() {
 
 		yield return new WaitForSeconds(2f);
+		EnableMove();
 		base.Start();
 	}
 
@@ -59,6 +63,50 @@ public class BossPopEnemy : AimingPlayerEnemy {
 		StopMove(2f + NextAttackInterval);
 	}
 
+
+	override protected void OnTriggerEnter(Collider other) {
+
+
+		// プレイヤの攻撃
+		if (other.CompareTag(ConstTags.PlayerAttack)) {
+
+			var hito = other.GetComponent<HitObject>();
+
+			bool isHit = !HitLog.CheckLog(hito);
+			if (isHit) {
+
+				// 攻撃元の座標を受け取る
+				var player = hito.ParentHit.myPlayer.GetPlayerObj();
+
+				// 緊急措置
+				if (player == null) {
+					hito.DamageHp(MyHp);
+					SwtichHitted(hito);
+					CameraChance(hito);
+					return;
+				}
+
+				hito.DamageHp(MyHp);
+				SwtichHitted(hito);
+				CreateHittedEffect(hito, player.transform.position);
+
+				CameraChance(hito);
+				return;
+			}
+		}
+	}
+
+	protected override void EscapeToCity() {
+
+		IsEscape = true;
+
+		StopPlayerAttackMode();
+		StopMove(10f);
+		ClushedPlusScore();
+		StartCoroutine(GameObjectExtensions.LoopMethod(1f, DestroyLoop, DestroyMe));
+
+	}
+
 	BossAnimationController _AnimCtrl;
 	public BossAnimationController AnimCtrl {
 		get {
@@ -79,5 +127,17 @@ public class BossPopEnemy : AimingPlayerEnemy {
 			return _BossAtk;
 		}
 	}
-      
+
+
+	//========================================================================================
+	//                                    private
+	//========================================================================================
+
+	float BaseScale = 0.2f;
+
+	void DestroyLoop(float rate) {
+
+		transform.localScale = new Vector3(rate, rate, rate);
+	}
+
 }

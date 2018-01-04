@@ -380,7 +380,9 @@ public class BossEnemy : PlayerAttackEnemy {
 			egg.EndCallback += () => {
 				
 				var e = Instantiate(popEnemy);
-				e.transform.position = egg.transform.position;
+				var data = new UsedInitData();
+				data.BasePosition = egg.transform;
+				e.InitEnemy(data);
 				egg.EndEvent();
 			};
 
