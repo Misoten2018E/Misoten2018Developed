@@ -49,7 +49,17 @@ public class BossPopEnemy : AimingPlayerEnemy {
 		AnimCtrl.SetState(BossAnimationController.EnemyState.Move);
 	}
 
+	protected override void AnimationDamaged() {
+		
+	}
+
 	protected override void AttackPose() {
+
+		var prefab = ResourceManager.Instance.Get<HitSeriesofAction>(ConstDirectry.DirPrefabsHitEnemyMin, ConstActionHitData.ActionEnemyPop);
+		MyAttackObj = Instantiate(prefab);
+		MyAttackObj.Initialize(this.gameObject);
+
+		SoundManager.Instance.PlaySE(SoundManager.SEType.Mob_Attack, transform.position);
 
 		IsAttacking = true;
 		AnimationAttackPose();
@@ -61,6 +71,25 @@ public class BossPopEnemy : AimingPlayerEnemy {
 		StartCoroutine(ieAttackMode);
 
 		StopMove(2f + NextAttackInterval);
+	}
+
+	protected override void AttackEnd() {
+
+		// 次の攻撃待機
+		AttackAction = AttackPose;
+		// 攻撃中でなくなる
+		IsAttacking = false;
+
+		AnimationMove();
+
+		// 次の目標
+		//StartPlayerAttackMode(NowTarget.transform);
+
+		// 移動開始
+		EnableMove();
+		attackIntervalTime = NextAttackInterval;
+
+		BossAtk.SetAttackState(BossAttackObject.BodyType.RightHand, false);
 	}
 
 
@@ -140,4 +169,8 @@ public class BossPopEnemy : AimingPlayerEnemy {
 		transform.localScale = new Vector3(rate, rate, rate);
 	}
 
+
+	override protected Transform ChildModelTrans {
+		get { return AnimCtrl.transform; }
+	}
 }

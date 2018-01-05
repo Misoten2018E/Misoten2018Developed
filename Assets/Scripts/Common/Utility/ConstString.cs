@@ -24,6 +24,7 @@ public static class ConstActionHitData {
 	public const string ActionSuction = "testActionSuction";
 
 	public const string ActionEnemyMin1 = "EnemyMini_Attack1";
+	public const string ActionEnemyPop = "EnemyMini_Attack1";
 
 	public const string ActionBossFire = "BossFire";
 	public const string EnemyEgg = "EventEnemyEgg";

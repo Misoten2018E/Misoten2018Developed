@@ -12,7 +12,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	//========================================================================================
 
 	[Range(3f, 30f)] [Tooltip("攻撃的な時間(攻撃された時にやり返す時間)")]
-	[SerializeField] private float AggressiveTime = 10f;
+	[SerializeField] protected float AggressiveTime = 10f;
 
 	[Tooltip("前回の攻撃から次の攻撃を出すまでの猶予")]
 	[SerializeField] protected float NextAttackInterval = 3f;
@@ -527,12 +527,12 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		}
 	}
 
-	
+
 
 	/// <summary>
 	/// 攻撃終了
 	/// </summary>
-	private void StopAttackMode() {
+	protected void StopAttackMode() {
 
 		print("攻撃行動終了");
 		StopPlayerAttackMode();
