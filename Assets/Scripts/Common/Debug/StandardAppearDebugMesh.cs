@@ -9,4 +9,15 @@ public class StandardAppearDebugMesh : MonoBehaviour ,DebuggableObject{
 		var m = GetComponent<MeshRenderer>();
 		m.enabled = isDebugMode;
 	}
+
+
+
+#if !UNITY_DEBUG
+
+	private void Awake() {
+		var m = GetComponent<MeshRenderer>();
+		m.enabled = false;
+	}
+#endif
+
 }
