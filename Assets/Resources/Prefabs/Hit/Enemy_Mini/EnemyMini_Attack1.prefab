@@ -144,9 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b1f170b353c4f896e55323d6a383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitSE: 37
+  HitSE: 0
   AttackId: 0
-  _Damage: 100
+  _Damage: 20
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -171,9 +171,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  EffectPattern:
-    Type: 12
-    isFollowParentRotation: 0
 --- !u!114 &114676360005793500
 MonoBehaviour:
   m_ObjectHideFlags: 1
