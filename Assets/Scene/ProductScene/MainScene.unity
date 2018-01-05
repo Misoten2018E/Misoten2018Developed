@@ -577,6 +577,10 @@ Prefab:
       propertyPath: CityTransform
       value: 
       objectReference: {fileID: 1366303391}
+    - target: {fileID: 1856010612464946, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9aa6d0ddeb031c6478aa0fa16e07ca84, type: 2}
   m_IsPrefabParent: 0

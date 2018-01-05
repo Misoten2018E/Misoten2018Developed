@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ResultDebugObject : MonoBehaviour {
+    MultiInput Minput;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		isEnd = false;
+        Minput = GetComponent<MultiInput>(); ;
 	}
 
 	float time = 0f;
@@ -15,7 +17,7 @@ public class ResultDebugObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown(KeyCode.Space) && (!isEnd)) {
+		if (Minput.GetButtonCirclePress() && Minput.GetButtonSquarePress() && (!isEnd)) {
 			isEnd = true;
 			ResultManager.Instance.NextSceneStart();
 		}

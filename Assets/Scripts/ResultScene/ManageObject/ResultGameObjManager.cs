@@ -8,19 +8,23 @@ public class ResultGameObjManager : MonoBehaviour {
     {
         CITYMODE,
         PLAYERMODE,
+        CAPTUREON,
         NEXTSCENE,
         RESULT_STA_MAX
     }
 
     const float MAX_TIME = 2.0f;
+    const float MAX_TIME2 = 5.0f;
 
     RESULT_STA resultsta;
     ResultCity Rcity;
     ResultCamera RCamera;
+    public CaptureImages Capture;
     float nowtime;
 
     // Use this for initialization
     void Start () {
+        
         resultsta = RESULT_STA.CITYMODE;
         Rcity = GetComponentInChildren<ResultCity>();
         RCamera = GetComponentInChildren<ResultCamera>();
@@ -29,9 +33,10 @@ public class ResultGameObjManager : MonoBehaviour {
         RCamera.ResultCameraInit();
         nowtime = 0;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    // Update is called once per frame
+    void Update () {
         bool res;
 
         switch (resultsta)
@@ -53,6 +58,17 @@ public class ResultGameObjManager : MonoBehaviour {
                 }
 
                 if (nowtime >= MAX_TIME)
+                {
+                    resultsta = RESULT_STA.CAPTUREON;
+                    nowtime = 0;
+                }
+                break;
+            case RESULT_STA.CAPTUREON:
+                
+                Capture.CaptureON();
+
+                nowtime += Time.deltaTime;
+                if (nowtime >= MAX_TIME2)
                 {
                     resultsta = RESULT_STA.NEXTSCENE;
                 }
