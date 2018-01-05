@@ -49,7 +49,7 @@ public class Score : SceneStartEvent{
 		debugId = DebugLog.ChaseLog("現在スコア : " + score, debugId);
 
 		PlayerScore[PlayerNo] += ten;
-		debugPlayerId[PlayerNo] = DebugLog.ChaseLog("Player" + PlayerNo + "スコア : " + debugPlayerId[PlayerNo], debugId);
+		debugPlayerId[PlayerNo] = DebugLog.ChaseLog("Player" + PlayerNo + "スコア : " + PlayerScore[PlayerNo], debugId);
 	}
 
 	public void AddScore(ScoreType type, int PlayerNo) {
