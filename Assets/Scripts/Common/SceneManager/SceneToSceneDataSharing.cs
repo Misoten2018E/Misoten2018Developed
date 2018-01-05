@@ -53,6 +53,8 @@ public class SceneToSceneDataSharing : MonoBehaviour {
 		public int Player3_LastSta;
 		public int Player4_LastSta;
 
+		public int[] PlayersScore;
+
 		// 街レベル
 		public int CityLevel;
 

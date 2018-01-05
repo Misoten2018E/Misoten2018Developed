@@ -96,13 +96,13 @@ public class BossPopEnemy : AimingPlayerEnemy {
 		}
 	}
 
-	protected override void EscapeToCity() {
+	protected override void EscapeToCity(int playerNo) {
 
 		IsEscape = true;
 
 		StopPlayerAttackMode();
 		StopMove(10f);
-		ClushedPlusScore();
+		ClushedPlusScore(playerNo);
 		StartCoroutine(GameObjectExtensions.LoopMethod(1f, DestroyLoop, DestroyMe));
 
 	}

@@ -170,7 +170,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		AnimationDamaged();
 
 		if (MyHp.isDeath && ieDeath == null) {
-			EscapeToCity();
+			EscapeToCity(obj.ParentHit.PlayerNo);
 		}
 
 		switch (obj.hitType) {
@@ -280,7 +280,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// <summary>
 	/// 街へ逃げていく
 	/// </summary>
-	virtual protected void EscapeToCity() {
+	virtual protected void EscapeToCity(int playerNo) {
 
 		// 逃走モードへ
 		AnimationRunAway();
@@ -297,14 +297,14 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 		CreateParticle(ConstEffects.Happiness);
 
-		ClushedPlusScore();
+		ClushedPlusScore(playerNo);
 	}
 
 	/// <summary>
 	/// 撃破時スコア追加
 	/// </summary>
-	virtual protected void ClushedPlusScore() {
-		Score.instance.AddScore(Score.ScoreType.E_Fixed);
+	virtual protected void ClushedPlusScore(int playerNo) {
+		Score.instance.AddScore(Score.ScoreType.E_Fixed, playerNo);
 	}
 
 	virtual protected Transform ChildModelTrans {

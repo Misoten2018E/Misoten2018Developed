@@ -114,9 +114,9 @@ public class MediumEnemy : AimingPlayerEnemy {
 		myTrail.EndTrail();
 	}
 
-	protected override void EscapeToCity() {
+	protected override void EscapeToCity(int playerNo) {
 
-		base.EscapeToCity();
+		base.EscapeToCity(playerNo);
 		StopPlayerAttackMode();
 
 		GroupCommand.NoticeEnemiesGroupEnd();
@@ -159,8 +159,8 @@ public class MediumEnemy : AimingPlayerEnemy {
 	/// <summary>
 	/// 撃破時スコア追加
 	/// </summary>
-	override protected void ClushedPlusScore() {
-		Score.instance.AddScore(Score.ScoreType.E_Medium);
+	override protected void ClushedPlusScore(int playerNo) {
+		Score.instance.AddScore(Score.ScoreType.E_Medium, playerNo);
 	}
 
 	/// <summary>

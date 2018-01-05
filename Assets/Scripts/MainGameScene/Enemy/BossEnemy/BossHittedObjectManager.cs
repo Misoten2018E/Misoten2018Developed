@@ -8,13 +8,13 @@ public class BossHittedObjectManager : MonoBehaviour {
 	//                                     public
 	//========================================================================================
 
-	public void HitCheck(HitObject obj) {
+	public bool HitCheck(HitObject obj) {
 
 		// 既にヒット済みなら
 		bool isHitted = HitLog.CheckLog(obj);
 
 		if (isHitted) {
-			return;
+			return false;
 		}
 
 		CameraChance(obj);
@@ -23,7 +23,9 @@ public class BossHittedObjectManager : MonoBehaviour {
 		var impact = (transform.position - obj.transform.position).normalized;
 		Damaged.HittedTremble(ChildModelTrans, impact);
 
-		ScorePlus(obj.Damage / 10);
+		ScorePlus(obj.Damage / 10, obj.ParentHit.PlayerNo);
+
+		return true;
 	}
 
 	//========================================================================================
@@ -73,10 +75,9 @@ public class BossHittedObjectManager : MonoBehaviour {
 		CheckProducePhotoCamera.Instance.PhotoChance(hito.transform, transform, type, 0/*ph.myPlayer.GetPlayerObj()*/);
 	}
 
+	private void ScorePlus(int score,int PlayerNum) {
 
-	private void ScorePlus(int score) {
-
-		Score.instance.AddScore(score);
+		Score.instance.AddScore(score, PlayerNum);
 
 	}
 

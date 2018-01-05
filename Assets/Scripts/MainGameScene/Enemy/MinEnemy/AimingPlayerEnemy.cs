@@ -56,17 +56,17 @@ public class AimingPlayerEnemy : MoveFixedEnemy {
 
 	}
 
-	protected override void EscapeToCity() {
+	protected override void EscapeToCity(int playerNo) {
 
-		base.EscapeToCity();
+		base.EscapeToCity(playerNo);
 		StopPlayerAttackMode();
 	}
 
 	/// <summary>
 	/// 撃破時スコア追加
 	/// </summary>
-	override protected void ClushedPlusScore() {
-		Score.instance.AddScore(Score.ScoreType.E_Attack);
+	override protected void ClushedPlusScore(int playerNo) {
+		Score.instance.AddScore(Score.ScoreType.E_Attack, playerNo);
 	}
 
 	/// <summary>
