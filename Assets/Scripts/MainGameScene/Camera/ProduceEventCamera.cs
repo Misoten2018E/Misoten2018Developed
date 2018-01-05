@@ -17,7 +17,7 @@ public class ProduceEventCamera : MonoBehaviour {
 
 	public enum CameraEvent {
 		BossPop,
-
+		BossDestroy,
 	}
 
 	public void EventCameraStart(CameraEvent type, Transform target, Vector3 OptionPos, Vector3 optionRot) {
@@ -31,6 +31,18 @@ public class ProduceEventCamera : MonoBehaviour {
 	public void EventCameraStart(CameraEvent type, Transform target, Vector3 OptionPos) {
 
 		SetBasePosition(target.position + OptionPos);
+
+		UINoticeManager.Instance.ActiveChangeIcons(false);
+
+		EndCallback += () => { UINoticeManager.Instance.ActiveChangeIcons(true); };
+
+		AnimationStart(type);
+	}
+
+	public void EventCameraStartWithRot(CameraEvent type, Transform target, Vector3 optionPos, Vector3 optionRot) {
+
+		SetBasePosition(target.position + optionPos);
+		SetBaseRotation(target.rotation * Quaternion.Euler(optionRot));
 
 		UINoticeManager.Instance.ActiveChangeIcons(false);
 
@@ -71,6 +83,9 @@ public class ProduceEventCamera : MonoBehaviour {
 	//                                     private
 	//========================================================================================
 
+	private const string StateStr = "State";
+	private const string ActivateStr = "isActivate";
+
 	private void AnimationStart(CameraEvent type) {
 
 		// 最高優先度に
@@ -78,11 +93,13 @@ public class ProduceEventCamera : MonoBehaviour {
 
 		EventAnimator.EndCallBack += AnimationEnd;
 
+		EventAnimator.MyAnim.SetInteger(StateStr, (int)type);
+		EventAnimator.MyAnim.SetTrigger(ActivateStr);
 
 		gameObject.SetActive(true);
 		EventAnimator.enabled = true;
-		AnimatorStateInfo stateInfo = EventAnimator.MyAnim.GetCurrentAnimatorStateInfo(0);
-		EventAnimator.MyAnim.Play(stateInfo.fullPathHash, 0, 0.0f);  //初期位置に戻す
+		//AnimatorStateInfo stateInfo = EventAnimator.MyAnim.GetCurrentAnimatorStateInfo(0);
+		//EventAnimator.MyAnim.Play(stateInfo.fullPathHash, 0, 0.0f);  //初期位置に戻す
 
 	}
 
