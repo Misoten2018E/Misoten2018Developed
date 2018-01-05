@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 25
   AttackId: 0
-  Damage: 30
+  _Damage: 40
   _MoveCurve:
     serializedVersion: 2
     m_Curve:

@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1733699476161138}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 1.15, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4144759397003746}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSE: 17
   AttackId: 0
-  Damage: 40
+  _Damage: 40
   _MoveCurve:
     serializedVersion: 2
     m_Curve:
