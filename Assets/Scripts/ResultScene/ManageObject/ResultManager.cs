@@ -32,6 +32,8 @@ public class ResultManager : MonoBehaviour {
 		GameSceneManager.Instance.PermitLoad = false;
 
 		GameSceneManager.Instance.LoadScene(GameSceneManager.SceneType.Intro, () => { EndResultScene(); });
+
+		SoundManager.Instance.PlayBGM(SoundManager.BGMType.RESULT);
 	}
 
 	//========================================================================================
@@ -67,6 +69,8 @@ public class ResultManager : MonoBehaviour {
 	List<IFResultStartEvent> StartEventList = new List<IFResultStartEvent>();
 
 	private void EndResultScene() {
+
+		SoundManager.Instance.StopBGM(SoundManager.BGMType.RESULT, 1f);
 
 		print("リザルトシーンの削除");
 		GameSceneManager.Instance.UnloadScene(GameSceneManager.SceneType.Result);
