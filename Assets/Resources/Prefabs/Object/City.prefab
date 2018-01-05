@@ -6811,8 +6811,8 @@ MonoBehaviour:
   isPausePermit: 1
   EnemyFixedScore: 1
   EnemyAttackScore: 1
-  EnemyMediumScore: 10
-  EnemyBossPopScore: 5
+  EnemyMediumScore: 50
+  EnemyBossPopScore: 100
 --- !u!114 &114456382494398812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6825,7 +6825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPausePermit: 1
-  ScoreList: 140000008813000010270000
+  ScoreList: 06000000fa000000e8030000
   CityModelCnt: 3
 --- !u!135 &135213300184588276
 SphereCollider:

@@ -44,6 +44,17 @@ public abstract class HitObject : SoundEffectSupport,DebuggableObject {
 	}
 
 
+#if !UNITY_DEBUG
+
+	private void Awake() {
+
+		var m = GetComponent<MeshRenderer>();
+		m.enabled = false;
+
+	}
+
+#endif
+
 
 	public void Debug(bool isDebugMode) {
 

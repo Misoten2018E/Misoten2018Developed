@@ -12,7 +12,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	//========================================================================================
 
 	[Range(3f, 30f)] [Tooltip("攻撃的な時間(攻撃された時にやり返す時間)")]
-	[SerializeField] private float AggressiveTime = 10f;
+	[SerializeField] protected float AggressiveTime = 10f;
 
 	[Tooltip("前回の攻撃から次の攻撃を出すまでの猶予")]
 	[SerializeField] protected float NextAttackInterval = 3f;
@@ -170,7 +170,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		AnimationDamaged();
 
 		if (MyHp.isDeath && ieDeath == null) {
-			EscapeToCity();
+			EscapeToCity(obj.ParentHit.PlayerNo);
 		}
 
 		switch (obj.hitType) {
@@ -280,7 +280,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// <summary>
 	/// 街へ逃げていく
 	/// </summary>
-	virtual protected void EscapeToCity() {
+	virtual protected void EscapeToCity(int playerNo) {
 
 		// 逃走モードへ
 		AnimationRunAway();
@@ -297,14 +297,14 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 
 		CreateParticle(ConstEffects.Happiness);
 
-		ClushedPlusScore();
+		ClushedPlusScore(playerNo);
 	}
 
 	/// <summary>
 	/// 撃破時スコア追加
 	/// </summary>
-	virtual protected void ClushedPlusScore() {
-		Score.instance.AddScore(Score.ScoreType.E_Fixed);
+	virtual protected void ClushedPlusScore(int playerNo) {
+		Score.instance.AddScore(Score.ScoreType.E_Fixed, playerNo);
 	}
 
 	virtual protected Transform ChildModelTrans {
@@ -527,12 +527,12 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		}
 	}
 
-	
+
 
 	/// <summary>
 	/// 攻撃終了
 	/// </summary>
-	private void StopAttackMode() {
+	protected void StopAttackMode() {
 
 		print("攻撃行動終了");
 		StopPlayerAttackMode();

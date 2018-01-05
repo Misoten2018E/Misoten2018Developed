@@ -172,6 +172,12 @@ public class SceneEventManager : MonoBehaviour {
 
 		data.textureLists = new List<Texture2D>(CheckProducePhotoCamera.Instance.PhotoList);
 
+		data.PlayersScore = new int[4];
+
+		for (int i = 0; i < 4; i++) {
+			data. PlayersScore[i] = Score.instance.GetPlayerScore(i);
+		}
+
 		SceneToSceneDataSharing.Instance.mainToResultData = data;
 	}
 

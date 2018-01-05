@@ -36,36 +36,44 @@ public class Score : SceneStartEvent{
 	//                                     private
 	//========================================================================================
 
-
+	List<int> PlayerScore = new List<int>();
 
 	int score;
     int[] LastCharacter;
     
 
     int debugId = -1;
-	public void AddScore(int ten) {
+	int[] debugPlayerId = new int[4] { -1, -1, -1, -1 };
+	public void AddScore(int ten ,int PlayerNo) {
 		score += ten;
 		debugId = DebugLog.ChaseLog("現在スコア : " + score, debugId);
+
+		PlayerScore[PlayerNo] += ten;
+		debugPlayerId[PlayerNo] = DebugLog.ChaseLog("Player" + PlayerNo + "スコア : " + PlayerScore[PlayerNo], debugId);
 	}
 
-	public void AddScore(ScoreType type) {
+	public void AddScore(ScoreType type, int PlayerNo) {
 
 		switch (type) {
 			case ScoreType.E_Fixed:
-				AddScore(EnemyFixedScore);
+				AddScore(EnemyFixedScore, PlayerNo);
 				break;
 			case ScoreType.E_Attack:
-				AddScore(EnemyAttackScore);
+				AddScore(EnemyAttackScore, PlayerNo);
 				break;
 			case ScoreType.E_Medium:
-				AddScore(EnemyMediumScore);
+				AddScore(EnemyMediumScore, PlayerNo);
 				break;
 			case ScoreType.E_BossPop:
-				AddScore(EnemyBossPopScore);
+				AddScore(EnemyBossPopScore, PlayerNo);
 				break;
 			default:
 				break;
 		}
+	}
+
+	public int GetPlayerScore(int num) {
+		return PlayerScore[num];
 	}
 
     public void SetCharacter(int index,int type)
@@ -113,5 +121,7 @@ public class Score : SceneStartEvent{
         }
 
         score = 0;
+
+		PlayerScore.AddRange(new int[4]);
     }
 }

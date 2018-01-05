@@ -42,7 +42,10 @@ public class BossHittedObject : MonoBehaviour {
 		if (other.CompareTag(ConstTags.PlayerAttack)) {
 
 			var hit = other.GetComponent<HitObject>();
-			BossHitMng.HitCheck(hit);
+			if (BossHitMng.HitCheck(hit)) {
+
+				CreateHittedEffect(hit, hit.ParentHit.transform.position);
+			}
 		}
 	}
 
@@ -50,6 +53,17 @@ public class BossHittedObject : MonoBehaviour {
 	//                                     private
 	//========================================================================================
 
+
+	/// <summary>
+	/// ダメージ時エフェクト作成
+	/// </summary>
+	/// <param name="obj"></param>
+	protected void CreateHittedEffect(HitObject obj, Vector3 playerPos) {
+
+		obj.HitEffect(transform.position + Option, playerPos);
+
+	}
+	readonly Vector3 Option = new Vector3(0, 1, 0);
 
 	Collider _MyCollider;
 	public Collider MyCollider {
