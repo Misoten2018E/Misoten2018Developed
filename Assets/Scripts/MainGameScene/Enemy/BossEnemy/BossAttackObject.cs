@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(HitObject))]
-public class BossAttackObject : MonoBehaviour {
+public class BossAttackObject : MonoBehaviour ,DebuggableObject {
 
 
 	//========================================================================================
@@ -38,6 +38,24 @@ public class BossAttackObject : MonoBehaviour {
 
 		gameObject.SetActive(false);
 	}
+
+	public void Debug(bool isDebugMode) {
+
+		var m = GetComponent<MeshRenderer>();
+		m.enabled = isDebugMode;
+	}
+
+#if !UNITY_DEBUG
+
+	private void Awake() {
+
+		var m = GetComponent<MeshRenderer>();
+		m.enabled = false;
+
+	}
+
+#endif
+
 
 	//========================================================================================
 	//                                    override
