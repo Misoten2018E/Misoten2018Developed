@@ -12,10 +12,16 @@ public class PlayerUI : MonoBehaviour {
     void Start () {
         Minput = GetComponent<MultiInput>();
         image = GetComponent<UnityEngine.UI.Image>();
+        image.enabled = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if (Minput.GetAllButtonCircleTrigger())
+        {
+            image.enabled = true;
+        }
+
         if (Minput.GetButtonCircleTrigger())
         {
             image.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.zero);
