@@ -32,8 +32,6 @@ public class ResultManager : MonoBehaviour {
 		GameSceneManager.Instance.PermitLoad = false;
 
 		GameSceneManager.Instance.LoadScene(GameSceneManager.SceneType.Intro, () => { EndResultScene(); });
-
-		SoundManager.Instance.PlayBGM(SoundManager.BGMType.RESULT);
 	}
 
 	//========================================================================================
@@ -54,6 +52,8 @@ public class ResultManager : MonoBehaviour {
 		for (int i = 0; i < StartEventList.Count; i++) {
 			StartEventList[i].StartEvent();
 		}
+
+		SoundManager.Instance.PlayBGM(SoundManager.BGMType.RESULT);
 	}
 
 	void Update() {

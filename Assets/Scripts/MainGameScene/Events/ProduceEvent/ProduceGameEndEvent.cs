@@ -35,7 +35,7 @@ public class ProduceGameEndEvent : MonoBehaviour,IFGameEndEvent,IFGameEndProduce
 
 		CameraManager.Instance.EventCamera.EventCameraStartWithRot(ProduceEventCamera.CameraEvent.BossDestroy, boss.transform, new Vector3(0, 10f, 0), new Vector3(0f, 180f, 0f));
 
-		StartCoroutine(GameObjectExtensions.DelayMethod(1.5f, EndEvent));
+		StartCoroutine(GameObjectExtensions.DelayMethod(2.5f, EndEvent));
 	}
 
 	public bool IsEndProduce() {

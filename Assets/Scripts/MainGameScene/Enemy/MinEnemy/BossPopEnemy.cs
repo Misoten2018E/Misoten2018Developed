@@ -25,6 +25,7 @@ public class BossPopEnemy : AimingPlayerEnemy {
 
 		yield return new WaitForSeconds(2f);
 		EnableMove();
+		AnimationMove();
 		base.Start();
 	}
 
