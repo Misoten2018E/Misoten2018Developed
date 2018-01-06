@@ -301,8 +301,8 @@ MonoBehaviour:
       Avoidance: {fileID: 8300000, guid: 70d817c2e0411bd4288ca25e0410ea52, type: 3}
     jingle:
       TitlePlayerOK: {fileID: 8300000, guid: 5c83cb3330784d241a5ea3432f7220ed, type: 3}
-      GameStart: {fileID: 8300000, guid: 63a2f06df2930844583c18b0428e7465, type: 3}
-      StandardWaveStart: {fileID: 8300000, guid: 25f041b7423231340b64a7568d9ac312,
+      GameStart: {fileID: 8300000, guid: 227601bba91070b4ab07456eab7ccbd3, type: 3}
+      StandardWaveStart: {fileID: 8300000, guid: 0624e00b60364d049909699da346ee3b,
         type: 3}
       BossStart: {fileID: 8300000, guid: 1a4c644e2874d5d469695f048d71f626, type: 3}
       WindowPop: {fileID: 8300000, guid: 794d3cc387541f048b6f87608a375be4, type: 3}

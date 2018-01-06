@@ -241,7 +241,7 @@ public class Player : SceneStartEvent{
             playerbase.PlayerDamage(damage);
 
 			// 12/31 江戸 エフェクト追加
-			CreateHittedEffect(damage, damage.ParentHit.transform.position);
+			CreateHittedEffect(damage, damage.transform.position);
 
 		}
 
