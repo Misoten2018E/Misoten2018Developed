@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CaptureImages : MonoBehaviour {
 
-
+    Animator ani;
 
 	//========================================================================================
 	//                                    inspector
@@ -21,39 +21,84 @@ public class CaptureImages : MonoBehaviour {
 	//========================================================================================
 
 	// Use this for initialization
-	void Start() {
+	//void Start() {
 
-		var r = GetComponentsInChildren<RawImage>();
-		imageList.AddRange(r);
+		
+	//}
 
-		CaptureImageSet();
-	}
+    private void Awake()
+    {
+        var r = GetComponentsInChildren<RawImage>();
+        imageList.AddRange(r);
 
-	//========================================================================================
-	//                                     private
-	//========================================================================================
+        CaptureImageSet();
 
-	private void CaptureImageSet() {
+        ani = GetComponent<Animator>();
+        ani.enabled = false;
+    }
 
-		var inst = CheckProducePhotoCamera.Instance;
+    //========================================================================================
+    //                                     private
+    //========================================================================================
+
+    private void CaptureImageSet() {
+
+		//var inst = CheckProducePhotoCamera.Instance;
+        var inst = SceneToSceneDataSharing.Instance;
 
 #if UNITY_DEBUG
-		if (inst == null) {
+        if (inst == null) {
 			return;
 		}
 #endif
 
-		var caplist = inst.PhotoList;
+		var caplist = inst.mainToResultData.textureLists;
 
-		for (int i = 0; i < caplist.Count; i++) {
-			imageList[i].texture = caplist[i];
-		}
+        if (caplist == null)
+        {
+            for (int i = 0; i < imageList.Count; i++)
+            {
+                imageList[i].enabled = false;
+            }
+
+            return;
+        }
+
+		for (int i = 0; i < imageList.Count; i++) {
+            if (i >= caplist.Count)
+            {
+                imageList[i].enabled = false;
+
+                continue;
+            }
+
+            if (caplist[i] != null)
+            {
+                imageList[i].texture = caplist[i];
+            }
+            
+
+            imageList[i].enabled = false;
+        }
 	}
 
+    public void CaptureON()
+    {
+        for (int i = 0; i < imageList.Count; i++)
+        {
+         
+            if (imageList[i].texture != null)
+            {
+                imageList[i].enabled = true;
+            }
+
+        }
+
+        ani.enabled = true;
+    }
 
 
 
 
-
-	List<RawImage> imageList = new List<RawImage>();
+    List<RawImage> imageList = new List<RawImage>();
 }
