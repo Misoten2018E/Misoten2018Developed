@@ -792,7 +792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1859406965945644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2703435, g: 0.25216264, b: 0.7794118, a: 0.291}
+  m_Color: {r: 0.97794116, g: 0.19415009, b: 0.19415009, a: 0.291}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1559,7 +1559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SetImage: {fileID: 0}
   _ImageSize: {x: 0, y: 0}
-  Text: "\u307E\u305A\u306F\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB"
+  Text: "\u30C8\u30AF\u30B5\u30C4\u30B7\u30C6\u30A3\u3078\u3088\u3046\u3053\u305D\uFF01"
 --- !u!114 &114344306931532616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1621,7 +1621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2703435, g: 0.25216264, b: 0.7794118, a: 0.291}
+  m_Color: {r: 0.15517238, g: 1, b: 0.125, a: 0.291}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1737,7 +1737,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 29e360d2590248742b209ce364cd5e73, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -1749,7 +1749,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "WAVE\u958B\u59CB"
+  m_Text: Coution !!
 --- !u!114 &114427564660166514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2292,7 +2292,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 29e360d2590248742b209ce364cd5e73, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -2304,7 +2304,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "WAVE\u958B\u59CB"
+  m_Text: Appeal Start
 --- !u!114 &114760355733420470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2508,7 +2508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2703435, g: 0.25216264, b: 0.7794118, a: 0.291}
+  m_Color: {r: 0.9865112, g: 1, b: 0.022058845, a: 0.291}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2570,7 +2570,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 29e360d2590248742b209ce364cd5e73, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -2582,7 +2582,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "WAVE\u958B\u59CB"
+  m_Text: Appeal Start
 --- !u!222 &222001034137327984
 CanvasRenderer:
   m_ObjectHideFlags: 1

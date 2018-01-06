@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e9a529ba8737e5849878913630b0c9c2
-timeCreated: 1513501848
+guid: a3ae5807658868543b857eb2bebb39b6
+timeCreated: 1515218446
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -156,7 +156,7 @@ ModelImporter:
       name: monster_walk
       takeName: monster_walk
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
