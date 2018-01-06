@@ -161,9 +161,10 @@ public class PlayerSpecialist : PlayerBase{
             ModelTransformReset();
             SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Light1, transform.position);
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.Sand);
+            Vector3 pos = transform.position + transform.forward;
 
             EffectBase Effect = GameObject.Instantiate(par);
-            EffectSupport.Follow(Effect,transform.position,transform.right * -1);
+            EffectSupport.Follow(Effect, pos, transform.right * -1);
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -222,9 +223,10 @@ public class PlayerSpecialist : PlayerBase{
                 SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Light2, transform.position);
 
                 var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.Water);
+                Vector3 pos = transform.position + transform.forward;
 
                 EffectBase Effect = GameObject.Instantiate(par);
-                EffectSupport.Follow(Effect, transform.position, transform.right * -1);
+                EffectSupport.Follow(Effect, pos, transform.right * -1);
             }
             else
             {
@@ -274,9 +276,11 @@ public class PlayerSpecialist : PlayerBase{
         if (FlashON == false && time > 0.4f)
         {
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.Flash);
+            Vector3 pos = transform.position;
+            pos.y += 1.0f;
 
             EffectBase Effect = GameObject.Instantiate(par);
-            EffectSupport.Follow(Effect, transform.position, transform.right * -1);
+            EffectSupport.Follow(Effect, pos, transform.right * -1);
 
             FlashON = true;
         }
