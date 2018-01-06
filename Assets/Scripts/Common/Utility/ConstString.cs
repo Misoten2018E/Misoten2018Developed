@@ -76,6 +76,13 @@ public static class ConstEffects {
 	public const string ViranHit = "Efk_ViranHit";
 	public const string Hitted = "Efk_Hit";
 
+    public const string Buff = "Efk_Buff";
+    public const string Dash = "Efk_Dash";
+    public const string Explode = "Efk_Explode";
+    public const string Flash = "Efk_Flash";
+    public const string Hate = "Efk_Hate";
+    public const string Sand = "Efk_Sand";
+    public const string Water = "Efk_Water";
 }
 
 public static class ConstScene {

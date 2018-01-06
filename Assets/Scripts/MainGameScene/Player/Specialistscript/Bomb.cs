@@ -58,6 +58,12 @@ public class Bomb : PlayerBase{
         bombhit.HitAnimationStrongattack(atk);
         bombsta = BOMB_STA.SWITHON;
         SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Strong_Exp, transform.position);
+
+        var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.Explode);
+        Vector3 pos = transform.position;
+        pos.y += 0.5f;
+        EffectBase Effect = GameObject.Instantiate(par);
+        EffectSupport.Follow(Effect, pos, transform.right * -1);
     }
 
 }

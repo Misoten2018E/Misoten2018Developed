@@ -176,6 +176,11 @@ public class PlayerHeel : PlayerBase{
             HitAnime.HitAnimationStrongattack(Attack);
             ModelTransformReset();
             SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_Strong, transform.position);
+
+            var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.Hate);
+
+            EffectBase Effect = GameObject.Instantiate(par);
+            EffectSupport.Follow(Effect, transform.position, transform.right * -1);
         }
 
         if (input.GetButtonCircleTrigger())

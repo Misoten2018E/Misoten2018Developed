@@ -303,8 +303,9 @@ public class PlayerBase : SceneStartEvent{
     protected void ModelTransformReset()
     {
         Vector3 v = new Vector3(transform.position.x, 0.0f, transform.position.z);
-
+        //Vector3 v = new Vector3(0.0f, 0.0f, 0.0f);
         Model.position = v;
+        //Model.localPosition = v;
         Model.rotation = new Quaternion(0, 0, 0, 0);
     }
 
