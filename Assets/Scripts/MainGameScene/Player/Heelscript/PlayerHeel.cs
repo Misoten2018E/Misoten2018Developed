@@ -280,8 +280,8 @@ public class PlayerHeel : PlayerBase{
         float normaltime = GetAninormalizedTime("conb3");
         if (normaltime > 0.5f && BarrettFlg == false)
         {
-            MakeBarrett(transform.position, transform.forward + transform.right * 0.5f);
-            MakeBarrett(transform.position, transform.forward + transform.right * -0.5f);
+            MakeBarrett(transform.position, transform.forward + transform.right * 0.2f);
+            MakeBarrett(transform.position, transform.forward + transform.right * -0.2f);
             BarrettFlg = true;
         }
 
