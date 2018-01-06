@@ -26,6 +26,7 @@ public class PlayerSpecialist : PlayerBase{
     HitAnimationBase HitAnime;
     bool bomsetflg;
     Bomb bomb;
+    bool FlashON;
 
     const float Player_Special_MoveSpeed = 5;
     const int Player_Special_RotationSpeed = 750;
@@ -69,6 +70,7 @@ public class PlayerSpecialist : PlayerBase{
         bomsetflg = false;
         CharCon.center = new Vector3(0, 10 + no * 3, 0);
         cpynodammax = nodamagetime;
+        FlashON = false;
 
         HitAnime.Initialize(this);
     }
@@ -158,6 +160,10 @@ public class PlayerSpecialist : PlayerBase{
             ComboFlg = false;
             ModelTransformReset();
             SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Light1, transform.position);
+            var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.Sand);
+
+            EffectBase Effect = GameObject.Instantiate(par);
+            EffectSupport.Follow(Effect,transform.position,transform.right * -1);
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -198,7 +204,7 @@ public class PlayerSpecialist : PlayerBase{
 
     private void NormalAction1()
     {
-        RotationCharacter();
+        //RotationCharacter();
 
         if (input.GetButtonSquareTrigger() && ComboFlg == false)
         {
@@ -214,6 +220,11 @@ public class PlayerSpecialist : PlayerBase{
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack2(Attack);
                 SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Light2, transform.position);
+
+                var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.Water);
+
+                EffectBase Effect = GameObject.Instantiate(par);
+                EffectSupport.Follow(Effect, transform.position, transform.right * -1);
             }
             else
             {
@@ -227,7 +238,7 @@ public class PlayerSpecialist : PlayerBase{
 
     private void NormalAction2()
     {
-        RotationCharacter();
+        //RotationCharacter();
 
         if (input.GetButtonSquareTrigger() && ComboFlg == false)
         {
@@ -243,6 +254,7 @@ public class PlayerSpecialist : PlayerBase{
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack3(Attack);
                 SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_Light3, transform.position);
+
             }
             else
             {
@@ -250,13 +262,24 @@ public class PlayerSpecialist : PlayerBase{
                 PlayerSta = (int)player_Special_sta;
             }
 
+            FlashON = false;
             ModelTransformReset();
         }
     }
 
     private void NormalAction3()
     {
-        RotationCharacter();
+        //RotationCharacter();
+        float time = GetAninormalizedTime("conb3");
+        if (FlashON == false && time > 0.4f)
+        {
+            var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.Flash);
+
+            EffectBase Effect = GameObject.Instantiate(par);
+            EffectSupport.Follow(Effect, transform.position, transform.right * -1);
+
+            FlashON = true;
+        }
 
         if (CheckAnimationEND("conb3"))
         {

@@ -359,6 +359,7 @@ public class Player : SceneStartEvent{
 
 		Vector3 hitpos = transform.position + ((EnemyPos - transform.position).normalized * 0.3f);
 		obj.HitEffect(hitpos + Option, EnemyPos);
+        
 	}
 	readonly Vector3 Option = new Vector3(0, 0.5f, 0);
 }
