@@ -9360,19 +9360,19 @@ MonoBehaviour:
     GeneralNum: 0
   - ActType: 3
     StartTime: 35
-    GeneralNum: 8
+    GeneralNum: 2
   - ActType: 2
     StartTime: 40
     GeneralNum: 4
   - ActType: 3
     StartTime: 45
-    GeneralNum: 8
+    GeneralNum: 2
   - ActType: 2
     StartTime: 50
     GeneralNum: 4
   - ActType: 3
     StartTime: 55
-    GeneralNum: 16
+    GeneralNum: 2
   - ActType: 4
     StartTime: 60
     GeneralNum: 0
@@ -9381,7 +9381,7 @@ MonoBehaviour:
     GeneralNum: 4
   - ActType: 3
     StartTime: 70
-    GeneralNum: 16
+    GeneralNum: 2
   - ActType: 0
     StartTime: 75
     GeneralNum: 0
