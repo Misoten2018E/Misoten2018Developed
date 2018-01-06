@@ -8,11 +8,12 @@ public class ResultCity : MonoBehaviour {
 
     Animator[] AnimatorArray;
     int[] CityStaArray;
-    float score;
+    int MAXLv;
+    int NOWLv;
 
     float nowtime;
 
-    const float MAX_TIME = 1.0f;
+    const float MAX_TIME = 2.0f;
     const float FLAMEADDSCOER = 0.5f;
 
     // Use this for initialization
@@ -38,47 +39,34 @@ public class ResultCity : MonoBehaviour {
         {
             CityStaArray[i] = 0;
         }
-        score = 0;
+        MAXLv = SceneToSceneDataSharing.Instance.mainToResultData.CityLevel;
+        print("MAXLv"+ MAXLv);
         nowtime = 0;
+        NOWLv = -1;
     }
 
     public bool ResultCityUpdate()
     {
         bool flg = false;
-        if (score < Score.instance.GetScore())
+
+        nowtime += Time.deltaTime;
+
+        if (nowtime > MAX_TIME)
         {
-            score += FLAMEADDSCOER;
-        }
-        
-
-        for (int i = 0; i < ScoreList.Count; i++)
-        {
-            if (ScoreList[i] <= score)
-            {
-                CityStaArray[i] = 1;
-
-            }
-            else
-            {
-                break;
-            }
-        }
-
-        for (int i = 0; i < CityModelCnt; i++)
-        {
-            AnimatorArray[i].SetInteger("CitySta", CityStaArray[i]);
-        }
-
-        print("scoer"+ Score.instance.GetScore());
-        if (score >=Score.instance.GetScore() || score >= ScoreList[CityModelCnt-1])
-        {
-            nowtime += Time.deltaTime;
-
-            if (nowtime >= MAX_TIME)
+            NOWLv += 1;
+            print("NOWLv"+ NOWLv);
+            if (NOWLv >= MAXLv)
             {
                 flg = true;
             }
+            else
+            {
+                AnimatorArray[NOWLv].SetInteger("CitySta",1);
+                nowtime = 0;
+            }
+            
         }
+
 
         return flg;
     }
