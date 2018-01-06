@@ -12,9 +12,29 @@ public class ResultPlayer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        print("player"+ playerno + Score.instance.GetCharacter(playerno));
+        
         ChangeCharacter(Score.instance.GetCharacter(playerno));
 
+        int[] scrp = SceneToSceneDataSharing.Instance.mainToResultData.PlayersScore;
+
+        int maxscr = 0;
+        int maxno = 0;
+
+        for (int i = 0;i < scrp.Length;i++)
+        {
+            if (scrp[i] > maxscr)
+            {
+                maxscr = scrp[i];
+                maxno = i;
+            }
+        }
+
+        if (maxno == playerno)
+        {
+            Vector3 pos = transform.position;
+            pos.z += 2.5f;
+            transform.position = pos;
+        }
     }
 	
 	// Update is called once per frame
