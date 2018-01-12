@@ -370,4 +370,11 @@ public class PlayerSpecialist : PlayerBase{
 
         return res;
     }
+
+
+	public override int ModelSta {
+		get {
+			return ConstPlayerSta.SpecialistCharacter;
+		}
+	}
 }

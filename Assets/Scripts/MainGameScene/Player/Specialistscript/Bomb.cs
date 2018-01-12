@@ -66,4 +66,10 @@ public class Bomb : PlayerBase{
         EffectSupport.Follow(Effect, pos, transform.right * -1);
     }
 
+
+	public override int ModelSta {
+		get {
+			return ConstPlayerSta.NormalCharacter;
+		}
+	}
 }
