@@ -29,7 +29,7 @@ public class CheckProducePhotoCamera : MonoBehaviour,IFGameEndEvent {
 	/// </summary>
 	public void PhotoChance(Transform player,Transform target ,PhotoType type ,int playerSta) {
 
-		if (!CheckPhotoChance(type,playerSta)) {
+		if (CheckPhotoChance(type,playerSta)) {
 			return;
 		}
 
@@ -112,6 +112,7 @@ public class CheckProducePhotoCamera : MonoBehaviour,IFGameEndEvent {
 
 	/// <summary>
 	/// 撮影チェック
+	/// 既に撮影済みならtrue
 	/// </summary>
 	/// <param name="type"></param>
 	/// <param name="playerSta"></param>
@@ -119,8 +120,8 @@ public class CheckProducePhotoCamera : MonoBehaviour,IFGameEndEvent {
 	private bool CheckPhotoChance(PhotoType type, int playerSta) {
 
 		var list = PhotoShotList[playerSta];
-		// 既に撮影済みならスルー
-		return !(list[(int)type].isShootted);
+		// 既に撮影済みならtrue
+		return (list[(int)type].isShootted);
 	}
 
 	private void CalcCameraPosition(Transform player, Transform target) {
