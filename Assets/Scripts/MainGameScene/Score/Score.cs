@@ -40,9 +40,11 @@ public class Score : SceneStartEvent{
 
 	int score;
     int[] LastCharacter;
-    
+	
+	int CityInCount;
 
-    int debugId = -1;
+
+	int debugId = -1;
 	int[] debugPlayerId = new int[4] { -1, -1, -1, -1 };
 	public void AddScore(int ten ,int PlayerNo) {
 		score += ten;
@@ -53,6 +55,8 @@ public class Score : SceneStartEvent{
 	}
 
 	public void AddScore(ScoreType type, int PlayerNo) {
+
+		CityInCount++;
 
 		switch (type) {
 			case ScoreType.E_Fixed:
@@ -94,7 +98,8 @@ public class Score : SceneStartEvent{
     public void ScoreReset()
     {
         score = 0;
-    }
+		CityInCount = 0;
+	}
 
     static Score _instance;
     static public Score instance
@@ -120,7 +125,7 @@ public class Score : SceneStartEvent{
             LastCharacter[i] = 0;
         }
 
-        score = 0;
+		ScoreReset();
 
 		PlayerScore.AddRange(new int[4]);
     }

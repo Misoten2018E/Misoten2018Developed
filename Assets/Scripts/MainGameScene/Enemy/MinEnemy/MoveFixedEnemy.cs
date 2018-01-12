@@ -453,6 +453,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// </summary>
 	protected void DestroyMe() {
 
+		ConffetiSupport.Instance.CreateParticle();
 		Destroy(this.gameObject);
 	}
 

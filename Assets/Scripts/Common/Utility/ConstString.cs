@@ -68,6 +68,7 @@ public static class ConstEffects {
 	public const string FireLanding = "FlareParticle";
 
 	public const string SublimitedFog = "SublimatedFog";
+	public const string Conffeti = "Conffeti";
 
 	public const string DestroyBoss = "DestroyBossEffect";
 
