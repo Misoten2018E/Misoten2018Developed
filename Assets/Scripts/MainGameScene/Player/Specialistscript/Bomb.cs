@@ -16,7 +16,7 @@ public class Bomb : PlayerBase{
     Player p;
     int Settype;
 
-    const int maxtime = 1;
+    const float maxtime = 0.5f;
 
 	// Use this for initialization
 	void Start () {
