@@ -58,6 +58,11 @@ public class PauseManager : MonoBehaviour {
 		}
 	}
 
+
+	public void SetInput(MultiInput input) {
+		multiInput = input;
+	}
+
 	//========================================================================================
 	//                                    override
 	//========================================================================================
@@ -66,6 +71,12 @@ public class PauseManager : MonoBehaviour {
 
 		myInstance = this;
 		IsPause = false;
+	}
+
+
+	private void Update() {
+
+		CheckPauseEvent();
 	}
 
 
@@ -81,5 +92,33 @@ public class PauseManager : MonoBehaviour {
 		private set { _IsPause = value; }
 		get { return _IsPause; }
 	}
-      
+
+	MultiInput multiInput;
+
+	protected void CheckPauseEvent() {
+
+#if UNITY_DEBUG
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			if (PauseManager.Instance.IsPause) {
+				PauseManager.Instance.Resume();
+			}
+			else {
+				PauseManager.Instance.Pause();
+			}
+		}
+#endif
+		if (multiInput == null) {
+			return;
+		}
+
+		if (multiInput.GetAllButtonPauseTrigger()) {
+
+			if (PauseManager.Instance.IsPause) {
+				PauseManager.Instance.Resume();
+			}
+			else {
+				PauseManager.Instance.Pause();
+			}
+		}
+	}
 }
