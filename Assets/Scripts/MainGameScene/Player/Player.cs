@@ -155,6 +155,8 @@ public class Player : SceneStartEvent{
 
         //print(hitcityflg);
         transform.position = playerbase.GetBodyPosition();
+
+		CheckPauseEvent();
     }
 
     private void LateUpdate()
@@ -362,4 +364,12 @@ public class Player : SceneStartEvent{
         
 	}
 	readonly Vector3 Option = new Vector3(0, 0.5f, 0);
+
+
+	protected void CheckPauseEvent() {
+
+		if (false) {
+			PauseManager.Instance.Pause();
+		}
+	}
 }

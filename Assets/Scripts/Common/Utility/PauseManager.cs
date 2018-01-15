@@ -18,7 +18,12 @@ public class PauseManager : MonoBehaviour {
 
 	public void Pause() {
 
+		if (IsPause) {
+			return;
+		}
+
 		PauseMenu.gameObject.SetActive(true);
+		IsPause = true;
 
 		PauseObjs = FindObjectsOfType<PauseSupport>();
 		for (int i = 0; i < PauseObjs.Length; i++) {
@@ -35,6 +40,7 @@ public class PauseManager : MonoBehaviour {
 		}
 
 		PauseMenu.gameObject.SetActive(false);
+		IsPause = false;
 
 		for (int i = 0; i < PauseObjs.Length; i++) {
 			PauseObjs[i].OnResume();
@@ -59,6 +65,7 @@ public class PauseManager : MonoBehaviour {
 	void Start() {
 
 		myInstance = this;
+		IsPause = false;
 	}
 
 
@@ -67,4 +74,12 @@ public class PauseManager : MonoBehaviour {
 	//========================================================================================
 
 	PauseSupport[] PauseObjs;
+
+
+	bool _IsPause;
+	public bool IsPause {
+		private set { _IsPause = value; }
+		get { return _IsPause; }
+	}
+      
 }
