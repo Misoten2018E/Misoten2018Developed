@@ -1976,6 +1976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 478890145}
   - component: {fileID: 478890146}
+  - component: {fileID: 478890147}
   m_Layer: 5
   m_Name: PlayerChecker
   m_TagString: Untagged
@@ -2016,6 +2017,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd41deff6ee1ce4ab5b5dac3927c85c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &478890147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478890144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b89f67837c3f8949b188a9037254359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPausePermit: 1
+  PlayerNo: 0
 --- !u!1001 &502310636
 Prefab:
   m_ObjectHideFlags: 0

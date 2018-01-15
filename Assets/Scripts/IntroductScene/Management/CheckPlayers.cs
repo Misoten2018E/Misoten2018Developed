@@ -6,6 +6,7 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
     const float max_time = 1.5f;
     float nowtime;
     bool CheckOK;
+    MultiInput Minput;
 
     //========================================================================================
     //                                    public
@@ -41,6 +42,8 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
         nowtime = 0;
         CheckOK = false;
 
+        Minput = GetComponent<MultiInput>();
+
         var players = GetComponentsInChildren<IntroPlayer>();
 		playerList.AddRange(players);
 
@@ -68,6 +71,11 @@ public class CheckPlayers : MonoBehaviour, IFIntroStartEvent {
                 IntroM = GameObject.Find("UIRoot").transform.Find("IntroManage").gameObject.GetComponent<IntroManager>();
                 
                 IntroM.ManagerAniON();
+            }
+
+            if (Minput.GetAllButtonPauseTrigger())
+            {
+                StartMainGameScene();
             }
 		}
 	}
