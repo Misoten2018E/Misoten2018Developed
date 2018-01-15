@@ -164,7 +164,7 @@ public class PlayerHero : PlayerBase{
 
     private void Normal()
     {
-        CharCon.center = new Vector3(0, 0, 0);
+        CharCon.center = new Vector3(0, 1, 0);
         RotationSpeed = Player_Hero_RotationSpeed;
 
         if (input.GetButtonSquareTrigger())
@@ -338,8 +338,13 @@ public class PlayerHero : PlayerBase{
 			//   transform.position = warppos;
 
 			GameObject obj = PlayerManager.instance.GetHerotarget(no);
-			ieActionCort = IEMoveSpecialAction(obj.transform.position);
-			StartCoroutine(ieActionCort);
+
+            //着地場所をずらすため追加、変更
+            Vector3 targetpos = new Vector3(obj.transform.position.x, 0.0f, obj.transform.position.z);
+
+            //ieActionCort = IEMoveSpecialAction(obj.transform.position);
+            ieActionCort = IEMoveSpecialAction(targetpos);
+            StartCoroutine(ieActionCort);
 		}
     }
 

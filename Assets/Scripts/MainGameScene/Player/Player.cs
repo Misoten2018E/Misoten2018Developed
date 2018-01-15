@@ -178,7 +178,7 @@ public class Player : SceneStartEvent{
         //input = GetComponent<MultiInput>();
         //CharCon = this.GetComponent<CharacterController>();
 
-        workpos.Set(transform.position.x, 1.0f, transform.position.z);
+        workpos.Set(transform.position.x, 0.0f, transform.position.z);
         NowCharacter = Instantiate(NormalCharacter, workpos, Quaternion.identity) as GameObject;
         
         playerbase = NowCharacter.GetComponent<PlayerBase>();

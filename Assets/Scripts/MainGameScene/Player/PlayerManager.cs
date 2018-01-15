@@ -82,12 +82,13 @@ public class PlayerManager : SceneStartEvent{
             P[i] = PlayersObject[i].GetComponent<Player>();
             flg += P[i].GetPlayerSta();
         }
-
+        
         
         if ((P[0].GetPlayerHP() == P[1].GetPlayerHP())&&
             (P[0].GetPlayerHP() == P[2].GetPlayerHP()) &&
             (P[0].GetPlayerHP() == P[3].GetPlayerHP()) && (flg == 0))
         {
+            
             int targetindex = Random.Range(0, Playercnt);
             if (targetindex == myno)
             {

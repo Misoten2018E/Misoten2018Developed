@@ -4059,10 +4059,16 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 136
     - serializedVersion: 2
-      time: 0.27402848
-      value: 0.100618
-      inSlope: 0.6798365
-      outSlope: 0.6798365
+      time: 0.17574148
+      value: 0.04292807
+      inSlope: 0.3614658
+      outSlope: 0.3614658
+      tangentMode: 136
+    - serializedVersion: 2
+      time: 0.35301507
+      value: 0.6949624
+      inSlope: 2.7178507
+      outSlope: 2.7178507
       tangentMode: 136
     - serializedVersion: 2
       time: 0.52845204
@@ -4071,10 +4077,16 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 136
     - serializedVersion: 2
-      time: 0.7406442
-      value: 0.13232064
-      inSlope: -1.0280169
-      outSlope: -1.0280169
+      time: 0.7032144
+      value: 0.76381326
+      inSlope: -2.7671683
+      outSlope: -2.7671683
+      tangentMode: 136
+    - serializedVersion: 2
+      time: 0.8703667
+      value: 0.055407315
+      inSlope: -0.5976367
+      outSlope: -0.5976367
       tangentMode: 136
     - serializedVersion: 2
       time: 1.0006135
@@ -4208,8 +4220,8 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_SlopeLimit: 0
+  m_StepOffset: 0.01
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 10, z: 0}
