@@ -517,4 +517,10 @@ public class PlayerHero : PlayerBase{
 			ModelTransformReset();
 		}
 	}
+
+	public override int ModelSta {
+		get {
+			return ConstPlayerSta.HeroCharacter;
+		}
+	}
 }

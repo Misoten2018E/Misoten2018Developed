@@ -31,9 +31,9 @@ public class BossFire : PauseSupport {
 		transform.position = startPos;
 		Vec3Comp = new Vector3Complession(startPos, TargetPos);
 
-		var hit = GetComponentInChildren<HitSeriesofAction>();
-		hit.Initialize(this.gameObject);
-		hit.Activate();
+		//var hit = GetComponentInChildren<HitSeriesofAction>();
+		//hit.Initialize(this.gameObject);
+		//hit.Activate();
 
 		FireUpdateCort = GameObjectExtensions.LoopMethod(MaxLandingTime, PositionMove, PositionMoveEnd);
 		StartCoroutine(FireUpdateCort);

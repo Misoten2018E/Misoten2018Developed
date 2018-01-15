@@ -155,7 +155,7 @@ ModelImporter:
     - serializedVersion: 16
       name: monster_walk
       takeName: monster_walk
-      firstFrame: 1
+      firstFrame: 0
       lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0

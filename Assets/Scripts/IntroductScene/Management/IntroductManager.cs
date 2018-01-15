@@ -54,6 +54,12 @@ public class IntroductManager : MonoBehaviour {
 		SoundManager.Instance.PlayBGM(SoundManager.BGMType.TITLE);
 	}
 
+	private void Update() {
+
+		if (Input.GetKeyUp(KeyCode.Escape)) {
+			Application.Quit();
+		}
+	}
 
 	//========================================================================================
 	//                                    private

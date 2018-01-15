@@ -402,4 +402,10 @@ public class PlayerHeel : PlayerBase{
         HB = obj.GetComponent<HeelBarrett>();
         HB.SetPlayerObj(myPlayer);
     }
+
+	public override int ModelSta {
+		get {
+			return ConstPlayerSta.HeelCharacter;
+		}
+	}
 }

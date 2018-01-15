@@ -228,4 +228,9 @@ public class Player_test : PlayerBase
         }
     }
 
+	public override int ModelSta {
+		get {
+			return ConstPlayerSta.HeelCharacter;
+		}
+	}
 }

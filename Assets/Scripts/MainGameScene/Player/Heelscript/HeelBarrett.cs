@@ -17,8 +17,8 @@ public class HeelBarrett : PlayerBase {
     float Livetime;
     bool initflg = false;
 
-    // Use this for initialization
-    void Start () {
+	// Use this for initialization
+	void Start () {
         B_sta = BARRETT_STA.LIVE;
         Livetime = LiveMaxtime;
         
@@ -63,4 +63,10 @@ public class HeelBarrett : PlayerBase {
         initflg = true;
         
     }
+
+	public override int ModelSta {
+		get {
+			return ConstPlayerSta.HeelCharacter;
+		}
+	}
 }

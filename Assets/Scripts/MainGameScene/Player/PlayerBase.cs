@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBase : SceneStartEvent{
+public abstract class PlayerBase : SceneStartEvent{
 
     const int ChangeMoveSpeed = 5;
     const float ChangeScale = 0.05f;
@@ -342,4 +342,8 @@ public class PlayerBase : SceneStartEvent{
 
         return time;
     }
+
+	public abstract int ModelSta {
+		get;
+	}
 }

@@ -43,6 +43,8 @@ public class Player : SceneStartEvent{
     // Use this for initialization
     void Start () {
         m_input = GetComponent<MultiInput>();
+
+		PauseManager.Instance.SetInput(m_input);
         //初期化管理のためコメントアウト
         //Vector3 workpos = new Vector3();
 
@@ -362,4 +364,7 @@ public class Player : SceneStartEvent{
         
 	}
 	readonly Vector3 Option = new Vector3(0, 0.5f, 0);
+
+
+
 }

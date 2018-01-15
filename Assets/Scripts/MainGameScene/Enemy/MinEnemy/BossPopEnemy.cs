@@ -25,6 +25,7 @@ public class BossPopEnemy : AimingPlayerEnemy {
 
 		yield return new WaitForSeconds(2f);
 		EnableMove();
+		AnimationMove();
 		base.Start();
 	}
 
@@ -166,7 +167,8 @@ public class BossPopEnemy : AimingPlayerEnemy {
 
 	void DestroyLoop(float rate) {
 
-		transform.localScale = new Vector3(rate, rate, rate);
+		float r = (1f - rate);
+		transform.localScale = new Vector3(r, r, r);
 	}
 
 

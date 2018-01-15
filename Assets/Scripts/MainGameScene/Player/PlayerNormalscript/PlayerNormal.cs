@@ -168,4 +168,10 @@ public class PlayerNormal : PlayerBase{
             ModelTransformReset();
         }
     }
+
+	public override int ModelSta {
+		get {
+			return ConstPlayerSta.NormalCharacter;
+		}
+	}
 }

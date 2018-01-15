@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossEnemy : PlayerAttackEnemy {
+public class BossEnemy : PlayerAttackEnemy,IFGameEndEvent {
 
 
 	//========================================================================================
@@ -45,7 +45,8 @@ public class BossEnemy : PlayerAttackEnemy {
 		SoundManager.Instance.PlaySE(SoundManager.SEType.Boss_Howling, FacePoint.position, 1.5f);
 
 		CameraManager.Instance.EventCamera.EventCameraStart(ProduceEventCamera.CameraEvent.BossPop, transform, new Vector3(0, 4f, 0));
-		
+
+		EventManager<IFGameEndEvent>.Instance.SetObject(this);
 	}
 
 	public enum BossAct {
@@ -465,6 +466,31 @@ public class BossEnemy : PlayerAttackEnemy {
 		return false;
 	}
 
+	IEnumerator GameEndProduce(float maxTime) {
+
+		float time = 0f;
+
+		Vector3 v = new Vector3(0, 0.05f, 0);
+
+		while (true) {
+
+			if (time >= maxTime) {
+				break;
+			}
+
+			transform.position -= v;
+
+			time += Time.deltaTime;
+			yield return null;
+		}
+
+
+	}
+
+	public void GameEnd() {
+
+		StartCoroutine(GameEndProduce(3f));
+	}
 
 	//========================================================================================
 	//                                    cache

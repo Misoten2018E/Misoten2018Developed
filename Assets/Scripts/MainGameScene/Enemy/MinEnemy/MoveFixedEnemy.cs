@@ -285,7 +285,8 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 		// 逃走モードへ
 		AnimationRunAway();
 		IsEscape = true;
-	//	print("街に行った");
+		StartBodyTrail();
+		//	print("街に行った");
 
 		NowTarget = City.Instance.transform;
 
@@ -305,6 +306,11 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// </summary>
 	virtual protected void ClushedPlusScore(int playerNo) {
 		Score.instance.AddScore(Score.ScoreType.E_Fixed, playerNo);
+	}
+
+
+	virtual protected void StartBodyTrail() {
+		myTrail.StartTrail(TrailSupport.BodyType.Body);
 	}
 
 	virtual protected Transform ChildModelTrans {
@@ -447,6 +453,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// </summary>
 	protected void DestroyMe() {
 
+		ConffetiSupport.Instance.CreateParticle();
 		Destroy(this.gameObject);
 	}
 
@@ -578,7 +585,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 				return;
 		}
 
-		CheckProducePhotoCamera.Instance.PhotoChance(hito.transform, transform, type, 0/*ph.myPlayer.GetPlayerObj()*/);
+		CheckProducePhotoCamera.Instance.PhotoChance(hito.transform, transform, type, ph.myPlayer.ModelSta);
 	}
 
 	protected void CreateParticle(string particleName) {
