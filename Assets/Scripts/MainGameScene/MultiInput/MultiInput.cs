@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MultiInput : SceneStartEvent{
+    const int CONTROLLER_MAX = 8;
     public int PlayerNo;
     private int WorkPlayerNo;
 
@@ -114,9 +115,27 @@ public class MultiInput : SceneStartEvent{
     //======================================================================
 
     //======================================================================
+    public bool GetButtonPauseTrigger()
+    {
+
+        return Input.GetButtonDown("Player_Pause" + WorkPlayerNo);
+    }
+
+    public bool GetButtonPauseRelease()
+    {
+        return Input.GetButtonUp("Player_Pause" + WorkPlayerNo);
+    }
+
+    public bool GetButtonPausePress()
+    {
+        return Input.GetButton("Player_Pause" + WorkPlayerNo);
+    }
+    //======================================================================
+
+    //======================================================================
     public bool GetAllButtonCircleTrigger()
     {
-        for(int i = 0;i < 4 ;i++)
+        for(int i = 0;i < CONTROLLER_MAX; i++)
         {
             if(Input.GetButtonDown("Player_Circle" + i))
             {
@@ -128,7 +147,7 @@ public class MultiInput : SceneStartEvent{
 
     public bool GetAllButtonCircleRelease()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < CONTROLLER_MAX; i++)
         {
             if (Input.GetButtonUp("Player_Circle" + i))
             {
@@ -140,7 +159,7 @@ public class MultiInput : SceneStartEvent{
 
     public bool GetAllButtonCirclePress()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < CONTROLLER_MAX; i++)
         {
             if (Input.GetButton("Player_Circle" + i))
             {
@@ -154,7 +173,7 @@ public class MultiInput : SceneStartEvent{
     //======================================================================
     public bool GetAllButtonTriangleTrigger()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < CONTROLLER_MAX; i++)
         {
             if (Input.GetButtonDown("Player_Triangle" + i))
             {
@@ -166,7 +185,7 @@ public class MultiInput : SceneStartEvent{
 
     public bool GetAllButtonTriangleRelease()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < CONTROLLER_MAX; i++)
         {
             if (Input.GetButtonUp("Player_Triangle" + i))
             {
@@ -178,7 +197,7 @@ public class MultiInput : SceneStartEvent{
 
     public bool GetAllButtonTrianglePress()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < CONTROLLER_MAX; i++)
         {
             if (Input.GetButton("Player_Triangle" + i))
             {
@@ -192,7 +211,7 @@ public class MultiInput : SceneStartEvent{
     //======================================================================
     public bool GetAllButtonSquareTrigger()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < CONTROLLER_MAX; i++)
         {
             if (Input.GetButtonDown("Player_Square" + i))
             {
@@ -204,7 +223,7 @@ public class MultiInput : SceneStartEvent{
 
     public bool GetAllButtonSquareRelease()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < CONTROLLER_MAX; i++)
         {
             if (Input.GetButtonUp("Player_Square" + i))
             {
@@ -216,7 +235,7 @@ public class MultiInput : SceneStartEvent{
 
     public bool GetAllButtonSquarePress()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < CONTROLLER_MAX; i++)
         {
             if (Input.GetButton("Player_Square" + i))
             {
@@ -230,7 +249,7 @@ public class MultiInput : SceneStartEvent{
     //======================================================================
     public bool GetAllButtonCrossTrigger()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < CONTROLLER_MAX; i++)
         {
             if (Input.GetButtonDown("Player_Cross" + i))
             {
@@ -242,7 +261,7 @@ public class MultiInput : SceneStartEvent{
 
     public bool GetAllButtonCrossRelease()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < CONTROLLER_MAX; i++)
         {
             if (Input.GetButtonUp("Player_Cross" + i))
             {
@@ -254,7 +273,7 @@ public class MultiInput : SceneStartEvent{
 
     public bool GetAllButtonCrossPress()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < CONTROLLER_MAX; i++)
         {
             if (Input.GetButton("Player_Cross" + i))
             {
@@ -265,12 +284,50 @@ public class MultiInput : SceneStartEvent{
     }
     //======================================================================
 
-	/// <summary>
-	/// コントローラのセット
-	/// 出来たならtrue
-	/// </summary>
-	/// <returns></returns>
-	private bool ControllerSet() {
+    //======================================================================
+    public bool GetAllButtonPauseTrigger()
+    {
+        for (int i = 0; i < CONTROLLER_MAX; i++)
+        {
+            if (Input.GetButtonDown("Player_Pause" + i))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool GetAllButtonPauseRelease()
+    {
+        for (int i = 0; i < CONTROLLER_MAX; i++)
+        {
+            if (Input.GetButtonUp("Player_Pause" + i))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool GetAllButtonPausePress()
+    {
+        for (int i = 0; i < CONTROLLER_MAX; i++)
+        {
+            if (Input.GetButton("Player_Pause" + i))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    //======================================================================
+
+    /// <summary>
+    /// コントローラのセット
+    /// 出来たならtrue
+    /// </summary>
+    /// <returns></returns>
+    private bool ControllerSet() {
 
 		var controllerNames = Input.GetJoystickNames();
 
