@@ -59,9 +59,9 @@ public class PauseManager : MonoBehaviour {
 	}
 
 
-	public void SetInput(MultiInput input) {
-		multiInput = input;
-	}
+	//public void SetInput(MultiInput input) {
+	//	multiInput = input;
+	//}
 
 	//========================================================================================
 	//                                    override
@@ -71,6 +71,7 @@ public class PauseManager : MonoBehaviour {
 
 		myInstance = this;
 		IsPause = false;
+		multiInput = GetComponent<MultiInput>();
 	}
 
 
@@ -99,11 +100,12 @@ public class PauseManager : MonoBehaviour {
 
 #if UNITY_DEBUG
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			if (PauseManager.Instance.IsPause) {
-				PauseManager.Instance.Resume();
+			if (IsPause) {
+				Resume();
+				CheckResetGameEditor();
 			}
 			else {
-				PauseManager.Instance.Pause();
+				Pause();
 			}
 		}
 #endif
@@ -113,12 +115,42 @@ public class PauseManager : MonoBehaviour {
 
 		if (multiInput.GetAllButtonPauseTrigger()) {
 
-			if (PauseManager.Instance.IsPause) {
-				PauseManager.Instance.Resume();
+			if (IsPause) {
+				Resume();
+				CheckResetGame();
 			}
 			else {
-				PauseManager.Instance.Pause();
+				Pause();
 			}
 		}
+	}
+
+
+	bool CheckResetGame() {
+
+		bool circie = multiInput.GetButtonCirclePress();
+		bool cross = multiInput.GetButtonCrossPress();
+		bool triangle = multiInput.GetButtonTrianglePress();
+
+		if (circie && cross && triangle) {
+
+			SceneEventManager.Instance.TitleSceneStart();
+			return true;
+		}
+		return false;
+	}
+
+	bool CheckResetGameEditor() {
+
+		bool circie = Input.GetKey(KeyCode.Q);
+		bool cross = true;//Input.GetKey(KeyCode.E);
+		bool triangle = Input.GetKey(KeyCode.X);
+
+		if (circie && cross && triangle) {
+
+			SceneEventManager.Instance.TitleSceneStart();
+			return true;
+		}
+		return false;
 	}
 }
