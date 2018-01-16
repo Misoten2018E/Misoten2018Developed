@@ -395,6 +395,7 @@ public class PlayerHeel : PlayerBase{
     {
         Vector3 B_pos;
         B_pos = pos + frontv * 2;
+        B_pos.y += 0.5f;
         Quaternion qua = Quaternion.LookRotation(frontv);
         HeelBarrett HB;
 
