@@ -65,6 +65,10 @@ public class SceneEventManager : MonoBehaviour {
 		StartCoroutine(IEEndProduceCheck());
 	}
 
+	/// <summary>
+	/// シーンを遷移させる
+	/// デバッグ時にのみ基本的には呼ばれる
+	/// </summary>
 	public void NextSceneStart() {
 
 		var pauses = GameObject.FindObjectsOfType<PauseSupport>();
@@ -91,7 +95,36 @@ public class SceneEventManager : MonoBehaviour {
 			gameMng.UnloadScene(GameSceneManager.SceneType.Main);
 
 			gameMng.SetActiveScene(GameSceneManager.SceneType.Result);
-			fade.gameObject.SetActive(false);
+		//	fade.gameObject.SetActive(false);
+		});
+	}
+
+
+	public void TitleSceneStart() {
+
+		var pauses = GameObject.FindObjectsOfType<PauseSupport>();
+
+		for (int i = 0; i < pauses.Length; i++) {
+			pauses[i].OnPause();
+		}
+
+		var gameMng = GameSceneManager.Instance;
+
+		var fade = GameObject.FindObjectOfType<SceneFade>();
+		fade.FadeOut(() => { gameMng.PermitLoad = true; });
+
+		gameMng.PermitLoad = false;
+
+		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_MAIN);
+		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_BOSS);
+
+		gameMng.LoadScene(GameSceneManager.SceneType.Intro, () => {
+
+			// メインシーンの破棄
+			gameMng.UnloadScene(GameSceneManager.SceneType.Main);
+
+			gameMng.SetActiveScene(GameSceneManager.SceneType.Intro);
+		//	fade.gameObject.SetActive(false);
 		});
 	}
 

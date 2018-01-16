@@ -159,7 +159,9 @@ public class GameSceneManager : MonoBehaviour {
 		// ロードしたシーンをアクティブに
 		LoadSceneList[(int)type] = loader.LoadingScene;
 
-		if(StartScene == type){
+		yield return null;
+
+		if (StartScene == type){
 			SceneManager.SetActiveScene(loader.LoadingScene);
 		}
 
