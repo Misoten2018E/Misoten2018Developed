@@ -24,8 +24,9 @@ public class PlayerHero : PlayerBase{
     bool ComboFlg;
     HitAnimationBase HitAnime;
     TrailBodyManager TBM;
+    bool EfeFlg;
 
-	[System.Serializable]
+    [System.Serializable]
 	public class CurveData {
 
 		public AnimationCurve JumpSpeedCurve;
@@ -83,6 +84,7 @@ public class PlayerHero : PlayerBase{
         nodamageflg = false;
         CharCon.center = new Vector3(0, 10 + no * 3, 0);
         cpynodammax = nodamagetime;
+        EfeFlg = false;
 
         HitAnime.Initialize(this);
     }
@@ -181,6 +183,7 @@ public class PlayerHero : PlayerBase{
 			// 12/20　江戸　移動の追加
 			ieActionCort = IEAttackMove(Curves.AttackMoveCurve, 0.5f);
 			StartCoroutine(ieActionCort);
+            EfeFlg = false;
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -218,6 +221,18 @@ public class PlayerHero : PlayerBase{
             ComboFlg = true;
         }
 
+        if (GetAninormalizedTime("Combo1") > 0.5f && EfeFlg == false)
+        {
+
+            var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.HeroAttack01);
+            Vector3 pos = transform.position + transform.forward;
+            pos.y += 1;
+
+            EffectBase Effect = GameObject.Instantiate(par);
+            EffectSupport.Follow(Effect, pos, transform.right * -1);
+            EfeFlg = true;
+        }
+
         if (CheckAnimationEND("Combo1"))
         {
             if (ComboFlg)
@@ -233,7 +248,8 @@ public class PlayerHero : PlayerBase{
 				// 12/20　江戸　移動の追加
 				ieActionCort = IEAttackMove(Curves.AttackMoveCurve, 0.5f);
 				StartCoroutine(ieActionCort);
-			}
+                EfeFlg = false;
+            }
             else
             {
                 player_Hero_sta = PLAYER_HERO_STA.NORMAL;
@@ -254,6 +270,18 @@ public class PlayerHero : PlayerBase{
             ComboFlg = true;
         }
 
+        if (GetAninormalizedTime("Combo2") > 0.5f && EfeFlg == false)
+        {
+
+            var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.HeroAttack02);
+            Vector3 pos = transform.position + transform.forward;
+            pos.y += 1;
+
+            EffectBase Effect = GameObject.Instantiate(par);
+            EffectSupport.Follow(Effect, pos, transform.right * -1);
+            EfeFlg = true;
+        }
+
         if (CheckAnimationEND("Combo2"))
         {
             if (ComboFlg)
@@ -269,7 +297,8 @@ public class PlayerHero : PlayerBase{
 				// 12/20　江戸　移動の追加
 				ieActionCort = IEAttackMove(Curves.AttackMoveCurve, 0.5f);
 				StartCoroutine(ieActionCort);
-			}
+                EfeFlg = false;
+            }
             else
             {
                 player_Hero_sta = PLAYER_HERO_STA.NORMAL;
@@ -284,6 +313,18 @@ public class PlayerHero : PlayerBase{
     private void NormalAction3()
     {
         RotationCharacter();
+
+        if (GetAninormalizedTime("Combo3") > 0.5f && EfeFlg == false)
+        {
+
+            var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.HeroAttack02);
+            Vector3 pos = transform.position + transform.forward;
+            pos.y += 1;
+
+            EffectBase Effect = GameObject.Instantiate(par);
+            EffectSupport.Follow(Effect, pos, transform.right * -1);
+            EfeFlg = true;
+        }
 
         if (CheckAnimationEND("Combo3"))
         {

@@ -27,6 +27,7 @@ public class PlayerHeel : PlayerBase{
     Transform Specialtarget;
     LineRenderer linerenderer;
     bool BarrettFlg;
+    bool EfeFlg;
 
     const float Player_Heel_MoveSpeed = 5 * 1.2f;
     const int Player_Heel_RotationSpeed = 750;
@@ -72,6 +73,7 @@ public class PlayerHeel : PlayerBase{
         linerenderer.enabled = false;
         BarrettFlg = false;
         cpynodammax = nodamagetime;
+        EfeFlg = false;
 
         HitAnime.Initialize(this);
     }
@@ -167,6 +169,8 @@ public class PlayerHeel : PlayerBase{
             RotationSpeed = Player_Heel_ActionRotationSpeed;
             ModelTransformReset();
             SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_Light1,transform.position);
+            EfeFlg = false;
+
         }
 
         if (input.GetButtonTriangleTrigger())
@@ -217,6 +221,18 @@ public class PlayerHeel : PlayerBase{
             BarrettFlg = true;
         }
 
+        if (normaltime > 0.5f && EfeFlg == false)
+        {
+
+            var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.ViranAttack);
+            Vector3 pos = transform.position + transform.forward;
+            pos.y += 1;
+
+            EffectBase Effect = GameObject.Instantiate(par);
+            EffectSupport.Follow(Effect, pos, transform.right * -1);
+            EfeFlg = true;
+        }
+
         if (CheckAnimationEND("conb1"))
         {
             if (ComboFlg)
@@ -227,6 +243,7 @@ public class PlayerHeel : PlayerBase{
                 BarrettFlg = false;
                 HitAnime.HitAnimationWeakattack2(Attack);
                 SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_Light2, transform.position);
+                EfeFlg = false;
             }
             else
             {
@@ -255,6 +272,17 @@ public class PlayerHeel : PlayerBase{
             BarrettFlg = true;
         }
 
+        if (normaltime > 0.5f && EfeFlg == false)
+        {
+
+            var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.ViranAttack);
+            Vector3 pos = transform.position + transform.forward;
+            pos.y += 1;
+
+            EffectBase Effect = GameObject.Instantiate(par);
+            EffectSupport.Follow(Effect, pos, transform.right * -1);
+            EfeFlg = true;
+        }
 
         if (CheckAnimationEND("conb2"))
         {
@@ -266,6 +294,7 @@ public class PlayerHeel : PlayerBase{
                 BarrettFlg = false;
                 HitAnime.HitAnimationWeakattack3(Attack);
                 SoundManager.Instance.PlaySE(SoundManager.SEType.Heel_Light3, transform.position);
+                EfeFlg = false;
             }
             else
             {
@@ -288,6 +317,18 @@ public class PlayerHeel : PlayerBase{
             MakeBarrett(transform.position, transform.forward + transform.right * 0.2f);
             MakeBarrett(transform.position, transform.forward + transform.right * -0.2f);
             BarrettFlg = true;
+        }
+
+        if (normaltime > 0.5f && EfeFlg == false)
+        {
+
+            var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.ViranAttack);
+            Vector3 pos = transform.position + transform.forward;
+            pos.y += 1;
+
+            EffectBase Effect = GameObject.Instantiate(par);
+            EffectSupport.Follow(Effect, pos, transform.right * -1);
+            EfeFlg = true;
         }
 
         if (CheckAnimationEND("conb3"))
