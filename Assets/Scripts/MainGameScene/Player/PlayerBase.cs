@@ -86,10 +86,7 @@ public abstract class PlayerBase : SceneStartEvent{
 
         float S = 1 - nowlength / maxlength;
         
-        if (S < 0.1f)
-        {
-            S = 1;
-        }
+        
         Model.localScale = new Vector3(S, S, S);
 
         PlayerSta = 0;

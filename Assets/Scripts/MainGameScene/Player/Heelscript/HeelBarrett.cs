@@ -21,7 +21,11 @@ public class HeelBarrett : PlayerBase {
 	void Start () {
         B_sta = BARRETT_STA.LIVE;
         Livetime = LiveMaxtime;
-        
+        var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.UltraSlash);
+
+        EffectBase Effect = GameObject.Instantiate(par);
+        EffectSupport.Follow(Effect, transform.position, transform.forward * -1);
+        Effect.transform.parent = gameObject.transform;
     }
 	
 	// Update is called once per frame

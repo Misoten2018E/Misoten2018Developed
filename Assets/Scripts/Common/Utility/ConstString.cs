@@ -84,6 +84,10 @@ public static class ConstEffects {
     public const string Hate = "Efk_Hate";
     public const string Sand = "Efk_Sand";
     public const string Water = "Efk_Water";
+    public const string HeroAttack01 = "Efk_HeroAttack01";
+    public const string HeroAttack02 = "Efk_HeroAttack02";
+    public const string UltraSlash = "Efk_UltraSlash";
+    public const string ViranAttack = "Efk_ViranAttack";
 }
 
 public static class ConstScene {
