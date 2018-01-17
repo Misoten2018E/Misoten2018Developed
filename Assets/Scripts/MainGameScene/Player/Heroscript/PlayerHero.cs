@@ -225,11 +225,11 @@ public class PlayerHero : PlayerBase{
         {
 
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.HeroAttack01);
-            Vector3 pos = transform.position + transform.forward;
+            Vector3 pos = transform.position + (transform.forward * 1.5f) + (transform.right * 0.5f);
             pos.y += 1;
 
             EffectBase Effect = GameObject.Instantiate(par);
-            EffectSupport.Follow(Effect, pos, transform.right * -1);
+            EffectSupport.Follow(Effect, pos, transform.right);
             EfeFlg = true;
         }
 
@@ -274,11 +274,11 @@ public class PlayerHero : PlayerBase{
         {
 
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.HeroAttack02);
-            Vector3 pos = transform.position + transform.forward;
+            Vector3 pos = transform.position + transform.forward * 0.5f;
             pos.y += 1;
 
             EffectBase Effect = GameObject.Instantiate(par);
-            EffectSupport.Follow(Effect, pos, transform.right * -1);
+            EffectSupport.Follow(Effect, pos, transform.right);
             EfeFlg = true;
         }
 
@@ -318,11 +318,12 @@ public class PlayerHero : PlayerBase{
         {
 
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.HeroAttack02);
-            Vector3 pos = transform.position + transform.forward;
+            Vector3 pos = transform.position + transform.forward * 0.5f;
             pos.y += 1;
-
+            
             EffectBase Effect = GameObject.Instantiate(par);
-            EffectSupport.Follow(Effect, pos, transform.right * -1);
+            EffectSupport.Follow_M(Effect, pos, transform.right * -1, transform.up * -1);
+
             EfeFlg = true;
         }
 

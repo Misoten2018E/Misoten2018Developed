@@ -11,8 +11,14 @@ public class EffectSupport : MonoBehaviour {
 		FollowRotation(effect, forward);
 	}
 
+    static public void Follow_M(EffectBase effect, Vector3 pos, Vector3 forward, Vector3 up)
+    {
 
-	static public void FollowPosition(EffectBase effect ,Vector3 position) {
+        FollowPosition(effect, pos);
+        FollowRotation_M(effect, forward,up);
+    }
+
+    static public void FollowPosition(EffectBase effect ,Vector3 position) {
 
 		effect.transform.position = position;
 	}
@@ -22,4 +28,11 @@ public class EffectSupport : MonoBehaviour {
 		effect.transform.LookAt(effect.transform.position + forward);
 
 	}
+
+    static public void FollowRotation_M(EffectBase effect, Vector3 forward,Vector3 up)
+    {
+
+        effect.transform.LookAt(effect.transform.position + forward, up);
+
+    }
 }

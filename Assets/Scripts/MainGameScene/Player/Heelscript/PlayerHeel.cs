@@ -225,11 +225,11 @@ public class PlayerHeel : PlayerBase{
         {
 
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.ViranAttack);
-            Vector3 pos = transform.position + transform.forward;
+            Vector3 pos = transform.position + transform.forward + transform.right * 0.2f;
             pos.y += 1;
 
             EffectBase Effect = GameObject.Instantiate(par);
-            EffectSupport.Follow(Effect, pos, transform.right * -1);
+            EffectSupport.Follow(Effect, pos, transform.right + transform.forward * 0.2f);
             EfeFlg = true;
         }
 
@@ -276,11 +276,11 @@ public class PlayerHeel : PlayerBase{
         {
 
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.ViranAttack);
-            Vector3 pos = transform.position + transform.forward;
+            Vector3 pos = transform.position + transform.forward + transform.right * -0.2f;
             pos.y += 1;
 
             EffectBase Effect = GameObject.Instantiate(par);
-            EffectSupport.Follow(Effect, pos, transform.right * -1);
+            EffectSupport.Follow_M(Effect, pos, transform.right * -1 + transform.forward * -0.2f, transform.up * -1);
             EfeFlg = true;
         }
 
@@ -326,8 +326,10 @@ public class PlayerHeel : PlayerBase{
             Vector3 pos = transform.position + transform.forward;
             pos.y += 1;
 
-            EffectBase Effect = GameObject.Instantiate(par);
-            EffectSupport.Follow(Effect, pos, transform.right * -1);
+            EffectBase Effect1 = GameObject.Instantiate(par);
+            EffectSupport.Follow(Effect1, pos, transform.right);
+            EffectBase Effect2 = GameObject.Instantiate(par);
+            EffectSupport.Follow_M(Effect2, pos, transform.right * -1,transform.up * -1);
             EfeFlg = true;
         }
 

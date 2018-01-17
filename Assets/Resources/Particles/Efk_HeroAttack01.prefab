@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPausePermit: 1
-  LocalScale: 0.2
+  LocalScale: 0.5
   IsEndDestroy: 1
 --- !u!114 &114118349553861180
 MonoBehaviour:
