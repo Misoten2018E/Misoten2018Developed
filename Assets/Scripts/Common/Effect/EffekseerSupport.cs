@@ -17,12 +17,12 @@ public class EffekseerSupport : EffectBase {
 
 	
 
-	private void Update() {
+	//private void Update() {
 
-		if (IsActive == false) {
-			Destroy(gameObject);
-		}
-	}
+	//	if (IsActive == false) {
+	//		Destroy(gameObject);
+	//	}
+	//}
 
 	//========================================================================================
 	//                                 public - override
