@@ -24,7 +24,7 @@ public class HeelBarrett : PlayerBase {
         var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.UltraSlash);
 
         EffectBase Effect = GameObject.Instantiate(par);
-        EffectSupport.Follow(Effect, transform.position, transform.forward * -1);
+        EffectSupport.Follow(Effect, transform.position, transform.right);
         Effect.transform.parent = gameObject.transform;
     }
 	
