@@ -110,6 +110,16 @@ public class SceneLoader : MonoBehaviour {
 
 		loadScene = SceneManager.GetSceneByName(StageName);
 
+		while (true) {
+
+			// ロードを終えたら
+			if (loadScene.isLoaded) {
+				break;
+			}
+
+			yield return null;
+		}
+
 		isLoading = false;
 
 		yield return null;
