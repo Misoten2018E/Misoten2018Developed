@@ -7421,7 +7421,7 @@ MonoBehaviour:
   NoticeWindow: {fileID: 0}
   StartAnimation: 0
   EndAnimation: 3
-  DisplayTime: 5.5
+  DisplayTime: 5.3
 --- !u!114 &114284623828326392
 MonoBehaviour:
   m_ObjectHideFlags: 1
