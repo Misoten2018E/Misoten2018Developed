@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class SceneEventManager : MonoBehaviour {
 
+
+	//========================================================================================
+	//                                    serialized
+	//========================================================================================
+
+	[SerializeField] private AnimatorControllStandard StartProduce;
+
 	//========================================================================================
 	//                                    public
 	//========================================================================================
@@ -44,7 +51,15 @@ public class SceneEventManager : MonoBehaviour {
 	public void GameStart() {
 
 		SoundManager.Instance.PlaySE(SoundManager.SEType.GameStart, Vector3.zero);
-		
+
+		StartCoroutine(GameObjectExtensions.DelayMethod(0.5f, ()=> {
+
+			if (StartProduce != null) {
+				StartProduce.AnimationEndCallback += () => Destroy(StartProduce);
+				StartProduce.AnimationStart();
+			}
+		}));
+
 		StartCoroutine(GameObjectExtensions.DelayMethod(4f, DelayBGMStart));
 	}
 
