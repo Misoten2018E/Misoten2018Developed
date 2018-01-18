@@ -21,6 +21,7 @@ public class ResultGameObjManager : MonoBehaviour {
     ResultCamera RCamera;
     public CaptureImages Capture;
     float nowtime;
+    bool EfeF;
 
     // Use this for initialization
     void Start () {
@@ -32,6 +33,7 @@ public class ResultGameObjManager : MonoBehaviour {
         Rcity.ResultCityInit();
         RCamera.ResultCameraInit();
         nowtime = 0;
+        EfeF = false;
     }
 
 
@@ -55,6 +57,20 @@ public class ResultGameObjManager : MonoBehaviour {
                 if (res)
                 {
                     nowtime += Time.deltaTime;
+
+                    if (EfeF == false)
+                    {
+                        var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticleEdo, ConstEffects.ConffetiLoop);
+                        Vector3 pos = new Vector3(4.71f,7.51f,11.3f);
+
+                        EffectBase Effect1 = GameObject.Instantiate(par);
+                        EffectSupport.Follow(Effect1, pos, transform.up);
+                        pos.y = 11.73f;
+                        EffectBase Effect2 = GameObject.Instantiate(par);
+                        EffectSupport.Follow(Effect2, pos, transform.up);
+
+                        EfeF = true;
+                    }
                 }
 
                 if (nowtime >= MAX_TIME)

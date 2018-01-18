@@ -192,6 +192,7 @@ public class PlayerSpecialist : PlayerBase{
             HitAnime.HitAnimationSpecial();
             ModelTransformReset();
             SoundManager.Instance.PlaySE(SoundManager.SEType.Specialist_SP_Megaphone, transform.position,0.5f);
+            FlashON = false;
         }
 
         MoveCharacter();
@@ -329,6 +330,25 @@ public class PlayerSpecialist : PlayerBase{
     private void SpecialAction()
     {
         RotationCharacter();
+
+        if (GetAninormalizedTime("Special") > 0.5f && FlashON == false)
+        {
+            var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.Buff);
+            Vector3 pos = transform.position + transform.forward;
+            pos.y += 3.0f;
+
+            EffectBase Effect = GameObject.Instantiate(par);
+            if (transform.forward.x < 0)
+            {
+                EffectSupport.Follow_M(Effect, pos, transform.right, transform.forward * -1f);
+            }
+            else
+            {
+                EffectSupport.Follow(Effect, pos, transform.right);
+            }
+            
+            FlashON = true;
+        }
 
         if (CheckAnimationEND("Special"))
         {

@@ -221,7 +221,7 @@ public class PlayerHero : PlayerBase{
             ComboFlg = true;
         }
 
-        if (GetAninormalizedTime("Combo1") > 0.5f && EfeFlg == false)
+        if (GetAninormalizedTime("Combo1") > 0.2f && EfeFlg == false)
         {
 
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.HeroAttack01);
@@ -270,7 +270,7 @@ public class PlayerHero : PlayerBase{
             ComboFlg = true;
         }
 
-        if (GetAninormalizedTime("Combo2") > 0.5f && EfeFlg == false)
+        if (GetAninormalizedTime("Combo2") > 0.2f && EfeFlg == false)
         {
 
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.HeroAttack02);
@@ -314,7 +314,7 @@ public class PlayerHero : PlayerBase{
     {
         RotationCharacter();
 
-        if (GetAninormalizedTime("Combo3") > 0.5f && EfeFlg == false)
+        if (GetAninormalizedTime("Combo3") > 0.2f && EfeFlg == false)
         {
 
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.HeroAttack02);
