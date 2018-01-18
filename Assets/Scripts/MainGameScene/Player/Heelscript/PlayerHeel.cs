@@ -221,7 +221,7 @@ public class PlayerHeel : PlayerBase{
             BarrettFlg = true;
         }
 
-        if (normaltime > 0.5f && EfeFlg == false)
+        if (normaltime > 0.15f && EfeFlg == false)
         {
 
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.ViranAttack);
@@ -272,7 +272,7 @@ public class PlayerHeel : PlayerBase{
             BarrettFlg = true;
         }
 
-        if (normaltime > 0.5f && EfeFlg == false)
+        if (normaltime > 0.2f && EfeFlg == false)
         {
 
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.ViranAttack);
@@ -319,7 +319,7 @@ public class PlayerHeel : PlayerBase{
             BarrettFlg = true;
         }
 
-        if (normaltime > 0.5f && EfeFlg == false)
+        if (normaltime > 0.4f && EfeFlg == false)
         {
 
             var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticle, ConstEffects.ViranAttack);
