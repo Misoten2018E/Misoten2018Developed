@@ -69,8 +69,9 @@ public static class ConstEffects {
 
 	public const string SublimitedFog = "SublimatedFog";
 	public const string Conffeti = "Conffeti";
+    public const string ConffetiLoop = "ConffetiLoop";
 
-	public const string DestroyBoss = "DestroyBossEffect";
+    public const string DestroyBoss = "DestroyBossEffect";
 
 	public const string StandardHittedEffect = "StandardHittedEffect";
 	public const string HeroHit = "Efk_HeroHit";
