@@ -80,7 +80,7 @@ public class GameSceneManager : MonoBehaviour {
 	/// シーンのアンロード
 	/// </summary>
 	/// <param name="type"></param>
-	public void UnloadScene(SceneType type, System.Action EndCallBack = null) {
+	public void UnloadSceneAsync(SceneType type, System.Action EndCallBack = null) {
 
 		EndLoadCallback = EndCallBack;
 

@@ -69,7 +69,7 @@ public class IntroductManager : MonoBehaviour {
 
 	private void EndIntroScene() {
 
-		GameSceneManager.Instance.UnloadScene(GameSceneManager.SceneType.Intro);
+		GameSceneManager.Instance.UnloadSceneAsync(GameSceneManager.SceneType.Intro);
 		SoundManager.Instance.StopBGM(SoundManager.BGMType.TITLE);
 	}
 }

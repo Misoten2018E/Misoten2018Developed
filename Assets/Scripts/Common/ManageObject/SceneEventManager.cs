@@ -87,7 +87,6 @@ public class SceneEventManager : MonoBehaviour {
 	public void NextSceneStart() {
 
 		var pauses = GameObject.FindObjectsOfType<PauseSupport>();
-
 		for (int i = 0; i < pauses.Length; i++) {
 			pauses[i].OnPause();
 		}
@@ -95,11 +94,10 @@ public class SceneEventManager : MonoBehaviour {
 		SetReslutShareData();
 
 		var gameMng = GameSceneManager.Instance;
+		gameMng.PermitLoad = false;
 
 		var fade = GameObject.FindObjectOfType<SceneFade>();
 		fade.FadeOut(() => { gameMng.PermitLoad = true; });
-
-		gameMng.PermitLoad = false;
 
 		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_MAIN);
 		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_BOSS);
@@ -107,7 +105,7 @@ public class SceneEventManager : MonoBehaviour {
 		gameMng.LoadScene(GameSceneManager.SceneType.Result,()=> {
 
 			// メインシーンの破棄
-			gameMng.UnloadScene(GameSceneManager.SceneType.Main);
+			gameMng.UnloadSceneAsync(GameSceneManager.SceneType.Main);
 
 			gameMng.SetActiveScene(GameSceneManager.SceneType.Result);
 		//	fade.gameObject.SetActive(false);
@@ -118,17 +116,15 @@ public class SceneEventManager : MonoBehaviour {
 	public void TitleSceneStart() {
 
 		var pauses = GameObject.FindObjectsOfType<PauseSupport>();
-
 		for (int i = 0; i < pauses.Length; i++) {
 			pauses[i].OnPause();
 		}
 
 		var gameMng = GameSceneManager.Instance;
+		gameMng.PermitLoad = false;
 
 		var fade = GameObject.FindObjectOfType<SceneFade>();
 		fade.FadeOut(() => { gameMng.PermitLoad = true; });
-
-		gameMng.PermitLoad = false;
 
 		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_MAIN);
 		SoundManager.Instance.StopBGM(SoundManager.BGMType.GAME_BOSS);
@@ -136,7 +132,7 @@ public class SceneEventManager : MonoBehaviour {
 		gameMng.LoadScene(GameSceneManager.SceneType.Intro, () => {
 
 			// メインシーンの破棄
-			gameMng.UnloadScene(GameSceneManager.SceneType.Main);
+			gameMng.UnloadSceneAsync(GameSceneManager.SceneType.Main);
 
 			gameMng.SetActiveScene(GameSceneManager.SceneType.Intro);
 		//	fade.gameObject.SetActive(false);

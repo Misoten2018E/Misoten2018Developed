@@ -73,7 +73,7 @@ public class ResultManager : MonoBehaviour {
 		SoundManager.Instance.StopBGM(SoundManager.BGMType.RESULT, 1f);
 
 		print("リザルトシーンの削除");
-		GameSceneManager.Instance.UnloadScene(GameSceneManager.SceneType.Result);
+		GameSceneManager.Instance.UnloadSceneAsync(GameSceneManager.SceneType.Result);
 
 		// 12/18 江戸 メインから切り離しているので修正
 		//GameSceneManager.Instance.UnloadScene(GameSceneManager.SceneType.Main, () =>
