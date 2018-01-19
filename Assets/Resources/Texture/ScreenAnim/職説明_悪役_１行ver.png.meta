@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d5716a859d0be3048a2dcb75766d1fb2
-timeCreated: 1516104581
+timeCreated: 1516377089
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -103,12 +103,12 @@ TextureImporter:
       name: "\u8077\u8AAC\u660E_\u60AA\u5F79_\uFF11\u884Cver_0"
       rect:
         serializedVersion: 2
-        x: 64
-        y: 178
-        width: 253
-        height: 74
+        x: 140
+        y: 172
+        width: 240
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -117,12 +117,12 @@ TextureImporter:
       name: "\u8077\u8AAC\u660E_\u60AA\u5F79_\uFF11\u884Cver_1"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 91
-        width: 252
-        height: 73
+        x: 3
+        y: 108
+        width: 243
+        height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,12 +131,12 @@ TextureImporter:
       name: "\u8077\u8AAC\u660E_\u60AA\u5F79_\uFF11\u884Cver_2"
       rect:
         serializedVersion: 2
-        x: 260
-        y: 91
-        width: 250
-        height: 73
+        x: 264
+        y: 106
+        width: 240
+        height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -145,12 +145,12 @@ TextureImporter:
       name: "\u8077\u8AAC\u660E_\u60AA\u5F79_\uFF11\u884Cver_3"
       rect:
         serializedVersion: 2
-        x: 191
-        y: 4
-        width: 253
-        height: 73
+        x: 205
+        y: 40
+        width: 236
+        height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

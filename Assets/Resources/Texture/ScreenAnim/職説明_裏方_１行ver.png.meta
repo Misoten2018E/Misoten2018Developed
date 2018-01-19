@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c22a520fd5af0b54fa1e32295ed3e64f
-timeCreated: 1516105673
+timeCreated: 1516377133
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -103,12 +103,12 @@ TextureImporter:
       name: "\u8077\u8AAC\u660E_\u88CF\u65B9_\uFF11\u884Cver_0"
       rect:
         serializedVersion: 2
-        x: 64
-        y: 176
-        width: 253
-        height: 76
+        x: 95
+        y: 175
+        width: 250
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -118,11 +118,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 88
-        width: 250
-        height: 76
+        y: 108
+        width: 255
+        height: 41
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -132,11 +132,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 260
-        y: 88
-        width: 250
-        height: 76
+        y: 108
+        width: 244
+        height: 41
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -145,12 +145,12 @@ TextureImporter:
       name: "\u8077\u8AAC\u660E_\u88CF\u65B9_\uFF11\u884Cver_3"
       rect:
         serializedVersion: 2
-        x: 191
-        y: 4
-        width: 253
-        height: 73
+        x: 198
+        y: 36
+        width: 239
+        height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
