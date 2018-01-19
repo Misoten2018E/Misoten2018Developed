@@ -154,9 +154,19 @@ public class SceneLoader : MonoBehaviour {
 		}
 
 		//次のレベルに遷移
-		isDestruct = true;
 		ao.allowSceneActivation = true;
 
+		while (true) {
+
+			// ロードを終えたら
+			if (ao.isDone) {
+				break;
+			}
+
+			yield return null;
+		}
+
+		isDestruct = true;
 		print(StageName + "削除終了");
 
 
