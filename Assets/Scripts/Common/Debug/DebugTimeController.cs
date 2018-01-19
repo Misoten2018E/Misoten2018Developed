@@ -19,7 +19,11 @@ public class DebugTimeController : MonoBehaviour {
 		slider.value = TimeSpeed;
 		TimeSpeedChange();
 	}
+#else
+	private void Awake() {
 
+		Time.timeScale = 1.0f;
+	}
 
 #endif
 
