@@ -132,10 +132,10 @@ public class SceneEventManager : MonoBehaviour {
 		gameMng.LoadScene(GameSceneManager.SceneType.Intro, () => {
 
 			// メインシーンの破棄
-			gameMng.UnloadSceneAsync(GameSceneManager.SceneType.Main);
+			gameMng.UnloadSceneAsync(GameSceneManager.SceneType.Main, () => gameMng.SetActiveScene(GameSceneManager.SceneType.Intro));
 
-			gameMng.SetActiveScene(GameSceneManager.SceneType.Intro);
-		//	fade.gameObject.SetActive(false);
+			//gameMng.SetActiveScene(GameSceneManager.SceneType.Intro);
+			//	fade.gameObject.SetActive(false);
 		});
 	}
 
