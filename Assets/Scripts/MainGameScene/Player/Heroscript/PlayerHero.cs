@@ -242,7 +242,7 @@ public class PlayerHero : PlayerBase{
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack2(Attack);
                 TBM.EndTrail(TrailSupport.BodyType.RightArm);
-                TBM.StartTrail(TrailSupport.BodyType.RightArm); // 12/20 江戸　攻撃の腕が変わっているので変更
+                TBM.StartTrail(TrailSupport.BodyType.LeftArm); // 12/20 江戸　攻撃の腕が変わっているので変更
                 SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Light2, transform.position);
 
 				// 12/20　江戸　移動の追加
@@ -290,7 +290,7 @@ public class PlayerHero : PlayerBase{
                 PlayerSta = (int)player_Hero_sta;
                 ComboFlg = false;
                 HitAnime.HitAnimationWeakattack3(Attack);
-                TBM.EndTrail(TrailSupport.BodyType.RightArm); // 12/20 江戸　攻撃の腕が変わっているので変更
+                TBM.EndTrail(TrailSupport.BodyType.LeftArm); // 12/20 江戸　攻撃の腕が変わっているので変更
 				TBM.StartTrail(TrailSupport.BodyType.RightLeg);
                 SoundManager.Instance.PlaySE(SoundManager.SEType.Hero_Light3, transform.position);
 
