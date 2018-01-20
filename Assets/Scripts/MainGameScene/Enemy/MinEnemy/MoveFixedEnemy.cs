@@ -306,7 +306,9 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// </summary>
 	virtual protected void ClushedPlusScore(int playerNo) {
 		Score.instance.AddScore(Score.ScoreType.E_Fixed, playerNo);
-	}
+        iscityin = true;
+
+    }
 
 
 	virtual protected void StartBodyTrail() {
@@ -453,7 +455,11 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	/// </summary>
 	protected void DestroyMe() {
 
-		ConffetiSupport.Instance.CreateParticle();
+        if (iscityin)
+        {
+            ConffetiSupport.Instance.CreateParticle();
+        }
+		
 		Destroy(this.gameObject);
 	}
 
@@ -461,6 +467,7 @@ public class MoveFixedEnemy : PlayerAttackEnemy ,IFGroupEnemyCommand {
 	protected IEnumerator ieDeath;
 
 	protected HitSeriesofAction MyAttackObj;
+    protected bool iscityin = false;
 
 	//========================================================================================
 	//                                    private
