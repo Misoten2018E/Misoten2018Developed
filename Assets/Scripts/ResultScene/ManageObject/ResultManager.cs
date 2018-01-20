@@ -41,7 +41,7 @@ public class ResultManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake() {
 
-		if (myInstance == null) {
+		if (myInstance != null) {
 			Destroy(this.gameObject);
 			return;
 		}
