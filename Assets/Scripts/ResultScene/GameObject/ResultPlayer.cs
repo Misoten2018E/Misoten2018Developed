@@ -35,6 +35,11 @@ public class ResultPlayer : MonoBehaviour {
             pos.z += 2.5f;
             transform.position = pos;
         }
+        else
+        {
+            Transform tra = transform.Find("Winner");
+            tra.gameObject.SetActive(false);
+        }
     }
 	
 	// Update is called once per frame

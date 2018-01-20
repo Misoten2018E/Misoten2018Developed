@@ -15,6 +15,7 @@ public class ResultGameObjManager : MonoBehaviour {
 
     const float MAX_TIME = 2.0f;
     const float MAX_TIME2 = 5.0f;
+    const float MAX_EFETIME = 0.5f;
 
     RESULT_STA resultsta;
     ResultCity Rcity;
@@ -22,6 +23,7 @@ public class ResultGameObjManager : MonoBehaviour {
     public CaptureImages Capture;
     float nowtime;
     bool EfeF;
+    float Efetime;
 
     // Use this for initialization
     void Start () {
@@ -34,6 +36,7 @@ public class ResultGameObjManager : MonoBehaviour {
         RCamera.ResultCameraInit();
         nowtime = 0;
         EfeF = false;
+        Efetime = 0;
     }
 
 
@@ -58,19 +61,34 @@ public class ResultGameObjManager : MonoBehaviour {
                 {
                     nowtime += Time.deltaTime;
 
-                    if (EfeF == false)
-                    {
-                        var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticleEdo, ConstEffects.ConffetiLoop);
-                        Vector3 pos = new Vector3(4.71f,7.51f,11.3f);
+                    //if (EfeF == false)
+                    //{
+                    //    var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticleEdo, ConstEffects.ConffetiLoop);
+                    //    Vector3 pos = new Vector3(4.71f,7.51f,11.3f);
 
-                        EffectBase Effect1 = GameObject.Instantiate(par);
-                        EffectSupport.Follow(Effect1, pos, transform.up);
-                        pos.y = 11.73f;
-                        EffectBase Effect2 = GameObject.Instantiate(par);
-                        EffectSupport.Follow(Effect2, pos, transform.up);
+                    //    EffectBase Effect1 = GameObject.Instantiate(par);
+                    //    EffectSupport.Follow(Effect1, pos, transform.up);
+                    //    pos.y = 11.73f;
+                    //    EffectBase Effect2 = GameObject.Instantiate(par);
+                    //    EffectSupport.Follow(Effect2, pos, transform.up);
 
-                        EfeF = true;
-                    }
+                    //    EfeF = true;
+                    //}
+                }
+
+                Efetime += Time.deltaTime;
+                if (Efetime > MAX_EFETIME && EfeF == false)
+                {
+                    var par = ResourceManager.Instance.Get<EffectBase>(ConstDirectry.DirParticleEdo, ConstEffects.ConffetiLoop);
+                    Vector3 pos = new Vector3(4.71f, 7.51f, 11.3f);
+
+                    EffectBase Effect1 = GameObject.Instantiate(par);
+                    EffectSupport.Follow(Effect1, pos, transform.up);
+                    pos.y = 11.73f;
+                    EffectBase Effect2 = GameObject.Instantiate(par);
+                    EffectSupport.Follow(Effect2, pos, transform.up);
+
+                    EfeF = true;
                 }
 
                 if (nowtime >= MAX_TIME)
