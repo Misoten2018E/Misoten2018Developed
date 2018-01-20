@@ -44,6 +44,15 @@ public class BossHittedObjectManager : MonoBehaviour {
 		}
 	}
 
+
+	private void Update() {
+
+		if (HitLog != null) {
+			HitLog.CheckEnd();
+		}
+
+	}
+
 	//========================================================================================
 	//                                     private
 	//========================================================================================
