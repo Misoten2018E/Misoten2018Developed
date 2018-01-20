@@ -45,7 +45,8 @@ public class IntroManager : MonoBehaviour, IFIntroStartEvent
 
     public void ManagerAniON()
     {
-        ManagerAni.enabled = true;
+		NextScene();
+    //    ManagerAni.enabled = true;
     }
 
     void IntroObjAniON(int index)
