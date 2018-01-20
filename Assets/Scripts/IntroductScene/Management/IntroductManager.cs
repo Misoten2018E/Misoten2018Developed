@@ -51,7 +51,8 @@ public class IntroductManager : MonoBehaviour {
 		var objs = GameObjectExtensions.FindObjectOfInterface<IFIntroStartEvent>();
 		StartEventList.AddRange(objs);
 
-		StartCoroutine(GameObjectExtensions.DelayMethod(0.5f, IntroStart));
+		IntroStart();
+		//StartCoroutine(GameObjectExtensions.DelayMethod(0.5f, IntroStart));
 	}
 
 	private void Update() {
