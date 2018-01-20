@@ -9,18 +9,25 @@ public class IntroManager : MonoBehaviour, IFIntroStartEvent
 
     Animator ManagerAni;
 
+	bool isInitialized = false;
 	// Use this for initialization
-	//void Start () {
-       
- //   }
-	
+	void Awake() {
+
+		StartEvent();
+	}
+
 	//// Update is called once per frame
 	//void Update () {
-		
+
 	//}
 
-    public void StartEvent()
+	public void StartEvent()
     {
+
+		if (isInitialized) {
+			return;
+		}
+		isInitialized = true;
 
         isEnd = false;
 

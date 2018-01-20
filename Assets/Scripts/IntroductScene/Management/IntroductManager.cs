@@ -39,6 +39,10 @@ public class IntroductManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake() {
 
+		if (myInstance != null) {
+			Destroy(this.gameObject);
+			return;
+		}
 		myInstance = this;
 	}
 
@@ -47,11 +51,7 @@ public class IntroductManager : MonoBehaviour {
 		var objs = GameObjectExtensions.FindObjectOfInterface<IFIntroStartEvent>();
 		StartEventList.AddRange(objs);
 
-		for (int i = 0; i < StartEventList.Count; i++) {
-			StartEventList[i].StartEvent();
-		}
-
-		SoundManager.Instance.PlayBGM(SoundManager.BGMType.TITLE);
+		StartCoroutine(GameObjectExtensions.DelayMethod(0.5f, IntroStart));
 	}
 
 	private void Update() {
@@ -66,6 +66,15 @@ public class IntroductManager : MonoBehaviour {
 	//========================================================================================
 
 	List<IFIntroStartEvent> StartEventList = new List<IFIntroStartEvent>();
+
+	private void IntroStart() {
+
+		for (int i = 0; i < StartEventList.Count; i++) {
+			StartEventList[i].StartEvent();
+		}
+
+		SoundManager.Instance.PlayBGM(SoundManager.BGMType.TITLE);
+	}
 
 	private void EndIntroScene() {
 

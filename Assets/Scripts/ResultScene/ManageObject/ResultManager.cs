@@ -41,6 +41,10 @@ public class ResultManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake() {
 
+		if (myInstance == null) {
+			Destroy(this.gameObject);
+			return;
+		}
 		myInstance = this;
 	}
 
@@ -49,11 +53,7 @@ public class ResultManager : MonoBehaviour {
 		var objs = GameObjectExtensions.FindObjectOfInterface<IFResultStartEvent>();
 		StartEventList.AddRange(objs);
 
-		for (int i = 0; i < StartEventList.Count; i++) {
-			StartEventList[i].StartEvent();
-		}
-
-		SoundManager.Instance.PlayBGM(SoundManager.BGMType.RESULT);
+		StartCoroutine(GameObjectExtensions.DelayMethod(0.5f, StartReslutScene));
 	}
 
 	void Update() {
@@ -67,6 +67,16 @@ public class ResultManager : MonoBehaviour {
 	//========================================================================================
 
 	List<IFResultStartEvent> StartEventList = new List<IFResultStartEvent>();
+
+	private void StartReslutScene() {
+
+		for (int i = 0; i < StartEventList.Count; i++) {
+			StartEventList[i].StartEvent();
+		}
+
+		SoundManager.Instance.PlayBGM(SoundManager.BGMType.RESULT);
+	}
+
 
 	private void EndResultScene() {
 
