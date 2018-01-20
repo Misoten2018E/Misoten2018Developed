@@ -53,7 +53,8 @@ public class ResultManager : MonoBehaviour {
 		var objs = GameObjectExtensions.FindObjectOfInterface<IFResultStartEvent>();
 		StartEventList.AddRange(objs);
 
-		StartCoroutine(GameObjectExtensions.DelayMethod(0.5f, StartReslutScene));
+		StartReslutScene();
+	//	StartCoroutine(GameObjectExtensions.DelayMethod(0.5f, StartReslutScene));
 	}
 
 	void Update() {
