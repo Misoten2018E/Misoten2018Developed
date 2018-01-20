@@ -150,6 +150,9 @@ public class PlayerSpecialist : PlayerBase{
     {
         CharCon.center = new Vector3(0, 1, 0);
         RotationSpeed = Player_Special_RotationSpeed;
+        Vector3 zeropos = transform.position;
+        zeropos.y = 0.0f;
+        transform.position = zeropos;
 
         if (input.GetButtonSquareTrigger())
         {

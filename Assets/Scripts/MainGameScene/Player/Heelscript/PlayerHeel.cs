@@ -158,6 +158,9 @@ public class PlayerHeel : PlayerBase{
         CharCon.center = new Vector3(0, 1, 0);
         RotationSpeed = Player_Heel_RotationSpeed;
         linerenderer.enabled = false;
+        Vector3 pos = transform.position;
+        pos.y = 0.0f;
+        transform.position = pos;
 
         if (input.GetButtonSquareTrigger())
         {

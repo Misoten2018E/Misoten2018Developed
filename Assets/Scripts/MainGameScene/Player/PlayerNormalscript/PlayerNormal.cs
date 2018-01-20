@@ -112,6 +112,9 @@ public class PlayerNormal : PlayerBase{
     private void Normal()
     {
         CharCon.center = new Vector3(0, 1, 0);
+        Vector3 pos = transform.position;
+        pos.y = 0.0f;
+        transform.position = pos;
 
         if (input.GetButtonSquareTrigger())
         {
