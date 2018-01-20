@@ -4695,7 +4695,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-    MoveLength: 0.5
+    MoveLength: 25
     AttackMoveCurve:
       serializedVersion: 2
       m_Curve:

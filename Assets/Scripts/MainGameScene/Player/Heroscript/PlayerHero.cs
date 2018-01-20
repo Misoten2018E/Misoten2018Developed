@@ -510,7 +510,7 @@ public class PlayerHero : PlayerBase{
 				break;
 			}
 
-			Vector3 move = transform.forward * Curves.StrongMoveForward.Evaluate(time / MaxTime) * Curves.MoveLength;
+			Vector3 move = transform.forward * Curves.StrongMoveForward.Evaluate(time / MaxTime) * Curves.MoveLength * Time.deltaTime;
 			CharCon.Move(move);
 
 			yield return null;
@@ -530,7 +530,7 @@ public class PlayerHero : PlayerBase{
 	private IEnumerator IEAttackMove(AnimationCurve curve, float MaxTime) {
 
 		float time = 0f;
-		const float Length = 0.1f;
+		const float Length = 3.3f;
 
 		while (true) {
 
@@ -539,7 +539,7 @@ public class PlayerHero : PlayerBase{
 				break;
 			}
 
-			Vector3 move = transform.forward * curve.Evaluate(time / MaxTime) * Length;
+			Vector3 move = transform.forward * curve.Evaluate(time / MaxTime) * Length * Time.deltaTime;
 			CharCon.Move(move);
 
 			yield return null;
