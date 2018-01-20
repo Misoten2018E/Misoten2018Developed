@@ -40,6 +40,8 @@ public class CheckProducePhotoCamera : MonoBehaviour,IFGameEndEvent {
 		list[(int)type].photo = tex;
 		list[(int)type].isShootted = true;
 
+		PhotoShotList[playerSta] = list;
+
 #if UNITY_DEBUG
 		DebugCaptureImages.SetImages(tex);
 #endif
